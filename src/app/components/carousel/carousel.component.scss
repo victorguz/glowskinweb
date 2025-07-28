@@ -1,0 +1,345 @@
+// Variables
+$carousel-transition: 0.5s ease-in-out;
+$carousel-arrow-size: 48px;
+$carousel-dot-size: 12px;
+$carousel-overlay-color: rgba(102, 55, 29, 0.4);
+
+// Contenedor principal
+.carousel-container {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+
+  &:hover {
+    .carousel-arrow {
+      opacity: 1;
+    }
+  }
+}
+
+// Contenido del carousel
+.carousel-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// Hero Carousel
+.hero-carousel {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity $carousel-transition;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $carousel-overlay-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-text {
+    z-index: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .hero-subtitle {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.125rem;
+      margin-bottom: 0;
+      color: white;
+      line-height: 1;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: 4rem;
+      margin-bottom: 0;
+      color: white;
+      line-height: 1;
+
+      @media (min-width: 768px) {
+        font-size: 6rem;
+      }
+    }
+
+    .hero-description {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.125rem;
+      max-width: 32rem;
+      margin: 0;
+      color: white;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: white;
+      color: #5c3a21;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background: #5c3a21;
+        color: white;
+      }
+    }
+  }
+}
+
+// Testimonials Carousel
+.testimonials-carousel {
+  position: relative;
+
+  .testimonial-slide {
+    opacity: 0;
+    transition: opacity $carousel-transition;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+
+    .testimonial-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+
+      .testimonial-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 0.75rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .avatar-placeholder {
+          width: 100%;
+          height: 100%;
+          background: #a5846e;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+      }
+
+      .testimonial-info {
+        flex: 1;
+
+        .testimonial-author {
+          font-family: "Montserrat", sans-serif;
+          font-weight: bold;
+          color: #5c3a21;
+          margin: 0 0 0.25rem 0;
+        }
+
+        .testimonial-date {
+          font-size: 0.75rem;
+          color: #7d5a44;
+          margin: 0;
+        }
+      }
+
+      .testimonial-rating {
+        .stars {
+          color: #fbbf24;
+          font-size: 0.875rem;
+        }
+      }
+    }
+
+    .testimonial-content {
+      font-family: "Montserrat", sans-serif;
+      color: #7d5a44;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+// Gallery Carousel
+.gallery-carousel {
+  position: relative;
+
+  .gallery-slide {
+    opacity: 0;
+    transition: opacity $carousel-transition;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .gallery-caption {
+    margin-top: 0.5rem;
+    text-align: center;
+
+    h4 {
+      font-family: "Montserrat", sans-serif;
+      color: #5c3a21;
+      margin: 0 0 0.25rem 0;
+    }
+
+    p {
+      font-family: "Montserrat", sans-serif;
+      color: #7d5a44;
+      font-size: 0.875rem;
+      margin: 0;
+    }
+  }
+}
+
+// Flechas de navegación
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  ion-icon {
+    font-size: 16px;
+    color: #5c3a21;
+  }
+
+  &.carousel-arrow-prev {
+    left: 1rem;
+  }
+
+  &.carousel-arrow-next {
+    right: 1rem;
+  }
+}
+
+// Indicadores (dots)
+.carousel-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+
+  .carousel-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    &.active {
+      background: white;
+      width: 5px;
+      height: 5px;
+      transform: scale(1.2);
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 60vh;
+    min-height: 400px;
+
+    .hero-text {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .carousel-arrow {
+    width: 24px;
+    height: 24px;
+
+    ion-icon {
+      font-size: 16px;
+    }
+  }
+
+  .testimonial-card {
+    margin: 0 0.5rem;
+    padding: 1rem;
+  }
+}

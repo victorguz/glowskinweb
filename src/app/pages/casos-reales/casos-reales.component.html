@@ -1,0 +1,136 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center">
+      <h1 class="hero-title">Casos Reales</h1>
+      <p class="hero-subtitle">
+        Fotos reales de nuestros pacientes que ya están luciendo una piel Glow
+        Skin
+      </p>
+      <p class="hero-highlight">Compruébalo tú mismo</p>
+    </div>
+  </div>
+</section>
+
+<!-- Estadísticas Section -->
+<section class="stats-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="stats-grid">
+      <div *ngFor="let stat of estadisticas" class="stat-item">
+        <div class="stat-number">{{ stat.number }}</div>
+        <div class="stat-description">{{ stat.description }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Casos Reales Gallery -->
+<section class="cases-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Transformaciones Reales</h2>
+      <p class="section-subtitle">
+        Resultados comprobables de nuestros tratamientos especializados
+      </p>
+    </div>
+
+    <div class="cases-grid">
+      <div *ngFor="let caso of casosReales" class="case-card">
+        <div class="case-header">
+          <h3 class="case-title">{{ caso.title }}</h3>
+          <p class="case-description">{{ caso.description }}</p>
+        </div>
+
+        <div class="case-images">
+          <div class="image-container">
+            <div class="image-label">Antes</div>
+            <img
+              [src]="caso.beforeImage"
+              [alt]="'Antes - ' + caso.title"
+              class="case-image"
+            />
+          </div>
+          <div class="image-container">
+            <div class="image-label">Después</div>
+            <img
+              [src]="caso.afterImage"
+              [alt]="'Después - ' + caso.title"
+              class="case-image"
+            />
+          </div>
+        </div>
+
+        <div class="case-details">
+          <div class="detail-item">
+            <ion-icon name="medical-outline"></ion-icon>
+            <span><strong>Tratamiento:</strong> {{ caso.treatment }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="time-outline"></ion-icon>
+            <span><strong>Duración:</strong> {{ caso.duration }}</span>
+          </div>
+        </div>
+
+        <div class="case-results">
+          <h4 class="results-title">Resultados Obtenidos:</h4>
+          <ul class="results-list">
+            <li *ngFor="let result of caso.results" class="result-item">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+              <span>{{ result }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios Section -->
+<section class="testimonials-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Lo que dicen nuestros pacientes</h2>
+      <p class="section-subtitle">
+        Experiencias reales de quienes confiaron en Glow Skin
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div *ngFor="let testimonio of testimonios" class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="patient-info">
+            <h4 class="patient-name">{{ testimonio.name }}</h4>
+            <p class="patient-treatment">{{ testimonio.treatment }}</p>
+          </div>
+          <div class="rating">
+            <ion-icon
+              *ngFor="let star of [1, 2, 3, 4, 5]"
+              [name]="star <= testimonio.rating ? 'star' : 'star-outline'"
+              class="star-icon"
+            >
+            </ion-icon>
+          </div>
+        </div>
+        <p class="testimonial-text">{{ testimonio.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container mx-auto px-4 py-16 text-center">
+    <h2 class="cta-title">¿Lista para tu transformación?</h2>
+    <p class="cta-subtitle">
+      Agenda tu cita y comienza tu camino hacia una piel radiante
+    </p>
+    <a
+      [href]="contactInfo.whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-primary-custom py-4 px-10 rounded-full font-montserrat text-lg"
+    >
+      Agendar ahora
+    </a>
+  </div>
+</section>

@@ -1,0 +1,155 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center">
+      <h1 class="hero-title">Blog Glow Skin</h1>
+      <p class="hero-subtitle">
+        Descubre consejos, tratamientos y todo lo que necesitas saber sobre el
+        cuidado de tu piel
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Post Section -->
+<section class="featured-section" *ngIf="featuredPost">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Artículo Destacado</h2>
+    </div>
+
+    <div class="featured-post">
+      <div class="featured-image">
+        <img
+          [src]="featuredPost.image"
+          [alt]="featuredPost.title"
+          class="post-image"
+        />
+        <div class="featured-badge">Destacado</div>
+      </div>
+
+      <div class="featured-content">
+        <div class="post-meta">
+          <span class="category">{{ featuredPost.category }}</span>
+          <span class="date">{{ featuredPost.date }}</span>
+          <span class="read-time">{{ featuredPost.readTime }}</span>
+        </div>
+
+        <h3 class="featured-title">{{ featuredPost.title }}</h3>
+        <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
+
+        <a href="#" class="read-more-btn">
+          Leer artículo completo
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories-section">
+  <div class="container mx-auto px-4 py-8">
+    <div class="categories-container">
+      <button
+        *ngFor="let category of categories"
+        (click)="filterByCategory(category.name)"
+        [class.active]="category.active"
+        class="category-btn"
+      >
+        {{ category.name }}
+        <span class="count">({{ category.count }})</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Posts Grid -->
+<section class="posts-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Últimos Artículos</h2>
+      <p class="section-subtitle">
+        Mantente informada sobre las últimas tendencias en cuidado facial
+      </p>
+    </div>
+
+    <div class="posts-grid">
+      <article *ngFor="let post of nonFeaturedPosts" class="post-card">
+        <div class="post-image-container">
+          <img [src]="post.image" [alt]="post.title" class="post-image" />
+          <div class="post-overlay">
+            <a href="#" class="read-more-overlay">
+              <ion-icon name="eye-outline"></ion-icon>
+              <span>Leer más</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="category">{{ post.category }}</span>
+            <span class="date">{{ post.date }}</span>
+            <span class="read-time">{{ post.readTime }}</span>
+          </div>
+
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-excerpt">{{ post.excerpt }}</p>
+
+          <a href="#" class="read-more-link">
+            Leer más
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h2 class="newsletter-title">Suscríbete a nuestro Newsletter</h2>
+        <p class="newsletter-subtitle">
+          Recibe consejos exclusivos, ofertas especiales y las últimas novedades
+          en tratamientos faciales directamente en tu email.
+        </p>
+      </div>
+
+      <div class="newsletter-form">
+        <div class="form-group">
+          <input type="email" placeholder="Tu email" class="email-input" />
+          <button type="submit" class="subscribe-btn">
+            Suscribirse
+            <ion-icon name="paper-plane-outline"></ion-icon>
+          </button>
+        </div>
+        <p class="privacy-note">
+          Al suscribirte, aceptas recibir emails promocionales. Puedes cancelar
+          en cualquier momento.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container mx-auto px-4 py-16 text-center">
+    <h2 class="cta-title">¿Tienes preguntas sobre tu piel?</h2>
+    <p class="cta-subtitle">
+      Nuestros especialistas están listos para ayudarte a encontrar el
+      tratamiento perfecto
+    </p>
+    <a
+      [href]="contactInfo.whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-primary-custom py-4 px-10 rounded-full font-montserrat text-lg"
+    >
+      Consultar ahora
+    </a>
+  </div>
+</section>

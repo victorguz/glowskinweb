@@ -1,0 +1,152 @@
+<!-- Loading State -->
+<div *ngIf="loading" class="flex justify-center items-center min-h-screen">
+  <div class="text-center">
+    <div
+      class="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-dark mx-auto"
+    ></div>
+    <p class="mt-4 text-brand-brown">Cargando servicios...</p>
+  </div>
+</div>
+
+<!-- Error State -->
+<div *ngIf="error" class="flex justify-center items-center min-h-screen">
+  <div class="text-center">
+    <p class="text-red-600 mb-4">Error al cargar los servicios</p>
+    <button
+      (click)="loadServices()"
+      class="btn-primary-custom py-2 px-4 rounded"
+    >
+      Intentar de nuevo
+    </button>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div *ngIf="!loading && !error && servicesData" class="page-section">
+  <div class="container mx-auto">
+    <!-- Header -->
+    <div class="text-center py-16 px-4" style="background-color: #e8d8d5">
+      <h1 class="text-5xl md:text-6xl font-playfair text-brand-dark">
+        Nuestros Tratamientos
+      </h1>
+      <p class="font-montserrat text-brand-brown mt-4 max-w-3xl mx-auto">
+        Protocolos faciales avanzados, diseñados científicamente para atender
+        las necesidades específicas de tu piel y revelar su máximo potencial.
+      </p>
+    </div>
+
+    <!-- Services Categories -->
+    <div
+      *ngFor="let category of servicesData.categories"
+      class="mb-16 px-4 py-16"
+    >
+      <!-- Category Header -->
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-playfair text-brand-dark">
+          {{ category.title }}
+        </h2>
+        <p
+          *ngIf="category.description"
+          class="font-montserrat text-brand-brown mt-3 max-w-3xl mx-auto"
+        >
+          {{ category.description }}
+        </p>
+      </div>
+
+      <!-- Services in Category -->
+      <div class="max-w-4xl mx-auto grid md:grid-cols-1 gap-y-8">
+        <div
+          *ngFor="let service of category.services"
+          class="service-item pb-4"
+        >
+          <div class="flex justify-between items-start gap-4">
+            <div class="flex-1">
+              <h3 class="font-bold text-lg font-montserrat text-brand-dark">
+                {{ service.name }}
+              </h3>
+              <p class="text-sm text-brand-brown mt-2">
+                {{ service.description }}
+              </p>
+              <button
+                (click)="toggleDetails($event)"
+                class="text-sm text-brand-dark font-bold mt-2 toggle-details hover:text-brand-brown transition-colors"
+              >
+                Ver detalles
+              </button>
+            </div>
+            <p class="text-lg font-bold text-brand-dark flex-shrink-0">
+              {{ formatPrice(service.price, service.currency) }}
+            </p>
+          </div>
+
+          <!-- Service Details -->
+          <div class="service-details mt-4 pl-4">
+            <!-- For services with frequency, technology, idealFor -->
+            <div
+              *ngIf="
+                service.details.frequency ||
+                service.details.technology ||
+                service.details.idealFor
+              "
+            >
+              <ul
+                class="list-disc list-inside text-sm text-brand-brown space-y-2"
+              >
+                <li *ngIf="service.details.frequency">
+                  <span class="font-bold">Frecuencia Recomendada:</span>
+                  {{ service.details.frequency }}
+                </li>
+                <li *ngIf="service.details.technology">
+                  <span class="font-bold">Tecnología Aplicada:</span>
+                  {{ service.details.technology }}
+                </li>
+                <li *ngIf="service.details.idealFor">
+                  <span class="font-bold">Ideal para:</span>
+                  {{ service.details.idealFor }}
+                </li>
+                <li *ngIf="service.details.activos">
+                  <span class="font-bold">Activos Clave:</span>
+                  {{ service.details.activos }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- For services with includes array -->
+            <div
+              *ngIf="
+                service.details.includes && service.details.includes.length > 0
+              "
+            >
+              <p class="text-sm text-brand-brown mt-4 font-bold">
+                Este
+                {{
+                  service.details.includes.length > 1 ? "protocolo" : "servicio"
+                }}
+                incluye:
+              </p>
+              <ul
+                class="list-disc list-inside text-sm text-brand-brown mt-2 pl-4 space-y-2"
+              >
+                <li *ngFor="let include of service.details.includes">
+                  {{ include }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-16">
+      <a
+        [href]="getContactInfo().whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary-custom py-4 px-10 rounded-full font-montserrat text-lg"
+      >
+        Reservar ahora
+      </a>
+    </div>
+  </div>
+</div>

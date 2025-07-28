@@ -1,0 +1,92 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <!-- Carousel de imágenes del hero -->
+  <app-carousel
+    [items]="heroItems"
+    [autoPlay]="true"
+    [interval]="5000"
+    [showDots]="true"
+    [showArrows]="true"
+    type="hero"
+  >
+  </app-carousel>
+</section>
+
+<!-- Métodos Propios -->
+<section class="metodos-propios-section">
+  <div class="container">
+    <app-metodos-propios
+      title="Métodos Propios"
+      subtitle="Métodos científicamente comprobados para restaurar la piel de nuestros pacientes."
+      [metodos]="metodosPropios"
+    >
+    </app-metodos-propios>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Nuestros Pacientes</h2>
+      <p class="section-description">
+        Es una fortuna para nosotros que nuestros pacientes tengan cambios desde
+        la primera sesión. Es un valor inigualable de nuestro servicio.
+      </p>
+    </div>
+
+    <div class="testimonials-content">
+      <!-- Google Reviews Component -->
+      <div class="google-reviews-section w-full">
+        <app-google-reviews></app-google-reviews>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Casos Reales -->
+<section id="casos-reales" class="casos-reales-section">
+  <div class="container">
+    <app-casos-reales
+      title="Casos Reales"
+      subtitle="Fotos reales de nuestros pacientes que ya están luciendo una piel Glow Skin."
+      description="Compruébalo tú mismo"
+      [casos]="casosReales"
+    >
+    </app-casos-reales>
+  </div>
+</section>
+
+<!-- Sobre Nosotros -->
+<section id="nosotros" class="about-section">
+  <div class="container">
+    <app-about-section> </app-about-section>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-section">
+  <div class="container">
+    <app-cta-section
+      [title]="ctaData.title"
+      [buttonText]="ctaData.buttonText"
+      [buttonUrl]="ctaData.buttonUrl"
+      [buttonStyle]="ctaData.buttonStyle"
+      [showUnderline]="ctaData.showUnderline"
+      [underlineText]="ctaData.underlineText"
+    >
+    </app-cta-section>
+  </div>
+</section>
+
+<!-- WhatsApp Widget -->
+<app-whatsapp-widget
+  phoneNumber="573001234567"
+  message="¡Hola! 👋 Soy Sofia de Glow Skin. ¿En qué puedo ayudarte hoy?"
+  [showDelay]="10000"
+  [autoCloseDelay]="8000"
+>
+</app-whatsapp-widget>
+
+<!-- Footer -->
+<app-footer></app-footer>

@@ -1,0 +1,109 @@
+// Variables de color
+$brand-dark: #5c3a21;
+$brand-brown: #7d5a44;
+$brand-secondary: #a5846e;
+$bg-brand: #fbf6f3;
+
+// Clases de utilidad
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-brand-dark {
+  color: $brand-dark;
+}
+
+.text-brand-brown {
+  color: $brand-brown;
+}
+
+.bg-brand {
+  background-color: $bg-brand;
+}
+
+.btn-primary-custom {
+  background-color: #7d5a44;
+  color: white;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #5c3a21;
+  }
+}
+
+// Hero Section
+.hero-section {
+  // El hero usa una imagen de fondo con overlay
+  // Los estilos están en el HTML con Tailwind
+}
+
+// Secciones generales
+section {
+  &.py-16 {
+    padding: 4rem 0;
+  }
+
+  &.bg-white\/50 {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Tipografía
+h1,
+h2,
+h3,
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .text-5xl {
+    font-size: 3rem;
+  }
+
+  .text-7xl {
+    font-size: 4rem;
+  }
+
+  .text-4xl {
+    font-size: 2.5rem;
+  }
+
+  .text-3xl {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+
+  .text-7xl {
+    font-size: 3rem;
+  }
+
+  .text-4xl {
+    font-size: 2rem;
+  }
+
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+}
