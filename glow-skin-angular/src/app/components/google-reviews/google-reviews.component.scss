@@ -28,6 +28,13 @@
     margin: 0;
     font-size: 0.9rem;
   }
+
+  small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #999;
+  }
 }
 
 @keyframes spin {
@@ -65,6 +72,29 @@
     font-size: 0.9rem;
   }
 
+  .error-reasons {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    text-align: left;
+    max-width: 300px;
+
+    li {
+      margin-bottom: 0.25rem;
+      font-size: 0.85rem;
+      color: #666;
+      position: relative;
+      padding-left: 1rem;
+
+      &:before {
+        content: "•";
+        color: #8b4513;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
   .retry-button {
     background: #8b4513;
     color: white;
@@ -74,10 +104,19 @@
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
 
     &:hover {
       background: #a0522d;
     }
+  }
+
+  .error-note {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 0.5rem;
   }
 }
 
@@ -137,34 +176,50 @@
     }
   }
 
-  .google-link {
-    display: inline-flex;
+  .business-footer {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
-    color: #4285f4;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e5e5;
 
-    &:hover {
-      text-decoration: underline;
+    .google-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4285f4;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &::after {
+        content: "→";
+        font-size: 1rem;
+      }
     }
 
-    &::after {
-      content: "→";
-      font-size: 1rem;
+    .last-updated {
+      color: #666;
+      font-size: 0.8rem;
+      font-style: italic;
     }
   }
 }
 
-// Reviews List
-.reviews-list {
-  .reviews-header {
+// Reviews Carousel
+.reviews-carousel {
+  .carousel-header {
     margin-bottom: 1.5rem;
+    text-align: center;
 
     h4 {
       margin: 0 0 0.25rem 0;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: #333;
       font-weight: 600;
     }
@@ -176,39 +231,70 @@
     }
   }
 
+  .carousel-container {
+    position: relative;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
   .review-cards {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    transition: transform 0.5s ease-in-out;
+    min-height: 300px;
   }
 
   .review-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: white;
+    padding: 2rem;
     border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e5e5e5;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    &.active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    &.prev {
+      opacity: 0.3;
+      transform: translateX(-100%);
+      z-index: 1;
+    }
+
+    &.next {
+      opacity: 0.3;
+      transform: translateX(100%);
+      z-index: 1;
     }
 
     .review-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
 
       .reviewer-info {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 1rem;
 
         .reviewer-avatar {
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
           overflow: hidden;
           flex-shrink: 0;
@@ -228,20 +314,20 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
           }
         }
 
         .reviewer-details {
           .reviewer-name {
             margin: 0 0 0.25rem 0;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #333;
           }
 
           .review-date {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #666;
           }
         }
@@ -250,27 +336,98 @@
       .review-rating {
         .stars {
           color: #ffd700;
-          font-size: 0.9rem;
+          font-size: 1.1rem;
         }
       }
     }
 
     .review-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
       .review-text {
         margin: 0;
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 1rem;
+        line-height: 1.6;
         color: #333;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-style: italic;
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+  }
+
+  // Navigation Arrows
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 69, 19, 0.9);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    &:hover {
+      background: rgba(139, 69, 19, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &.carousel-arrow-prev {
+      left: 1rem;
+    }
+
+    &.carousel-arrow-next {
+      right: 1rem;
+    }
+  }
+
+  // Carousel Dots
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ddd;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #8b4513;
+        transform: scale(1.2);
+      }
+
+      &.active {
+        background: #8b4513;
+        transform: scale(1.2);
       }
     }
   }
 
   .view-all-reviews {
-    margin-top: 1.5rem;
     text-align: center;
 
     .view-all-link {
@@ -326,15 +483,41 @@
     }
   }
 
-  .review-card {
-    padding: 1rem;
+  .reviews-carousel {
+    .review-card {
+      padding: 1.5rem;
 
-    .review-header {
-      .reviewer-info {
-        .reviewer-avatar {
-          width: 35px;
-          height: 35px;
+      .review-header {
+        .reviewer-info {
+          .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+          }
         }
+      }
+
+      .review-content {
+        .review-text {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .carousel-arrow {
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      &.carousel-arrow-prev {
+        left: 0.5rem;
+      }
+
+      &.carousel-arrow-next {
+        right: 0.5rem;
       }
     }
   }
@@ -354,18 +537,25 @@
     }
   }
 
-  .review-card {
-    .review-header {
-      flex-direction: column;
-      gap: 0.75rem;
+  .reviews-carousel {
+    .review-card {
+      .review-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
 
-      .reviewer-info {
-        justify-content: center;
-      }
+        .reviewer-info {
+          justify-content: center;
+        }
 
-      .review-rating {
-        align-self: center;
+        .review-rating {
+          align-self: center;
+        }
       }
+    }
+
+    .carousel-arrow {
+      display: none;
     }
   }
 }

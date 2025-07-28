@@ -5,6 +5,7 @@ import {
   GoogleReview,
 } from '../../services/google-reviews.service';
 import { Subscription } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-google-reviews',
@@ -16,11 +17,13 @@ import { Subscription } from 'rxjs';
 export class GoogleReviewsComponent implements OnInit, OnDestroy {
   reviews: GoogleReview[] = [];
   businessInfo: { rating: number; totalReviews: number } | null = null;
+  lastScrapedDate: string = '';
   loading = true;
   error = false;
   currentReviewIndex = 0;
   autoPlay = true;
   autoPlayInterval = 5000; // 5 segundos
+  isDevelopment = !environment.production;
   private subscription = new Subscription();
   private autoPlayTimer?: number;
 
@@ -39,27 +42,56 @@ export class GoogleReviewsComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.error = false;
 
-    // Cargar información del negocio
-    this.subscription.add(
-      this.googleReviewsService.getBusinessInfo().subscribe({
-        next: (info) => {
-          this.businessInfo = info;
-        },
-        error: (error) => {
-          console.error('Error loading business info:', error);
-        },
-      })
-    );
-
-    // Cargar reviews
+    // Cargar reviews primero, luego la información del negocio
     this.subscription.add(
       this.googleReviewsService.getReviews().subscribe({
         next: (reviews) => {
           this.reviews = reviews;
-          this.loading = false;
-          if (this.autoPlay && this.reviews.length > 1) {
-            this.startAutoPlay();
-          }
+
+          // Cargar información del negocio basada en las reviews
+          this.subscription.add(
+            this.googleReviewsService.getBusinessInfo().subscribe({
+              next: (info) => {
+                this.businessInfo = {
+                  rating: info.rating,
+                  totalReviews: info.totalReviews,
+                };
+
+                // Cargar fecha de última actualización
+                this.subscription.add(
+                  this.googleReviewsService.getLastScrapedDate().subscribe({
+                    next: (date) => {
+                      this.lastScrapedDate = date;
+                      this.loading = false;
+                      if (this.autoPlay && this.reviews.length > 1) {
+                        this.startAutoPlay();
+                      }
+                    },
+                    error: () => {
+                      this.lastScrapedDate = 'No disponible';
+                      this.loading = false;
+                      if (this.autoPlay && this.reviews.length > 1) {
+                        this.startAutoPlay();
+                      }
+                    },
+                  })
+                );
+              },
+              error: (error) => {
+                console.error('Error loading business info:', error);
+                // Si falla la info del negocio, usar valores por defecto
+                this.businessInfo = {
+                  rating: 5.0,
+                  totalReviews: this.reviews.length,
+                };
+                this.lastScrapedDate = 'No disponible';
+                this.loading = false;
+                if (this.autoPlay && this.reviews.length > 1) {
+                  this.startAutoPlay();
+                }
+              },
+            })
+          );
         },
         error: (error) => {
           console.error('Error loading reviews:', error);

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
 
 export interface GoogleReview {
   author_name: string;
@@ -15,79 +14,87 @@ export interface GoogleReview {
   time: number;
 }
 
-export interface GooglePlaceDetails {
-  place_id: string;
+export interface GoogleBusinessInfo {
   name: string;
   rating: number;
-  user_ratings_total: number;
-  reviews: GoogleReview[];
-  formatted_address: string;
-  formatted_phone_number?: string;
+  totalReviews: number;
+  address: string;
+  phone?: string;
   website?: string;
+}
+
+export interface GoogleReviewsData {
+  business: GoogleBusinessInfo;
+  reviews: GoogleReview[];
+  scrapedAt: string;
+  totalReviews: number;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class GoogleReviewsService {
-  private readonly apiKey = environment.googlePlacesApiKey;
-  private readonly placeId = environment.glowSkinPlaceId;
-  private readonly baseUrl = environment.googlePlacesApiUrl;
+  private readonly reviewsDataUrl = 'assets/data/google-reviews.json';
 
   constructor(private http: HttpClient) {}
 
   /**
-   * Obtiene los detalles del lugar incluyendo las reviews
+   * Obtiene las reviews desde el archivo JSON local
    */
-  getPlaceDetails(): Observable<GooglePlaceDetails | null> {
-    const url = `${this.baseUrl}/details/json`;
-    const params = {
-      place_id: this.placeId,
-      fields:
-        'place_id,name,rating,user_ratings_total,reviews,formatted_address,formatted_phone_number,website',
-      key: this.apiKey,
-    };
-
-    return this.http.get<any>(url, { params }).pipe(
-      map((response) => {
-        if (response.status === 'OK' && response.result) {
-          return response.result as GooglePlaceDetails;
-        }
-        return null;
-      }),
+  getReviews(): Observable<GoogleReview[]> {
+    return this.http.get<GoogleReviewsData>(this.reviewsDataUrl).pipe(
+      map((data) => data.reviews || []),
       catchError((error) => {
-        console.error('Error fetching place details:', error);
-        return of(null);
+        console.error('Error cargando reviews desde JSON:', error);
+        return throwError(
+          () =>
+            new Error(
+              'No se pudieron cargar las reviews desde el archivo local'
+            )
+        );
       })
     );
   }
 
   /**
-   * Obtiene solo las reviews del lugar
+   * Obtiene información básica del negocio desde el archivo JSON local
    */
-  getReviews(): Observable<GoogleReview[]> {
-    return this.getPlaceDetails().pipe(
-      map((placeDetails) => placeDetails?.reviews || [])
+  getBusinessInfo(): Observable<GoogleBusinessInfo> {
+    return this.http.get<GoogleReviewsData>(this.reviewsDataUrl).pipe(
+      map((data) => data.business),
+      catchError((error) => {
+        console.error('Error cargando información del negocio:', error);
+        return throwError(
+          () => new Error('No se pudo cargar la información del negocio')
+        );
+      })
     );
   }
 
   /**
-   * Obtiene información básica del negocio (rating, total de reviews)
+   * Obtiene información básica del lugar sin reviews
    */
-  getBusinessInfo(): Observable<{
+  getBasicPlaceInfo(): Observable<{
+    name: string;
     rating: number;
     totalReviews: number;
   } | null> {
-    return this.getPlaceDetails().pipe(
-      map((placeDetails) => {
-        if (placeDetails) {
-          return {
-            rating: placeDetails.rating,
-            totalReviews: placeDetails.user_ratings_total,
-          };
-        }
-        return null;
-      })
+    return this.getBusinessInfo().pipe(
+      map((info) => ({
+        name: info.name,
+        rating: info.rating,
+        totalReviews: info.totalReviews,
+      }))
+    );
+  }
+
+  /**
+   * Obtiene la fecha de la última actualización de los datos
+   */
+  getLastScrapedDate(): Observable<string> {
+    return this.http.get<GoogleReviewsData>(this.reviewsDataUrl).pipe(
+      map((data) => data.scrapedAt),
+      catchError(() => of('No disponible'))
     );
   }
 
@@ -118,5 +125,15 @@ export class GoogleReviewsService {
     }
 
     return stars;
+  }
+
+  /**
+   * Prueba la conexión con el archivo JSON local
+   */
+  testApiConnection(): Observable<boolean> {
+    return this.getReviews().pipe(
+      map((reviews) => reviews.length > 0),
+      catchError(() => of(false))
+    );
   }
 }
