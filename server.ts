@@ -6,7 +6,7 @@ import { dirname, join, resolve } from 'node:path';
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
+  const browserDistFolder = resolve(serverDistFolder, '../../static');
 
   // Serve static files from /browser
   server.get(
@@ -25,7 +25,7 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const port = process.env['PORT'] || 3000;
 
   // Start up the Node server
   const server = app();
