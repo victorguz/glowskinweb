@@ -5,6 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng build",
+    "build:prerender": "ng build",
+    "prerender": "ng build",
+    "serve:ssr": "node dist/glow-skin-angular/server/server.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "scrape-reviews": "node scripts/scrape-google-reviews.js"
