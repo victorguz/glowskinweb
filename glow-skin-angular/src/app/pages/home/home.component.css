@@ -1,0 +1,18 @@
+/* Fuentes personalizadas */
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Estilos para el carrusel del hero */
+.hero-slide {
+  transition: opacity 1s ease-in-out;
+}
+
+/* Estilos para el carrusel de testimonios */
+.carousel-track {
+  transition: transform 0.5s ease-in-out;
+}

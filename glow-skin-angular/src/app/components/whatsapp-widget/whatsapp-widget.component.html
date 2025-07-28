@@ -1,0 +1,45 @@
+<div
+  id="whatsapp-widget-container"
+  [class.open]="isOpen"
+  [class.visible]="isVisible"
+>
+  <!-- WhatsApp Bubble -->
+  <div id="whatsapp-bubble" (click)="toggleChat()">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </div>
+
+  <!-- Chat Preview -->
+  <div id="whatsapp-chat-preview">
+    <div class="chat-header">
+      <div class="chat-info">
+        <div class="chat-avatar">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </div>
+        <div class="chat-details">
+          <p class="chat-name">Glow Skin</p>
+          <p class="chat-status">En línea</p>
+        </div>
+      </div>
+      <button class="close-button" (click)="closeChat()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </div>
+
+    <div class="chat-message">
+      {{ message }}
+    </div>
+
+    <div class="chat-action">
+      <a
+        [href]="whatsappUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="chat-button"
+        (click)="openWhatsApp()"
+      >
+        <ion-icon name="logo-whatsapp"></ion-icon>
+        Abrir WhatsApp
+      </a>
+    </div>
+  </div>
+</div>

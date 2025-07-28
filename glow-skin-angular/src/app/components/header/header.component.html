@@ -1,0 +1,81 @@
+<header class="header">
+  <div class="container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo">
+      <h1 class="logo-title">Glow Skin</h1>
+      <p class="logo-subtitle">SOFIA NIETO AESTHETICS</p>
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav class="nav-desktop">
+      <a routerLink="/precios" class="nav-link">Precios</a>
+      <a routerLink="/" fragment="nosotros" class="nav-link">Nosotros</a>
+      <a routerLink="/" fragment="casos-reales" class="nav-link"
+        >Casos Reales</a
+      >
+    </nav>
+
+    <!-- Botones -->
+    <div class="header-actions">
+      <a href="#" class="bag-icon">
+        <ion-icon name="bag-outline"></ion-icon>
+      </a>
+      <a
+        href="https://wa.link/h5481r"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-button"
+      >
+        Agenda aquí
+      </a>
+
+      <!-- Botón de Menú Móvil -->
+      <button class="mobile-menu-button" (click)="toggleMobileMenu()">
+        <ion-icon *ngIf="!isMobileMenuOpen" name="menu-outline"></ion-icon>
+        <ion-icon *ngIf="isMobileMenuOpen" name="close-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú Móvil - Pantalla Completa -->
+  <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+    <!-- Botón de Cerrar -->
+    <button class="mobile-close" (click)="closeMobileMenu()">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <nav class="mobile-nav">
+      <a
+        routerLink="/precios"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+        >Precios</a
+      >
+      <a
+        routerLink="/"
+        fragment="nosotros"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+        >Nosotros</a
+      >
+      <a
+        routerLink="/"
+        fragment="casos-reales"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+        >Casos Reales</a
+      >
+
+      <!-- CTA Principal -->
+      <a
+        href="https://wa.link/h5481r"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-cta"
+        (click)="closeMobileMenu()"
+      >
+        Agendar Cita
+      </a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,31 @@
+// Variables
+$main-bg: #fbf6f3;
+$main-text: #5c3a21;
+
+// Estilos principales
+.main-content {
+  min-height: calc(100vh - 80px); // Ajustar según altura del header
+  background: $main-bg;
+  color: $main-text;
+}
+
+// Fuentes personalizadas
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+// Estilos para ion-icon
+ion-icon {
+  font-size: 24px;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .main-content {
+    min-height: calc(100vh - 70px);
+  }
+}

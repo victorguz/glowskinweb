@@ -1,0 +1,116 @@
+<div
+  class="carousel-container"
+  (mouseenter)="pauseAutoPlay()"
+  (mouseleave)="resumeAutoPlay()"
+>
+  <!-- Contenido del carousel -->
+  <div class="carousel-content">
+    <ng-container [ngSwitch]="type">
+      <!-- Hero Carousel -->
+      <div *ngSwitchCase="'hero'" class="hero-carousel">
+        <div
+          class="hero-slide"
+          *ngFor="let item of items; let i = index"
+          [class.active]="i === currentIndex"
+          [style.background-image]="'url(' + item.image + ')'"
+        >
+          <div class="hero-overlay">
+            <div class="hero-text">
+              <p class="hero-subtitle" *ngIf="item.subtitle">
+                {{ item.subtitle }}
+              </p>
+              <h2 class="hero-title">{{ item.title }}</h2>
+              <p class="hero-description">{{ item.description }}</p>
+              <a
+                *ngIf="item.ctaText && item.ctaUrl"
+                [href]="item.ctaUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero-cta"
+              >
+                {{ item.ctaText }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Carousel -->
+      <div *ngSwitchCase="'testimonials'" class="testimonials-carousel">
+        <div
+          class="testimonial-slide"
+          *ngFor="let item of items; let i = index"
+          [class.active]="i === currentIndex"
+        >
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img
+                  *ngIf="item.avatar"
+                  [src]="item.avatar"
+                  [alt]="item.author"
+                />
+                <div *ngIf="!item.avatar" class="avatar-placeholder">
+                  {{ item.author?.charAt(0) }}
+                </div>
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-author">{{ item.author }}</h4>
+                <p class="testimonial-date">{{ item.date }}</p>
+              </div>
+              <div class="testimonial-rating">
+                <span class="stars">★★★★★</span>
+              </div>
+            </div>
+            <p class="testimonial-content">{{ item.content }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Carousel -->
+      <div *ngSwitchDefault class="gallery-carousel">
+        <div
+          class="gallery-slide"
+          *ngFor="let item of items; let i = index"
+          [class.active]="i === currentIndex"
+        >
+          <img [src]="item.image" [alt]="item.title" class="gallery-image" />
+          <div *ngIf="item.title" class="gallery-caption">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Flechas de navegación -->
+  <button
+    *ngIf="showArrows && items.length > 1"
+    class="carousel-arrow carousel-arrow-prev"
+    (click)="prev()"
+    aria-label="Anterior"
+  >
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </button>
+
+  <button
+    *ngIf="showArrows && items.length > 1"
+    class="carousel-arrow carousel-arrow-next"
+    (click)="next()"
+    aria-label="Siguiente"
+  >
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </button>
+
+  <!-- Indicadores (dots) -->
+  <div *ngIf="showDots && items.length > 1" class="carousel-dots">
+    <button
+      *ngFor="let item of items; let i = index"
+      class="carousel-dot"
+      [class.active]="i === currentIndex"
+      (click)="goTo(i)"
+      [attr.aria-label]="'Ir a slide ' + (i + 1)"
+    ></button>
+  </div>
+</div>

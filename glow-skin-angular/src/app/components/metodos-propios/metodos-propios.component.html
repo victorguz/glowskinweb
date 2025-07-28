@@ -1,0 +1,56 @@
+<section class="metodos-propios-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ title }}</h2>
+      <p class="section-description">{{ subtitle }}</p>
+    </div>
+
+    <div class="metodos-grid">
+      <div class="metodo-item" *ngFor="let metodo of metodos">
+        <div class="metodo-image">
+          <img
+            [src]="getCurrentImage(metodo).src"
+            [alt]="getCurrentImage(metodo).alt"
+            class="metodo-img"
+          />
+
+          <!-- Controles del carrusel si hay múltiples imágenes -->
+          <div class="carousel-controls" *ngIf="hasMultipleImages(metodo)">
+            <button
+              class="carousel-btn prev"
+              (click)="prevImage(metodo)"
+              *ngIf="metodo.images.length > 1"
+            >
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button
+              class="carousel-btn next"
+              (click)="nextImage(metodo)"
+              *ngIf="metodo.images.length > 1"
+            >
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+
+            <!-- Indicadores -->
+            <div class="carousel-indicators" *ngIf="metodo.images.length > 1">
+              <span
+                *ngFor="let image of metodo.images; let i = index"
+                class="indicator"
+                [class.active]="(carouselStates[metodo.id] || 0) === i"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="metodo-content">
+          <h3 class="metodo-title">{{ metodo.title }}</h3>
+          <p class="metodo-description">{{ metodo.description }}</p>
+          <a [routerLink]="metodo.buttonUrl" class="metodo-button">
+            {{ metodo.buttonText }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

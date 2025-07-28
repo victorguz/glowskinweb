@@ -1,0 +1,111 @@
+<div class="google-reviews-container">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Cargando reviews de Google...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3>Error al cargar las reviews</h3>
+    <p>No pudimos cargar las reviews de Google en este momento.</p>
+    <button (click)="retry()" class="retry-button">Intentar de nuevo</button>
+  </div>
+
+  <!-- Content -->
+  <div *ngIf="!loading && !error" class="reviews-content">
+    <!-- Business Info Header -->
+    <div *ngIf="businessInfo" class="business-info">
+      <div class="business-header">
+        <img
+          src="assets/images/logo/glow-skin-logo-marron.png"
+          alt="Glow Skin Logo"
+          class="business-logo"
+        />
+        <div class="business-details">
+          <h3 class="business-name">Glow Skin</h3>
+          <p class="business-location">Limpieza Facial en Barranquilla</p>
+          <div class="rating-info">
+            <span class="stars">{{ generateStars(businessInfo.rating) }}</span>
+            <span class="rating-text"
+              >{{ businessInfo.rating }} ({{
+                businessInfo.totalReviews
+              }}
+              reseñas)</span
+            >
+          </div>
+        </div>
+      </div>
+      <a
+        href="https://www.google.com/maps/place/glow+skin+barranquilla"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="google-link"
+      >
+        Ver en Google Maps
+      </a>
+    </div>
+
+    <!-- Reviews List -->
+    <div class="reviews-list" *ngIf="reviews.length > 0">
+      <div class="reviews-header">
+        <h4>Reviews recientes</h4>
+        <p>{{ reviews.length }} reviews de Google</p>
+      </div>
+
+      <div class="review-cards">
+        <div *ngFor="let review of reviews.slice(0, 5)" class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">
+                <img
+                  *ngIf="review.profile_photo_url"
+                  [src]="review.profile_photo_url"
+                  [alt]="review.author_name"
+                  class="avatar-image"
+                />
+                <div
+                  *ngIf="!review.profile_photo_url"
+                  class="avatar-placeholder"
+                >
+                  {{ getAuthorInitials(review.author_name) }}
+                </div>
+              </div>
+              <div class="reviewer-details">
+                <h5 class="reviewer-name">{{ review.author_name }}</h5>
+                <span class="review-date">{{
+                  formatRelativeTime(review.relative_time_description)
+                }}</span>
+              </div>
+            </div>
+            <div class="review-rating">
+              <span class="stars">{{ generateStars(review.rating) }}</span>
+            </div>
+          </div>
+
+          <div class="review-content">
+            <p class="review-text">{{ review.text }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Reviews Link -->
+      <div class="view-all-reviews">
+        <a
+          href="https://www.google.com/maps/place/glow+skin+barranquilla"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="view-all-link"
+        >
+          Ver todas las reviews en Google
+        </a>
+      </div>
+    </div>
+
+    <!-- No Reviews State -->
+    <div *ngIf="reviews.length === 0 && !loading" class="no-reviews">
+      <p>No hay reviews disponibles en este momento.</p>
+    </div>
+  </div>
+</div>

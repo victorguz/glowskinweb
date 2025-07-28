@@ -1,0 +1,25 @@
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">
+        <span *ngIf="showUnderline">{{
+          title.replace(underlineText, "")
+        }}</span>
+        <span *ngIf="showUnderline" class="underline-text">{{
+          underlineText
+        }}</span>
+        <span *ngIf="!showUnderline">{{ title }}</span>
+      </h2>
+      <a
+        [href]="buttonUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-button"
+        [class.primary]="buttonStyle === 'primary'"
+        [class.secondary]="buttonStyle === 'secondary'"
+      >
+        {{ buttonText }}
+      </a>
+    </div>
+  </div>
+</section>

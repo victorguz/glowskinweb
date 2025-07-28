@@ -1,0 +1,51 @@
+<section class="casos-reales-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ title }}</h2>
+      <p class="section-description">{{ subtitle }}</p>
+      <p class="section-subtitle">{{ description }}</p>
+    </div>
+
+    <div class="casos-grid">
+      <div
+        class="caso-item"
+        *ngFor="let caso of casos; let i = index"
+        (click)="openFullscreen(caso)"
+      >
+        <img [src]="caso.image" [alt]="caso.alt" class="caso-imagen" />
+        <div class="caso-overlay">
+          <ion-icon name="expand-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <a
+        href="https://wa.link/h5481r"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary-custom py-3 px-8 rounded-full font-montserrat text-sm"
+      >
+        Agenda una cita
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de Pantalla Completa -->
+<div
+  class="fullscreen-modal"
+  [class.active]="isFullscreen"
+  (click)="onBackdropClick($event)"
+>
+  <div class="modal-content" *ngIf="selectedCaso">
+    <button class="close-button" (click)="closeFullscreen()">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <img
+      [src]="selectedCaso.image"
+      [alt]="selectedCaso.alt"
+      class="modal-image"
+    />
+  </div>
+</div>

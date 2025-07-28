@@ -1,0 +1,75 @@
+// Variables
+$section-padding: 4rem 0;
+
+.cta-section {
+  padding: $section-padding;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .cta-content {
+    .cta-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.875rem;
+      color: #5c3a21;
+      margin: 0 0 1.5rem 0;
+
+      @media (min-width: 768px) {
+        font-size: 2.25rem;
+      }
+
+      .underline-text {
+        text-decoration: underline;
+      }
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &.primary {
+        background: #7d5a44;
+        color: white;
+
+        &:hover {
+          background: #5c3a21;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      &.secondary {
+        background: #a5846e;
+        color: white;
+
+        &:hover {
+          background: #7d5a44;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 2rem 0;
+
+    .cta-content {
+      .cta-title {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
