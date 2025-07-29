@@ -9,9 +9,41 @@ export function app(): express.Express {
 
   // Detectar ambiente: desarrollo vs producción
   const isProduction = process.env['NODE_ENV'] === 'production';
-  const browserDistFolder = isProduction
-    ? resolve(serverDistFolder, '../../static') // Amplify
-    : resolve(serverDistFolder, '../browser'); // Local
+
+  // En Amplify, el servidor busca en diferentes rutas
+  let browserDistFolder;
+  if (isProduction) {
+    // Intentar diferentes rutas en producción
+    const possiblePaths = [
+      resolve(serverDistFolder, '../../static'), // .amplify-hosting/static
+      resolve(serverDistFolder, '../browser'), // /var/browser
+      resolve(serverDistFolder, '../../browser'), // /var/browser (alternativa)
+      '/var/browser', // Ruta directa
+      '/var/static', // Ruta directa
+    ];
+
+    // Usar la primera ruta que existe
+    for (const path of possiblePaths) {
+      try {
+        require('fs').accessSync(path);
+        browserDistFolder = path;
+        break;
+      } catch (e) {
+        // Continuar con la siguiente ruta
+      }
+    }
+
+    // Si no se encontró ninguna, usar la ruta por defecto
+    if (!browserDistFolder) {
+      browserDistFolder = resolve(serverDistFolder, '../../static');
+    }
+  } else {
+    browserDistFolder = resolve(serverDistFolder, '../browser'); // Local
+  }
+
+  console.log('Server Dist Folder:', serverDistFolder);
+  console.log('Browser Dist Folder:', browserDistFolder);
+  console.log('Is Production:', isProduction);
 
   // Serve static files from /browser
   server.get(
