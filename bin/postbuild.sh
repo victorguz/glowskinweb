@@ -1,11 +1,7 @@
 #!/bin/bash
 
-rm -rf ./.amplify-hosting
+# Build process now points directly to browser folder in amplify.yml
+# The baseDirectory is set to: dist/glow-skin-angular/browser
+# No additional steps needed as Amplify will serve directly from the browser folder
 
-mkdir -p ./.amplify-hosting/compute
-
-cp -r ./dist/glow-skin-angular/server ./.amplify-hosting/compute/default
-
-cp -r ./dist/glow-skin-angular/browser ./.amplify-hosting/static
-
-cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
+echo "✅ Build complete - Amplify will serve from dist/glow-skin-angular/browser"
