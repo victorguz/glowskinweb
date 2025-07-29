@@ -8,8 +8,9 @@
     "build:ssr": "ng build --configuration production",
     "build:prerender": "ng build --configuration production",
     "prerender": "ng build --configuration production",
-    "postbuild": "chmod +x bin/postbuild.sh && ./bin/postbuild.sh",
+    "postbuild": "bin\\postbuild.bat",
     "serve:ssr": "node dist/glow-skin-angular/server/server.mjs",
+    "serve:ssr:prod": "set NODE_ENV=production && node dist/glow-skin-angular/server/server.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "scrape-reviews": "node scripts/scrape-google-reviews.js"

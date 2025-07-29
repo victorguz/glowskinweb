@@ -6,7 +6,12 @@ import { dirname, join, resolve } from 'node:path';
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../../static');
+
+  // Detectar ambiente: desarrollo vs producción
+  const isProduction = process.env['NODE_ENV'] === 'production';
+  const browserDistFolder = isProduction
+    ? resolve(serverDistFolder, '../../static') // Amplify
+    : resolve(serverDistFolder, '../browser'); // Local
 
   // Serve static files from /browser
   server.get(
@@ -25,7 +30,7 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 3000;
+  const port = process.env['PORT'] || 4000;
 
   // Start up the Node server
   const server = app();
