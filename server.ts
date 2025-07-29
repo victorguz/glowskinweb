@@ -11,7 +11,7 @@ export function app(): express.Express {
   const isProduction = process.env['NODE_ENV'] === 'production';
 
   // En Amplify, el servidor busca en diferentes rutas
-  let browserDistFolder;
+  let browserDistFolder: string = '';
   if (isProduction) {
     // Intentar diferentes rutas en producción
     const possiblePaths = [
