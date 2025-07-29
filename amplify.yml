@@ -16,3 +16,37 @@ frontend:
     paths:
       - node_modules/**/*
       - .angular/cache/**/*
+  customHeaders:
+    - pattern: "**/*"
+      headers:
+        - key: "Cache-Control"
+          value: "public, max-age=31536000"
+    - pattern: "**/*.html"
+      headers:
+        - key: "Cache-Control"
+          value: "public, max-age=0, must-revalidate"
+  redirects:
+    - source: "/<*>"
+      target: "/index.html"
+      status: "200"
+    - source: "/blog/<*>"
+      target: "/index.html"
+      status: "200"
+    - source: "/casos-reales/<*>"
+      target: "/index.html"
+      status: "200"
+    - source: "/nosotros"
+      target: "/index.html"
+      status: "200"
+    - source: "/precios"
+      target: "/index.html"
+      status: "200"
+    - source: "/agendar"
+      target: "/index.html"
+      status: "200"
+    - source: "/blog-post/<*>"
+      target: "/index.html"
+      status: "200"
+    - source: "/confirmacion-pago"
+      target: "/index.html"
+      status: "200"
