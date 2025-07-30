@@ -3,12 +3,10 @@ import { environment } from '../../environments/environment';
 
 @Pipe({
   name: 'assets',
-  standalone: true
+  standalone: true,
 })
 export class AssetsPipePipe implements PipeTransform {
-
   transform(value: unknown, ...args: unknown[]): unknown {
-    return `${environment.assetsUrl}/${value}`;
+    return `${environment.assetsUrl}${value}`;
   }
-
 }
