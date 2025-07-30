@@ -12,5 +12,11 @@ export const routes: Routes = [
   { path: 'nosotros', component: NosotrosComponent },
   { path: 'casos-reales', component: CasosRealesComponent },
   { path: 'blog', component: BlogComponent },
+  // Dynamic routes - these will be handled by the components themselves
+  { path: 'blog/:slug', component: BlogComponent },
+  { path: 'blog-post/:id', component: BlogComponent },
+  // Placeholder routes for future implementation
+  { path: 'agendar', component: HomeComponent }, // Redirect to home for now
+  { path: 'confirmacion-pago', component: HomeComponent }, // Redirect to home for now
   { path: '**', redirectTo: '' },
 ];

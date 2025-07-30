@@ -9,7 +9,7 @@ frontend:
         - npm run build
         - echo "NODE_ENV=production" >> .env
   artifacts:
-    baseDirectory: .amplify-hosting
+    baseDirectory: dist/glow-skin-angular/browser
     files:
       - "**/*"
   cache:
@@ -25,10 +25,16 @@ frontend:
       headers:
         - key: "Cache-Control"
           value: "public, max-age=0, must-revalidate"
+    - pattern: "index.html"
+      headers:
+        - key: "Cache-Control"
+          value: "no-cache, no-store, must-revalidate"
+        - key: "Pragma"
+          value: "no-cache"
+        - key: "Expires"
+          value: "0"
   redirects:
-    - source: "/<*>"
-      target: "/index.html"
-      status: "200"
+    # Specific routes for your application
     - source: "/blog/<*>"
       target: "/index.html"
       status: "200"
@@ -48,5 +54,12 @@ frontend:
       target: "/index.html"
       status: "200"
     - source: "/confirmacion-pago"
+      target: "/index.html"
+      status: "200"
+    - source: "/home"
+      target: "/index.html"
+      status: "200"
+    # Catch-all route for SPA - must be last
+    - source: "/<*>"
       target: "/index.html"
       status: "200"
