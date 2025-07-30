@@ -1,10 +1,11 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
 
 @Component({
   selector: 'app-casos-reales',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AssetsPipePipe],
   templateUrl: './casos-reales.component.html',
   styleUrl: './casos-reales.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -21,8 +22,8 @@ export class CasosRealesComponent {
       id: 1,
       title: 'Tratamiento Anti-Acné',
       description: 'Resultado después de 3 meses de tratamiento intensivo',
-      beforeImage: 'images/cases/caso-2-tratamiento-anti-acne.webp',
-      afterImage: 'images/cases/caso-3-tratamiento-revitalizacion.webp',
+      beforeImage: '/images/cases/caso-2-tratamiento-anti-acne.webp',
+      afterImage: '/images/cases/caso-3-tratamiento-revitalizacion.webp',
       treatment: 'Protocolo Anti-Acné Intensivo',
       duration: '3 meses',
       results: [
@@ -35,8 +36,8 @@ export class CasosRealesComponent {
       id: 2,
       title: 'Limpieza Facial Profunda',
       description: 'Transformación visible desde la primera sesión',
-      beforeImage: 'images/cases/caso-1-tratamiento-anti-manchas.webp',
-      afterImage: 'images/cases/caso-4-tratamiento-anti-acne.webp',
+      beforeImage: '/images/cases/caso-1-tratamiento-anti-manchas.webp',
+      afterImage: '/images/cases/caso-4-tratamiento-anti-acne.webp',
       treatment: 'Limpieza Facial Glow Skin',
       duration: '1 sesión',
       results: [
@@ -49,8 +50,8 @@ export class CasosRealesComponent {
       id: 3,
       title: 'Tratamiento Anti-Manchas',
       description: 'Eliminación progresiva de hiperpigmentación',
-      beforeImage: 'images/cases/caso-5-tratamiento-anti-acne-2.webp',
-      afterImage: 'images/cases/caso-6-revitalizacion.webp',
+      beforeImage: '/images/cases/caso-5-tratamiento-anti-acne-2.webp',
+      afterImage: '/images/cases/caso-6-revitalizacion.webp',
       treatment: 'Protocolo Despigmentante',
       duration: '2 meses',
       results: [
@@ -63,8 +64,8 @@ export class CasosRealesComponent {
       id: 4,
       title: 'Rejuvenecimiento Facial',
       description: 'Restauración de la firmeza y elasticidad',
-      beforeImage: 'images/cases/caso-1-tratamiento-anti-manchas.webp',
-      afterImage: 'images/cases/caso-2-tratamiento-anti-acne.webp',
+      beforeImage: '/images/cases/caso-1-tratamiento-anti-manchas.webp',
+      afterImage: '/images/cases/caso-2-tratamiento-anti-acne.webp',
       treatment: 'Microneedling + Exosomas',
       duration: '3 sesiones',
       results: [
@@ -77,8 +78,8 @@ export class CasosRealesComponent {
       id: 5,
       title: 'Porcelanización Facial',
       description: 'Efecto glow inmediato y duradero',
-      beforeImage: 'images/cases/caso-3-tratamiento-revitalizacion.webp',
-      afterImage: 'images/cases/caso-4-tratamiento-anti-acne.webp',
+      beforeImage: '/images/cases/caso-3-tratamiento-revitalizacion.webp',
+      afterImage: '/images/cases/caso-4-tratamiento-anti-acne.webp',
       treatment: 'Porcelanización Facial',
       duration: '1 sesión',
       results: [
@@ -91,8 +92,8 @@ export class CasosRealesComponent {
       id: 6,
       title: 'Tratamiento Regenerativo',
       description: 'Reparación de cicatrices y textura',
-      beforeImage: 'images/cases/caso-5-tratamiento-anti-acne-2.webp',
-      afterImage: 'images/cases/caso-6-revitalizacion.webp',
+      beforeImage: '/images/cases/caso-5-tratamiento-anti-acne-2.webp',
+      afterImage: '/images/cases/caso-6-revitalizacion.webp',
       treatment: 'Tratamiento Regenerative +',
       duration: '4 meses',
       results: [

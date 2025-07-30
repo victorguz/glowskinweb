@@ -21,7 +21,7 @@
     <div class="featured-post">
       <div class="featured-image">
         <img
-          [src]="featuredPost.image"
+          [src]="featuredPost.image | assets"
           [alt]="featuredPost.title"
           class="post-image"
         />
@@ -77,7 +77,11 @@
     <div class="posts-grid">
       <article *ngFor="let post of nonFeaturedPosts" class="post-card">
         <div class="post-image-container">
-          <img [src]="post.image" [alt]="post.title" class="post-image" />
+          <img
+            [src]="post.image | assets"
+            [alt]="post.title"
+            class="post-image"
+          />
           <div class="post-overlay">
             <a href="#" class="read-more-overlay">
               <ion-icon name="eye-outline"></ion-icon>

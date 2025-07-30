@@ -45,7 +45,7 @@
           <div class="image-container">
             <div class="image-label">Antes</div>
             <img
-              [src]="caso.beforeImage"
+              [src]="caso.beforeImage | assets"
               [alt]="'Antes - ' + caso.title"
               class="case-image"
             />
@@ -53,7 +53,7 @@
           <div class="image-container">
             <div class="image-label">Después</div>
             <img
-              [src]="caso.afterImage"
+              [src]="caso.afterImage | assets"
               [alt]="'Después - ' + caso.title"
               class="case-image"
             />
