@@ -38,12 +38,12 @@ export class MetodosPropiosComponent {
       images: [
         {
           id: '1-1',
-          src: 'assets/images/methods/1-limpieza-facial-glow-skin.jpg',
+          src: 'images/methods/1-limpieza-facial-glow-skin.jpg',
           alt: 'Limpieza facial 1',
         },
         {
           id: '1-2',
-          src: 'assets/images/methods/2-limpieza-facial-glow-skin.webp',
+          src: 'images/methods/2-limpieza-facial-glow-skin.webp',
           alt: 'Limpieza facial 2',
         },
       ],
@@ -58,12 +58,12 @@ export class MetodosPropiosComponent {
       images: [
         {
           id: '2-1',
-          src: 'assets/images/methods/1-metodo-anti-acne.webp',
+          src: 'images/methods/1-metodo-anti-acne.webp',
           alt: 'Anti-acné 1',
         },
         {
           id: '2-2',
-          src: 'assets/images/methods/2-metodo-anti-acne.webp',
+          src: 'images/methods/2-metodo-anti-acne.webp',
           alt: 'Anti-acné 2',
         },
       ],
@@ -78,12 +78,12 @@ export class MetodosPropiosComponent {
       images: [
         {
           id: '3-1',
-          src: 'assets/images/methods/1-metodo-regenerativo.webp',
+          src: 'images/methods/1-metodo-regenerativo.webp',
           alt: 'Regenerativo 1',
         },
         {
           id: '3-2',
-          src: 'assets/images/methods/2-metodo-regenerativo.webp',
+          src: 'images/methods/2-metodo-regenerativo.webp',
           alt: 'Regenerativo 2',
         },
       ],
@@ -98,12 +98,12 @@ export class MetodosPropiosComponent {
       images: [
         {
           id: '4-1',
-          src: 'assets/images/methods/1-metodo-anti-manchas.webp',
+          src: 'images/methods/1-metodo-anti-manchas.webp',
           alt: 'Anti-manchas 1',
         },
         {
           id: '4-2',
-          src: 'assets/images/methods/2-metodo-anti-manchas.JPEG',
+          src: 'images/methods/2-metodo-anti-manchas.JPEG',
           alt: 'Anti-manchas 2',
         },
       ],

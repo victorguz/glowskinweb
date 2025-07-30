@@ -139,7 +139,7 @@ cat src/main.server.ts
 # Analizar bundle
 ng build --stats-json
 # Verificar imágenes WebP
-ls src/assets/images/*.webp
+ls src/images/*.webp
 ```
 
 ## 📞 Contacto

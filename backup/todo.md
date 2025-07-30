@@ -101,7 +101,7 @@
 
   - Cambiar la imagen del logo en las reseñas de Google por la foto de Sofia
   - Asegurar que la imagen sea un círculo perfecto (border-radius: 50%)
-  - Usar la imagen: `assets/images/sofia/sofia nieto glow skin bq.png`
+  - Usar la imagen: `images/sofia/sofia nieto glow skin bq.png`
 
 - [ ] **Carrusel de Reviews - Indicadores**
   - Agregar dots (indicadores) al carrusel de testimonios

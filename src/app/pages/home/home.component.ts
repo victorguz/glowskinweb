@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 import {
   CarouselComponent,
   CarouselItem,
@@ -24,8 +25,6 @@ import { GoogleReviewsComponent } from '../../components/google-reviews/google-r
   imports: [
     CommonModule,
     CarouselComponent,
-    WhatsappWidgetComponent,
-    FooterComponent,
     AboutSectionComponent,
     CtaSectionComponent,
     MetodosPropiosComponent,
@@ -40,7 +39,7 @@ export class HomeComponent {
   heroItems: CarouselItem[] = [
     {
       id: '1',
-      image: 'assets/images/hero/1-glow-skin-hero-limpieza-facial.webp',
+      image: `${environment.assetsUrl}images/hero/1-glow-skin-hero-limpieza-facial.webp`,
       title: 'Glow Skin',
       description:
         'Recupera el Glow Natural de tu piel con nuestros tratamientos faciales en Barranquilla.',
@@ -50,7 +49,7 @@ export class HomeComponent {
     },
     {
       id: '2',
-      image: 'assets/images/hero/2-glow-skin-hero-tratamiento-facial.webp',
+      image: `${environment.assetsUrl}images/hero/2-glow-skin-hero-tratamiento-facial.webp`,
       title: 'Limpieza Facial',
       description:
         'Tratamientos profesionales de limpieza facial para una piel radiante.',
@@ -59,7 +58,7 @@ export class HomeComponent {
     },
     {
       id: '3',
-      image: 'assets/images/hero/3-glow-skin-hero-servicios-esteticos.webp',
+      image: `${environment.assetsUrl}images/hero/3-glow-skin-hero-servicios-esteticos.webp`,
       title: 'Tratamientos Especializados',
       description:
         'Microneedling, peeling químico y más para rejuvenecer tu piel.',
@@ -83,7 +82,7 @@ export class HomeComponent {
       id: '2',
       author: 'Wendy Ardila',
       date: '2025-06-02',
-      avatar: 'assets/images/misc/glow-skin-misc-icono-1.png',
+      avatar: `${environment.assetsUrl}images/misc/glow-skin-misc-icono-1.png`,
       rating: 5,
       content:
         'Recomiendo a Sofia a ojos cerrados. Llevo varios meses haciéndome la limpieza profunda y porcelanización...',
@@ -109,12 +108,12 @@ export class HomeComponent {
       images: [
         {
           id: '1-1',
-          src: 'assets/images/methods/1-limpieza-facial-glow-skin.jpg',
+          src: `${environment.assetsUrl}images/methods/1-limpieza-facial-glow-skin.jpg`,
           alt: 'Limpieza facial 1',
         },
         {
           id: '1-2',
-          src: 'assets/images/methods/2-limpieza-facial-glow-skin.webp',
+          src: `${environment.assetsUrl}images/methods/2-limpieza-facial-glow-skin.webp`,
           alt: 'Limpieza facial 2',
         },
       ],
@@ -129,12 +128,12 @@ export class HomeComponent {
       images: [
         {
           id: '2-1',
-          src: 'assets/images/methods/1-metodo-anti-acne.webp',
+          src: `${environment.assetsUrl}images/methods/1-metodo-anti-acne.webp`,
           alt: 'Anti-acné 1',
         },
         {
           id: '2-2',
-          src: 'assets/images/methods/2-metodo-anti-acne.webp',
+          src: `${environment.assetsUrl}images/methods/2-metodo-anti-acne.webp`,
           alt: 'Anti-acné 2',
         },
       ],
@@ -149,12 +148,12 @@ export class HomeComponent {
       images: [
         {
           id: '3-1',
-          src: 'assets/images/methods/1-metodo-regenerativo.webp',
+          src: `${environment.assetsUrl}images/methods/1-metodo-regenerativo.webp`,
           alt: 'Regenerativo 1',
         },
         {
           id: '3-2',
-          src: 'assets/images/methods/2-metodo-regenerativo.webp',
+          src: `${environment.assetsUrl}images/methods/2-metodo-regenerativo.webp`,
           alt: 'Regenerativo 2',
         },
       ],
@@ -169,12 +168,12 @@ export class HomeComponent {
       images: [
         {
           id: '4-1',
-          src: 'assets/images/methods/1-metodo-anti-manchas.webp',
+          src: `${environment.assetsUrl}images/methods/1-metodo-anti-manchas.webp`,
           alt: 'Anti-manchas 1',
         },
         {
           id: '4-2',
-          src: 'assets/images/methods/2-metodo-anti-manchas.JPEG',
+          src: `${environment.assetsUrl}images/methods/2-metodo-anti-manchas.jpg`,
           alt: 'Anti-manchas 2',
         },
       ],
@@ -187,44 +186,44 @@ export class HomeComponent {
   casosReales: CasoReal[] = [
     {
       id: '1',
-      image: 'assets/images/cases/caso-1-tratamiento-anti-manchas.webp',
+      image: `${environment.assetsUrl}images/cases/caso-1-tratamiento-anti-manchas.webp`,
       alt: 'Caso real 1 - Tratamiento anti-manchas',
     },
     {
       id: '2',
-      image: 'assets/images/cases/caso-2-tratamiento-anti-acne.webp',
+      image: `${environment.assetsUrl}images/cases/caso-2-tratamiento-anti-acne.webp`,
       alt: 'Caso real 2 - Tratamiento anti-acné',
     },
     {
       id: '3',
-      image: 'assets/images/cases/caso-3-tratamiento-revitalizacion.webp',
+      image: `${environment.assetsUrl}images/cases/caso-3-tratamiento-revitalizacion.webp`,
       alt: 'Caso real 3 - Tratamiento revitalización',
     },
     {
       id: '4',
-      image: 'assets/images/cases/caso-4-tratamiento-anti-acné.webp',
+      image: `${environment.assetsUrl}images/cases/caso-4-tratamiento-anti-acne.webp`,
       alt: 'Caso real 4 - Tratamiento anti-acné',
     },
     {
       id: '5',
-      image: 'assets/images/cases/caso-5-tratamiento-anti-acné2.webp',
+      image: `${environment.assetsUrl}images/cases/caso-5-tratamiento-anti-acne-2.webp`,
       alt: 'Caso real 5 - Tratamiento anti-acné',
     },
     {
       id: '6',
-      image: 'assets/images/cases/caso-6-revitalización.webp',
+      image: `${environment.assetsUrl}images/cases/caso-6-revitalizacion.webp`,
       alt: 'Caso real 6 - Revitalización',
     },
   ];
 
   // Instagram Feed Images
   instagramImages = [
-    'assets/images/instagram/glow-skin-instagram-resultado-1.webp',
-    'assets/images/instagram/glow-skin-instagram-resultado-2.webp',
-    'assets/images/instagram/glow-skin-instagram-resultado-3.webp',
-    'assets/images/instagram/glow-skin-instagram-resultado-4.webp',
-    'assets/images/instagram/glow-skin-instagram-resultado-5.webp',
-    'assets/images/instagram/glow-skin-instagram-resultado-6.webp',
+    `${environment.assetsUrl}images/instagram/glow-skin-instagram-resultado-1.webp`,
+    `${environment.assetsUrl}images/instagram/glow-skin-instagram-resultado-2.webp`,
+    `${environment.assetsUrl}images/instagram/glow-skin-instagram-resultado-3.webp`,
+    `${environment.assetsUrl}images/instagram/glow-skin-instagram-resultado-4.webp`,
+    `${environment.assetsUrl}images/instagram/glow-skin-instagram-resultado-5.webp`,
+    `${environment.assetsUrl}images/instagram/glow-skin-instagram-resultado-6.webp`,
   ];
 
   // About Section Data
@@ -238,7 +237,7 @@ export class HomeComponent {
       'Mi nombre es Sofia Nieto, especialista en Cosmetología y Cosmiatría, y estoy comprometida con un servicio basado en el cuidado, el conocimiento y el profesionalismo.',
     finalMessage:
       'En Glow Skin, cada tratamiento es personalizado y pensado para ayudarte a alcanzar la mejor versión de ti.',
-    imageSrc: 'assets/images/sofia/sofia nieto glow skin bq.png',
+    imageSrc: `${environment.assetsUrl}images/sofia/sofia-nieto-glow-skin-bq.png`,
     imageAlt: 'Retrato de Sofia Nieto, especialista de Glow Skin',
     reverseLayout: false,
   };
