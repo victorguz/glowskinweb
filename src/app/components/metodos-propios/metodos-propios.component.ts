@@ -103,7 +103,7 @@ export class MetodosPropiosComponent {
         },
         {
           id: '4-2',
-          src: 'images/methods/2-metodo-anti-manchas.JPEG',
+          src: 'images/methods/2-metodo-anti-manchas.jpg',
           alt: 'Anti-manchas 2',
         },
       ],

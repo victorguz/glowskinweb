@@ -78,7 +78,7 @@ export class CasosRealesComponent {
       title: 'Porcelanización Facial',
       description: 'Efecto glow inmediato y duradero',
       beforeImage: 'images/cases/caso-3-tratamiento-revitalizacion.webp',
-      afterImage: 'images/cases/caso-4-tratamiento-anti-acné.webp',
+      afterImage: 'images/cases/caso-4-tratamiento-anti-acne.webp',
       treatment: 'Porcelanización Facial',
       duration: '1 sesión',
       results: [
@@ -91,8 +91,8 @@ export class CasosRealesComponent {
       id: 6,
       title: 'Tratamiento Regenerativo',
       description: 'Reparación de cicatrices y textura',
-      beforeImage: 'images/cases/caso-5-tratamiento-anti-acné2.webp',
-      afterImage: 'images/cases/caso-6-revitalización.webp',
+      beforeImage: 'images/cases/caso-5-tratamiento-anti-acne-2.webp',
+      afterImage: 'images/cases/caso-6-revitalizacion.webp',
       treatment: 'Tratamiento Regenerative +',
       duration: '4 meses',
       results: [
