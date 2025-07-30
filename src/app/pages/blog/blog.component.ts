@@ -22,7 +22,7 @@ export class BlogComponent {
       title: 'Guía Completa: Cómo Preparar tu Piel para un Tratamiento Facial',
       excerpt:
         'Descubre los pasos esenciales para maximizar los resultados de tu tratamiento facial y mantener una piel saludable.',
-      image: 'assets/images/gallery/glow-skin-gallery-limpieza-facial-1.webp',
+      image: 'images/gallery/glow-skin-gallery-limpieza-facial-1.webp',
       category: 'Cuidado Facial',
       date: '15 de Enero, 2025',
       readTime: '5 min',
@@ -33,7 +33,7 @@ export class BlogComponent {
       title: 'Los Beneficios del Microneedling para el Rejuvenecimiento',
       excerpt:
         'Explora cómo esta técnica avanzada puede transformar tu piel y restaurar su juventud natural.',
-      image: 'assets/images/gallery/glow-skin-gallery-tratamiento-facial.webp',
+      image: 'images/gallery/glow-skin-gallery-tratamiento-facial.webp',
       category: 'Tratamientos',
       date: '12 de Enero, 2025',
       readTime: '7 min',
@@ -44,7 +44,7 @@ export class BlogComponent {
       title: 'Acné Adulto: Causas y Soluciones Efectivas',
       excerpt:
         'Entiende por qué aparece el acné en la edad adulta y cómo tratarlo de manera efectiva.',
-      image: 'assets/images/gallery/glow-skin-gallery-antes-despues-1.webp',
+      image: 'images/gallery/glow-skin-gallery-antes-despues-1.webp',
       category: 'Problemas de Piel',
       date: '10 de Enero, 2025',
       readTime: '6 min',
@@ -55,7 +55,7 @@ export class BlogComponent {
       title: 'Porcelanización Facial: El Nuevo Estándar de Belleza',
       excerpt:
         'Conoce este revolucionario tratamiento que está transformando la industria de la belleza.',
-      image: 'assets/images/gallery/glow-skin-gallery-resultados-facial.webp',
+      image: 'images/gallery/glow-skin-gallery-resultados-facial.webp',
       category: 'Tratamientos',
       date: '8 de Enero, 2025',
       readTime: '4 min',
@@ -66,7 +66,7 @@ export class BlogComponent {
       title: 'Rutina de Cuidado Facial: Mañana vs Noche',
       excerpt:
         'Aprende las diferencias clave entre tu rutina matutina y nocturna para una piel perfecta.',
-      image: 'assets/images/gallery/glow-skin-gallery-cuidado-facial.webp',
+      image: 'images/gallery/glow-skin-gallery-cuidado-facial.webp',
       category: 'Cuidado Facial',
       date: '5 de Enero, 2025',
       readTime: '8 min',
@@ -77,7 +77,7 @@ export class BlogComponent {
       title: 'Exosomas: La Revolución en Regeneración Celular',
       excerpt:
         'Descubre cómo los exosomas están revolucionando el campo de la regeneración celular.',
-      image: 'assets/images/gallery/glow-skin-gallery-extraccion-facial.webp',
+      image: 'images/gallery/glow-skin-gallery-extraccion-facial.webp',
       category: 'Tecnología',
       date: '3 de Enero, 2025',
       readTime: '9 min',
