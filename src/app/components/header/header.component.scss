@@ -32,22 +32,13 @@ $brand-secondary: #a5846e;
 
   // Logo
   .logo {
-    text-align: center;
     text-decoration: none;
-
-    .logo-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.875rem;
-      color: $brand-dark;
-      margin: 0;
-    }
-
-    .logo-subtitle {
-      font-family: "Montserrat", sans-serif;
-      font-size: 0.75rem;
-      color: $brand-brown;
-      letter-spacing: 0.1em;
-      margin: 0;
+    height: 60px;
+    width: auto;
+    display: flex;
+    img {
+      height: 100%;
+      width: auto;
     }
   }
 
