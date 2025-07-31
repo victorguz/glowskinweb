@@ -27,7 +27,10 @@
 
     <div class="benefits-grid">
       <div
-        *ngFor="let beneficio of beneficiosTratamientos"
+        *ngFor="
+          let beneficio of beneficiosTratamientos;
+          trackBy: trackByBeneficio
+        "
         class="benefit-card"
       >
         <div class="benefit-header">
@@ -45,11 +48,77 @@
           <p>{{ beneficio.descripcion }}</p>
         </div>
 
+        <!-- Carrusel individual para cada beneficio -->
+        <div class="benefit-carousel" *ngIf="beneficio.imagenes.length > 0">
+          <div class="carousel-wrapper-small">
+            <div
+              *ngFor="
+                let imagen of beneficio.imagenes;
+                let i = index;
+                trackBy: trackByImagen
+              "
+              class="carousel-item-small"
+              [class.active]="i === getCurrentImageIndex(beneficio)"
+            >
+              <img
+                [src]="imagen.src | assets"
+                [alt]="imagen.alt"
+                class="carousel-image-small"
+                loading="lazy"
+              />
+              <div class="carousel-overlay-small">
+                <div class="carousel-description-small">
+                  <p>{{ imagen.descripcion }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles del carrusel individual -->
+          <button
+            *ngIf="beneficio.imagenes.length > 1"
+            class="carousel-control-small prev"
+            (click)="previousCardImage(beneficio)"
+            type="button"
+          >
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </button>
+          <button
+            *ngIf="beneficio.imagenes.length > 1"
+            class="carousel-control-small next"
+            (click)="nextCardImage(beneficio)"
+            type="button"
+          >
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+
+          <!-- Indicadores del carrusel individual -->
+          <div
+            *ngIf="beneficio.imagenes.length > 1"
+            class="carousel-indicators-small"
+          >
+            <button
+              *ngFor="
+                let imagen of beneficio.imagenes;
+                let i = index;
+                trackBy: trackByImagen
+              "
+              class="indicator-small"
+              [class.active]="i === getCurrentImageIndex(beneficio)"
+              (click)="setCardImageIndex(beneficio, i)"
+              type="button"
+            ></button>
+          </div>
+        </div>
+
         <div class="benefit-keywords">
           <div class="keywords-label">Palabras clave relacionadas:</div>
           <div class="keywords-tags">
             <span
-              *ngFor="let keyword of beneficio.keywords"
+              *ngFor="
+                let keyword of beneficio.keywords;
+                trackBy: trackByKeyword
+              "
               class="keyword-tag"
             >
               {{ keyword }}
@@ -75,7 +144,11 @@
     <div class="carousel-container">
       <div class="carousel-wrapper">
         <div
-          *ngFor="let imagen of imagenesInstagram; let i = index"
+          *ngFor="
+            let imagen of imagenesInstagram;
+            let i = index;
+            trackBy: trackByImagenInstagram
+          "
           class="carousel-item"
           [class.active]="i === currentCarouselIndex"
           (click)="openModal(i)"
@@ -84,6 +157,7 @@
             [src]="imagen.src | assets"
             [alt]="imagen.alt"
             class="carousel-image"
+            loading="lazy"
           />
           <div class="carousel-overlay">
             <div class="carousel-description">
@@ -106,6 +180,7 @@
               ? imagenesInstagram.length - 1
               : currentCarouselIndex - 1
         "
+        type="button"
       >
         <ion-icon name="chevron-back-outline"></ion-icon>
       </button>
@@ -115,6 +190,7 @@
           currentCarouselIndex =
             (currentCarouselIndex + 1) % imagenesInstagram.length
         "
+        type="button"
       >
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </button>
@@ -122,10 +198,15 @@
       <!-- Indicadores -->
       <div class="carousel-indicators">
         <button
-          *ngFor="let imagen of imagenesInstagram; let i = index"
+          *ngFor="
+            let imagen of imagenesInstagram;
+            let i = index;
+            trackBy: trackByImagenInstagram
+          "
           class="indicator"
           [class.active]="i === currentCarouselIndex"
           (click)="currentCarouselIndex = i"
+          type="button"
         ></button>
       </div>
     </div>
@@ -165,7 +246,7 @@
 <!-- Modal de pantalla completa -->
 <div *ngIf="showModal" class="modal-overlay" (click)="onModalClick($event)">
   <div class="modal-content">
-    <button class="modal-close" (click)="closeModal()">
+    <button class="modal-close" (click)="closeModal()" type="button">
       <ion-icon name="close-outline"></ion-icon>
     </button>
 
@@ -181,10 +262,14 @@
     </div>
 
     <div class="modal-controls">
-      <button class="modal-control prev" (click)="previousImage()">
+      <button
+        class="modal-control prev"
+        (click)="previousImage()"
+        type="button"
+      >
         <ion-icon name="chevron-back-outline"></ion-icon>
       </button>
-      <button class="modal-control next" (click)="nextImage()">
+      <button class="modal-control next" (click)="nextImage()" type="button">
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </button>
     </div>

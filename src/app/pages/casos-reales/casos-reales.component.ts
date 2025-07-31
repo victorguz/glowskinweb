@@ -1,7 +1,29 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  OnInit,
+  OnDestroy,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
 import { SeoService } from '../../services/seo.service';
+
+// Interfaces
+interface ImagenBeneficio {
+  src: string;
+  alt: string;
+  descripcion: string;
+}
+
+interface BeneficioTratamiento {
+  problema: string;
+  solucion: string;
+  descripcion: string;
+  keywords: string[];
+  imagenes: ImagenBeneficio[];
+  currentImageIndex?: number;
+}
 
 @Component({
   selector: 'app-casos-reales',
@@ -10,13 +32,20 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './casos-reales.component.html',
   styleUrl: './casos-reales.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CasosRealesComponent implements OnInit {
+export class CasosRealesComponent implements OnInit, OnDestroy {
+  private autoRotateInterval?: number;
+
   constructor(private seoService: SeoService) {}
 
   ngOnInit() {
     this.seoService.setCasosRealesMeta();
     this.startAutoRotate();
+  }
+
+  ngOnDestroy() {
+    this.stopAutoRotate();
   }
 
   // Información de contacto
@@ -31,7 +60,7 @@ export class CasosRealesComponent implements OnInit {
   currentCarouselIndex = 0;
 
   // Beneficios de los tratamientos - Cómo impactan la vida de las pacientes
-  beneficiosTratamientos = [
+  beneficiosTratamientos: BeneficioTratamiento[] = [
     {
       problema: 'Piel deshidratada y sin vida',
       solucion: 'Piel más hidratada y radiante',
@@ -48,14 +77,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/16-revitalizacion-facial.jpg',
           alt: 'Revitalización facial - Antes y después',
-          descripcion: 'Transformación de piel deshidratada a radiante'
+          descripcion: 'Transformación de piel deshidratada a radiante',
         },
         {
           src: '/images/instagram/23-tratamiento-revitalizador.jpg',
           alt: 'Tratamiento revitalizador - Resultados',
-          descripcion: 'Hidratación profunda y restauración del brillo natural'
-        }
-      ]
+          descripcion: 'Hidratación profunda y restauración del brillo natural',
+        },
+      ],
     },
     {
       problema: 'Acné persistente y poros obstruidos',
@@ -73,19 +102,19 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/17-acne-puntos-negros-comedones.jpg',
           alt: 'Acné y puntos negros - Antes y después',
-          descripcion: 'Eliminación efectiva de acné y comedones'
+          descripcion: 'Eliminación efectiva de acné y comedones',
         },
         {
           src: '/images/instagram/15-limpieza-de-poros.jpg',
           alt: 'Limpieza de poros - Resultados',
-          descripcion: 'Poros limpios y libres de impurezas'
+          descripcion: 'Poros limpios y libres de impurezas',
         },
         {
           src: '/images/instagram/5-limpieza-poros.jpg',
           alt: 'Limpieza profunda de poros',
-          descripcion: 'Desincrustación completa de poros obstruidos'
-        }
-      ]
+          descripcion: 'Desincrustación completa de poros obstruidos',
+        },
+      ],
     },
     {
       problema: 'Acné severo y cicatrices',
@@ -103,14 +132,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/26-acne-severo-microneedling.jpg',
           alt: 'Acné severo - Microneedling - Antes y después',
-          descripcion: 'Tratamiento especializado para acné severo'
+          descripcion: 'Tratamiento especializado para acné severo',
         },
         {
           src: '/images/instagram/25-limpieza-facial-glow-skin.jpg',
           alt: 'Limpieza facial Glow Skin - Resultados',
-          descripcion: 'Mejora significativa del acné severo'
-        }
-      ]
+          descripcion: 'Mejora significativa del acné severo',
+        },
+      ],
     },
     {
       problema: 'Líneas de expresión y arrugas',
@@ -128,14 +157,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/12-rejuvenecimiento-extremo.jpg',
           alt: 'Rejuvenecimiento extremo - Antes y después',
-          descripcion: 'Reducción notable de líneas de expresión'
+          descripcion: 'Reducción notable de líneas de expresión',
         },
         {
           src: '/images/instagram/10-tratamiento-anti-edad.mp4',
           alt: 'Tratamiento anti-edad - Video',
-          descripcion: 'Proceso de rejuvenecimiento facial'
-        }
-      ]
+          descripcion: 'Proceso de rejuvenecimiento facial',
+        },
+      ],
     },
     {
       problema: 'Manchas y hiperpigmentación',
@@ -153,19 +182,19 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/28-tratamiento-anti-manchas.jpg',
           alt: 'Tratamiento anti-manchas - Antes y después',
-          descripcion: 'Eliminación efectiva de manchas faciales'
+          descripcion: 'Eliminación efectiva de manchas faciales',
         },
         {
           src: '/images/instagram/6-eliminar-manchas.jpg',
           alt: 'Eliminar manchas - Resultados',
-          descripcion: 'Tono de piel uniforme y luminoso'
+          descripcion: 'Tono de piel uniforme y luminoso',
         },
         {
           src: '/images/instagram/7-manchas-acne.jpg',
           alt: 'Manchas de acné - Antes y después',
-          descripcion: 'Despigmentación de manchas post-acné'
-        }
-      ]
+          descripcion: 'Despigmentación de manchas post-acné',
+        },
+      ],
     },
     {
       problema: 'Piel opaca y sin brillo',
@@ -183,14 +212,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/24-limpieza-facial-profunda-glow-skin.jpg',
           alt: 'Limpieza facial profunda Glow Skin - Antes y después',
-          descripcion: 'Transformación de piel opaca a radiante'
+          descripcion: 'Transformación de piel opaca a radiante',
         },
         {
           src: '/images/instagram/18-limpieza-facial-glow-skin.jpg',
           alt: 'Limpieza facial Glow Skin - Resultados',
-          descripcion: 'Efecto glow natural y duradero'
-        }
-      ]
+          descripcion: 'Efecto glow natural y duradero',
+        },
+      ],
     },
     {
       problema: 'Poros dilatados y textura irregular',
@@ -208,19 +237,19 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/4-puntos-negros-nariz.jpg',
           alt: 'Puntos negros nariz - Antes y después',
-          descripcion: 'Reducción visible del tamaño de poros'
+          descripcion: 'Reducción visible del tamaño de poros',
         },
         {
           src: '/images/instagram/3-puntos-negros-nariz.jpg',
           alt: 'Puntos negros nariz - Resultados',
-          descripcion: 'Textura suave y poros refinados'
+          descripcion: 'Textura suave y poros refinados',
         },
         {
           src: '/images/instagram/2-puntos-negros-nariz.jpg',
           alt: 'Limpieza de puntos negros',
-          descripcion: 'Eliminación completa de puntos negros'
-        }
-      ]
+          descripcion: 'Eliminación completa de puntos negros',
+        },
+      ],
     },
     {
       problema: 'Piel sensible e irritada',
@@ -238,14 +267,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/14-limpieza-facial-profunda.jpg',
           alt: 'Limpieza facial profunda - Antes y después',
-          descripcion: 'Tratamiento suave para piel sensible'
+          descripcion: 'Tratamiento suave para piel sensible',
         },
         {
           src: '/images/instagram/19-limpieza-facial-glow-skin-antes.jpg',
           alt: 'Limpieza facial Glow Skin - Antes',
-          descripcion: 'Calma la irritación y fortalece la barrera'
-        }
-      ]
+          descripcion: 'Calma la irritación y fortalece la barrera',
+        },
+      ],
     },
     {
       problema: 'Pérdida de firmeza y elasticidad',
@@ -263,14 +292,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/22-rejuvenecimiento-extremo-despues.mp4',
           alt: 'Rejuvenecimiento extremo - Después',
-          descripcion: 'Restauración de firmeza y elasticidad'
+          descripcion: 'Restauración de firmeza y elasticidad',
         },
         {
           src: '/images/instagram/21-rejuvenecimiento-extremo-antes.mp4',
           alt: 'Rejuvenecimiento extremo - Antes',
-          descripcion: 'Proceso de reafirmación facial'
-        }
-      ]
+          descripcion: 'Proceso de reafirmación facial',
+        },
+      ],
     },
     {
       problema: 'Estrés oxidativo y envejecimiento prematuro',
@@ -288,14 +317,14 @@ export class CasosRealesComponent implements OnInit {
         {
           src: '/images/instagram/13-antioxpeelpro.mp4',
           alt: 'Antioxpeelpro - Tratamiento antioxidante',
-          descripcion: 'Protección contra el estrés oxidativo'
+          descripcion: 'Protección contra el estrés oxidativo',
         },
         {
           src: '/images/instagram/27-reduccion-de-manchas.mp4',
           alt: 'Reducción de manchas - Video',
-          descripcion: 'Antioxidantes para rejuvenecimiento'
-        }
-      ]
+          descripcion: 'Antioxidantes para rejuvenecimiento',
+        },
+      ],
     },
   ];
 
@@ -305,38 +334,41 @@ export class CasosRealesComponent implements OnInit {
       id: 1,
       src: '/images/instagram/24-limpieza-facial-profunda-glow-skin.jpg',
       alt: 'Limpieza facial profunda Glow Skin - Antes y después',
-      descripcion: 'Transformación increíble después de nuestro tratamiento de limpieza profunda'
+      descripcion:
+        'Transformación increíble después de nuestro tratamiento de limpieza profunda',
     },
     {
       id: 2,
       src: '/images/instagram/26-acne-severo-microneedling.jpg',
       alt: 'Acné severo - Microneedling - Antes y después',
-      descripcion: 'Mejora significativa del acné después de 3 meses de tratamiento especializado'
+      descripcion:
+        'Mejora significativa del acné después de 3 meses de tratamiento especializado',
     },
     {
       id: 3,
       src: '/images/instagram/28-tratamiento-anti-manchas.jpg',
       alt: 'Tratamiento anti-manchas - Antes y después',
-      descripcion: 'Eliminación efectiva de manchas y unificación del tono de piel'
+      descripcion:
+        'Eliminación efectiva de manchas y unificación del tono de piel',
     },
     {
       id: 4,
       src: '/images/instagram/12-rejuvenecimiento-extremo.jpg',
       alt: 'Rejuvenecimiento extremo - Antes y después',
-      descripcion: 'Restauración de firmeza y reducción de líneas de expresión'
+      descripcion: 'Restauración de firmeza y reducción de líneas de expresión',
     },
     {
       id: 5,
       src: '/images/instagram/16-revitalizacion-facial.jpg',
       alt: 'Revitalización facial - Antes y después',
-      descripcion: 'Hidratación profunda y restauración del brillo natural'
+      descripcion: 'Hidratación profunda y restauración del brillo natural',
     },
     {
       id: 6,
       src: '/images/instagram/17-acne-puntos-negros-comedones.jpg',
       alt: 'Acné y puntos negros - Antes y después',
-      descripcion: 'Eliminación efectiva de acné y comedones'
-    }
+      descripcion: 'Eliminación efectiva de acné y comedones',
+    },
   ];
 
   // Métodos para el carrusel y modal
@@ -370,26 +402,62 @@ export class CasosRealesComponent implements OnInit {
   }
 
   startAutoRotate() {
-    setInterval(() => {
-      this.currentCarouselIndex =
-        (this.currentCarouselIndex + 1) % this.imagenesInstagram.length;
-    }, 4000); // Cambia cada 4 segundos
+    // Limpiar cualquier intervalo existente
+    this.stopAutoRotate();
+
+    // Solo iniciar si hay más de una imagen
+    if (this.imagenesInstagram.length > 1) {
+      this.autoRotateInterval = window.setInterval(() => {
+        this.currentCarouselIndex =
+          (this.currentCarouselIndex + 1) % this.imagenesInstagram.length;
+      }, 5000); // Aumentado a 5 segundos para mejor rendimiento
+    }
+  }
+
+  stopAutoRotate() {
+    if (this.autoRotateInterval) {
+      clearInterval(this.autoRotateInterval);
+      this.autoRotateInterval = undefined;
+    }
   }
 
   // Métodos para los carruseles individuales de las cards
-  getCurrentImageIndex(beneficio: any): number {
+  getCurrentImageIndex(beneficio: BeneficioTratamiento): number {
     return beneficio.currentImageIndex || 0;
   }
 
-  nextCardImage(beneficio: any) {
+  nextCardImage(beneficio: BeneficioTratamiento) {
     if (!beneficio.currentImageIndex) beneficio.currentImageIndex = 0;
-    beneficio.currentImageIndex = (beneficio.currentImageIndex + 1) % beneficio.imagenes.length;
+    beneficio.currentImageIndex =
+      (beneficio.currentImageIndex + 1) % beneficio.imagenes.length;
   }
 
-  previousCardImage(beneficio: any) {
+  previousCardImage(beneficio: BeneficioTratamiento) {
     if (!beneficio.currentImageIndex) beneficio.currentImageIndex = 0;
-    beneficio.currentImageIndex = beneficio.currentImageIndex === 0 
-      ? beneficio.imagenes.length - 1 
-      : beneficio.currentImageIndex - 1;
+    beneficio.currentImageIndex =
+      beneficio.currentImageIndex === 0
+        ? beneficio.imagenes.length - 1
+        : beneficio.currentImageIndex - 1;
+  }
+
+  setCardImageIndex(beneficio: BeneficioTratamiento, index: number) {
+    beneficio.currentImageIndex = index;
+  }
+
+  // TrackBy functions para optimizar rendimiento
+  trackByBeneficio(index: number, beneficio: BeneficioTratamiento): string {
+    return beneficio.problema;
+  }
+
+  trackByImagen(index: number, imagen: ImagenBeneficio): string {
+    return imagen.src;
+  }
+
+  trackByKeyword(index: number, keyword: string): string {
+    return keyword;
+  }
+
+  trackByImagenInstagram(index: number, imagen: any): number {
+    return imagen.id;
   }
 }
