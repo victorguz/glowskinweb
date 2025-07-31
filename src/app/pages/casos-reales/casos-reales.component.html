@@ -65,6 +65,7 @@
 
                 <!-- Botón personalizado de play/pause -->
                 <button
+                  *ngIf="beneficio.isExpanded"
                   class="video-play-button"
                   (click)="
                     onVideoClick($event, beneficio, i); $event.stopPropagation()
@@ -119,7 +120,7 @@
 
           <!-- Controles del carrusel individual -->
           <button
-            *ngIf="beneficio.imagenes.length > 0"
+            *ngIf="beneficio.imagenes.length > 0 && beneficio.isExpanded"
             class="carousel-control-small prev"
             (click)="previousCardImage(beneficio); $event.stopPropagation()"
             type="button"
@@ -127,7 +128,7 @@
             <ion-icon name="chevron-back-outline"></ion-icon>
           </button>
           <button
-            *ngIf="beneficio.imagenes.length > 0"
+            *ngIf="beneficio.imagenes.length > 0 && beneficio.isExpanded"
             class="carousel-control-small next"
             (click)="nextCardImage(beneficio); $event.stopPropagation()"
             type="button"
@@ -137,7 +138,7 @@
 
           <!-- Indicadores del carrusel individual -->
           <div
-            *ngIf="beneficio.imagenes.length > 0"
+            *ngIf="beneficio.imagenes.length > 0 && beneficio.isExpanded"
             class="carousel-indicators-small"
           >
             <button
