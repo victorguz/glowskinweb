@@ -1,6 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -16,7 +17,7 @@ export class FooterComponent {
   // Datos de contacto
   contactInfo = {
     phone: '+57 300 888 3486',
-    whatsapp: 'https://wa.link/h5481r',
+    whatsapp: environment.whatsappLink,
     email: 'info@glowskin.com',
     address: 'Barranquilla, Colombia',
     hours: 'Lun - Sáb: 9:00 AM - 6:00 PM',
@@ -46,7 +47,7 @@ export class FooterComponent {
     },
     {
       name: 'WhatsApp',
-      url: 'https://wa.link/h5481r',
+      url: environment.whatsappLink,
       icon: 'logo-whatsapp',
     },
   ];

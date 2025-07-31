@@ -32,6 +32,7 @@ export interface ServicesData {
     whatsapp: string;
     phone: string;
     email: string;
+    booking?: string;
   };
 }
 

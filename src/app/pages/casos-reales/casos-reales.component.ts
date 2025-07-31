@@ -63,6 +63,7 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
   contactInfo = {
     whatsapp: environment.whatsappLink,
     instagram: environment.instagramLink,
+    booking: environment.bookingLink,
   };
 
   // Beneficios de los tratamientos - Cómo impactan la vida de las pacientes

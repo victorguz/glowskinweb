@@ -6,6 +6,7 @@ import {
   ServiceCategory,
 } from '../../services/services.service';
 import { SeoService } from '../../services/seo.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-precios',
@@ -68,9 +69,10 @@ export class PreciosComponent implements OnInit {
   getContactInfo() {
     return (
       this.servicesData?.contactInfo || {
-        whatsapp: 'https://wa.link/h5481r',
+        whatsapp: environment.whatsappLink,
         phone: '+57 300 888 3486',
         email: 'info@glowskin.com',
+        booking: environment.bookingLink,
       }
     );
   }

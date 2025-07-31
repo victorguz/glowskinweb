@@ -8,6 +8,7 @@ import {
   Inject,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-whatsapp-widget',
@@ -23,6 +24,7 @@ export class WhatsappWidgetComponent implements OnInit, OnDestroy {
   @Input() showDelay: number = 15000; // 15 segundos
   @Input() autoCloseDelay: number = 5000; // 5 segundos
   @Input() maxWidth: string = '80dvw'; // 80% del viewport width en mobile
+  environment = environment;
 
   isVisible = false;
   isOpen = false;
