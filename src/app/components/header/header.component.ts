@@ -2,6 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
 })
 export class HeaderComponent implements OnDestroy {
   isMobileMenuOpen = false;
+  environment = environment;
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;

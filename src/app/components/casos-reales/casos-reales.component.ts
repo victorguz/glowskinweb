@@ -1,5 +1,6 @@
 import { Component, Input, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 export interface CasoReal {
   id: string;
@@ -24,6 +25,7 @@ export class CasosRealesComponent {
 
   selectedCaso: CasoReal | null = null;
   isFullscreen = false;
+  environment = environment;
 
   openFullscreen(caso: CasoReal) {
     this.selectedCaso = caso;

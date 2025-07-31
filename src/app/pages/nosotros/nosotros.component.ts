@@ -2,6 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
 import { SeoService } from '../../services/seo.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-nosotros',
@@ -20,6 +21,7 @@ export class NosotrosComponent implements OnInit {
 
   // Información de contacto
   contactInfo = {
-    whatsapp: 'https://wa.link/h5481r',
+    whatsapp: environment.whatsappLink,
+    booking: environment.bookingLink,
   };
 }
