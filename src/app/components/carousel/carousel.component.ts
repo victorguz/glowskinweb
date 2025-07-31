@@ -100,4 +100,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
   resumeAutoPlay() {
     this.startAutoPlay();
   }
+
+  // Método para detectar si un archivo es un video MP4
+  isVideoFile(src?: string): boolean {
+    return src ? src.toLowerCase().endsWith('.mp4') : false;
+  }
 }

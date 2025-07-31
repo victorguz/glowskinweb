@@ -74,7 +74,28 @@
           *ngFor="let item of items; let i = index"
           [class.active]="i === currentIndex"
         >
-          <img [src]="item.image" [alt]="item.title" class="gallery-image" />
+          <!-- Video para archivos MP4 -->
+          <video
+            *ngIf="isVideoFile(item.image)"
+            [src]="item.image"
+            class="gallery-image"
+            controls
+            preload="metadata"
+            loop
+            muted
+            playsinline
+          >
+            Tu navegador no soporta el elemento de video.
+          </video>
+
+          <!-- Imagen para archivos de imagen -->
+          <img
+            *ngIf="!isVideoFile(item.image)"
+            [src]="item.image"
+            [alt]="item.title"
+            class="gallery-image"
+          />
+
           <div *ngIf="item.title" class="gallery-caption">
             <h4>{{ item.title }}</h4>
             <p>{{ item.description }}</p>

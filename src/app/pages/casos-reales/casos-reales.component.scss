@@ -1,143 +1,130 @@
 // Hero Section
 .hero-section {
-  background: linear-gradient(135deg, #fbf6f3 0%, #ffffff 50%, #fbf6f3 100%);
-  padding: 4rem 0;
-}
+  background: #e4cdbf;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
 
-.hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
+  .hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #5c3a21;
+    margin-bottom: 1rem;
 
-.hero-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.25rem;
-  color: #7d5a44;
-  margin-bottom: 0.5rem;
-}
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
 
-.hero-highlight {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #5c3a21;
+  .hero-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+    color: #7d5a44;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-highlight {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #5c3a21;
+  }
 }
 
 // Benefits Section
 .benefits-section {
-  padding: 4rem 0;
   background-color: #fbf6f3;
+
+  .section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5c3a21;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .section-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #7d5a44;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
 }
 
-.section-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
-
-.section-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  color: #7d5a44;
-}
-
+// Benefits Grid
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
+// Benefit Card
 .benefit-card {
   background-color: #ffffff;
   border-radius: 1rem;
-  padding: 2rem;
   box-shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  height: fit-content;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(44, 24, 16, 0.15);
+  }
+
+  &.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1000;
+    border-radius: 0;
+    overflow-y: auto;
+    background: white;
+
+    .benefit-carousel {
+      height: 70vh;
+    }
+
+    .benefit-content {
+      max-height: none;
+      overflow: visible;
+      padding: 2rem;
+    }
+  }
 }
 
-.benefit-card:hover {
-  transform: translateY(-4px);
-}
-
-.benefit-header {
-  margin-bottom: 1.5rem;
-}
-
-.problem-section {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: #fff5f5;
-  border-left: 4px solid #f56565;
-  border-radius: 0.5rem;
-}
-
-.problem-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #c53030;
-  margin-bottom: 0.5rem;
-}
-
-.problem-text {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  color: #742a2a;
-  line-height: 1.5;
-}
-
-.solution-section {
-  padding: 1rem;
-  background-color: #f0fff4;
-  border-left: 4px solid #48bb78;
-  border-radius: 0.5rem;
-}
-
-.solution-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #2f855a;
-  margin-bottom: 0.5rem;
-}
-
-.solution-text {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  color: #22543d;
-  line-height: 1.5;
-}
-
-.benefit-description {
-  margin-bottom: 1.5rem;
-}
-
-.benefit-description p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  color: #5c3a21;
-  line-height: 1.6;
-}
-
-// Carrusel individual para cada beneficio
+// Benefit Carousel
 .benefit-carousel {
   position: relative;
-  margin-bottom: 1.5rem;
-  border-radius: 0.5rem;
+  height: 300px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.1);
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 }
 
 .carousel-wrapper-small {
   position: relative;
-  height: 200px;
+  width: 100%;
+  height: 100%;
 }
 
 .carousel-item-small {
@@ -148,16 +135,200 @@
   height: 100%;
   opacity: 0;
   transition: opacity 0.5s ease;
-}
+  pointer-events: none;
 
-.carousel-item-small.active {
-  opacity: 1;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.cta-image {
+    background: linear-gradient(135deg, #5c3a21 0%, #7d5a44 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    .cta-content {
+      text-align: center;
+      padding: 2rem;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .btn-instagram-small,
+      .btn-agendar-small {
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Montserrat", sans-serif;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      .btn-instagram-small {
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: white;
+
+        &:hover {
+          box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+        }
+      }
+
+      .btn-agendar-small {
+        background-color: #5c3a21;
+        color: white;
+
+        &:hover {
+          background-color: #4a2f1a;
+          box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+        }
+      }
+    }
+  }
 }
 
 .carousel-image-small {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  .benefit-card.expanded & {
+    object-fit: contain;
+    height: 70vh;
+  }
+}
+
+// Contenedor de video
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Estilos específicos para videos
+video.carousel-image-small {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  .benefit-card.expanded & {
+    object-fit: contain;
+    height: 70vh;
+    max-height: 70vh;
+  }
+}
+
+// Botón personalizado de play/pause
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 20;
+  color: white;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  // Iconos de play y pause
+  .play-icon,
+  .pause-icon {
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease;
+  }
+
+  // Transición suave para el botón completo
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  .play-icon {
+    opacity: 1;
+  }
+
+  .pause-icon {
+    opacity: 0;
+  }
+
+  // Cuando está reproduciéndose
+  &.playing {
+    .play-icon {
+      opacity: 0;
+    }
+
+    .pause-icon {
+      opacity: 1;
+    }
+  }
+
+  // Ocultar botón cuando el video está reproduciéndose
+  &.playing {
+    opacity: 0;
+    pointer-events: none;
+
+    &:hover {
+      opacity: 0.8;
+      pointer-events: auto;
+    }
+  }
+
+  // Mostrar botón cuando el video está pausado
+  &:not(.playing) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .carousel-overlay-small {
@@ -168,500 +339,397 @@
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
   padding: 1rem;
   color: white;
+
+  .carousel-description-small {
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      font-family: "Montserrat", sans-serif;
+    }
+  }
 }
 
-.carousel-description-small p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.8rem;
-  margin: 0;
-  line-height: 1.3;
-}
-
+// Carousel Controls
 .carousel-control-small {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   z-index: 10;
-  font-size: 0.8rem;
+
+  &:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev {
+    left: 10px;
+  }
+
+  &.next {
+    right: 10px;
+  }
+
+  ion-icon {
+    font-size: 1.2rem;
+    color: #5c3a21;
+  }
 }
 
-.carousel-control-small:hover {
-  background-color: white;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-control-small.prev {
-  left: 0.5rem;
-}
-
-.carousel-control-small.next {
-  right: 0.5rem;
-}
-
+// Carousel Indicators
 .carousel-indicators-small {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.25rem;
+  gap: 8px;
   z-index: 10;
 }
 
 .indicator-small {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
   border: none;
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: white;
+    transform: scale(1.2);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
 }
 
-.indicator-small.active {
-  background-color: white;
-  transform: scale(1.2);
+// Benefit Content
+.benefit-content {
+  padding: 2rem;
+  // max-height: 400px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  .benefit-card.expanded & {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.benefit-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.problem-section,
+.solution-section {
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5c3a21;
+    margin-bottom: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #7d5a44;
+    line-height: 1.4;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.problem-section {
+  padding: 1rem;
+  background-color: #fff5f5;
+  border-left: 4px solid #f56565;
+  border-radius: 0.5rem;
+
+  .problem-title {
+    color: #c53030 !important;
+  }
+
+  .problem-text {
+    color: #742a2a;
+  }
+}
+
+.solution-section {
+  padding: 1rem;
+  background-color: #f0fff4;
+  border-left: 4px solid #48bb78;
+  border-radius: 0.5rem;
+
+  .solution-title {
+    color: #2f855a !important;
+  }
+
+  .solution-text {
+    color: #22543d;
+  }
+}
+
+.benefit-description {
+  margin-bottom: 1.5rem;
+
+  p {
+    font-size: 0.95rem;
+    color: #5c3a21;
+    line-height: 1.6;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+  }
 }
 
 .benefit-keywords {
+  margin-bottom: 1.5rem;
   border-top: 1px solid #e2e8f0;
   padding-top: 1rem;
+
+  .keywords-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7d5a44;
+    margin-bottom: 0.75rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .keywords-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .keyword-tag {
+    background-color: #f7fafc;
+    color: #5c3a21;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    border: 1px solid #e2e8f0;
+    font-family: "Montserrat", sans-serif;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #edf2f7;
+      border-color: #cbd5e0;
+    }
+  }
 }
 
-.keywords-label {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #7d5a44;
-  margin-bottom: 0.75rem;
-}
-
-.keywords-tags {
+// Benefit Actions (solo en cards expandidas)
+.benefit-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.keyword-tag {
-  background-color: #f7fafc;
-  color: #5c3a21;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.8rem;
-  border: 1px solid #e2e8f0;
-  transition: all 0.2s ease;
-}
-
-.keyword-tag:hover {
-  background-color: #edf2f7;
-  border-color: #cbd5e0;
-}
-
-// Instagram Section
-.instagram-section {
-  padding: 4rem 0;
-  background-color: #ffffff;
-}
-
-.carousel-container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.15);
-}
-
-.carousel-wrapper {
-  position: relative;
-  height: 500px;
-}
-
-.carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  cursor: pointer;
-}
-
-.carousel-item.active {
-  opacity: 1;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carousel-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  padding: 2rem 1.5rem 1.5rem;
-  color: white;
-}
-
-.carousel-description p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-
-.view-more-hint {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 10;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+
+  // @media (max-width: 768px) {
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+
+  .btn-instagram-expanded,
+  .btn-agendar-expanded {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn-instagram-expanded {
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    color: white;
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+    }
+  }
+
+  .btn-agendar-expanded {
+    background-color: #5c3a21;
+    color: white;
+
+    &:hover {
+      background-color: #4a2f1a;
+      box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+    }
+  }
 }
 
-.carousel-control:hover {
-  background-color: white;
-  transform: translateY(-50%) scale(1.1);
+// Instagram CTA Section
+.instagram-cta-section {
+  background: linear-gradient(135deg, #fbf6f3 0%, #ffffff 50%, #fbf6f3 100%);
+  padding: 4rem 0;
 }
 
-.carousel-control.prev {
-  left: 1rem;
-}
-
-.carousel-control.next {
-  right: 1rem;
-}
-
-.carousel-indicators {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 10;
-}
-
-.indicator {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.indicator.active {
-  background-color: white;
-  transform: scale(1.2);
-}
-
-// Instagram CTA
 .instagram-cta {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-}
 
-.instagram-info {
-  margin-bottom: 2rem;
-}
+  .instagram-info {
+    margin-bottom: 2rem;
 
-.instagram-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
+    .instagram-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #5c3a21;
+      margin-bottom: 1rem;
 
-.instagram-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  color: #7d5a44;
-  line-height: 1.6;
-}
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
 
-.instagram-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    .instagram-subtitle {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1rem;
+      color: #7d5a44;
+      line-height: 1.6;
+    }
+  }
 
-.btn-instagram {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+  .instagram-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 
-.btn-instagram:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
-}
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
 
-.btn-agendar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #5c3a21;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+    .btn-instagram,
+    .btn-agendar {
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: "Montserrat", sans-serif;
 
-.btn-agendar:hover {
-  background-color: #4a2f1a;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
-}
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
 
-// Modal
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 2rem;
-}
+    .btn-instagram {
+      background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+      );
+      color: white;
 
-.modal-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  background-color: white;
-  border-radius: 1rem;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+      &:hover {
+        box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+      }
+    }
 
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.2s ease;
-}
+    .btn-agendar {
+      background-color: #5c3a21;
+      color: white;
 
-.modal-close:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-image-container {
-  position: relative;
-  flex: 1;
-  min-height: 400px;
-}
-
-.modal-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  max-height: 70vh;
-}
-
-.modal-description {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  color: white;
-  padding: 2rem 1.5rem 1rem;
-}
-
-.modal-description p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  margin: 0;
-}
-
-.modal-controls {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: #f8f9fa;
-}
-
-.modal-control {
-  background-color: #5c3a21;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.modal-control:hover {
-  background-color: #4a2f1a;
-  transform: scale(1.1);
-}
-
-.modal-actions {
-  display: flex;
-  gap: 1rem;
-  padding: 1.5rem;
-  justify-content: center;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
-}
-
-.btn-instagram-modal {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-instagram-modal:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
-}
-
-.btn-agendar-modal {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #5c3a21;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-agendar-modal:hover {
-  background-color: #4a2f1a;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+      &:hover {
+        background-color: #4a2f1a;
+        box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+      }
+    }
+  }
 }
 
 // CTA Section
 .cta-section {
-  padding: 4rem 0;
   background: linear-gradient(135deg, #fbf6f3 0%, #ffffff 50%, #fbf6f3 100%);
-}
+  padding: 4rem 0;
+  text-align: center;
 
-.cta-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
+  .cta-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5c3a21;
+    margin-bottom: 1rem;
 
-.cta-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  color: #7d5a44;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
 
-.btn-primary-custom {
-  background-color: #5c3a21;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
+  .cta-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #7d5a44;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.btn-primary-custom:hover {
-  background-color: #4a2f1a;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+  .btn-primary-custom {
+    background-color: #5c3a21;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+
+    &:hover {
+      background-color: #4a2f1a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+    }
+  }
 }
 
 // Responsive Design
@@ -682,51 +750,15 @@
     grid-template-columns: 1fr;
   }
 
-  .carousel-wrapper {
-    height: 350px;
-  }
-
-  .carousel-wrapper-small {
-    height: 150px;
-  }
-
   .instagram-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .modal-content {
-    max-width: 95vw;
-    max-height: 95vh;
-  }
-
-  .modal-actions {
     flex-direction: column;
     align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  .carousel-wrapper {
-    height: 300px;
-  }
-
-  .carousel-wrapper-small {
-    height: 120px;
-  }
-
-  .carousel-control {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
   .carousel-control-small {
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 0.7rem;
-  }
-
-  .modal-overlay {
-    padding: 1rem;
+    width: 35px;
+    height: 35px;
   }
 }

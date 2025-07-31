@@ -4,10 +4,16 @@ import {
   OnInit,
   OnDestroy,
   ChangeDetectionStrategy,
+  PLATFORM_ID,
+  Inject,
+  ViewChild,
+  ElementRef,
+  QueryList,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
 import { SeoService } from '../../services/seo.service';
+import { environment } from '../../../environments/environment';
 
 // Interfaces
 interface ImagenBeneficio {
@@ -23,6 +29,7 @@ interface BeneficioTratamiento {
   keywords: string[];
   imagenes: ImagenBeneficio[];
   currentImageIndex?: number;
+  isExpanded?: boolean;
 }
 
 @Component({
@@ -36,12 +43,16 @@ interface BeneficioTratamiento {
 })
 export class CasosRealesComponent implements OnInit, OnDestroy {
   private autoRotateInterval?: number;
+  @ViewChild('carouselContainer', { static: false })
+  carouselContainer?: ElementRef;
 
-  constructor(private seoService: SeoService) {}
+  constructor(
+    private seoService: SeoService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
     this.seoService.setCasosRealesMeta();
-    this.startAutoRotate();
   }
 
   ngOnDestroy() {
@@ -50,14 +61,9 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
 
   // Información de contacto
   contactInfo = {
-    whatsapp: 'https://wa.link/h5481r',
-    instagram: 'https://www.instagram.com/glowskinbarranquilla/',
+    whatsapp: environment.whatsappLink,
+    instagram: environment.instagramLink,
   };
-
-  // Modal state
-  showModal = false;
-  currentImageIndex = 0;
-  currentCarouselIndex = 0;
 
   // Beneficios de los tratamientos - Cómo impactan la vida de las pacientes
   beneficiosTratamientos: BeneficioTratamiento[] = [
@@ -75,12 +81,12 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/16-revitalizacion-facial.jpg',
+          src: 'images/instagram/16-revitalizacion-facial.jpg',
           alt: 'Revitalización facial - Antes y después',
           descripcion: 'Transformación de piel deshidratada a radiante',
         },
         {
-          src: '/images/instagram/23-tratamiento-revitalizador.jpg',
+          src: 'images/instagram/23-tratamiento-revitalizador.jpg',
           alt: 'Tratamiento revitalizador - Resultados',
           descripcion: 'Hidratación profunda y restauración del brillo natural',
         },
@@ -100,17 +106,17 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/17-acne-puntos-negros-comedones.jpg',
+          src: 'images/instagram/17-acne-puntos-negros-comedones.jpg',
           alt: 'Acné y puntos negros - Antes y después',
           descripcion: 'Eliminación efectiva de acné y comedones',
         },
         {
-          src: '/images/instagram/15-limpieza-de-poros.jpg',
+          src: 'images/instagram/15-limpieza-de-poros.jpg',
           alt: 'Limpieza de poros - Resultados',
           descripcion: 'Poros limpios y libres de impurezas',
         },
         {
-          src: '/images/instagram/5-limpieza-poros.jpg',
+          src: 'images/instagram/5-limpieza-poros.jpg',
           alt: 'Limpieza profunda de poros',
           descripcion: 'Desincrustación completa de poros obstruidos',
         },
@@ -130,12 +136,12 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/26-acne-severo-microneedling.jpg',
+          src: 'images/instagram/26-acne-severo-microneedling.jpg',
           alt: 'Acné severo - Microneedling - Antes y después',
           descripcion: 'Tratamiento especializado para acné severo',
         },
         {
-          src: '/images/instagram/25-limpieza-facial-glow-skin.jpg',
+          src: 'images/instagram/25-limpieza-facial-glow-skin.jpg',
           alt: 'Limpieza facial Glow Skin - Resultados',
           descripcion: 'Mejora significativa del acné severo',
         },
@@ -155,12 +161,12 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/12-rejuvenecimiento-extremo.jpg',
+          src: 'images/instagram/12-rejuvenecimiento-extremo.jpg',
           alt: 'Rejuvenecimiento extremo - Antes y después',
           descripcion: 'Reducción notable de líneas de expresión',
         },
         {
-          src: '/images/instagram/10-tratamiento-anti-edad.mp4',
+          src: 'images/instagram/10-tratamiento-anti-edad.mp4',
           alt: 'Tratamiento anti-edad - Video',
           descripcion: 'Proceso de rejuvenecimiento facial',
         },
@@ -180,17 +186,17 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/28-tratamiento-anti-manchas.jpg',
+          src: 'images/instagram/28-tratamiento-anti-manchas.jpg',
           alt: 'Tratamiento anti-manchas - Antes y después',
           descripcion: 'Eliminación efectiva de manchas faciales',
         },
         {
-          src: '/images/instagram/6-eliminar-manchas.jpg',
+          src: 'images/instagram/6-eliminar-manchas.jpg',
           alt: 'Eliminar manchas - Resultados',
           descripcion: 'Tono de piel uniforme y luminoso',
         },
         {
-          src: '/images/instagram/7-manchas-acne.jpg',
+          src: 'images/instagram/7-manchas-acne.jpg',
           alt: 'Manchas de acné - Antes y después',
           descripcion: 'Despigmentación de manchas post-acné',
         },
@@ -210,12 +216,12 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/24-limpieza-facial-profunda-glow-skin.jpg',
+          src: 'images/instagram/24-limpieza-facial-profunda-glow-skin.jpg',
           alt: 'Limpieza facial profunda Glow Skin - Antes y después',
           descripcion: 'Transformación de piel opaca a radiante',
         },
         {
-          src: '/images/instagram/18-limpieza-facial-glow-skin.jpg',
+          src: 'images/instagram/18-limpieza-facial-glow-skin.jpg',
           alt: 'Limpieza facial Glow Skin - Resultados',
           descripcion: 'Efecto glow natural y duradero',
         },
@@ -235,17 +241,17 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/4-puntos-negros-nariz.jpg',
+          src: 'images/instagram/4-puntos-negros-nariz.jpg',
           alt: 'Puntos negros nariz - Antes y después',
           descripcion: 'Reducción visible del tamaño de poros',
         },
         {
-          src: '/images/instagram/3-puntos-negros-nariz.jpg',
+          src: 'images/instagram/3-puntos-negros-nariz.jpg',
           alt: 'Puntos negros nariz - Resultados',
           descripcion: 'Textura suave y poros refinados',
         },
         {
-          src: '/images/instagram/2-puntos-negros-nariz.jpg',
+          src: 'images/instagram/2-puntos-negros-nariz.jpg',
           alt: 'Limpieza de puntos negros',
           descripcion: 'Eliminación completa de puntos negros',
         },
@@ -265,12 +271,12 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/14-limpieza-facial-profunda.jpg',
+          src: 'images/instagram/14-limpieza-facial-profunda.jpg',
           alt: 'Limpieza facial profunda - Antes y después',
           descripcion: 'Tratamiento suave para piel sensible',
         },
         {
-          src: '/images/instagram/19-limpieza-facial-glow-skin-antes.jpg',
+          src: 'images/instagram/19-limpieza-facial-glow-skin-antes.jpg',
           alt: 'Limpieza facial Glow Skin - Antes',
           descripcion: 'Calma la irritación y fortalece la barrera',
         },
@@ -290,12 +296,12 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/22-rejuvenecimiento-extremo-despues.mp4',
+          src: 'images/instagram/22-rejuvenecimiento-extremo-despues.mp4',
           alt: 'Rejuvenecimiento extremo - Después',
           descripcion: 'Restauración de firmeza y elasticidad',
         },
         {
-          src: '/images/instagram/21-rejuvenecimiento-extremo-antes.mp4',
+          src: 'images/instagram/21-rejuvenecimiento-extremo-antes.mp4',
           alt: 'Rejuvenecimiento extremo - Antes',
           descripcion: 'Proceso de reafirmación facial',
         },
@@ -315,111 +321,18 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
       ],
       imagenes: [
         {
-          src: '/images/instagram/13-antioxpeelpro.mp4',
+          src: 'images/instagram/13-antioxpeelpro.mp4',
           alt: 'Antioxpeelpro - Tratamiento antioxidante',
           descripcion: 'Protección contra el estrés oxidativo',
         },
         {
-          src: '/images/instagram/27-reduccion-de-manchas.mp4',
+          src: 'images/instagram/27-reduccion-de-manchas.mp4',
           alt: 'Reducción de manchas - Video',
           descripcion: 'Antioxidantes para rejuvenecimiento',
         },
       ],
     },
   ];
-
-  // Imágenes de Instagram para el carrusel principal
-  imagenesInstagram = [
-    {
-      id: 1,
-      src: '/images/instagram/24-limpieza-facial-profunda-glow-skin.jpg',
-      alt: 'Limpieza facial profunda Glow Skin - Antes y después',
-      descripcion:
-        'Transformación increíble después de nuestro tratamiento de limpieza profunda',
-    },
-    {
-      id: 2,
-      src: '/images/instagram/26-acne-severo-microneedling.jpg',
-      alt: 'Acné severo - Microneedling - Antes y después',
-      descripcion:
-        'Mejora significativa del acné después de 3 meses de tratamiento especializado',
-    },
-    {
-      id: 3,
-      src: '/images/instagram/28-tratamiento-anti-manchas.jpg',
-      alt: 'Tratamiento anti-manchas - Antes y después',
-      descripcion:
-        'Eliminación efectiva de manchas y unificación del tono de piel',
-    },
-    {
-      id: 4,
-      src: '/images/instagram/12-rejuvenecimiento-extremo.jpg',
-      alt: 'Rejuvenecimiento extremo - Antes y después',
-      descripcion: 'Restauración de firmeza y reducción de líneas de expresión',
-    },
-    {
-      id: 5,
-      src: '/images/instagram/16-revitalizacion-facial.jpg',
-      alt: 'Revitalización facial - Antes y después',
-      descripcion: 'Hidratación profunda y restauración del brillo natural',
-    },
-    {
-      id: 6,
-      src: '/images/instagram/17-acne-puntos-negros-comedones.jpg',
-      alt: 'Acné y puntos negros - Antes y después',
-      descripcion: 'Eliminación efectiva de acné y comedones',
-    },
-  ];
-
-  // Métodos para el carrusel y modal
-  openModal(index: number) {
-    this.currentImageIndex = index;
-    this.showModal = true;
-    document.body.style.overflow = 'hidden';
-  }
-
-  closeModal() {
-    this.showModal = false;
-    document.body.style.overflow = 'auto';
-  }
-
-  nextImage() {
-    this.currentImageIndex =
-      (this.currentImageIndex + 1) % this.imagenesInstagram.length;
-  }
-
-  previousImage() {
-    this.currentImageIndex =
-      this.currentImageIndex === 0
-        ? this.imagenesInstagram.length - 1
-        : this.currentImageIndex - 1;
-  }
-
-  onModalClick(event: Event) {
-    if (event.target === event.currentTarget) {
-      this.closeModal();
-    }
-  }
-
-  startAutoRotate() {
-    // Limpiar cualquier intervalo existente
-    this.stopAutoRotate();
-
-    // Solo iniciar si hay más de una imagen
-    if (this.imagenesInstagram.length > 1) {
-      this.autoRotateInterval = window.setInterval(() => {
-        this.currentCarouselIndex =
-          (this.currentCarouselIndex + 1) % this.imagenesInstagram.length;
-      }, 5000); // Aumentado a 5 segundos para mejor rendimiento
-    }
-  }
-
-  stopAutoRotate() {
-    if (this.autoRotateInterval) {
-      clearInterval(this.autoRotateInterval);
-      this.autoRotateInterval = undefined;
-    }
-  }
 
   // Métodos para los carruseles individuales de las cards
   getCurrentImageIndex(beneficio: BeneficioTratamiento): number {
@@ -428,20 +341,153 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
 
   nextCardImage(beneficio: BeneficioTratamiento) {
     if (!beneficio.currentImageIndex) beneficio.currentImageIndex = 0;
+    const totalImages = beneficio.imagenes.length + 1; // +1 para la imagen CTA
     beneficio.currentImageIndex =
-      (beneficio.currentImageIndex + 1) % beneficio.imagenes.length;
+      (beneficio.currentImageIndex + 1) % totalImages;
+
+    // Auto-play video if the new slide contains a video
+    this.autoPlayVideoOnSlideChange(beneficio);
   }
 
   previousCardImage(beneficio: BeneficioTratamiento) {
     if (!beneficio.currentImageIndex) beneficio.currentImageIndex = 0;
+    const totalImages = beneficio.imagenes.length + 1; // +1 para la imagen CTA
     beneficio.currentImageIndex =
       beneficio.currentImageIndex === 0
-        ? beneficio.imagenes.length - 1
+        ? totalImages - 1
         : beneficio.currentImageIndex - 1;
+
+    // Auto-play video if the new slide contains a video
+    this.autoPlayVideoOnSlideChange(beneficio);
   }
 
   setCardImageIndex(beneficio: BeneficioTratamiento, index: number) {
     beneficio.currentImageIndex = index;
+
+    // Auto-play video if the new slide contains a video
+    this.autoPlayVideoOnSlideChange(beneficio);
+  }
+
+  // Método para manejar click en video (play/pause)
+  onVideoClick(
+    event: Event,
+    beneficio: BeneficioTratamiento,
+    imageIndex: number
+  ) {
+    // Determinar si el click fue en el video o en el botón
+    const target = event.target as HTMLElement;
+    let video: HTMLVideoElement;
+
+    if (target.tagName === 'VIDEO') {
+      video = target as HTMLVideoElement;
+    } else {
+      // Si fue click en el botón, buscar el video en el mismo contenedor
+      const videoContainer = target.closest('.video-container');
+      video = videoContainer?.querySelector('video') as HTMLVideoElement;
+    }
+
+    if (video) {
+      if (video.paused) {
+        video.play().catch((error) => {
+          console.log('Play prevented by browser:', error);
+        });
+      } else {
+        video.pause();
+      }
+    }
+  }
+
+  // Método para auto-reproducir video cuando cambia el slide
+  autoPlayVideoOnSlideChange(beneficio: BeneficioTratamiento) {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    setTimeout(() => {
+      const currentImage =
+        beneficio.imagenes[this.getCurrentImageIndex(beneficio)];
+      if (currentImage && this.isVideoFile(currentImage.src)) {
+        // Buscar el video en el carrusel actual
+        const carouselElement = this.carouselContainer?.nativeElement;
+        if (carouselElement) {
+          const activeSlide = carouselElement.querySelector(
+            '.carousel-item-small.active'
+          );
+          const videoElement = activeSlide?.querySelector(
+            'video'
+          ) as HTMLVideoElement;
+
+          if (videoElement) {
+            // Pausar todos los otros videos primero
+            this.pauseAllVideos();
+
+            // Intentar reproducir el video actual
+            videoElement.play().catch((error) => {
+              console.log('Auto-play prevented by browser:', error);
+            });
+          }
+        }
+      }
+    }, 150); // Pequeño delay para asegurar que el DOM se ha actualizado
+  }
+
+  // Método para pausar todos los videos
+  pauseAllVideos() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    // Pausar todos los videos en la página
+    const allVideos = document.querySelectorAll(
+      'video'
+    ) as NodeListOf<HTMLVideoElement>;
+    allVideos?.forEach((video) => {
+      video.pause();
+    });
+  }
+
+  // Métodos para expandir/contraer cards
+  expandCard(beneficio: BeneficioTratamiento) {
+    // Pausar todos los videos antes de expandir
+    this.pauseAllVideos();
+
+    // Cerrar todas las otras cards
+    this.beneficiosTratamientos.forEach((b) => {
+      if (b !== beneficio) {
+        b.isExpanded = false;
+      }
+    });
+
+    // Expandir la card seleccionada
+    beneficio.isExpanded = !beneficio.isExpanded;
+
+    // Iniciar auto-rotate si está expandida
+    if (beneficio.isExpanded) {
+      this.startAutoRotate(beneficio);
+    } else {
+      this.stopAutoRotate();
+    }
+  }
+
+  startAutoRotate(beneficio: BeneficioTratamiento) {
+    this.stopAutoRotate();
+
+    if (isPlatformBrowser(this.platformId) && beneficio.imagenes.length > 1) {
+      this.autoRotateInterval = window.setInterval(() => {
+        this.nextCardImage(beneficio);
+      }, 4000);
+    }
+  }
+
+  // Método para manejar cuando termina un video
+  onVideoEnded(event: Event, beneficio: BeneficioTratamiento) {
+    // Si el auto-rotate está activo, continuar al siguiente slide
+    if (this.autoRotateInterval) {
+      this.nextCardImage(beneficio);
+    }
+  }
+
+  stopAutoRotate() {
+    if (isPlatformBrowser(this.platformId) && this.autoRotateInterval) {
+      clearInterval(this.autoRotateInterval);
+      this.autoRotateInterval = undefined;
+    }
   }
 
   // TrackBy functions para optimizar rendimiento
@@ -457,7 +503,8 @@ export class CasosRealesComponent implements OnInit, OnDestroy {
     return keyword;
   }
 
-  trackByImagenInstagram(index: number, imagen: any): number {
-    return imagen.id;
+  // Método para detectar si un archivo es un video MP4
+  isVideoFile(src: string): boolean {
+    return src.toLowerCase().endsWith('.mp4');
   }
 }
