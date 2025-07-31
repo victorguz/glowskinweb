@@ -84,6 +84,63 @@
 
       gtag("config", "G-JJRMLLSZTF");
     </script>
+
+    <!-- Script para hacer scroll al inicio cuando cambie la URL -->
+    <script>
+      // Función para hacer scroll al inicio de la página
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Función para hacer scroll instantáneo (sin animación)
+      function scrollToTopInstant() {
+        window.scrollTo(0, 0);
+      }
+
+      // Observar cambios en la URL usando History API
+      let currentUrl = window.location.href;
+
+      // Función para verificar si la URL cambió
+      function checkUrlChange() {
+        if (window.location.href !== currentUrl) {
+          currentUrl = window.location.href;
+          // Esperar un poco para que Angular termine de renderizar
+          setTimeout(scrollToTop, 150);
+        }
+      }
+
+      // Verificar cambios de URL cada 200ms (más eficiente)
+      setInterval(checkUrlChange, 200);
+
+      // Hacer scroll al inicio cuando se carga la página
+      window.addEventListener("load", scrollToTopInstant);
+
+      // Hacer scroll al inicio cuando se hace clic en enlaces internos
+      document.addEventListener("click", function (event) {
+        const target = event.target.closest("a");
+        if (
+          target &&
+          target.getAttribute("href") &&
+          target.getAttribute("href").startsWith("/")
+        ) {
+          setTimeout(scrollToTop, 150);
+        }
+      });
+
+      // También manejar navegación con botones del navegador
+      window.addEventListener("popstate", function () {
+        setTimeout(scrollToTop, 150);
+      });
+
+      // Hacer scroll al inicio cuando se presiona F5 o Ctrl+R
+      window.addEventListener("beforeunload", function () {
+        scrollToTopInstant();
+      });
+    </script>
   </head>
   <body>
     <app-root></app-root>
