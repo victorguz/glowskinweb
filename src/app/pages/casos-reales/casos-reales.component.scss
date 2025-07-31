@@ -1,295 +1,735 @@
 // Hero Section
 .hero-section {
+  background: #e4cdbf;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+
+  .hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #5c3a21;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+    color: #7d5a44;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-highlight {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #5c3a21;
+  }
+}
+
+// Benefits Section
+.benefits-section {
+  background-color: #fbf6f3;
+
+  .section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5c3a21;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .section-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #7d5a44;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+}
+
+// Benefits Grid
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+// Benefit Card
+.benefit-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  height: fit-content;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(44, 24, 16, 0.15);
+  }
+
+  &.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1000;
+    border-radius: 0;
+    overflow-y: auto;
+    background: white;
+
+    .benefit-carousel {
+      height: 70vh;
+    }
+
+    .benefit-content {
+      max-height: none;
+      overflow: visible;
+      padding: 2rem;
+    }
+  }
+}
+
+// Benefit Carousel
+.benefit-carousel {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+}
+
+.carousel-wrapper-small {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item-small {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.cta-image {
+    background: linear-gradient(135deg, #5c3a21 0%, #7d5a44 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    .cta-content {
+      text-align: center;
+      padding: 2rem;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .btn-instagram-small,
+      .btn-agendar-small {
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Montserrat", sans-serif;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      .btn-instagram-small {
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: white;
+
+        &:hover {
+          box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+        }
+      }
+
+      .btn-agendar-small {
+        background-color: #5c3a21;
+        color: white;
+
+        &:hover {
+          background-color: #4a2f1a;
+          box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+        }
+      }
+    }
+  }
+}
+
+.carousel-image-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  .benefit-card.expanded & {
+    object-fit: contain;
+    height: 70vh;
+  }
+}
+
+// Contenedor de video
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Estilos específicos para videos
+video.carousel-image-small {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  .benefit-card.expanded & {
+    object-fit: contain;
+    height: 70vh;
+    max-height: 70vh;
+  }
+}
+
+// Botón personalizado de play/pause
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 20;
+  color: white;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  // Iconos de play y pause
+  .play-icon,
+  .pause-icon {
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease;
+  }
+
+  // Transición suave para el botón completo
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  .play-icon {
+    opacity: 1;
+  }
+
+  .pause-icon {
+    opacity: 0;
+  }
+
+  // Cuando está reproduciéndose
+  &.playing {
+    .play-icon {
+      opacity: 0;
+    }
+
+    .pause-icon {
+      opacity: 1;
+    }
+  }
+
+  // Ocultar botón cuando el video está reproduciéndose
+  &.playing {
+    opacity: 0;
+    pointer-events: none;
+
+    &:hover {
+      opacity: 0.8;
+      pointer-events: auto;
+    }
+  }
+
+  // Mostrar botón cuando el video está pausado
+  &:not(.playing) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.carousel-overlay-small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 1rem;
+  color: white;
+
+  .carousel-description-small {
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+}
+
+// Carousel Controls
+.carousel-control-small {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev {
+    left: 10px;
+  }
+
+  &.next {
+    right: 10px;
+  }
+
+  ion-icon {
+    font-size: 1.2rem;
+    color: #5c3a21;
+  }
+}
+
+// Carousel Indicators
+.carousel-indicators-small {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator-small {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: white;
+    transform: scale(1.2);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+// Benefit Content
+.benefit-content {
+  padding: 2rem;
+  // max-height: 400px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  .benefit-card.expanded & {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.benefit-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.problem-section,
+.solution-section {
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5c3a21;
+    margin-bottom: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #7d5a44;
+    line-height: 1.4;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.problem-section {
+  padding: 1rem;
+  background-color: #fff5f5;
+  border-left: 4px solid #f56565;
+  border-radius: 0.5rem;
+
+  .problem-title {
+    color: #c53030 !important;
+  }
+
+  .problem-text {
+    color: #742a2a;
+  }
+}
+
+.solution-section {
+  padding: 1rem;
+  background-color: #f0fff4;
+  border-left: 4px solid #48bb78;
+  border-radius: 0.5rem;
+
+  .solution-title {
+    color: #2f855a !important;
+  }
+
+  .solution-text {
+    color: #22543d;
+  }
+}
+
+.benefit-description {
+  margin-bottom: 1.5rem;
+
+  p {
+    font-size: 0.95rem;
+    color: #5c3a21;
+    line-height: 1.6;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.benefit-keywords {
+  margin-bottom: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+
+  .keywords-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7d5a44;
+    margin-bottom: 0.75rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .keywords-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .keyword-tag {
+    background-color: #f7fafc;
+    color: #5c3a21;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    border: 1px solid #e2e8f0;
+    font-family: "Montserrat", sans-serif;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #edf2f7;
+      border-color: #cbd5e0;
+    }
+  }
+}
+
+// Benefit Actions (solo en cards expandidas)
+.benefit-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+
+  // @media (max-width: 768px) {
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+
+  .btn-instagram-expanded,
+  .btn-agendar-expanded {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn-instagram-expanded {
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    color: white;
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+    }
+  }
+
+  .btn-agendar-expanded {
+    background-color: #5c3a21;
+    color: white;
+
+    &:hover {
+      background-color: #4a2f1a;
+      box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+    }
+  }
+}
+
+// Instagram CTA Section
+.instagram-cta-section {
   background: linear-gradient(135deg, #fbf6f3 0%, #ffffff 50%, #fbf6f3 100%);
   padding: 4rem 0;
 }
 
-.hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.25rem;
-  color: #7d5a44;
-  margin-bottom: 0.5rem;
-}
-
-.hero-highlight {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #5c3a21;
-}
-
-// Stats Section
-.stats-section {
-  padding: 4rem 0;
-  background-color: #ffffff;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.stat-item {
+.instagram-cta {
   text-align: center;
-  padding: 2rem;
-  background-color: #fbf6f3;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.08);
-}
-
-.stat-number {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 0.5rem;
-}
-
-.stat-description {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  color: #7d5a44;
-  line-height: 1.4;
-}
-
-// Cases Section
-.cases-section {
-  padding: 4rem 0;
-  background-color: #fbf6f3;
-}
-
-.section-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
-
-.section-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  color: #7d5a44;
-}
-
-.cases-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
-}
 
-.case-card {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
-  transition: transform 0.3s ease;
-}
+  .instagram-info {
+    margin-bottom: 2rem;
 
-.case-card:hover {
-  transform: translateY(-4px);
-}
+    .instagram-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #5c3a21;
+      margin-bottom: 1rem;
 
-.case-header {
-  padding: 2rem 2rem 1rem;
-}
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
 
-.case-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 0.5rem;
-}
+    .instagram-subtitle {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1rem;
+      color: #7d5a44;
+      line-height: 1.6;
+    }
+  }
 
-.case-description {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  color: #7d5a44;
-  line-height: 1.5;
-}
+  .instagram-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 
-.case-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
 
-.image-container {
-  position: relative;
-}
+    .btn-instagram,
+    .btn-agendar {
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: "Montserrat", sans-serif;
 
-.image-label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: rgba(44, 24, 16, 0.8);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 10;
-}
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
 
-.case-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
+    .btn-instagram {
+      background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+      );
+      color: white;
 
-.case-details {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #f0f0f0;
-}
+      &:hover {
+        box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+      }
+    }
 
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  color: #5c3a21;
-}
+    .btn-agendar {
+      background-color: #5c3a21;
+      color: white;
 
-.detail-item ion-icon {
-  color: #7d5a44;
-  font-size: 1.1rem;
-}
-
-.case-results {
-  padding: 1.5rem 2rem;
-}
-
-.results-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
-
-.results-list {
-  list-style: none;
-  padding: 0;
-}
-
-.result-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  color: #5c3a21;
-}
-
-.result-item ion-icon {
-  color: #7d5a44;
-  font-size: 1rem;
-}
-
-// Testimonials Section
-.testimonials-section {
-  padding: 4rem 0;
-  background-color: #ffffff;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.testimonial-card {
-  background-color: #fbf6f3;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.08);
-}
-
-.testimonial-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.patient-info {
-  flex: 1;
-}
-
-.patient-name {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #5c3a21;
-  margin-bottom: 0.25rem;
-}
-
-.patient-treatment {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.85rem;
-  color: #7d5a44;
-}
-
-.rating {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.star-icon {
-  color: #ffd700;
-  font-size: 1.1rem;
-}
-
-.testimonial-text {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  color: #5c3a21;
-  line-height: 1.6;
-  font-style: italic;
+      &:hover {
+        background-color: #4a2f1a;
+        box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+      }
+    }
+  }
 }
 
 // CTA Section
 .cta-section {
-  padding: 4rem 0;
   background: linear-gradient(135deg, #fbf6f3 0%, #ffffff 50%, #fbf6f3 100%);
-}
+  padding: 4rem 0;
+  text-align: center;
 
-.cta-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
+  .cta-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5c3a21;
+    margin-bottom: 1rem;
 
-.cta-subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  color: #7d5a44;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .cta-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #7d5a44;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary-custom {
+    background-color: #5c3a21;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+
+    &:hover {
+      background-color: #4a2f1a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+    }
+  }
 }
 
 // Responsive Design
@@ -306,31 +746,19 @@
     font-size: 2rem;
   }
 
-  .cases-grid {
+  .benefits-grid {
     grid-template-columns: 1fr;
   }
 
-  .case-images {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .instagram-actions {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .case-header,
-  .case-details,
-  .case-results {
-    padding: 1rem;
+  .carousel-control-small {
+    width: 35px;
+    height: 35px;
   }
 }

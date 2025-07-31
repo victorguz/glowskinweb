@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CtaSectionComponent {
   @Input() title: string = '¿Qué esperas para devolverle el Glow a tu Piel?';
-  @Input() buttonText: string = 'Agenda tu cita hoy';
+  @Input() buttonText: string = 'Agendar ahora';
   @Input() buttonUrl: string = 'https://wa.link/h5481r';
   @Input() buttonStyle: 'primary' | 'secondary' = 'primary';
   @Input() showUnderline: boolean = true;

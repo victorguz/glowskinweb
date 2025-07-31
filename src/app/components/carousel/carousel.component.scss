@@ -224,6 +224,12 @@ $carousel-overlay-color: rgba(102, 55, 29, 0.4);
     border-radius: 0.5rem;
   }
 
+  // Estilos específicos para videos en el carousel
+  video.gallery-image {
+    background-color: #000;
+    object-fit: cover;
+  }
+
   .gallery-caption {
     margin-top: 0.5rem;
     text-align: center;

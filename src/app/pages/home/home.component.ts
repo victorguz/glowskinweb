@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
       title: 'Glow Skin',
       description:
         'Recupera el Glow Natural de tu piel con nuestros tratamientos faciales en Barranquilla.',
-      ctaText: 'Agenda una cita',
+      ctaText: 'Agendar ahora',
       ctaUrl: 'https://wa.link/h5481r',
       subtitle: 'Luce una piel',
     },
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
       title: 'Limpieza Facial',
       description:
         'Tratamientos profesionales de limpieza facial para una piel radiante.',
-      ctaText: 'Agenda una cita',
+      ctaText: 'Agendar ahora',
       ctaUrl: 'https://wa.link/h5481r',
     },
     {
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
       title: 'Tratamientos Especializados',
       description:
         'Microneedling, peeling químico y más para rejuvenecer tu piel.',
-      ctaText: 'Agenda una cita',
+      ctaText: 'Agendar ahora',
       ctaUrl: 'https://wa.link/h5481r',
     },
   ];
@@ -252,7 +252,7 @@ export class HomeComponent implements OnInit {
   // CTA Section Data
   ctaData = {
     title: '¿Qué esperas para devolverle el Glow a tu Piel?',
-    buttonText: 'Agenda tu cita hoy',
+    buttonText: 'Agendar ahora',
     buttonUrl: 'https://wa.link/h5481r',
     buttonStyle: 'primary' as 'primary' | 'secondary',
     showUnderline: true,

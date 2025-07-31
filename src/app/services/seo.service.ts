@@ -124,7 +124,7 @@ export class SeoService {
     this.updateMetaTags({
       title: 'Agendar Cita - Glow Skin Barranquilla | Reserva tu Tratamiento',
       description:
-        'Agenda tu cita para tratamientos faciales en Glow Skin Barranquilla. Reserva online con Sofia Nieto.',
+        'Agendar ahora para tratamientos faciales en Glow Skin Barranquilla. Reserva online con Sofia Nieto.',
       keywords:
         'agendar cita estética facial, reserva tratamientos, cita sofia nieto',
       url: 'https://glowskin.com.co/agendar',
