@@ -191,7 +191,7 @@ customHeaders:
    // JSON-LD para Google
    this.schemaService.addOrganization({
      name: "GlowSkin",
-     url: "https://glowskin.com",
+     url: "https://glowskinbq.com",
    });
    ```
 
