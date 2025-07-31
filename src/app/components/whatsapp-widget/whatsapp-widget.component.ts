@@ -18,7 +18,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WhatsappWidgetComponent implements OnInit, OnDestroy {
-  @Input() phoneNumber: string = '573001234567';
+  @Input() phoneNumber: string = '573008883486';
   @Input() message: string = 'Hola! Me gustaría agendar una cita en Glow Skin';
   @Input() showDelay: number = 15000; // 15 segundos
   @Input() autoCloseDelay: number = 5000; // 5 segundos

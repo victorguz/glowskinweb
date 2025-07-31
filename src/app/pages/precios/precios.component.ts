@@ -5,6 +5,7 @@ import {
   ServicesData,
   ServiceCategory,
 } from '../../services/services.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-precios',
@@ -19,9 +20,13 @@ export class PreciosComponent implements OnInit {
   loading = true;
   error = false;
 
-  constructor(private servicesService: ServicesService) {}
+  constructor(
+    private servicesService: ServicesService,
+    private seoService: SeoService
+  ) {}
 
   ngOnInit(): void {
+    this.seoService.setPreciosMeta();
     this.loadServices();
   }
 
@@ -64,7 +69,7 @@ export class PreciosComponent implements OnInit {
     return (
       this.servicesData?.contactInfo || {
         whatsapp: 'https://wa.link/h5481r',
-        phone: '+57 300 123 4567',
+        phone: '+57 300 888 3486',
         email: 'info@glowskin.com',
       }
     );

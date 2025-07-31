@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environments/environment';
+import { SeoService } from '../../services/seo.service';
 import {
   CarouselComponent,
   CarouselItem,
@@ -34,7 +35,13 @@ import { GoogleReviewsComponent } from '../../components/google-reviews/google-r
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private seoService: SeoService) {}
+
+  ngOnInit() {
+    this.seoService.setHomeMeta();
+  }
+
   // Hero Carousel Items
   heroItems: CarouselItem[] = [
     {

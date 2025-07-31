@@ -15,7 +15,7 @@ export class FooterComponent {
 
   // Datos de contacto
   contactInfo = {
-    phone: '+57 300 123 4567',
+    phone: '+57 300 888 3486',
     whatsapp: 'https://wa.link/h5481r',
     email: 'info@glowskin.com',
     address: 'Barranquilla, Colombia',

@@ -120,49 +120,6 @@
     - Open Graph tags
     - Twitter Card tags
 
-### **Fase 2: Páginas Separadas**
-
-#### **INSTRUCCIONES DE EJECUCIÓN:**
-
-1. **Crear páginas independientes**
-2. **Implementar routing**
-3. **Migrar contenido existente**
-4. **Probar navegación**
-
-#### **TAREAS:**
-
-- [ ] **Página Nosotros (`/nosotros`)**
-
-  - Migrar contenido de la sección "Sobre Nosotros"
-  - Información completa de Sofia Nieto
-  - Experiencia y especialidades
-  - Imágenes profesionales
-  - Call to action para agendar
-
-- [ ] **Página Precios (`/precios`)**
-
-  - Lista completa de servicios y precios
-  - Categorización por tipo de tratamiento
-  - Información detallada de cada servicio
-  - Botones de agendamiento
-  - FAQ sobre precios
-
-- [ ] **Página Casos Reales (`/casos-reales`)**
-
-  - Galería completa de antes y después
-  - Filtros por tipo de tratamiento
-  - Información de cada caso
-  - Testimonios de pacientes
-  - Call to action
-
-- [ ] **Página Blog (`/blog`)**
-
-  - Lista de artículos del blog
-  - Categorías y tags
-  - Búsqueda y filtros
-  - Paginación
-  - Sidebar con artículos populares
-
 ### **Fase 3: Sistema de Agendamiento**
 
 #### **INSTRUCCIONES DE EJECUCIÓN:**
