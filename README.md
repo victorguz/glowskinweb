@@ -1,6 +1,6 @@
 # GlowSkin Angular - Website Estética
 
-Sitio web para GlowSkin, clínica de estética con Server-Side Rendering (SSR) y prerenderizado optimizado para SEO.
+Sitio web para GlowSkin, clínica de estética facial desarrollado en Angular, con Server-Side Rendering (SSR) y prerenderizado optimizado para SEO.
 
 ## 🚀 Tecnologías
 

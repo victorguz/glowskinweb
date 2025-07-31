@@ -43,3 +43,4 @@ Thumbs.db
 
 # Amplify hosting (generated during build)
 .amplify-hosting/
+/src/assets/images

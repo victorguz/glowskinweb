@@ -17,4 +17,5 @@ export const environment = {
     'https://www.fresha.com/es/a/glow-skin-barranquilla-calle-72-57-62-ly584rnh/all-offer?menu=true&pId=2521045',
 
   assetsUrl: 'https://main.d1xrycrl1hw09l.amplifyapp.com/assets/',
+  beforeAfterUrl: 'https://www.instagram.com/stories/highlights/18006097130509141/',
 };

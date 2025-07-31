@@ -2,121 +2,214 @@
 <section class="hero-section">
   <div class="container mx-auto px-4 py-16">
     <div class="text-center">
-      <h1 class="hero-title">Antes y Después - Resultados Reales</h1>
+      <h1 class="hero-title">
+        Cómo Nuestros Tratamientos Transforman la Vida de Nuestras Pacientes
+      </h1>
       <p class="hero-subtitle">
-        Fotos reales de nuestros pacientes que ya están luciendo una piel Glow
-        Skin después de nuestros tratamientos estéticos
+        Descubre cómo nuestros tratamientos especializados resuelven los
+        problemas más comunes de la piel
       </p>
-      <p class="hero-highlight">Compruébalo tú mismo</p>
+      <p class="hero-highlight">Resultados reales desde la primera sesión</p>
     </div>
   </div>
 </section>
 
-<!-- Estadísticas Section -->
-<section class="stats-section">
-  <div class="container mx-auto px-4 py-16">
-    <div class="stats-grid">
-      <div *ngFor="let stat of estadisticas" class="stat-item">
-        <div class="stat-number">{{ stat.number }}</div>
-        <div class="stat-description">{{ stat.description }}</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Casos Reales Gallery -->
-<section class="cases-section">
+<!-- Beneficios de Tratamientos Section -->
+<section class="benefits-section">
   <div class="container mx-auto px-4 py-16">
     <div class="text-center mb-12">
-      <h2 class="section-title">Transformaciones que Hablan por Sí Solas</h2>
+      <h2 class="section-title">Soluciones a Problemas Reales de la Piel</h2>
       <p class="section-subtitle">
-        Resultados comprobables de nuestros tratamientos especializados en
-        Barranquilla
+        Nuestras pacientes experimentan cambios transformadores desde la primera
+        sesión
       </p>
     </div>
 
-    <div class="cases-grid">
-      <div *ngFor="let caso of casosReales" class="case-card">
-        <div class="case-header">
-          <h3 class="case-title">{{ caso.title }}</h3>
-          <p class="case-description">{{ caso.description }}</p>
-        </div>
-
-        <div class="case-images">
-          <div class="image-container">
-            <div class="image-label">Antes</div>
-            <img
-              [src]="caso.beforeImage | assets"
-              [alt]="'Antes - ' + caso.title"
-              class="case-image"
-            />
+    <div class="benefits-grid">
+      <div
+        *ngFor="let beneficio of beneficiosTratamientos"
+        class="benefit-card"
+      >
+        <div class="benefit-header">
+          <div class="problem-section">
+            <h3 class="problem-title">Problema:</h3>
+            <p class="problem-text">{{ beneficio.problema }}</p>
           </div>
-          <div class="image-container">
-            <div class="image-label">Después</div>
-            <img
-              [src]="caso.afterImage | assets"
-              [alt]="'Después - ' + caso.title"
-              class="case-image"
-            />
+          <div class="solution-section">
+            <h3 class="solution-title">Solución:</h3>
+            <p class="solution-text">{{ beneficio.solucion }}</p>
           </div>
         </div>
 
-        <div class="case-details">
-          <div class="detail-item">
-            <ion-icon name="medical-outline"></ion-icon>
-            <span><strong>Tratamiento:</strong> {{ caso.treatment }}</span>
-          </div>
-          <div class="detail-item">
-            <ion-icon name="time-outline"></ion-icon>
-            <span><strong>Duración:</strong> {{ caso.duration }}</span>
-          </div>
+        <div class="benefit-description">
+          <p>{{ beneficio.descripcion }}</p>
         </div>
 
-        <div class="case-results">
-          <h4 class="results-title">Resultados Obtenidos:</h4>
-          <ul class="results-list">
-            <li *ngFor="let result of caso.results" class="result-item">
-              <ion-icon name="checkmark-circle-outline"></ion-icon>
-              <span>{{ result }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonios Section -->
-<section class="testimonials-section">
-  <div class="container mx-auto px-4 py-16">
-    <div class="text-center mb-12">
-      <h2 class="section-title">Lo que dicen nuestros pacientes</h2>
-      <p class="section-subtitle">
-        Experiencias reales de quienes confiaron en Glow Skin
-      </p>
-    </div>
-
-    <div class="testimonials-grid">
-      <div *ngFor="let testimonio of testimonios" class="testimonial-card">
-        <div class="testimonial-header">
-          <div class="patient-info">
-            <h4 class="patient-name">{{ testimonio.name }}</h4>
-            <p class="patient-treatment">{{ testimonio.treatment }}</p>
-          </div>
-          <div class="rating">
-            <ion-icon
-              *ngFor="let star of [1, 2, 3, 4, 5]"
-              [name]="star <= testimonio.rating ? 'star' : 'star-outline'"
-              class="star-icon"
+        <div class="benefit-keywords">
+          <div class="keywords-label">Palabras clave relacionadas:</div>
+          <div class="keywords-tags">
+            <span
+              *ngFor="let keyword of beneficio.keywords"
+              class="keyword-tag"
             >
-            </ion-icon>
+              {{ keyword }}
+            </span>
           </div>
         </div>
-        <p class="testimonial-text">{{ testimonio.text }}</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Carrusel de Instagram Section -->
+<section class="instagram-section">
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Testimonios Visuales de Nuestras Pacientes</h2>
+      <p class="section-subtitle">
+        Algunos de los resultados más impactantes de nuestro perfil de Instagram
+      </p>
+    </div>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <div
+          *ngFor="let imagen of imagenesInstagram; let i = index"
+          class="carousel-item"
+          [class.active]="i === currentCarouselIndex"
+          (click)="openModal(i)"
+        >
+          <img
+            [src]="imagen.src | assets"
+            [alt]="imagen.alt"
+            class="carousel-image"
+          />
+          <div class="carousel-overlay">
+            <div class="carousel-description">
+              <p>{{ imagen.descripcion }}</p>
+              <div class="view-more-hint">
+                <ion-icon name="expand-outline"></ion-icon>
+                <span>Click para ver más</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles del carrusel -->
+      <button
+        class="carousel-control prev"
+        (click)="
+          currentCarouselIndex =
+            currentCarouselIndex === 0
+              ? imagenesInstagram.length - 1
+              : currentCarouselIndex - 1
+        "
+      >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <button
+        class="carousel-control next"
+        (click)="
+          currentCarouselIndex =
+            (currentCarouselIndex + 1) % imagenesInstagram.length
+        "
+      >
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button
+          *ngFor="let imagen of imagenesInstagram; let i = index"
+          class="indicator"
+          [class.active]="i === currentCarouselIndex"
+          (click)="currentCarouselIndex = i"
+        ></button>
+      </div>
+    </div>
+
+    <!-- Call to action para Instagram -->
+    <div class="instagram-cta">
+      <div class="instagram-info">
+        <h3 class="instagram-title">¿Quieres ver más resultados?</h3>
+        <p class="instagram-subtitle">
+          Visita nuestro perfil de Instagram para ver todos los testimonios y
+          transformaciones
+        </p>
+      </div>
+      <div class="instagram-actions">
+        <a
+          [href]="contactInfo.instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-instagram"
+        >
+          <ion-icon name="logo-instagram"></ion-icon>
+          Ver en Instagram
+        </a>
+        <a
+          [href]="contactInfo.whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-agendar"
+        >
+          Agendar Cita
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de pantalla completa -->
+<div *ngIf="showModal" class="modal-overlay" (click)="onModalClick($event)">
+  <div class="modal-content">
+    <button class="modal-close" (click)="closeModal()">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="modal-image-container">
+      <img
+        [src]="imagenesInstagram[currentImageIndex].src | assets"
+        [alt]="imagenesInstagram[currentImageIndex].alt"
+        class="modal-image"
+      />
+      <div class="modal-description">
+        <p>{{ imagenesInstagram[currentImageIndex].descripcion }}</p>
+      </div>
+    </div>
+
+    <div class="modal-controls">
+      <button class="modal-control prev" (click)="previousImage()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <button class="modal-control next" (click)="nextImage()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+
+    <div class="modal-actions">
+      <a
+        [href]="contactInfo.instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-instagram-modal"
+      >
+        <ion-icon name="logo-instagram"></ion-icon>
+        Ver en Instagram
+      </a>
+      <a
+        [href]="contactInfo.whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-agendar-modal"
+      >
+        Agendar
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- CTA Section -->
 <section class="cta-section">

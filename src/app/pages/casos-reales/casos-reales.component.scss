@@ -26,45 +26,8 @@
   color: #5c3a21;
 }
 
-// Stats Section
-.stats-section {
-  padding: 4rem 0;
-  background-color: #ffffff;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 2rem;
-  background-color: #fbf6f3;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.08);
-}
-
-.stat-number {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #5c3a21;
-  margin-bottom: 0.5rem;
-}
-
-.stat-description {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  color: #7d5a44;
-  line-height: 1.4;
-}
-
-// Cases Section
-.cases-section {
+// Benefits Section
+.benefits-section {
   padding: 4rem 0;
   background-color: #fbf6f3;
 }
@@ -83,189 +46,477 @@
   color: #7d5a44;
 }
 
-.cases-grid {
+.benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.case-card {
+.benefit-card {
   background-color: #ffffff;
   border-radius: 1rem;
-  overflow: hidden;
+  padding: 2rem;
   box-shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
   transition: transform 0.3s ease;
 }
 
-.case-card:hover {
+.benefit-card:hover {
   transform: translateY(-4px);
 }
 
-.case-header {
-  padding: 2rem 2rem 1rem;
+.benefit-header {
+  margin-bottom: 1.5rem;
 }
 
-.case-title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #5c3a21;
+.problem-section {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #fff5f5;
+  border-left: 4px solid #f56565;
+  border-radius: 0.5rem;
+}
+
+.problem-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c53030;
   margin-bottom: 0.5rem;
 }
 
-.case-description {
+.problem-text {
   font-family: "Montserrat", sans-serif;
   font-size: 0.95rem;
-  color: #7d5a44;
+  color: #742a2a;
   line-height: 1.5;
 }
 
-.case-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+.solution-section {
+  padding: 1rem;
+  background-color: #f0fff4;
+  border-left: 4px solid #48bb78;
+  border-radius: 0.5rem;
 }
 
-.image-container {
-  position: relative;
-}
-
-.image-label {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: rgba(44, 24, 16, 0.8);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+.solution-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 10;
-}
-
-.case-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.case-details {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  color: #5c3a21;
-}
-
-.detail-item ion-icon {
-  color: #7d5a44;
-  font-size: 1.1rem;
-}
-
-.case-results {
-  padding: 1.5rem 2rem;
-}
-
-.results-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #5c3a21;
-  margin-bottom: 1rem;
-}
-
-.results-list {
-  list-style: none;
-  padding: 0;
-}
-
-.result-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  color: #5c3a21;
-}
-
-.result-item ion-icon {
-  color: #7d5a44;
   font-size: 1rem;
-}
-
-// Testimonials Section
-.testimonials-section {
-  padding: 4rem 0;
-  background-color: #ffffff;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.testimonial-card {
-  background-color: #fbf6f3;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.08);
-}
-
-.testimonial-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.patient-info {
-  flex: 1;
-}
-
-.patient-name {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
   font-weight: 600;
-  color: #5c3a21;
-  margin-bottom: 0.25rem;
+  color: #2f855a;
+  margin-bottom: 0.5rem;
 }
 
-.patient-treatment {
+.solution-text {
   font-family: "Montserrat", sans-serif;
-  font-size: 0.85rem;
-  color: #7d5a44;
+  font-size: 0.95rem;
+  color: #22543d;
+  line-height: 1.5;
 }
 
-.rating {
-  display: flex;
-  gap: 0.25rem;
+.benefit-description {
+  margin-bottom: 1.5rem;
 }
 
-.star-icon {
-  color: #ffd700;
-  font-size: 1.1rem;
-}
-
-.testimonial-text {
+.benefit-description p {
   font-family: "Montserrat", sans-serif;
   font-size: 0.95rem;
   color: #5c3a21;
   line-height: 1.6;
-  font-style: italic;
+}
+
+.benefit-keywords {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+}
+
+.keywords-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7d5a44;
+  margin-bottom: 0.75rem;
+}
+
+.keywords-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.keyword-tag {
+  background-color: #f7fafc;
+  color: #5c3a21;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.keyword-tag:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+// Instagram Section
+.instagram-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(44, 24, 16, 0.15);
+}
+
+.carousel-wrapper {
+  position: relative;
+  height: 500px;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 2rem 1.5rem 1.5rem;
+  color: white;
+}
+
+.carousel-description p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.view-more-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.carousel-control:hover {
+  background-color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control.prev {
+  left: 1rem;
+}
+
+.carousel-control.next {
+  right: 1rem;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+// Instagram CTA
+.instagram-cta {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.instagram-info {
+  margin-bottom: 2rem;
+}
+
+.instagram-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #5c3a21;
+  margin-bottom: 1rem;
+}
+
+.instagram-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #7d5a44;
+  line-height: 1.6;
+}
+
+.instagram-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-instagram {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+}
+
+.btn-agendar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #5c3a21;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-agendar:hover {
+  background-color: #4a2f1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+}
+
+// Modal
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-image-container {
+  position: relative;
+  flex: 1;
+  min-height: 400px;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 70vh;
+}
+
+.modal-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.modal-description p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modal-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+.modal-control {
+  background-color: #5c3a21;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-control:hover {
+  background-color: #4a2f1a;
+  transform: scale(1.1);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-instagram-modal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-instagram-modal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+}
+
+.btn-agendar-modal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #5c3a21;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-agendar-modal:hover {
+  background-color: #4a2f1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
 }
 
 // CTA Section
@@ -292,6 +543,20 @@
   margin-right: auto;
 }
 
+.btn-primary-custom {
+  background-color: #5c3a21;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary-custom:hover {
+  background-color: #4a2f1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(92, 58, 33, 0.3);
+}
+
 // Responsive Design
 @media (max-width: 768px) {
   .hero-title {
@@ -306,31 +571,41 @@
     font-size: 2rem;
   }
 
-  .cases-grid {
+  .benefits-grid {
     grid-template-columns: 1fr;
   }
 
-  .case-images {
-    grid-template-columns: 1fr;
+  .carousel-wrapper {
+    height: 350px;
   }
 
-  .testimonials-grid {
-    grid-template-columns: 1fr;
+  .instagram-actions {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .carousel-wrapper {
+    height: 300px;
   }
 
-  .case-header,
-  .case-details,
-  .case-results {
+  .carousel-control {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .modal-overlay {
     padding: 1rem;
   }
 }
