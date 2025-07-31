@@ -71,7 +71,7 @@ export class PreciosComponent implements OnInit {
       this.servicesData?.contactInfo || {
         whatsapp: environment.whatsappLink,
         phone: '+57 300 888 3486',
-        email: 'info@glowskinbq.com',
+        email: environment.email,
         booking: environment.bookingLink,
       }
     );

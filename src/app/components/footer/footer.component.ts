@@ -18,7 +18,7 @@ export class FooterComponent {
   contactInfo = {
     phone: '+57 300 888 3486',
     whatsapp: environment.whatsappLink,
-    email: 'info@glowskinbq.com',
+    email: environment.email,
     address: environment.address,
     hours: 'Lun - Sáb: 9:00 AM - 6:00 PM',
   };
