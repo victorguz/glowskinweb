@@ -10,7 +10,7 @@ Disallow: /.angular/
 Disallow: /dist/
 
 # Sitemap location
-Sitemap: https://glowskin.com.co/sitemap.xml
+Sitemap: https://glowskinbq.com/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1

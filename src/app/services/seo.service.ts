@@ -38,7 +38,7 @@ export class SeoService {
       property: 'og:image',
       content:
         pageConfig.image ||
-        'https://glowskin.com.co/assets/images/glow-skin-logo.png',
+        'https://glowskinbq.com/assets/images/glow-skin-logo.png',
     });
     this.meta.updateTag({ property: 'og:site_name', content: 'Glow Skin' });
     this.meta.updateTag({ property: 'og:locale', content: 'es_CO' });
@@ -57,7 +57,7 @@ export class SeoService {
       name: 'twitter:image',
       content:
         pageConfig.image ||
-        'https://glowskin.com.co/assets/images/glow-skin-logo.png',
+        'https://glowskinbq.com/assets/images/glow-skin-logo.png',
     });
 
     // Update canonical URL
@@ -72,7 +72,7 @@ export class SeoService {
         'Clínica de estética facial en Barranquilla. Limpieza facial profunda, rejuvenecimiento facial, tratamientos anti-acné y peeling químico. Consulta con Sofia Nieto.',
       keywords:
         'limpieza facial barranquilla, estética facial barranquilla, limpieza facial profunda, rejuvenecimiento facial, sofia nieto barranquilla, tratamientos faciales barranquilla',
-      url: 'https://glowskin.com.co',
+      url: 'https://glowskinbq.com',
     });
   }
 
@@ -83,7 +83,7 @@ export class SeoService {
         'Conoce a Sofia Nieto, especialista en estética facial en Barranquilla. Más de 5 años de experiencia en tratamientos faciales.',
       keywords:
         'sofia nieto barranquilla, especialista estética facial, tratamientos faciales',
-      url: 'https://glowskin.com.co/nosotros',
+      url: 'https://glowskinbq.com/nosotros',
     });
   }
 
@@ -94,7 +94,7 @@ export class SeoService {
         'Consulta precios de limpieza facial profunda, rejuvenecimiento facial y tratamientos estéticos en Barranquilla. Servicios de estética facial con Sofia Nieto.',
       keywords:
         'precio limpieza facial barranquilla, precios estética facial barranquilla, limpieza facial profunda precio, rejuvenecimiento facial precio, tratamientos faciales barranquilla',
-      url: 'https://glowskin.com.co/precios',
+      url: 'https://glowskinbq.com/precios',
     });
   }
 
@@ -105,7 +105,7 @@ export class SeoService {
         'Blog con consejos y artículos sobre estética facial, tratamientos y cuidado de la piel. Información actualizada por Sofia Nieto.',
       keywords:
         'blog estética facial, consejos cuidado piel, tratamientos faciales',
-      url: 'https://glowskin.com.co/blog',
+      url: 'https://glowskinbq.com/blog',
     });
   }
 
@@ -116,7 +116,7 @@ export class SeoService {
         'Casos reales de limpieza facial profunda y rejuvenecimiento facial en Barranquilla. Ver resultados antes y después de tratamientos estéticos con Sofia Nieto.',
       keywords:
         'antes después limpieza facial barranquilla, casos reales estética facial, resultados tratamientos faciales, limpieza facial profunda resultados',
-      url: 'https://glowskin.com.co/casos-reales',
+      url: 'https://glowskinbq.com/casos-reales',
     });
   }
 
@@ -127,7 +127,7 @@ export class SeoService {
         'Agendar ahora para tratamientos faciales en Glow Skin Barranquilla. Reserva online con Sofia Nieto.',
       keywords:
         'agendar cita estética facial, reserva tratamientos, cita sofia nieto',
-      url: 'https://glowskin.com.co/agendar',
+      url: 'https://glowskinbq.com/agendar',
     });
   }
 }
