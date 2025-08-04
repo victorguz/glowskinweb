@@ -279,4 +279,13 @@ dist/glow-skin-angular/
 
 ## 📄 Licencia
 
-Este proyecto es privado para GlowSkin. Todos los derechos reservados.
+Este proyecto es de **código abierto** y puede ser copiado, modificado y reproducido libremente.
+
+**⚠️ Importante:** El nombre "GlowSkin" y la marca "#GlowSkinBq" son de uso privado. Si deseas utilizar este proyecto como base para tu propio negocio, debes:
+
+- ✅ Cambiar el nombre de la empresa/marca
+- ✅ Modificar el contenido específico de GlowSkin
+- ✅ Actualizar las imágenes y assets propios
+- ✅ Cambiar la información de contacto y ubicación
+
+**Siéntete libre de usar este código como plantilla para tu proyecto de estética, spa, clínica o cualquier negocio similar.**
