@@ -20,6 +20,6 @@ export const environment = {
   beforeAfterUrl:
     'https://www.instagram.com/stories/highlights/18006097130509141/',
 
-  address: 'Carrera 50 # 74-126 Edificio Gaviotas - Local 3 - Glow Skin ',
+  address: 'Carrera 50# 74-120',
   email: 'contact@solaradev.com',
 };
