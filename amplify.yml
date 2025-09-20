@@ -7,7 +7,7 @@ frontend:
     build:
       commands:
         - echo "NODE_ENV=production" >> .env
-        - npm run build
+        - npm run build:prerender
   artifacts:
     baseDirectory: dist/glow-skin-angular/browser
     files:
@@ -17,14 +17,36 @@ frontend:
       - node_modules/**/*
       - .angular/cache/**/*
   customHeaders:
+    # SEO Files - Optimized for search engines
+    - pattern: "robots.txt"
+      headers:
+        - key: "Content-Type"
+          value: "text/plain; charset=utf-8"
+        - key: "Cache-Control"
+          value: "public, max-age=86400"
+    - pattern: "sitemap.xml"
+      headers:
+        - key: "Content-Type"
+          value: "application/xml; charset=utf-8"
+        - key: "Cache-Control"
+          value: "public, max-age=86400"
+    - pattern: "llm.txt"
+      headers:
+        - key: "Content-Type"
+          value: "text/plain; charset=utf-8"
+        - key: "Cache-Control"
+          value: "public, max-age=86400"
+    # Static assets
     - pattern: "**/*"
       headers:
         - key: "Cache-Control"
           value: "public, max-age=31536000"
+    # HTML files
     - pattern: "**/*.html"
       headers:
         - key: "Cache-Control"
           value: "public, max-age=0, must-revalidate"
+    # Index.html - No cache
     - pattern: "index.html"
       headers:
         - key: "Cache-Control"
@@ -34,6 +56,16 @@ frontend:
         - key: "Expires"
           value: "0"
   redirects:
+    # SEO Files - Serve directly (no redirects)
+    - source: "/robots.txt"
+      target: "/robots.txt"
+      status: "200"
+    - source: "/sitemap.xml"
+      target: "/sitemap.xml"
+      status: "200"
+    - source: "/llm.txt"
+      target: "/llm.txt"
+      status: "200"
     # Specific routes for your application
     - source: "/blog/<*>"
       target: "/index.html"

@@ -1,16 +1,47 @@
 User-agent: *
 Allow: /
 
-# Block access to sensitive files
+# Allow all service pages
+Allow: /servicio/
+Allow: /precios
+Allow: /nosotros
+Allow: /casos-reales
+Allow: /blog
+
+# Block access to sensitive files and directories
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /backup/
 Disallow: /.git/
 Disallow: /.angular/
 Disallow: /dist/
+Disallow: /amplify/
+Disallow: /.vscode/
+Disallow: /scripts/
+
+# Block admin or private paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /test/
 
 # Sitemap location
 Sitemap: https://glowskinbq.com/sitemap.xml
 
-# Crawl delay (optional)
+# Crawl delay for respectful crawling
 Crawl-delay: 1
+
+# Specific bot configurations
+User-agent: Googlebot
+Crawl-delay: 1
+Allow: /
+
+User-agent: Bingbot
+Crawl-delay: 1
+Allow: /
+
+# Block problematic bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

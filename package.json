@@ -5,11 +5,16 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production",
+    "build:ssr": "ng build --configuration production && npm run build:server",
+    "build:server": "ng run glow-skin-angular:server",
+    "build:prerender": "ng build --configuration production && ng run glow-skin-angular:prerender",
+    "prerender": "ng run glow-skin-angular:prerender",
     "serve:ssr": "node dist/glow-skin-angular/server/server.mjs",
     "serve:ssr:prod": "set NODE_ENV=production && node dist/glow-skin-angular/server/server.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "scrape-reviews": "node scripts/scrape-google-reviews.js"
+    "scrape-reviews": "node scripts/scrape-google-reviews.js",
+    "verify-seo": "node scripts/verify-seo-files.js"
   },
   "private": true,
   "dependencies": {
