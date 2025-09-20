@@ -1,25 +1,23 @@
 User-agent: *
 Allow: /
 
-# Allow all service pages
+# Allow all main pages and services
 Allow: /servicio/
 Allow: /precios
 Allow: /nosotros
 Allow: /casos-reales
 Allow: /blog
+Allow: /agendar
+Allow: /confirmacion-pago
+Allow: /home
 
-# Block access to sensitive files and directories
-Disallow: /node_modules/
-Disallow: /src/
-Disallow: /backup/
-Disallow: /.git/
-Disallow: /.angular/
-Disallow: /dist/
-Disallow: /amplify/
-Disallow: /.vscode/
-Disallow: /scripts/
+# Allow static assets
+Allow: /assets/
+Allow: /*.js
+Allow: /*.css
+Allow: /favicon.ico
 
-# Block admin or private paths
+# Block admin or private paths (if they exist)
 Disallow: /admin/
 Disallow: /private/
 Disallow: /test/
