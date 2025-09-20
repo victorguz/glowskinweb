@@ -130,4 +130,38 @@ export class SeoService {
       url: 'https://glowskinbq.com/agendar',
     });
   }
+
+  setLimpiezaFacialMeta() {
+    this.updateMetaTags({
+      title: 'Limpieza Facial Profunda Barranquilla - Glow Skin | Sofia Nieto',
+      description:
+        'Limpieza facial profunda en Barranquilla con tecnología avanzada. Vapor ozono, espátula ultrasónica y alta frecuencia. Purifica, equilibra y revitaliza tu piel con Sofia Nieto.',
+      keywords:
+        'limpieza facial profunda barranquilla, limpieza facial barranquilla, higiene facial barranquilla, vapor ozono, espátula ultrasónica, alta frecuencia, sofia nieto, glow skin, tratamientos faciales barranquilla, limpieza facial anti acne, purificación facial',
+      url: 'https://glowskinbq.com/limpieza-facial',
+    });
+  }
+
+  setLimpiezaFacialAntiAcneMeta() {
+    this.updateMetaTags({
+      title: 'Limpieza Facial Anti-Acné Barranquilla - Glow Skin | Sofia Nieto',
+      description:
+        'Tratamiento especializado anti-acné en Barranquilla. Control sebáceo, reducción bacteriana y alta frecuencia. Protocolo profesional para pieles con tendencia acneica con Sofia Nieto.',
+      keywords:
+        'limpieza facial anti acne barranquilla, tratamiento acne barranquilla, control sebaceo, alta frecuencia acne, sofia nieto, glow skin, protocolo anti acne, tratamiento acne profesional, limpieza facial acne barranquilla, dermatologia estetica barranquilla',
+      url: 'https://glowskinbq.com/limpieza-facial-anti-acne',
+    });
+  }
+
+  setLimpiezaFacialPielesSensiblesMeta() {
+    this.updateMetaTags({
+      title:
+        'Limpieza Facial Pieles Sensibles Barranquilla - Glow Skin | Sofia Nieto',
+      description:
+        'Tratamiento ultra-suave para pieles sensibles en Barranquilla. Protocolo hipoalergénico especializado para rosácea y piel reactiva. Técnicas delicadas con Sofia Nieto.',
+      keywords:
+        'limpieza facial pieles sensibles barranquilla, tratamiento piel sensible, rosacea barranquilla, piel reactiva, hipoalergenico, sofia nieto, glow skin, tratamiento suave, dermatitis barranquilla, cuidado piel delicada',
+      url: 'https://glowskinbq.com/limpieza-facial-pieles-sensibles',
+    });
+  }
 }

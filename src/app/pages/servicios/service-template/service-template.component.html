@@ -1,0 +1,721 @@
+<!-- Main Content -->
+<div *ngIf="service && service.page" class="min-h-screen">
+  <!-- Hero Section -->
+  <section class="hero-section py-20 bg-brand">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1
+          class="text-4xl md:text-6xl font-bold font-playfair text-brand-dark mb-6"
+        >
+          {{ service.page.hero.title }}
+          <span class="text-brand-brown">
+            {{ service.page.hero.titleHighlight }}
+          </span>
+        </h1>
+        <p
+          class="text-xl md:text-2xl font-montserrat text-brand-brown mb-8 leading-relaxed"
+        >
+          {{ service.page.hero.subtitle }}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            [href]="getContactInfo().booking"
+            target="_blank"
+            class="bg-brand-brown hover:bg-brand-dark text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Agendar Cita
+          </a>
+          <button
+            (click)="scrollToSection('servicios')"
+            class="border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white font-semibold py-4 px-8 rounded-lg transition duration-300"
+          >
+            Ver Detalles
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section (if exists) -->
+  <section *ngIf="service.page.benefits" class="py-16 bg-white/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.benefits.title }}
+        </h2>
+        <p class="text-brand-brown max-w-3xl mx-auto text-lg font-montserrat">
+          {{ service.page.benefits.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div
+          *ngFor="let item of service.page.benefits.items"
+          class="text-center p-6"
+        >
+          <div
+            class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-brand"
+          >
+            <ion-icon
+              name="{{ item.icon }}"
+              class="text-3xl text-brand-brown"
+            ></ion-icon>
+          </div>
+          <h3
+            class="text-xl font-semibold font-montserrat text-brand-dark mb-2"
+          >
+            {{ item.title }}
+          </h3>
+          <p class="text-brand-brown font-montserrat">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section (for anti-acne) -->
+  <section *ngIf="service.page.problemSection" class="py-16 bg-white/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.problemSection.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.problemSection.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-bold font-playfair text-brand-dark mb-6">
+            Causas principales:
+          </h3>
+          <div class="space-y-4">
+            <div
+              *ngFor="let cause of service.page.problemSection.causes"
+              class="flex items-start space-x-3"
+            >
+              <div
+                class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"
+              ></div>
+              <div>
+                <h4 class="font-semibold font-playfair text-brand-dark">
+                  {{ cause.title }}
+                </h4>
+                <p class="font-montserrat text-brand-brown">
+                  {{ cause.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg p-8 bg-brand">
+          <h3
+            class="text-2xl font-bold font-playfair text-brand-dark mb-6 text-center"
+          >
+            Nuestro Enfoque Integral
+          </h3>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div
+              *ngFor="let approach of service.page.problemSection.approach"
+              class="bg-white rounded-lg p-4 shadow-sm"
+            >
+              <div class="text-3xl mb-2 text-brand-brown">
+                <ion-icon name="{{ approach.icon }}"></ion-icon>
+              </div>
+              <h4 class="font-semibold font-playfair text-brand-dark text-sm">
+                {{ approach.title }}
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Understanding Section (for sensitive skin) -->
+  <section *ngIf="service.page.understandingSection" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.understandingSection.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.understandingSection.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-bold font-playfair text-brand-dark mb-6">
+            Signos de piel sensible:
+          </h3>
+          <div class="space-y-4">
+            <div
+              *ngFor="let sign of service.page.understandingSection.signs"
+              class="flex items-start space-x-3"
+            >
+              <div
+                class="w-2 h-2 bg-brand-brown rounded-full mt-2 flex-shrink-0"
+              ></div>
+              <div>
+                <h4 class="font-semibold font-montserrat text-brand-dark">
+                  {{ sign.title }}
+                </h4>
+                <p class="text-brand-brown font-montserrat">
+                  {{ sign.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg p-8 bg-brand">
+          <h3
+            class="text-2xl font-bold font-playfair text-brand-dark mb-6 text-center"
+          >
+            Nuestro Enfoque Delicado
+          </h3>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div
+              *ngFor="
+                let approach of service.page.understandingSection.approach
+              "
+              class="bg-white rounded-lg p-4 shadow-sm"
+            >
+              <div class="text-3xl mb-2 text-brand-brown">
+                <ion-icon name="{{ approach.icon }}"></ion-icon>
+              </div>
+              <h4 class="font-semibold font-playfair text-brand-dark text-sm">
+                {{ approach.title }}
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details Section -->
+  <section id="servicios" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.name }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.description }}
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+          <div class="p-6 text-white bg-brand-brown">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold">{{ service.name }}</h3>
+              <span class="text-3xl font-bold">
+                {{ formatPrice(service.price, service.currency) }}
+              </span>
+            </div>
+            <p class="text-lg opacity-90">{{ service.description }}</p>
+          </div>
+
+          <div class="p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4
+                  class="text-xl font-semibold font-playfair text-brand-dark mb-4"
+                >
+                  Detalles del Servicio:
+                </h4>
+                <div class="space-y-3">
+                  <div
+                    *ngIf="service.details.frequency"
+                    class="flex items-center space-x-3"
+                  >
+                    <div class="w-3 h-3 bg-brand-brown rounded-full"></div>
+                    <span class="font-montserrat text-brand-brown"
+                      ><strong>Frecuencia:</strong>
+                      {{ service.details.frequency }}</span
+                    >
+                  </div>
+                  <div
+                    *ngIf="service.details.technology"
+                    class="flex items-center space-x-3"
+                  >
+                    <div class="w-3 h-3 bg-brand-brown rounded-full"></div>
+                    <span class="font-montserrat text-brand-brown"
+                      ><strong>Tecnología:</strong>
+                      {{ service.details.technology }}</span
+                    >
+                  </div>
+                  <div
+                    *ngIf="service.details.idealFor"
+                    class="flex items-center space-x-3"
+                  >
+                    <div class="w-3 h-3 bg-brand-brown rounded-full"></div>
+                    <span class="font-montserrat text-brand-brown"
+                      ><strong>Ideal para:</strong>
+                      {{ service.details.idealFor }}</span
+                    >
+                  </div>
+                  <div
+                    *ngIf="service.details.activos"
+                    class="flex items-center space-x-3"
+                  >
+                    <div class="w-3 h-3 bg-brand-brown rounded-full"></div>
+                    <span class="font-montserrat text-brand-brown"
+                      ><strong>Activos:</strong>
+                      {{ service.details.activos }}</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="service.page.process">
+                <h4
+                  class="text-xl font-semibold font-playfair text-brand-dark mb-4"
+                >
+                  Duración del Tratamiento:
+                </h4>
+                <div class="rounded-lg p-4 mb-6 bg-brand">
+                  <p class="font-semibold text-2xl text-brand-brown">
+                    {{ service.page.process.duration }}
+                    {{ service.page.process.durationUnit }}
+                  </p>
+                </div>
+
+                <div *ngIf="service.page.process.includes">
+                  <h4
+                    class="text-xl font-semibold font-playfair text-brand-dark mb-4"
+                  >
+                    Incluye:
+                  </h4>
+                  <ul class="space-y-1">
+                    <li
+                      *ngFor="let include of service.page.process.includes"
+                      class="font-montserrat text-brand-brown flex items-center space-x-2"
+                    >
+                      <ion-icon
+                        name="checkmark"
+                        class="text-green-600"
+                      ></ion-icon>
+                      <span>{{ include }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 text-center">
+              <a
+                [href]="getContactInfo().whatsapp"
+                target="_blank"
+                class="bg-brand-brown hover:bg-brand-dark text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+              >
+                Reservar Tratamiento
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section *ngIf="service.page.process" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.process.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.process.subtitle }}
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-6">
+            <div
+              *ngFor="let step of service.page.process.steps"
+              class="flex items-start space-x-4"
+            >
+              <div
+                class="w-8 h-8 text-white bg-brand-brown rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+              >
+                {{ step.number }}
+              </div>
+              <div>
+                <h3 class="font-semibold font-playfair text-brand-dark mb-2">
+                  {{ step.title }}
+                </h3>
+                <p class="font-montserrat text-brand-brown">
+                  {{ step.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="rounded-lg p-8 bg-brand">
+              <h3 class="text-2xl font-bold font-playfair text-brand-dark mb-4">
+                Duración del Tratamiento
+              </h3>
+              <div class="text-4xl font-bold mb-2 text-brand-brown">
+                {{ service.page.process.duration }}
+              </div>
+              <div class="font-montserrat text-brand-brown mb-6">
+                {{ service.page.process.durationUnit }}
+              </div>
+
+              <div
+                *ngIf="service.page.process.includes"
+                class="bg-white rounded-lg p-4 shadow-sm"
+              >
+                <h4 class="font-semibold font-playfair text-brand-dark mb-2">
+                  Incluye:
+                </h4>
+                <ul class="text-sm font-montserrat text-brand-brown space-y-1">
+                  <li
+                    *ngFor="let include of service.page.process.includes"
+                    class="flex items-center gap-2"
+                  >
+                    <ion-icon
+                      name="checkmark"
+                      class="text-green-600"
+                    ></ion-icon>
+                    {{ include }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expectations Section (for anti-acne) -->
+  <section *ngIf="service.page.expectations" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.expectations.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.expectations.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          *ngFor="let item of service.page.expectations.timeline"
+          class="bg-white rounded-lg p-6 shadow-sm text-center"
+        >
+          <div class="text-4xl mb-4 text-brand-brown">
+            <ion-icon name="{{ item.icon }}"></ion-icon>
+          </div>
+          <h3 class="font-semibold font-playfair text-brand-dark mb-2">
+            {{ item.phase }}
+          </h3>
+          <p class="font-montserrat text-brand-brown text-sm">
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Care Instructions Section (for anti-acne) -->
+  <section *ngIf="service.page.careInstructions" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.careInstructions.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.careInstructions.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3
+            class="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2"
+          >
+            <ion-icon name="checkmark-circle" class="text-green-600"></ion-icon>
+            SÍ Hacer:
+          </h3>
+          <div class="space-y-4">
+            <div
+              *ngFor="let item of service.page.careInstructions.doList"
+              class="flex items-start space-x-3"
+            >
+              <div
+                class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+              </div>
+              <div>
+                <h4 class="font-semibold font-playfair text-brand-dark">
+                  {{ item.title }}
+                </h4>
+                <p class="font-montserrat text-brand-brown text-sm">
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3
+            class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2"
+          >
+            <ion-icon name="close-circle" class="text-red-600"></ion-icon>
+            NO Hacer:
+          </h3>
+          <div class="space-y-4">
+            <div
+              *ngFor="let item of service.page.careInstructions.dontList"
+              class="flex items-start space-x-3"
+            >
+              <div
+                class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+              </div>
+              <div>
+                <h4 class="font-semibold font-playfair text-brand-dark">
+                  {{ item.title }}
+                </h4>
+                <p class="font-montserrat text-brand-brown text-sm">
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avoid Section (for sensitive skin) -->
+  <section *ngIf="service.page.avoidSection" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.avoidSection.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.avoidSection.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          *ngFor="let item of service.page.avoidSection.items"
+          class="bg-white rounded-lg p-6 shadow-sm text-center"
+        >
+          <div class="text-4xl mb-4 text-brand-brown">
+            <ion-icon name="{{ item.icon }}"></ion-icon>
+          </div>
+          <h3 class="font-semibold font-playfair text-brand-dark mb-2">
+            {{ item.title }}
+          </h3>
+          <p class="font-montserrat text-brand-brown text-sm">
+            {{ item.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Home Care Section (for sensitive skin) -->
+  <section *ngIf="service.page.homecare" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          {{ service.page.homecare.title }}
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          {{ service.page.homecare.subtitle }}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3
+            class="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2"
+          >
+            <ion-icon name="checkmark-circle" class="text-green-600"></ion-icon>
+            Productos Recomendados:
+          </h3>
+          <div class="space-y-4">
+            <div
+              *ngFor="let item of service.page.homecare.recommended"
+              class="flex items-start space-x-3"
+            >
+              <div
+                class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+              </div>
+              <div>
+                <h4 class="font-semibold font-playfair text-brand-dark">
+                  {{ item.title }}
+                </h4>
+                <p class="font-montserrat text-brand-brown text-sm">
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3
+            class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2"
+          >
+            <ion-icon name="close-circle" class="text-red-600"></ion-icon>
+            Evitar Completamente:
+          </h3>
+          <div class="space-y-4">
+            <div
+              *ngFor="let item of service.page.homecare.avoid"
+              class="flex items-start space-x-3"
+            >
+              <div
+                class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+              </div>
+              <div>
+                <h4 class="font-semibold font-playfair text-brand-dark">
+                  {{ item.title }}
+                </h4>
+                <p class="font-montserrat text-brand-brown text-sm">
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section *ngIf="service.page.faq" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold font-playfair text-brand-dark mb-4"
+        >
+          Preguntas Frecuentes
+        </h2>
+        <p class="font-montserrat text-brand-brown max-w-3xl mx-auto text-lg">
+          Resolvemos las dudas más comunes sobre este tratamiento
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div
+          *ngFor="let item of service.page.faq"
+          class="bg-white rounded-lg shadow-sm"
+        >
+          <div class="p-6">
+            <h3 class="font-semibold font-playfair text-brand-dark mb-2">
+              {{ item.question }}
+            </h3>
+            <p class="font-montserrat text-brand-brown">{{ item.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section *ngIf="service.page.cta" class="py-16 text-white bg-brand-brown">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        {{ service.page.cta.title }}
+      </h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        {{ service.page.cta.subtitle }}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [href]="getContactInfo().whatsapp"
+          target="_blank"
+          class="bg-white hover:bg-gray-100 text-brand-brown font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          <svg
+            class="w-5 h-5 inline-block mr-2"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+            />
+          </svg>
+          WhatsApp
+        </a>
+        <a
+          [href]="getContactInfo().booking"
+          target="_blank"
+          class="border-2 border-white text-white hover:bg-white hover:text-brand-brown font-semibold py-4 px-8 rounded-lg transition duration-300"
+        >
+          Agendar Online
+        </a>
+      </div>
+
+      <div class="mt-8 text-sm opacity-90">
+        <p class="flex items-center justify-center gap-4">
+          <span class="flex items-center gap-1">
+            <ion-icon name="location" class="text-white"></ion-icon>
+            Barranquilla, Colombia
+          </span>
+          <span class="flex items-center gap-1">
+            <ion-icon name="call" class="text-white"></ion-icon>
+            {{ getContactInfo().phone }}
+          </span>
+        </p>
+        <p
+          *ngIf="service.page.cta.tip"
+          class="mt-2 flex items-center justify-center gap-2"
+        >
+          <ion-icon name="bulb" class="text-white"></ion-icon>
+          <strong>Tip:</strong> {{ service.page.cta.tip }}
+        </p>
+        <p
+          *ngIf="service.page.cta.promise"
+          class="mt-2 flex items-center justify-center gap-2"
+        >
+          <ion-icon name="heart" class="text-white"></ion-icon>
+          <strong>Promesa:</strong> {{ service.page.cta.promise }}
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

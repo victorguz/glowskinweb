@@ -1,0 +1,390 @@
+// Limpieza Facial Pieles Sensibles Component Styles
+
+.hero-section {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%23f43f5e" fill-opacity="0.03"><circle cx="20" cy="20" r="2"/></g></svg>');
+    pointer-events: none;
+  }
+}
+
+.service-details {
+  transition: max-height 0.3s ease-in-out;
+
+  &.expanded {
+    max-height: none !important;
+  }
+}
+
+// Smooth scrolling for anchor links
+html {
+  scroll-behavior: smooth;
+}
+
+// Custom button hover effects with rose theme
+.btn-primary-rose {
+  @apply bg-rose-500 hover:bg-rose-600 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+}
+
+.btn-secondary-rose {
+  @apply border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white font-semibold py-4 px-8 rounded-lg transition duration-300;
+}
+
+// Card hover effects
+.service-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+// Loading spinner with rose theme
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// FAQ accordion styles
+.faq-item {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+// Sensitive skin indicators
+.sensitivity-indicator {
+  &.mild {
+    @apply bg-green-100 text-green-800 border border-green-200;
+  }
+
+  &.moderate {
+    @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
+  }
+
+  &.high {
+    @apply bg-rose-100 text-rose-800 border border-rose-200;
+  }
+}
+
+// Gentle treatment emphasis
+.gentle-treatment {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(244, 63, 94, 0.05) 0%,
+      rgba(236, 72, 153, 0.05) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+// Progress indicators for sensitive skin
+.progress-step {
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 2px;
+    height: 2rem;
+    background: linear-gradient(to bottom, #f43f5e, #ec4899);
+    transform: translateX(-50%);
+  }
+
+  @media (min-width: 768px) {
+    &:not(:last-child)::after {
+      left: 100%;
+      top: 50%;
+      width: 2rem;
+      height: 2px;
+      background: linear-gradient(to right, #f43f5e, #ec4899);
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// Care instructions styling
+.care-instruction {
+  &.recommended {
+    @apply border-l-4 border-green-500 bg-green-50 pl-4;
+  }
+
+  &.avoid {
+    @apply border-l-4 border-red-500 bg-red-50 pl-4;
+  }
+}
+
+// Sensitive skin warnings
+.sensitivity-warning {
+  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+
+  &::before {
+    content: "⚠️";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    background: #fef3c7;
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+// Calming elements
+.calming-element {
+  background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+  border: 1px solid #f43f5e;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(244, 63, 94, 0.2);
+  }
+}
+
+// Responsive typography
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-section p {
+    font-size: 1.125rem;
+  }
+}
+
+// Custom scrollbar for webkit browsers
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f43f5e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+// Focus styles for accessibility
+button:focus,
+a:focus {
+  outline: 2px solid #f43f5e;
+  outline-offset: 2px;
+}
+
+// Animation for service details toggle
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.service-details.expanding {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.service-details.collapsing {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+// Sensitive skin severity indicators
+.sensitivity-level {
+  &.low {
+    background: linear-gradient(45deg, #dcfce7, #bbf7d0);
+    border: 1px solid #16a34a;
+  }
+
+  &.moderate {
+    background: linear-gradient(45deg, #fef3c7, #fde68a);
+    border: 1px solid #d97706;
+  }
+
+  &.high {
+    background: linear-gradient(45deg, #fdf2f8, #fce7f3);
+    border: 1px solid #f43f5e;
+  }
+}
+
+// Gentle treatment timeline
+.gentle-timeline {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #f43f5e, #ec4899);
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 768px) {
+    &::before {
+      left: 1rem;
+    }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    background: #f43f5e;
+    border: 3px solid white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  @media (max-width: 768px) {
+    &::before {
+      left: -2rem;
+    }
+  }
+}
+
+// Special effects for sensitive skin theme
+.sensitive-skin-glow {
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.2);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 30px rgba(244, 63, 94, 0.3);
+  }
+}
+
+// Pulsing animation for call-to-action
+@keyframes pulse-rose {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+.pulse-cta {
+  animation: pulse-rose 2s ease-in-out infinite;
+}
+
+// Ingredient avoidance styling
+.ingredient-avoid {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 1px solid #dc2626;
+  position: relative;
+
+  &::before {
+    content: "🚫";
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}
+
+// Soothing elements
+.soothing-element {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1px solid #0ea5e9;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    transform: translateY(-2px);
+  }
+}

@@ -22,4 +22,5 @@ export const environment = {
 
   address: 'Carrera 50# 74-120',
   email: 'contact@solaradev.com',
+  phone: '+57 300 888 3486',
 };

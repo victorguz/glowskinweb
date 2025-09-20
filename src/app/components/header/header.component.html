@@ -10,6 +10,47 @@
 
     <!-- Navegación Desktop -->
     <nav class="nav-desktop">
+      <!-- Menú de Servicios con Dropdown -->
+      <div
+        class="services-dropdown"
+        (mouseenter)="isServicesMenuOpen = true"
+        (mouseleave)="isServicesMenuOpen = false"
+      >
+        <button class="nav-link services-trigger">
+          Servicios
+          <ion-icon
+            name="chevron-down-outline"
+            class="dropdown-icon"
+            [class.rotated]="isServicesMenuOpen"
+          ></ion-icon>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div class="dropdown-menu" [class.show]="isServicesMenuOpen">
+          <div class="dropdown-content">
+            <a
+              *ngFor="let service of services"
+              [routerLink]="'/servicios/' + service.id"
+              class="dropdown-item"
+              (click)="isServicesMenuOpen = false"
+            >
+              <div class="service-info">
+                <span class="service-name">{{ service.name }}</span>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a
+              routerLink="/precios"
+              class="dropdown-item view-all"
+              (click)="isServicesMenuOpen = false"
+            >
+              <span class="service-name">Ver todos los servicios</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <a routerLink="/precios" class="nav-link">Precios</a>
       <a routerLink="/nosotros" class="nav-link">Nosotros</a>
       <a routerLink="/casos-reales" class="nav-link">Casos Reales</a>
@@ -46,25 +87,56 @@
     <ion-icon name="close-outline"></ion-icon>
   </button>
 
+  <!-- Menú Principal -->
   <nav class="mobile-nav">
-    <a routerLink="/precios" class="mobile-nav-link" (click)="closeMobileMenu()"
-      >Precios</a
-    >
-    <a
-      routerLink="/nosotros"
-      class="mobile-nav-link"
-      (click)="closeMobileMenu()"
-      >Nosotros</a
-    >
-    <a
-      routerLink="/casos-reales"
-      class="mobile-nav-link"
-      (click)="closeMobileMenu()"
-      >Casos Reales</a
-    >
-    <!-- <a routerLink="/blog" class="mobile-nav-link" (click)="closeMobileMenu()"
-          >Blog</a
-        > -->
+    <ng-container *ngIf="!showServicesSubmenu; else servicesList">
+      <button
+        class="mobile-nav-link services-button"
+        (click)="toggleServicesSubmenu()"
+      >
+        Servicios
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+
+      <a
+        routerLink="/precios"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+      >
+        Precios
+      </a>
+
+      <a
+        routerLink="/nosotros"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+      >
+        Nosotros
+      </a>
+
+      <a
+        routerLink="/casos-reales"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+      >
+        Casos Reales
+      </a>
+    </ng-container>
+
+    <ng-template #servicesList>
+      <a
+        *ngFor="let item of services"
+        [routerLink]="'/servicios/' + item.id"
+        class="mobile-nav-link"
+        (click)="closeMobileMenu()"
+      >
+        {{ item.name }}
+      </a>
+    </ng-template>
+
+    <!-- <a routerLink="/blog" class="mobile-nav-link" (click)="closeMobileMenu()">
+      Blog
+    </a> -->
 
     <!-- CTA Principal -->
     <a
@@ -77,4 +149,6 @@
       Agendar ahora
     </a>
   </nav>
+
+  <!-- Submenú de Servicios -->
 </div>

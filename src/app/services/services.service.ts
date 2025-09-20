@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+
+import { SERVICES_DATA } from '../constants/services';
 
 export interface ServiceDetails {
   frequency?: string;
@@ -17,6 +18,7 @@ export interface Service {
   price: number;
   currency: string;
   details: ServiceDetails;
+  page?: any; // Dynamic page content structure
 }
 
 export interface ServiceCategory {
@@ -40,15 +42,15 @@ export interface ServicesData {
   providedIn: 'root',
 })
 export class ServicesService {
-  private servicesData: ServicesData | null = null;
+  private servicesData: ServicesData = SERVICES_DATA;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getServices(): Observable<ServicesData> {
-    return this.http.get<ServicesData>('assets/data/services.json');
+    return of(this.servicesData);
   }
 
-  getServicesData(): ServicesData | null {
+  getServicesData(): ServicesData {
     return this.servicesData;
   }
 
@@ -57,20 +59,11 @@ export class ServicesService {
   }
 
   getServiceById(serviceId: string): Service | null {
-    if (!this.servicesData) return null;
-
     for (const category of this.servicesData.categories) {
       const service = category.services.find((s) => s.id === serviceId);
       if (service) return service;
     }
     return null;
-  }
-
-  getCategoryById(categoryId: string): ServiceCategory | null {
-    if (!this.servicesData) return null;
-    return (
-      this.servicesData.categories.find((c) => c.id === categoryId) || null
-    );
   }
 
   formatPrice(price: number, currency: string = 'COP'): string {

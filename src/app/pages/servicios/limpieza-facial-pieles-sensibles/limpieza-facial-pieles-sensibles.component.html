@@ -1,0 +1,687 @@
+<!-- Hero Section -->
+<section class="hero-section bg-gradient-to-br from-rose-50 to-pink-100 py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+        Limpieza Facial para <span class="text-rose-600">Pieles Sensibles</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+        Protocolo ultra-suave diseñado específicamente para pieles reactivas,
+        sensibles o con rosácea
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [href]="getContactInfo().booking"
+          target="_blank"
+          class="bg-rose-500 hover:bg-rose-600 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          Agendar Cita
+        </a>
+        <button
+          (click)="scrollToSection('servicios')"
+          class="border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white font-semibold py-4 px-8 rounded-lg transition duration-300"
+        >
+          Ver Tratamiento
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Loading State -->
+<div *ngIf="loading" class="flex justify-center items-center py-20">
+  <div
+    class="animate-spin rounded-full h-32 w-32 border-b-2 border-rose-500"
+  ></div>
+</div>
+
+<!-- Error State -->
+<div *ngIf="error" class="text-center py-20">
+  <p class="text-red-600 text-xl">
+    Error al cargar los servicios. Por favor, intenta de nuevo.
+  </p>
+</div>
+
+<!-- Sensitive Skin Understanding Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        ¿Tienes piel sensible?
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        La piel sensible requiere cuidados especiales. No todos los tratamientos
+        son adecuados para este tipo de piel que reacciona fácilmente a
+        estímulos externos.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">
+          Signos de piel sensible:
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"
+            ></div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Enrojecimiento frecuente
+              </h4>
+              <p class="text-gray-600">
+                Tu piel se enrojece fácilmente con productos, clima o estrés.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"
+            ></div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Sensación de ardor o picazón
+              </h4>
+              <p class="text-gray-600">
+                Experimentas molestias con productos que otros toleran bien.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"
+            ></div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Reactividad al clima</h4>
+              <p class="text-gray-600">
+                El viento, sol o frío provocan reacciones inmediatas en tu piel.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"
+            ></div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Rosácea o dermatitis</h4>
+              <p class="text-gray-600">
+                Tienes diagnóstico médico de rosácea, dermatitis o piel atópica.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-rose-100 to-pink-100 rounded-lg p-8">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+          Nuestro Enfoque Delicado
+        </h3>
+        <div class="grid grid-cols-2 gap-4 text-center">
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-3xl mb-2">🌸</div>
+            <h4 class="font-semibold text-gray-800 text-sm">Suavidad</h4>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-3xl mb-2">🌿</div>
+            <h4 class="font-semibold text-gray-800 text-sm">Hipoalergénico</h4>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-3xl mb-2">❄️</div>
+            <h4 class="font-semibold text-gray-800 text-sm">Efecto Calmante</h4>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-3xl mb-2">🛡️</div>
+            <h4 class="font-semibold text-gray-800 text-sm">Protección</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sensitive Skin Service Section -->
+<section
+  id="servicios"
+  class="py-16 bg-gray-50"
+  *ngIf="getSensitiveSkinsService() && !loading && !error"
+>
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Limpieza Facial para Pieles Sensibles
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Protocolo especializado que respeta la delicadeza de tu piel sensible
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div
+        class="bg-white rounded-lg shadow-xl overflow-hidden"
+        *ngIf="getSensitiveSkinsService() as service"
+      >
+        <div class="bg-gradient-to-r from-rose-500 to-pink-500 p-6 text-white">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-2xl font-bold">{{ service.name }}</h3>
+            <span class="text-3xl font-bold">
+              {{ formatPrice(service.price, service.currency) }}
+            </span>
+          </div>
+          <p class="text-lg opacity-90">{{ service.description }}</p>
+        </div>
+
+        <div class="p-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">
+                Técnicas Especializadas:
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-rose-500 rounded-full"></div>
+                  <span class="text-gray-700">Vapor tibio y suave</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-rose-500 rounded-full"></div>
+                  <span class="text-gray-700"
+                    >Extracción mínima y delicada</span
+                  >
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-rose-500 rounded-full"></div>
+                  <span class="text-gray-700">Masaje linfático calmante</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-rose-500 rounded-full"></div>
+                  <span class="text-gray-700">Mascarillas descongestivas</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">
+                Frecuencia Recomendada:
+              </h4>
+              <div class="bg-rose-50 rounded-lg p-4 mb-6">
+                <p class="text-rose-800 font-semibold">
+                  {{ service.details.frequency }}
+                </p>
+                <p class="text-rose-600 text-sm mt-2">
+                  Adaptamos la intensidad según la reactividad de tu piel.
+                </p>
+              </div>
+
+              <h4 class="text-xl font-semibold text-gray-800 mb-4">
+                Activos Calmantes:
+              </h4>
+              <p class="text-gray-600">{{ service.details.activos }}</p>
+            </div>
+          </div>
+
+          <div class="mt-8 text-center">
+            <a
+              [href]="getContactInfo().whatsapp"
+              target="_blank"
+              class="bg-rose-500 hover:bg-rose-600 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+            >
+              Reservar Tratamiento Suave
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Treatment Process Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Nuestro Proceso Ultra-Suave
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Cada paso está diseñado para minimizar la irritación y maximizar el
+        confort
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              1
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Evaluación de Sensibilidad
+              </h3>
+              <p class="text-gray-600">
+                Analizamos tu piel y determinamos el nivel de reactividad para
+                adaptar el tratamiento.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              2
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Limpieza Delicada
+              </h3>
+              <p class="text-gray-600">
+                Utilizamos productos hipoalergénicos y vapor tibio para limpiar
+                sin agredir.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              3
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Extracción Mínima
+              </h3>
+              <p class="text-gray-600">
+                Solo extracciones esenciales con técnicas ultra-suaves para
+                evitar irritación.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              4
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Calma y Protección
+              </h3>
+              <p class="text-gray-600">
+                Aplicamos mascarillas calmantes y productos protectores para
+                fortalecer la barrera cutánea.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="bg-gradient-to-br from-rose-100 to-pink-100 rounded-lg p-8"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Duración del Tratamiento
+            </h3>
+            <div class="text-4xl font-bold text-rose-500 mb-2">75-90</div>
+            <div class="text-gray-600 mb-6">minutos aproximadamente</div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-gray-800 mb-2">
+                Incluye tratamiento especial:
+              </h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>✓ Evaluación de sensibilidad</li>
+                <li>✓ Limpieza hipoalergénica</li>
+                <li>✓ Masaje linfático calmante</li>
+                <li>✓ Mascarilla descongestiva</li>
+                <li>✓ Protección y cuidados especiales</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ingredients to Avoid Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Lo que NO usamos en pieles sensibles
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Conocemos los ingredientes que pueden irritar tu piel sensible y los
+        evitamos completamente
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+        <div class="text-4xl mb-4">🚫</div>
+        <h3 class="font-semibold text-gray-800 mb-2">Alcohol</h3>
+        <p class="text-gray-600 text-sm">
+          Evitamos productos con alcohol que resecan e irritan la piel sensible.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+        <div class="text-4xl mb-4">⚠️</div>
+        <h3 class="font-semibold text-gray-800 mb-2">Fragancias</h3>
+        <p class="text-gray-600 text-sm">
+          No usamos perfumes o fragancias artificiales que pueden causar
+          reacciones.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+        <div class="text-4xl mb-4">🔥</div>
+        <h3 class="font-semibold text-gray-800 mb-2">Ácidos Fuertes</h3>
+        <p class="text-gray-600 text-sm">
+          Evitamos ácidos agresivos que pueden causar irritación o quemaduras.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-6 shadow-sm text-center">
+        <div class="text-4xl mb-4">❌</div>
+        <h3 class="font-semibold text-gray-800 mb-2">Exfoliantes Físicos</h3>
+        <p class="text-gray-600 text-sm">
+          No utilizamos scrubs o exfoliantes abrasivos que dañan la piel
+          delicada.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Home Care Instructions -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Cuidados Especiales en Casa
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Tu rutina diaria es clave para mantener tu piel sensible calmada y
+        saludable
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-bold text-green-600 mb-6">
+          ✅ Productos Recomendados:
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Limpiadores sin sulfatos
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Geles o cremas de limpieza suaves, sin detergentes agresivos
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Hidratantes hipoalergénicos
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Con ingredientes calmantes como ceramidas, niacinamida o aloe
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Protector solar mineral
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Con óxido de zinc o dióxido de titanio, SPF 30 o superior
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Agua termal</h4>
+              <p class="text-gray-600 text-sm">
+                Para calmar la piel cuando sientas irritación o calor
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-red-600 mb-6">
+          ❌ Evitar Completamente:
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Productos con fragancia
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Perfumes, aceites esenciales o productos muy aromáticos
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Exfoliación frecuente</h4>
+              <p class="text-gray-600 text-sm">
+                Máximo 1 vez por semana con productos muy suaves
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Cambios bruscos de temperatura
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Agua muy caliente o fría, saunas o exposición solar directa
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">
+                Productos "anti-edad" agresivos
+              </h4>
+              <p class="text-gray-600 text-sm">
+                Retinoides fuertes, ácidos o tratamientos muy activos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Preguntas Frecuentes sobre Pieles Sensibles
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Resolvemos las dudas más comunes sobre el cuidado de pieles sensibles
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Cómo sé si tengo piel sensible?
+          </h3>
+          <p class="text-gray-600">
+            Si tu piel se enrojece fácilmente, sientes ardor o picazón con
+            productos comunes, reaccionas al clima o tienes rosácea/dermatitis,
+            probablemente tengas piel sensible.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Es seguro hacerse limpiezas faciales con piel sensible?
+          </h3>
+          <p class="text-gray-600">
+            Sí, pero solo con protocolos especializados. Nuestro tratamiento
+            está diseñado específicamente para pieles reactivas, usando técnicas
+            suaves y productos hipoalergénicos.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Con qué frecuencia puedo hacerme este tratamiento?
+          </h3>
+          <p class="text-gray-600">
+            Para pieles sensibles recomendamos cada 30-45 días. Si tienes
+            rosácea activa o dermatitis, podemos espaciar más las sesiones según
+            tu reactividad.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Qué hago si mi piel se irrita después del tratamiento?
+          </h3>
+          <p class="text-gray-600">
+            Aunque nuestro protocolo minimiza la irritación, si sientes
+            molestias aplica compresas frías, usa agua termal y contacta con
+            nosotros inmediatamente para ajustar futuros tratamientos.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Puedo combinar este tratamiento con medicamentos para rosácea?
+          </h3>
+          <p class="text-gray-600">
+            Es importante informarnos sobre cualquier medicamento tópico que
+            uses. Podemos adaptar el tratamiento y coordinar con tu dermatólogo
+            para obtener los mejores resultados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      Tu piel sensible merece cuidados especiales
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      No renuncies a tener una piel limpia y saludable. Nuestro protocolo
+      especializado respeta tu sensibilidad mientras te brinda los mejores
+      resultados.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        [href]="getContactInfo().whatsapp"
+        target="_blank"
+        class="bg-white text-rose-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+      >
+        <svg
+          class="w-5 h-5 inline-block mr-2"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+          />
+        </svg>
+        Consulta Especializada
+      </a>
+      <a
+        [href]="getContactInfo().booking"
+        target="_blank"
+        class="border-2 border-white text-white hover:bg-white hover:text-rose-600 font-semibold py-4 px-8 rounded-lg transition duration-300"
+      >
+        Agendar Tratamiento Suave
+      </a>
+    </div>
+
+    <div class="mt-8 text-sm opacity-90">
+      <p>📍 Barranquilla, Colombia | 📞 {{ getContactInfo().phone }}</p>
+      <p class="mt-2">
+        💝 <strong>Promesa:</strong> Cuidamos tu piel sensible como si fuera la
+        nuestra
+      </p>
+    </div>
+  </div>
+</section>

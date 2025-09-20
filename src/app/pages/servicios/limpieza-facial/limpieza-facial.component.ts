@@ -1,20 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
-import { SeoService } from '../../services/seo.service';
-import { ServicesData, ServicesService } from '../../services/services.service';
+import { environment } from '../../../../environments/environment';
+import { SeoService } from '../../../services/seo.service';
+import { ServiceCategory, ServicesData, ServicesService } from '../../../services/services.service';
 
 @Component({
-  selector: 'app-precios',
+  selector: 'app-limpieza-facial',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './precios.component.html',
-  styleUrl: './precios.component.scss',
+  templateUrl: './limpieza-facial.component.html',
+  styleUrl: './limpieza-facial.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PreciosComponent implements OnInit {
+export class LimpiezaFacialComponent implements OnInit {
   servicesData: ServicesData | null = null;
+  limpiezaFacialCategory: ServiceCategory | null = null;
   loading = true;
   error = false;
 
@@ -24,7 +25,7 @@ export class PreciosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.seoService.setPreciosMeta();
+    this.seoService.setLimpiezaFacialMeta();
     this.loadServices();
   }
 
@@ -32,6 +33,10 @@ export class PreciosComponent implements OnInit {
     this.servicesService.getServices().subscribe({
       next: (data) => {
         this.servicesData = data;
+        this.limpiezaFacialCategory =
+          data.categories.find(
+            (category) => category.id === 'limpiezas-faciales'
+          ) || null;
         this.servicesService.setServicesData(data);
         this.loading = false;
       },
@@ -72,5 +77,12 @@ export class PreciosComponent implements OnInit {
         booking: environment.bookingLink,
       }
     );
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

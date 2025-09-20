@@ -1,0 +1,454 @@
+<!-- Hero Section -->
+<section
+  class="hero-section bg-gradient-to-br from-pink-50 to-purple-100 py-20"
+>
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+        Limpieza Facial <span class="text-pink-600">Profunda</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+        Purifica, equilibra y revitaliza tu piel con nuestros protocolos
+        avanzados de higiene facial
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [href]="getContactInfo().booking"
+          target="_blank"
+          class="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          Agendar Cita
+        </a>
+        <button
+          (click)="scrollToSection('servicios')"
+          class="border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-semibold py-4 px-8 rounded-lg transition duration-300"
+        >
+          Ver Servicios
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Loading State -->
+<div *ngIf="loading" class="flex justify-center items-center py-20">
+  <div
+    class="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-600"
+  ></div>
+</div>
+
+<!-- Error State -->
+<div *ngIf="error" class="text-center py-20">
+  <p class="text-red-600 text-xl">
+    Error al cargar los servicios. Por favor, intenta de nuevo.
+  </p>
+</div>
+
+<!-- Benefits Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        ¿Por qué elegir nuestras limpiezas faciales?
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Utilizamos tecnología avanzada y productos de alta gama para ofrecerte
+        resultados excepcionales
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center p-6">
+        <div
+          class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-pink-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Tecnología Avanzada
+        </h3>
+        <p class="text-gray-600">
+          Vapor ozono, espátula ultrasónica y alta frecuencia para resultados
+          superiores
+        </p>
+      </div>
+
+      <div class="text-center p-6">
+        <div
+          class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-pink-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Personalizado</h3>
+        <p class="text-gray-600">
+          Cada tratamiento se adapta a las necesidades específicas de tu tipo de
+          piel
+        </p>
+      </div>
+
+      <div class="text-center p-6">
+        <div
+          class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-pink-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Resultados Garantizados
+        </h3>
+        <p class="text-gray-600">
+          Más de 5 años de experiencia respaldando cada tratamiento
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section
+  id="servicios"
+  class="py-16 bg-gray-50"
+  *ngIf="limpiezaFacialCategory && !loading && !error"
+>
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        {{ limpiezaFacialCategory.title }}
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        {{ limpiezaFacialCategory.description }}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div
+        *ngFor="let service of limpiezaFacialCategory.services"
+        class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-semibold text-gray-800">
+              {{ service.name }}
+            </h3>
+            <span class="text-2xl font-bold text-pink-600">
+              {{ formatPrice(service.price, service.currency) }}
+            </span>
+          </div>
+
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            {{ service.description }}
+          </p>
+
+          <div class="flex justify-between items-center">
+            <button
+              (click)="toggleDetails($event)"
+              class="text-pink-600 hover:text-pink-800 font-medium transition-colors duration-200"
+            >
+              Ver detalles
+            </button>
+            <a
+              [href]="getContactInfo().whatsapp"
+              target="_blank"
+              class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-lg transition duration-300"
+            >
+              Reservar
+            </a>
+          </div>
+        </div>
+
+        <!-- Service Details -->
+        <div
+          class="service-details overflow-hidden transition-all duration-300"
+          style="max-height: 0"
+        >
+          <div class="px-6 pb-6 border-t border-gray-100">
+            <div class="pt-4">
+              <div *ngIf="service.details?.frequency" class="mb-3">
+                <h4 class="font-semibold text-gray-800 mb-1">
+                  Frecuencia recomendada:
+                </h4>
+                <p class="text-gray-600">{{ service.details.frequency }}</p>
+              </div>
+
+              <div *ngIf="service.details?.technology" class="mb-3">
+                <h4 class="font-semibold text-gray-800 mb-1">
+                  Tecnología utilizada:
+                </h4>
+                <p class="text-gray-600">{{ service.details.technology }}</p>
+              </div>
+
+              <div *ngIf="service.details?.idealFor" class="mb-3">
+                <h4 class="font-semibold text-gray-800 mb-1">Ideal para:</h4>
+                <p class="text-gray-600">{{ service.details.idealFor }}</p>
+              </div>
+
+              <div *ngIf="service.details?.activos" class="mb-3">
+                <h4 class="font-semibold text-gray-800 mb-1">
+                  Activos utilizados:
+                </h4>
+                <p class="text-gray-600">{{ service.details.activos }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Nuestro Proceso de Limpieza Facial
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Cada paso está cuidadosamente diseñado para obtener los mejores
+        resultados
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              1
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Diagnóstico Inicial
+              </h3>
+              <p class="text-gray-600">
+                Evaluamos tu tipo de piel y necesidades específicas para
+                personalizar el tratamiento.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              2
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Limpieza Profunda
+              </h3>
+              <p class="text-gray-600">
+                Utilizamos vapor ozono y espátula ultrasónica para una
+                purificación completa.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              3
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Extracción y Purificación
+              </h3>
+              <p class="text-gray-600">
+                Removemos impurezas y puntos negros de forma segura y efectiva.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+            >
+              4
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-2">
+                Alta Frecuencia y Nutrición
+              </h3>
+              <p class="text-gray-600">
+                Aplicamos alta frecuencia para oxigenar y sellamos con productos
+                nutritivos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg p-8"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Duración del Tratamiento
+            </h3>
+            <div class="text-4xl font-bold text-pink-600 mb-2">60-90</div>
+            <div class="text-gray-600 mb-6">minutos aproximadamente</div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-gray-800 mb-2">Incluye:</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>✓ Consulta y diagnóstico</li>
+                <li>✓ Limpieza profunda</li>
+                <li>✓ Mascarilla personalizada</li>
+                <li>✓ Protección solar</li>
+                <li>✓ Recomendaciones post-tratamiento</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+        Resolvemos las dudas más comunes sobre nuestras limpiezas faciales
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Con qué frecuencia debo hacerme una limpieza facial?
+          </h3>
+          <p class="text-gray-600">
+            Se recomienda una limpieza facial cada 30-45 días para mantenimiento
+            general. Para pieles con problemas específicos como acné, la
+            frecuencia puede ser cada 21 días.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Es normal que mi piel se vea roja después del tratamiento?
+          </h3>
+          <p class="text-gray-600">
+            Es completamente normal experimentar un ligero enrojecimiento que
+            desaparece en 2-4 horas. Esto indica que el tratamiento está
+            activando la circulación sanguínea.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Puedo usar maquillaje después de la limpieza facial?
+          </h3>
+          <p class="text-gray-600">
+            Recomendamos esperar al menos 4-6 horas antes de aplicar maquillaje
+            para permitir que la piel absorba completamente los productos
+            aplicados.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm">
+        <div class="p-6">
+          <h3 class="font-semibold text-gray-800 mb-2">
+            ¿Qué cuidados debo tener después del tratamiento?
+          </h3>
+          <p class="text-gray-600">
+            Evita la exposición solar directa por 24 horas, usa protector solar,
+            mantén la piel hidratada y evita productos con alcohol o ácidos
+            fuertes por 48 horas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-br from-pink-600 to-purple-700 text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      ¿Lista para transformar tu piel?
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Agenda tu cita y descubre los beneficios de una limpieza facial
+      profesional con tecnología avanzada
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        [href]="getContactInfo().whatsapp"
+        target="_blank"
+        class="bg-white text-pink-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+      >
+        <svg
+          class="w-5 h-5 inline-block mr-2"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+          />
+        </svg>
+        WhatsApp
+      </a>
+      <a
+        [href]="getContactInfo().booking"
+        target="_blank"
+        class="border-2 border-white text-white hover:bg-white hover:text-pink-600 font-semibold py-4 px-8 rounded-lg transition duration-300"
+      >
+        Agendar Online
+      </a>
+    </div>
+
+    <div class="mt-8 text-sm opacity-90">
+      <p>📍 Barranquilla, Colombia | 📞 {{ getContactInfo().phone }}</p>
+    </div>
+  </div>
+</section>

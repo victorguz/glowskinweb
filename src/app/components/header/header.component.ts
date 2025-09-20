@@ -1,8 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AssetsPipePipe } from '../../pipes/assets-pipe.pipe';
 import { environment } from '../../../environments/environment';
+import { Service, ServicesService } from '../../services/services.service';
 
 @Component({
   selector: 'app-header',
@@ -12,17 +13,57 @@ import { environment } from '../../../environments/environment';
   styleUrl: './header.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   isMobileMenuOpen = false;
+  isServicesMenuOpen = false;
+  showServicesSubmenu = false;
   environment = environment;
+  services: Service[] = [];
+  servicesService: ServicesService;
+
+  constructor(servicesService: ServicesService) {
+    this.servicesService = servicesService;
+  }
+
+  ngOnInit(): void {
+    this.loadServices();
+  }
+
+  loadServices(): void {
+    this.servicesService.getServices().subscribe({
+      next: (data) => {
+        // Get only facial cleansing services for the menu
+        const facialCategory = data.categories.find(cat => cat.id === 'limpiezas-faciales');
+        this.services = facialCategory?.services || [];
+      },
+      error: (error) => {
+        console.error('Error loading services for header:', error);
+      }
+    });
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.showServicesSubmenu = false;
     this.updateBodyScroll();
+  }
+
+  toggleServicesSubmenu() {
+    this.showServicesSubmenu = !this.showServicesSubmenu;
+  }
+
+  goBackToMainMenu() {
+    this.showServicesSubmenu = false;
+  }
+
+  toggleServicesDropdown() {
+    this.isServicesMenuOpen = !this.isServicesMenuOpen;
   }
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
+    this.showServicesSubmenu = false;
+    this.isServicesMenuOpen = false;
     this.updateBodyScroll();
   }
 

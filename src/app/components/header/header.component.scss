@@ -57,9 +57,115 @@ $brand-secondary: #a5846e;
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: color 0.3s ease;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
 
       &:hover {
         color: $brand-dark;
+      }
+    }
+
+    // Services Dropdown
+    .services-dropdown {
+      position: relative;
+
+      .services-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .dropdown-icon {
+          font-size: 16px;
+          transition: transform 0.3s ease;
+
+          &.rotated {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(251, 246, 243, 0.95);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        border: 1px solid rgba(165, 132, 110, 0.2);
+        min-width: 320px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        margin-top: 0.5rem;
+
+        &.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-content {
+          padding: 1rem 0;
+
+          .dropdown-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            color: $brand-brown;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            cursor: pointer;
+
+            &:hover {
+              background: rgba(165, 132, 110, 0.1);
+              color: $brand-dark;
+            }
+
+            .service-info {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.25rem;
+
+              .service-name {
+                font-weight: 500;
+                font-size: 0.9rem;
+              }
+
+              .service-price {
+                font-size: 0.8rem;
+                color: $brand-secondary;
+                font-weight: 600;
+              }
+            }
+
+            &.view-all {
+              .service-name {
+                color: $brand-secondary;
+                font-weight: 600;
+              }
+
+              ion-icon {
+                color: $brand-secondary;
+              }
+            }
+          }
+
+          .dropdown-divider {
+            height: 1px;
+            background: rgba(165, 132, 110, 0.2);
+            margin: 0.5rem 1.5rem;
+          }
+        }
       }
     }
   }
@@ -185,9 +291,20 @@ body.mobile-menu-open {
       font-size: 1.5rem;
       font-weight: 500;
       transition: color 0.3s ease;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
 
       &:hover {
         color: $brand-dark;
+      }
+
+      &.services-button {
+        // No special styling needed, same as other nav links
       }
     }
 
@@ -239,6 +356,128 @@ body.mobile-menu-open {
 
     &:hover {
       background: rgba(92, 58, 33, 0.1);
+    }
+  }
+
+  // Animaciones para el menú principal
+  .mobile-nav {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.hidden {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  // Submenú de Servicios Móvil
+  .mobile-services-submenu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 0 1rem;
+    min-height: 100vh;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10001;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.show {
+      display: flex;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .submenu-header {
+      position: absolute;
+      top: 2rem;
+      left: 1rem;
+      z-index: 10002;
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: none;
+        border: none;
+        color: $brand-brown;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $brand-dark;
+        }
+
+        ion-icon {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+
+      .service-item {
+        color: $brand-brown;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        text-align: center;
+
+        &:hover {
+          color: $brand-dark;
+        }
+
+        .service-details {
+          .service-name {
+            display: block;
+          }
+
+          .service-description,
+          .service-price {
+            display: none;
+          }
+        }
+
+        .service-arrow {
+          display: none;
+        }
+
+        &.view-all-mobile {
+          margin-top: 1rem;
+          color: $brand-secondary;
+          font-weight: 600;
+
+          &:hover {
+            color: $brand-brown;
+          }
+        }
+      }
+
+      .submenu-divider {
+        height: 1px;
+        background: rgba(165, 132, 110, 0.3);
+        width: 60%;
+        margin: 0;
+      }
     }
   }
 }
