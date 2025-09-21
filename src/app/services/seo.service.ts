@@ -7,63 +7,6 @@ import { Meta, Title } from '@angular/platform-browser';
 export class SeoService {
   constructor(private meta: Meta, private title: Title) {}
 
-  updateMetaTags(pageConfig: {
-    title: string;
-    description: string;
-    keywords: string;
-    url: string;
-    image?: string;
-  }) {
-    // Update title
-    this.title.setTitle(pageConfig.title);
-
-    // Update meta tags
-    this.meta.updateTag({
-      name: 'description',
-      content: pageConfig.description,
-    });
-    this.meta.updateTag({ name: 'keywords', content: pageConfig.keywords });
-    this.meta.updateTag({ name: 'author', content: 'Sofia Nieto - Glow Skin' });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-
-    // Update Open Graph tags
-    this.meta.updateTag({ property: 'og:title', content: pageConfig.title });
-    this.meta.updateTag({
-      property: 'og:description',
-      content: pageConfig.description,
-    });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: pageConfig.url });
-    this.meta.updateTag({
-      property: 'og:image',
-      content:
-        pageConfig.image ||
-        'https://glowskinbq.com/assets/images/glow-skin-logo.png',
-    });
-    this.meta.updateTag({ property: 'og:site_name', content: 'Glow Skin' });
-    this.meta.updateTag({ property: 'og:locale', content: 'es_CO' });
-
-    // Update Twitter Card tags
-    this.meta.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image',
-    });
-    this.meta.updateTag({ name: 'twitter:title', content: pageConfig.title });
-    this.meta.updateTag({
-      name: 'twitter:description',
-      content: pageConfig.description,
-    });
-    this.meta.updateTag({
-      name: 'twitter:image',
-      content:
-        pageConfig.image ||
-        'https://glowskinbq.com/assets/images/glow-skin-logo.png',
-    });
-
-    // Update canonical URL
-    this.meta.updateTag({ rel: 'canonical', href: pageConfig.url });
-  }
-
   // Predefined configurations for each page
   setHomeMeta() {
     this.updateMetaTags({
@@ -163,5 +106,101 @@ export class SeoService {
         'limpieza facial pieles sensibles barranquilla, tratamiento piel sensible, rosacea barranquilla, piel reactiva, hipoalergenico, sofia nieto, glow skin, tratamiento suave, dermatitis barranquilla, cuidado piel delicada',
       url: 'https://glowskinbq.com/limpieza-facial-pieles-sensibles',
     });
+  }
+
+  // Enhanced meta tags update method for blog posts
+  updateMetaTags(pageConfig: {
+    title: string;
+    description: string;
+    keywords: string;
+    url?: string;
+    image?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    ogUrl?: string;
+    twitterCard?: string;
+    twitterTitle?: string;
+    twitterDescription?: string;
+    twitterImage?: string;
+  }) {
+    // Update title
+    this.title.setTitle(pageConfig.title);
+
+    // Update basic meta tags
+    this.meta.updateTag({
+      name: 'description',
+      content: pageConfig.description,
+    });
+    this.meta.updateTag({ name: 'keywords', content: pageConfig.keywords });
+    this.meta.updateTag({ name: 'author', content: 'Sofia Nieto - Glow Skin' });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+
+    // Update Open Graph tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: pageConfig.ogTitle || pageConfig.title,
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: pageConfig.ogDescription || pageConfig.description,
+    });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: pageConfig.ogUrl || pageConfig.url || '',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content:
+        pageConfig.ogImage ||
+        pageConfig.image ||
+        'https://glowskinbq.com/assets/images/glow-skin-logo.png',
+    });
+    this.meta.updateTag({ property: 'og:site_name', content: 'Glow Skin' });
+    this.meta.updateTag({ property: 'og:locale', content: 'es_CO' });
+
+    // Update Twitter Card tags
+    this.meta.updateTag({
+      name: 'twitter:card',
+      content: pageConfig.twitterCard || 'summary_large_image',
+    });
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: pageConfig.twitterTitle || pageConfig.title,
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content: pageConfig.twitterDescription || pageConfig.description,
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content:
+        pageConfig.twitterImage ||
+        pageConfig.image ||
+        'https://glowskinbq.com/assets/images/glow-skin-logo.png',
+    });
+
+    // Update canonical URL
+    if (pageConfig.url) {
+      this.meta.updateTag({ rel: 'canonical', href: pageConfig.url });
+    }
+  }
+
+  // Add structured data to the page
+  addStructuredData(data: any) {
+    // Remove existing structured data
+    const existingScript = document.querySelector(
+      'script[type="application/ld+json"]'
+    );
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    // Add new structured data
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(data);
+    document.head.appendChild(script);
   }
 }

@@ -22,8 +22,9 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /test/
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://glowskinbq.com/sitemap.xml
+Sitemap: https://glowskinbq.com/sitemap.rss
 
 # Crawl delay for respectful crawling
 Crawl-delay: 1

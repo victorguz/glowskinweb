@@ -1,0 +1,241 @@
+<!-- Loading State -->
+<div *ngIf="!post" class="loading-container">
+  <div class="container mx-auto px-4 py-16 text-center">
+    <p>Cargando artículo...</p>
+  </div>
+</div>
+
+<!-- Blog Post Content -->
+<div *ngIf="post" class="blog-post-container">
+  <!-- Breadcrumb -->
+  <section class="breadcrumb-section">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="breadcrumb">
+        <a routerLink="/" class="breadcrumb-link">Inicio</a>
+        <span class="breadcrumb-separator">/</span>
+        <a routerLink="/blog" class="breadcrumb-link">Blog</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{{ post.title }}</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 py-12">
+      <div class="hero-content">
+        <!-- Post Meta -->
+        <div class="post-meta-header">
+          <span class="category-badge">{{ post.category }}</span>
+          <div class="meta-info">
+            <span class="date">{{ post.date }}</span>
+            <span class="separator">•</span>
+            <span class="read-time">{{ post.readTime }} de lectura</span>
+          </div>
+        </div>
+
+        <!-- Post Title -->
+        <h1 class="post-title">{{ post.title }}</h1>
+
+        <!-- Post Excerpt -->
+        <p class="post-lead">{{ post.excerpt }}</p>
+
+        <!-- Author Info -->
+        <div class="author-info">
+          <img
+            [src]="post.author.image | assets"
+            [alt]="post.author.name"
+            class="author-avatar"
+          />
+          <div class="author-details">
+            <span class="author-name">Por {{ post.author.name }}</span>
+            <span class="author-bio">{{ post.author.bio }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Image -->
+  <section class="featured-image-section">
+    <div class="container mx-auto px-4">
+      <div class="featured-image-container">
+        <img
+          [src]="post.image | assets"
+          [alt]="post.title"
+          class="featured-image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="article-content">
+    <div class="container mx-auto px-4 py-16">
+      <div class="content-wrapper">
+        <!-- Social Share Sidebar -->
+        <div class="share-sidebar">
+          <div class="share-sticky">
+            <p class="share-label">Compartir</p>
+            <button
+              (click)="shareOnFacebook()"
+              class="share-btn facebook"
+              title="Compartir en Facebook"
+            >
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+            <button
+              (click)="shareOnTwitter()"
+              class="share-btn twitter"
+              title="Compartir en Twitter"
+            >
+              <ion-icon name="logo-twitter"></ion-icon>
+            </button>
+            <button
+              (click)="shareOnWhatsApp()"
+              class="share-btn whatsapp"
+              title="Compartir en WhatsApp"
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </button>
+            <button
+              (click)="copyLink()"
+              class="share-btn copy"
+              title="Copiar enlace"
+            >
+              <ion-icon name="link-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+          <div class="article-body" [innerHTML]="post.content"></div>
+
+          <!-- Tags -->
+          <div class="tags-section" *ngIf="post.tags.length > 0">
+            <h4 class="tags-title">Etiquetas:</h4>
+            <div class="tags-container">
+              <span *ngFor="let tag of post.tags" class="tag">{{ tag }}</span>
+            </div>
+          </div>
+
+          <!-- Author Bio -->
+          <div class="author-bio-section">
+            <div class="author-bio-card">
+              <img
+                [src]="post.author.image | assets"
+                [alt]="post.author.name"
+                class="author-bio-avatar"
+              />
+              <div class="author-bio-content">
+                <h4 class="author-bio-name">{{ post.author.name }}</h4>
+                <p class="author-bio-description">{{ post.author.bio }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Share Bottom -->
+          <div class="share-bottom">
+            <p class="share-title">¿Te gustó este artículo? ¡Compártelo!</p>
+            <div class="share-buttons">
+              <button
+                (click)="shareOnFacebook()"
+                class="share-btn-bottom facebook"
+              >
+                <ion-icon name="logo-facebook"></ion-icon>
+                Facebook
+              </button>
+              <button
+                (click)="shareOnTwitter()"
+                class="share-btn-bottom twitter"
+              >
+                <ion-icon name="logo-twitter"></ion-icon>
+                Twitter
+              </button>
+              <button
+                (click)="shareOnWhatsApp()"
+                class="share-btn-bottom whatsapp"
+              >
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts" *ngIf="relatedPosts.length > 0">
+    <div class="container mx-auto px-4 py-16">
+      <h3 class="related-title">Artículos Relacionados</h3>
+
+      <div class="related-grid">
+        <article *ngFor="let relatedPost of relatedPosts" class="related-card">
+          <div class="related-image-container">
+            <img
+              [src]="relatedPost.image | assets"
+              [alt]="relatedPost.title"
+              class="related-image"
+            />
+          </div>
+
+          <div class="related-content">
+            <div class="related-meta">
+              <span class="related-category">{{ relatedPost.category }}</span>
+              <span class="related-read-time">{{ relatedPost.readTime }}</span>
+            </div>
+
+            <h4 class="related-post-title">
+              <a [routerLink]="getPostUrl(relatedPost)">{{
+                relatedPost.title
+              }}</a>
+            </h4>
+
+            <p class="related-excerpt">{{ relatedPost.excerpt }}</p>
+
+            <a [routerLink]="getPostUrl(relatedPost)" class="related-read-more">
+              Leer más
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="blog-cta">
+    <div class="container mx-auto px-4 py-16">
+      <div class="cta-content">
+        <h3 class="cta-title">¿Listo para transformar tu piel?</h3>
+        <p class="cta-subtitle">
+          Agenda una consulta personalizada y descubre el tratamiento perfecto
+          para ti
+        </p>
+        <div class="cta-buttons">
+          <a
+            [href]="contactInfo.booking"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary-cta"
+          >
+            Agendar Consulta
+          </a>
+          <a
+            [href]="contactInfo.whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary-cta"
+          >
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            Consulta por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

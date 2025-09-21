@@ -38,7 +38,7 @@
         <h3 class="featured-title">{{ featuredPost.title }}</h3>
         <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
 
-        <a href="#" class="read-more-btn">
+        <a [routerLink]="getPostUrl(featuredPost)" class="read-more-btn">
           Leer artículo completo
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </a>
@@ -53,7 +53,7 @@
     <div class="categories-container">
       <button
         *ngFor="let category of categories"
-        (click)="filterByCategory(category.name)"
+        (click)="filterByCategory(category.id)"
         [class.active]="category.active"
         class="category-btn"
       >
@@ -84,7 +84,7 @@
             class="post-image"
           />
           <div class="post-overlay">
-            <a href="#" class="read-more-overlay">
+            <a [routerLink]="getPostUrl(post)" class="read-more-overlay">
               <ion-icon name="eye-outline"></ion-icon>
               <span>Leer más</span>
             </a>
@@ -101,7 +101,7 @@
           <h3 class="post-title">{{ post.title }}</h3>
           <p class="post-excerpt">{{ post.excerpt }}</p>
 
-          <a href="#" class="read-more-link">
+          <a [routerLink]="getPostUrl(post)" class="read-more-link">
             Leer más
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </a>

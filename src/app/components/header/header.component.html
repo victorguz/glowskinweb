@@ -54,7 +54,7 @@
       <a routerLink="/precios" class="nav-link">Precios</a>
       <a routerLink="/nosotros" class="nav-link">Nosotros</a>
       <a routerLink="/casos-reales" class="nav-link">Casos Reales</a>
-      <!-- <a routerLink="/blog" class="nav-link">Blog</a> -->
+      <a routerLink="/blog" class="nav-link">Blog</a>
     </nav>
 
     <!-- Botones -->
@@ -121,6 +121,10 @@
       >
         Casos Reales
       </a>
+
+      <a routerLink="/blog" class="mobile-nav-link" (click)="closeMobileMenu()">
+        Blog
+      </a>
     </ng-container>
 
     <ng-template #servicesList>
@@ -133,10 +137,6 @@
         {{ item.name }}
       </a>
     </ng-template>
-
-    <!-- <a routerLink="/blog" class="mobile-nav-link" (click)="closeMobileMenu()">
-      Blog
-    </a> -->
 
     <!-- CTA Principal -->
     <a
