@@ -1,0 +1,187 @@
+# AWS Amplify Custom HTTP Configuration
+# This file configures redirects and custom headers for the Glow Skin Angular application
+
+# Redirects configuration
+redirects:
+  # SEO Files - Serve directly (no redirects)
+  - source: "/robots.txt"
+    target: "/robots.txt"
+    status: "200"
+  - source: "/sitemap.xml"
+    target: "/sitemap.xml"
+    status: "200"
+  - source: "/sitemap.rss"
+    target: "/sitemap.rss"
+    status: "200"
+  - source: "/llm.txt"
+    target: "/llm.txt"
+    status: "200"
+
+  # Main application routes
+  - source: "/home"
+    target: "/index.html"
+    status: "200"
+  - source: "/precios"
+    target: "/index.html"
+    status: "200"
+  - source: "/nosotros"
+    target: "/index.html"
+    status: "200"
+  - source: "/casos-reales"
+    target: "/index.html"
+    status: "200"
+
+  # Service routes (both specific and dynamic)
+  - source: "/limpieza-facial"
+    target: "/index.html"
+    status: "200"
+  - source: "/limpieza-facial-anti-acne"
+    target: "/index.html"
+    status: "200"
+  - source: "/limpieza-facial-pieles-sensibles"
+    target: "/index.html"
+    status: "200"
+  - source: "/servicios/<*>"
+    target: "/index.html"
+    status: "200"
+
+  # Utility routes
+  - source: "/agendar"
+    target: "/index.html"
+    status: "200"
+  - source: "/confirmacion-pago"
+    target: "/index.html"
+    status: "200"
+
+  # Blog routes (for future implementation)
+  - source: "/blog"
+    target: "/index.html"
+    status: "200"
+  - source: "/blog/<*>"
+    target: "/index.html"
+    status: "200"
+  - source: "/blog-post/<*>"
+    target: "/index.html"
+    status: "200"
+
+  # Catch-all route for SPA - must be last
+  - source: "/<*>"
+    target: "/index.html"
+    status: "200"
+
+# Custom headers configuration
+customHeaders:
+  # SEO Files - Optimized for search engines
+  - pattern: "robots.txt"
+    headers:
+      - key: "Content-Type"
+        value: "text/plain; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=86400"
+      - key: "X-Robots-Tag"
+        value: "index, follow"
+
+  - pattern: "sitemap.xml"
+    headers:
+      - key: "Content-Type"
+        value: "application/xml; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=86400"
+      - key: "X-Robots-Tag"
+        value: "index, follow"
+
+  - pattern: "sitemap.rss"
+    headers:
+      - key: "Content-Type"
+        value: "application/rss+xml; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=3600"
+      - key: "X-Robots-Tag"
+        value: "index, follow"
+
+  - pattern: "llm.txt"
+    headers:
+      - key: "Content-Type"
+        value: "text/plain; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=86400"
+      - key: "X-Robots-Tag"
+        value: "index, follow"
+
+  # Favicon
+  - pattern: "favicon.ico"
+    headers:
+      - key: "Content-Type"
+        value: "image/x-icon"
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+
+  # Static assets (CSS, JS, images)
+  - pattern: "**/*.css"
+    headers:
+      - key: "Content-Type"
+        value: "text/css; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "**/*.js"
+    headers:
+      - key: "Content-Type"
+        value: "application/javascript; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "**/*.{png,jpg,jpeg,gif,svg,webp}"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  # HTML files - Different caching strategies
+  - pattern: "**/*.html"
+    headers:
+      - key: "Content-Type"
+        value: "text/html; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=0, must-revalidate"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+      - key: "X-Frame-Options"
+        value: "DENY"
+      - key: "X-XSS-Protection"
+        value: "1; mode=block"
+      - key: "Referrer-Policy"
+        value: "strict-origin-when-cross-origin"
+
+  # Index.html - No cache for main entry point
+  - pattern: "index.html"
+    headers:
+      - key: "Content-Type"
+        value: "text/html; charset=utf-8"
+      - key: "Cache-Control"
+        value: "no-cache, no-store, must-revalidate"
+      - key: "Pragma"
+        value: "no-cache"
+      - key: "Expires"
+        value: "0"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+      - key: "X-Frame-Options"
+        value: "DENY"
+      - key: "X-XSS-Protection"
+        value: "1; mode=block"
+      - key: "Referrer-Policy"
+        value: "strict-origin-when-cross-origin"
+
+  # Default headers for all other files
+  - pattern: "**/*"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"

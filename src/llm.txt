@@ -40,7 +40,7 @@
 ## Información de Contacto
 
 **Teléfono:** +57 300 888 3486
-**WhatsApp:** Disponible para consultas y citas
+**WhatsApp:** https://wa.link/h5481r o al +57 300 888 3486
 **Ubicación:** Barranquilla, Colombia
 **Horarios:** Consultar disponibilidad
 **Reservas Online:** Disponibles a través del sitio web
@@ -140,13 +140,72 @@ Este sitio web proporciona información completa sobre servicios de estética fa
 - /servicio/glow-lips
 - /servicio/tratamiento-3-sesiones-glow-lips
 
-## Características Técnicas
+## Sobre Sofia Nieto - Especialista en Estética Facial
 
-- **SSR (Server-Side Rendering):** Optimizado para SEO
-- **Prerenderizado:** Todas las páginas generadas estáticamente
-- **Responsive Design:** Optimizado para móviles
-- **Core Web Vitals:** Métricas de rendimiento optimizadas
-- **Schema Markup:** Datos estructurados para buscadores
-- **Sitemap XML:** Indexación completa de todas las páginas
+**Formación Profesional:**
+- Cosmiatra certificada con más de 5 años de experiencia
+- Especialización en tratamientos faciales avanzados
+- Formación continua en tecnologías de vanguardia
+- Certificada en microneedling y terapia con exosomas
+- Experta en protocolos PDRN y bioestimulación celular
 
-Última actualización: Enero 2025 - Versión 2.0 con servicios expandidos
+**Filosofía de Trabajo:**
+- Enfoque personalizado para cada tipo de piel
+- Protocolos basados en evidencia científica
+- Compromiso con resultados naturales y duraderos
+- Atención integral desde la consulta hasta el seguimiento
+
+**Especialidades Destacadas:**
+- Tratamiento de acné severo y cicatrices
+- Manejo de pieles sensibles y reactivas
+- Despigmentación y unificación del tono
+- Rejuvenecimiento sin procedimientos invasivos
+- Protocolos anti-edad preventivos
+
+## Historia de Glow Skin BQ
+
+**Fundación y Misión:**
+Glow Skin nació con la visión de democratizar el acceso a tratamientos estéticos de alta calidad en Barranquilla. Fundada por Sofia Nieto, la clínica se ha posicionado como referente en estética facial avanzada, combinando tecnología de punta con técnicas tradicionales probadas.
+
+**Valores Fundamentales:**
+- **Transparencia:** Precios claros y expectativas realistas
+- **Excelencia:** Uso de tecnología de última generación
+- **Personalización:** Cada tratamiento adaptado al paciente
+- **Educación:** Información completa sobre cada procedimiento
+- **Resultados:** Compromiso con transformaciones visibles
+
+**Reconocimientos:**
+- Más de 1000 pacientes satisfechos
+- Casos documentados con seguimiento fotográfico
+- Referencias positivas en redes sociales
+- Colaboraciones con dermatólogos locales
+
+## Instalaciones y Ambiente
+
+**Ubicación Estratégica:**
+- Clínica ubicada en zona privilegiada de Barranquilla
+- Fácil acceso y estacionamiento disponible
+- Ambiente relajante y profesional
+- Protocolos de bioseguridad actualizados
+
+**Equipamiento de Vanguardia:**
+- Cabinas individuales climatizadas
+- Tecnología europea certificada
+- Productos de grado médico
+- Ambiente estéril y controlado
+
+## Compromiso con la Comunidad
+
+**Responsabilidad Social:**
+- Programas de educación sobre cuidado de la piel
+- Charlas en instituciones educativas
+- Apoyo a eventos de belleza y bienestar local
+- Promociones especiales para estudiantes
+
+**Sostenibilidad:**
+- Uso responsable de recursos
+- Productos eco-amigables cuando es posible
+- Gestión adecuada de residuos
+- Compromiso con el medio ambiente
+
+Última actualización: Septiembre 2025 - Información ampliada sobre Glow Skin BQ
