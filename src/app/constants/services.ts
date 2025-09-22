@@ -14,6 +14,9 @@ export enum ServiceIds {
   LIMPIEZA_FACIAL = 'limpieza-facial',
   LIMPIEZA_FACIAL_ANTI_ACNE = 'limpieza-facial-anti-acne',
   LIMPIEZA_FACIAL_PIELES_SENSIBLES = 'limpieza-facial-pieles-sensibles',
+  HYDRAGLOW = 'hydraglow',
+  LIMPIEZA_SEBORREGULADORA = 'limpieza-seborreguladora',
+  HYDRAGLOW_ANTIOX_PEEL = 'hydraglow-antiox-peel',
   TRATAMIENTO_ANTI_ACNE_INTENSIVO = 'tratamiento-anti-acne-intensivo',
   TRATAMIENTO_DESPIGMENTANTE = 'tratamiento-despigmentante',
   TRATAMIENTO_REGENERATIVE_PLUS = 'tratamiento-regenerative-plus',
@@ -42,7 +45,6 @@ export const SERVICES_DATA = {
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 30-45 días',
-            technology: 'Vapor ozono, espátula ultrasónica, alta frecuencia',
             idealFor:
               'Mantenimiento, pieles congestionadas, y como primer paso para cualquier tratamiento',
           },
@@ -162,8 +164,6 @@ export const SERVICES_DATA = {
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 21 días durante la fase activa',
-            technology:
-              'Alta frecuencia para oxigenar y descongestionar, vapor ozono para dilatar poros',
             activos:
               'Fórmulas seborreguladoras y bactericidas de laboratorios reconocidos',
           },
@@ -334,8 +334,6 @@ export const SERVICES_DATA = {
           details: {
             frequency:
               '1 sesión cada 30-45 días, con protocolos adaptados según la reactividad',
-            technology:
-              'Vapor tibio suave, extracción mínima, masaje linfático, productos calmantes',
             idealFor:
               'Pieles sensibles, reactivas, con rosácea, dermatitis o tendencia a irritación',
             activos:
@@ -542,6 +540,343 @@ export const SERVICES_DATA = {
             },
           },
         },
+        {
+          id: ServiceIds.HYDRAGLOW,
+          name: 'Limpieza Facial HydraGlow',
+          description:
+            'La HydraGlow es nuestra limpieza facial más completa en Glow Skin. Combina la tecnología de la máquina Hydrafacial con principios activos seleccionados de acuerdo a las necesidades de tu piel.',
+          price: 250000,
+          currency: 'COP',
+          details: {
+            frequency: '1 sesión cada 30-45 días',
+            benefits: [
+              '🌿 Limpieza profunda',
+              '💧 Hidratación en capas',
+              '✨ Luminosidad inmediata',
+            ],
+            idealFor:
+              'Renovar, hidratar y dejar la piel fresca, uniforme y radiante',
+          },
+          page: {
+            hero: {
+              title: 'Limpieza Facial',
+              titleHighlight: 'HydraGlow',
+              subtitle:
+                'Nuestra limpieza facial más completa que combina tecnología Hydrafacial con principios activos personalizados',
+              primaryColor: 'blue',
+              gradientFrom: 'from-blue-50',
+              gradientTo: 'to-cyan-100',
+            },
+            benefits: {
+              title: '¿Por qué elegir HydraGlow?',
+              subtitle:
+                'La tecnología más avanzada para una experiencia de limpieza facial incomparable',
+              items: [
+                {
+                  icon: 'water',
+                  title: 'Tecnología Hydrafacial',
+                  description:
+                    'Limpieza, exfoliación e hidratación simultánea con resultados inmediatos',
+                },
+                {
+                  icon: 'sparkles',
+                  title: 'Principios Activos Personalizados',
+                  description:
+                    'Seleccionamos los activos específicos según las necesidades de tu piel',
+                },
+                {
+                  icon: 'refresh',
+                  title: 'Renovación Celular',
+                  description:
+                    'Estimula la regeneración natural para una piel más joven y radiante',
+                },
+              ],
+            },
+            process: {
+              title: 'El Proceso HydraGlow',
+              subtitle:
+                'Una experiencia completa de renovación y nutrición facial',
+              duration: '110-120',
+              durationUnit: 'minutos aproximadamente',
+              steps: [
+                {
+                  number: 1,
+                  title: 'Análisis Personalizado',
+                  description:
+                    'Evaluamos tu piel para seleccionar los principios activos más adecuados.',
+                },
+                {
+                  number: 2,
+                  title: 'Limpieza Hydrafacial',
+                  description:
+                    'Limpieza profunda con tecnología de vórtice que remueve impurezas sin irritar.',
+                },
+                {
+                  number: 3,
+                  title: 'Exfoliación y Extracción',
+                  description:
+                    'Eliminamos células muertas y extraemos comedones de forma suave y efectiva.',
+                },
+                {
+                  number: 4,
+                  title: 'Infusión de Activos',
+                  description:
+                    'Aplicamos sueros concentrados que penetran profundamente en la piel.',
+                },
+                {
+                  number: 5,
+                  title: 'Hidratación y Protección',
+                  description:
+                    'Sellamos con hidratantes y protector solar para resultados duraderos.',
+                },
+              ],
+              includes: [
+                'Análisis de piel personalizado',
+                'Limpieza Hydrafacial completa',
+                'Principios activos seleccionados',
+                'Mascarilla hidratante',
+                'Protección solar premium',
+              ],
+            },
+            faq: [
+              {
+                question: '¿Qué hace diferente a HydraGlow de otras limpiezas?',
+                answer:
+                  'HydraGlow utiliza tecnología Hydrafacial que combina limpieza, exfoliación e hidratación en un solo paso, además de principios activos personalizados según tu tipo de piel.',
+              },
+              {
+                question: '¿Sentiré molestias durante el tratamiento?',
+                answer:
+                  'No, HydraGlow es completamente indoloro. La mayoría de clientes lo describen como relajante y refrescante.',
+              },
+              {
+                question: '¿Cuándo veré los resultados?',
+                answer:
+                  'Los resultados son inmediatos. Tu piel se verá más luminosa, hidratada y uniforme desde la primera sesión.',
+              },
+              {
+                question: '¿Puedo hacerme HydraGlow si tengo piel sensible?',
+                answer:
+                  'Sí, HydraGlow es suave y se adapta a todos los tipos de piel, incluidas las sensibles. Personalizamos los activos según tu sensibilidad.',
+              },
+            ],
+            cta: {
+              title: 'Experimenta la diferencia HydraGlow',
+              subtitle:
+                'Descubre por qué HydraGlow es nuestra limpieza facial más solicitada y transforma tu piel desde la primera sesión',
+            },
+          },
+        },
+        {
+          id: ServiceIds.LIMPIEZA_SEBORREGULADORA,
+          name: 'Limpieza Seborreguladora',
+          description:
+            'Ideal para pieles en etapas de acné severo activo, con pústulas y alta producción de grasa. Los resultados son progresivos y se perciben desde la primera sesión.',
+          price: 375000,
+          currency: 'COP',
+          details: {
+            frequency: '1 sesión cada 21-30 días',
+            benefits: [
+              'Equilibra el exceso de grasa en la piel',
+              'Regula la producción de sebo',
+              'Incluye recomendaciones de cuidado en casa',
+            ],
+            idealFor:
+              'Pieles con acné severo activo y alta producción de grasa',
+          },
+          page: {
+            hero: {
+              title: 'Limpieza',
+              titleHighlight: 'Seborreguladora',
+              subtitle:
+                'Protocolo especializado para pieles con acné severo activo, pústulas y alta producción de grasa',
+              primaryColor: 'emerald',
+              gradientFrom: 'from-emerald-50',
+              gradientTo: 'to-teal-100',
+            },
+            problemSection: {
+              title: '¿Sufres de acné severo y piel grasa?',
+              subtitle:
+                'El acné severo con alta producción de grasa requiere un enfoque especializado que vaya más allá de una limpieza facial convencional.',
+              causes: [
+                {
+                  title: 'Hiperproducción sebácea',
+                  description:
+                    'Las glándulas sebáceas trabajan en exceso, creando un ambiente propicio para bacterias.',
+                },
+                {
+                  title: 'Pústulas activas',
+                  description:
+                    'Lesiones inflamatorias que requieren tratamiento especializado y cuidadoso.',
+                },
+                {
+                  title: 'Poros dilatados',
+                  description:
+                    'El exceso de grasa dilata los poros, acumulando más impurezas.',
+                },
+                {
+                  title: 'Textura irregular',
+                  description:
+                    'La piel presenta rugosidad y falta de uniformidad por el acné activo.',
+                },
+              ],
+              approach: [
+                { icon: 'flask', title: 'Peeling Seborregulador' },
+                { icon: 'water', title: 'Control de Grasa' },
+                { icon: 'shield', title: 'Acción Antibacteriana' },
+                { icon: 'refresh', title: 'Renovación Celular' },
+              ],
+            },
+            process: {
+              title: 'Protocolo Seborregulador Intensivo',
+              subtitle:
+                'Un enfoque científico para controlar la grasa y reducir el acné severo',
+              duration: '80-90',
+              durationUnit: 'minutos aproximadamente',
+              steps: [
+                {
+                  number: 1,
+                  title: 'Evaluación Especializada',
+                  description:
+                    'Analizamos el grado de severidad del acné y el nivel de producción sebácea.',
+                },
+                {
+                  number: 2,
+                  title: 'Preparación de la Piel',
+                  description:
+                    'Limpieza profunda preparatoria con productos específicos para piel grasa.',
+                },
+                {
+                  number: 3,
+                  title: 'Peeling Seborregulador',
+                  description:
+                    'Aplicamos peeling químico de alta estética para regular la producción de sebo.',
+                },
+                {
+                  number: 4,
+                  title: 'Extracción Especializada',
+                  description:
+                    'Extracción cuidadosa de comedones y pústulas con técnicas avanzadas.',
+                },
+                {
+                  number: 5,
+                  title: 'Tratamiento Post-Peeling',
+                  description:
+                    'Aplicamos activos calmantes y reguladores para optimizar los resultados.',
+                },
+              ],
+              includes: [
+                'Evaluación dermatológica',
+                'Limpieza Facial Glow Skin completa',
+                'Peeling Seborregulador profesional',
+                'Protocolo post-tratamiento',
+                'Plan de cuidados en casa',
+              ],
+            },
+            expectations: {
+              title: 'Resultados Progresivos',
+              subtitle:
+                'Los cambios se perciben desde la primera sesión y mejoran con cada tratamiento',
+              timeline: [
+                {
+                  phase: 'Primera Sesión',
+                  icon: 'sparkles',
+                  description:
+                    'Piel menos grasa y brillante. Reducción visible de pústulas activas.',
+                },
+                {
+                  phase: '2-3 Sesiones',
+                  icon: 'trending-down',
+                  description:
+                    'Control significativo de la producción sebácea. Menor aparición de brotes.',
+                },
+                {
+                  phase: '4-6 Sesiones',
+                  icon: 'star',
+                  description:
+                    'Textura mejorada, poros menos dilatados, piel equilibrada.',
+                },
+                {
+                  phase: 'Mantenimiento',
+                  icon: 'shield-checkmark',
+                  description:
+                    'Piel controlada con producción sebácea regulada y prevención de brotes.',
+                },
+              ],
+            },
+            homecare: {
+              title: 'Cuidados Esenciales en Casa',
+              subtitle:
+                'El éxito del tratamiento depende también de tu rutina diaria',
+              recommended: [
+                {
+                  title: 'Limpiador seborregulador',
+                  description:
+                    'Gel de limpieza específico para piel grasa, 2 veces al día',
+                },
+                {
+                  title: 'Tónico astringente',
+                  description:
+                    'Para cerrar poros y controlar la grasa sin resecar',
+                },
+                {
+                  title: 'Hidratante oil-free',
+                  description: 'Hidratación ligera que no obstruya los poros',
+                },
+                {
+                  title: 'Protector solar matificante',
+                  description:
+                    'SPF 30+ con efecto mate para controlar el brillo',
+                },
+              ],
+              avoid: [
+                {
+                  title: 'Productos comedogénicos',
+                  description:
+                    'Evita maquillaje y cremas que obstruyan los poros',
+                },
+                {
+                  title: 'Limpieza excesiva',
+                  description:
+                    'No limpies más de 2 veces al día para no estimular más grasa',
+                },
+                {
+                  title: 'Tocar las lesiones',
+                  description:
+                    'Evita manipular granos o pústulas para prevenir cicatrices',
+                },
+              ],
+            },
+            faq: [
+              {
+                question: '¿Es doloroso el peeling seborregulador?',
+                answer:
+                  'Puedes sentir una ligera sensación de hormigueo durante la aplicación, pero es bien tolerado. Cualquier molestia desaparece rápidamente.',
+              },
+              {
+                question: '¿Cuántas sesiones necesito para ver resultados?',
+                answer:
+                  'Los primeros cambios se notan desde la primera sesión. Para resultados óptimos en acné severo, recomendamos 6-8 sesiones.',
+              },
+              {
+                question: '¿Puedo usar maquillaje después del tratamiento?',
+                answer:
+                  'Recomendamos esperar 24 horas antes de aplicar maquillaje. Usa solo productos no comedogénicos.',
+              },
+              {
+                question: '¿Qué cuidados debo tener después del peeling?',
+                answer:
+                  'Evita el sol directo por 48 horas, usa protector solar diariamente y sigue las indicaciones de productos recomendados.',
+              },
+            ],
+            cta: {
+              title: 'Controla tu acné severo definitivamente',
+              subtitle:
+                'No permitas que el acné severo afecte tu autoestima. Nuestro protocolo seborregulador está diseñado específicamente para casos como el tuyo.',
+              promise: 'Resultados progresivos desde la primera sesión',
+            },
+          },
+        },
       ],
     },
     {
@@ -578,7 +913,7 @@ export const SERVICES_DATA = {
           name: 'Tratamiento Despigmentante con Peelings Químicos',
           description:
             'Renovación celular controlada mediante la aplicación de ácidos de última generación para atenuar manchas (melasma, hiperpigmentación post-inflamatoria) y unificar el tono de la piel.',
-          price: 540000,
+          price: 600000,
           currency: 'COP',
           details: {
             includes: [
@@ -592,7 +927,7 @@ export const SERVICES_DATA = {
           name: 'Tratamiento Regenerative + (Cicatrices y Textura)',
           description:
             'Avanzado protocolo de bioestimulación celular con tecnología de micropunciones y alta nutrición para reconstruir el tejido dañado, mejorando visiblemente la apariencia de cicatrices y la textura general de la piel.',
-          price: 1140000,
+          price: 1200000,
           currency: 'COP',
           details: {
             includes: [
@@ -615,7 +950,7 @@ export const SERVICES_DATA = {
           name: 'Antiox Peel Pro (Peeling Antioxidante)',
           description:
             'Tratamiento de renovación celular que combate los radicales libres, principales causantes del envejecimiento prematuro. Aporta luminosidad y mejora la textura de la piel.',
-          price: 325000,
+          price: 375000,
           currency: 'COP',
           details: {
             includes: [
@@ -638,6 +973,222 @@ export const SERVICES_DATA = {
               'Aplicación de activos tensores y unificadores.',
               'Mascarilla hidroplástica para un efecto final radiante y sellado de activos.',
             ],
+          },
+        },
+        {
+          id: ServiceIds.HYDRAGLOW_ANTIOX_PEEL,
+          name: 'HydraGlow + Antiox Peel Pro',
+          description:
+            'La combinación perfecta para lograr un Glow inmediato y duradero 🌟. Iniciamos con la Limpieza HydraGlow, nuestra limpieza más completa que utiliza tecnología Hydrafacial junto con principios activos personalizados según tu piel 💧. Luego potenciamos los resultados con el Antiox Peel Pro, un avanzado cóctel de ácidos de medicina estética que mejora textura, uniformidad y vitalidad de la piel 🌿.',
+          price: 450000,
+          currency: 'COP',
+          details: {
+            includes: [
+              'HydraGlow: Limpieza profunda con tecnología Hydrafacial',
+              'Antiox Peel Pro: Peeling antioxidante de medicina estética',
+              'Hidratación en capas y luminosidad inmediata',
+              'Mejora de textura, uniformidad y vitalidad',
+            ],
+            duration: '2 horas',
+            results:
+              'Una piel renovada, fresca y radiante desde la primera sesión',
+          },
+          page: {
+            hero: {
+              title: 'HydraGlow +',
+              titleHighlight: 'Antiox Peel Pro',
+              subtitle:
+                'La combinación perfecta para lograr un Glow inmediato y duradero. Tecnología Hydrafacial + Medicina Estética',
+              primaryColor: 'violet',
+              gradientFrom: 'from-violet-50',
+              gradientTo: 'to-purple-100',
+            },
+            benefits: {
+              title: 'Doble Potencia para Resultados Excepcionales',
+              subtitle:
+                'Combinamos lo mejor de dos mundos: limpieza avanzada y renovación celular',
+              items: [
+                {
+                  icon: 'water',
+                  title: 'HydraGlow Completo',
+                  description:
+                    'Limpieza profunda, exfoliación e hidratación con tecnología Hydrafacial',
+                },
+                {
+                  icon: 'flask',
+                  title: 'Antiox Peel Pro',
+                  description:
+                    'Peeling antioxidante de medicina estética para renovación celular avanzada',
+                },
+                {
+                  icon: 'sparkles',
+                  title: 'Sinergia Perfecta',
+                  description:
+                    'La combinación potencia los efectos de ambos tratamientos',
+                },
+              ],
+            },
+            process: {
+              title: 'Protocolo de Doble Acción',
+              subtitle:
+                'Una experiencia completa de 2 horas para transformar tu piel',
+              duration: '120',
+              durationUnit: 'minutos',
+              steps: [
+                {
+                  number: 1,
+                  title: 'Análisis Integral',
+                  description:
+                    'Evaluación completa para personalizar ambos tratamientos según tu piel.',
+                },
+                {
+                  number: 2,
+                  title: 'Fase HydraGlow',
+                  description:
+                    'Limpieza profunda, exfoliación suave y primera hidratación con tecnología Hydrafacial.',
+                },
+                {
+                  number: 3,
+                  title: 'Preparación para Peeling',
+                  description:
+                    'Acondicionamiento de la piel para maximizar la absorción del peeling.',
+                },
+                {
+                  number: 4,
+                  title: 'Antiox Peel Pro',
+                  description:
+                    'Aplicación del cóctel antioxidante de medicina estética para renovación profunda.',
+                },
+                {
+                  number: 5,
+                  title: 'Sellado y Protección',
+                  description:
+                    'Hidratación intensiva y protección solar para optimizar resultados.',
+                },
+              ],
+              includes: [
+                'Consulta y análisis personalizado',
+                'HydraGlow completo con principios activos',
+                'Antiox Peel Pro de medicina estética',
+                'Mascarillas especializadas',
+                'Protección solar premium',
+                'Guía de cuidados post-tratamiento',
+              ],
+            },
+            comparison: {
+              title: '¿Por qué elegir la combinación?',
+              subtitle:
+                'Comparación entre tratamientos individuales vs. combinados',
+              individual: {
+                title: 'Tratamientos Separados',
+                items: [
+                  'Resultados graduales',
+                  'Múltiples citas',
+                  'Mayor tiempo total',
+                  'Costo individual mayor',
+                ],
+              },
+              combined: {
+                title: 'Tratamiento Combinado',
+                items: [
+                  'Resultados inmediatos y potenciados',
+                  'Una sola sesión intensiva',
+                  'Ahorro de tiempo',
+                  'Mejor relación costo-beneficio',
+                  'Sinergia entre tratamientos',
+                ],
+              },
+            },
+            expectations: {
+              title: 'Qué Esperar Después del Tratamiento',
+              subtitle:
+                'Resultados inmediatos que continúan mejorando en los días siguientes',
+              immediate: {
+                title: 'Inmediato (0-24 horas)',
+                description:
+                  'Piel visiblemente más luminosa, hidratada y uniforme. Sensación de frescura y suavidad.',
+              },
+              shortTerm: {
+                title: 'Corto Plazo (1-7 días)',
+                description:
+                  'Mejora progresiva de la textura, reducción de poros y mayor uniformidad en el tono.',
+              },
+              longTerm: {
+                title: 'Largo Plazo (1-4 semanas)',
+                description:
+                  'Renovación celular completa, piel más firme, líneas finas atenuadas y glow duradero.',
+              },
+            },
+            aftercare: {
+              title: 'Cuidados Post-Tratamiento',
+              subtitle:
+                'Sigue estas recomendaciones para maximizar y prolongar los resultados',
+              first24h: [
+                {
+                  title: 'Evita el maquillaje',
+                  description:
+                    'Permite que tu piel respire las primeras 6-8 horas',
+                },
+                {
+                  title: 'Hidratación suave',
+                  description:
+                    'Usa solo los productos recomendados por nosotros',
+                },
+                {
+                  title: 'No toques tu rostro',
+                  description: 'Evita manipular la piel tratada',
+                },
+              ],
+              firstWeek: [
+                {
+                  title: 'Protección solar estricta',
+                  description: 'SPF 50+ y reaplica cada 2-3 horas',
+                },
+                {
+                  title: 'Hidratación intensiva',
+                  description: 'Usa cremas reparadoras mañana y noche',
+                },
+                {
+                  title: 'Evita exfoliación',
+                  description: 'No uses scrubs ni ácidos por 7 días',
+                },
+              ],
+            },
+            faq: [
+              {
+                question: '¿Es seguro combinar estos dos tratamientos?',
+                answer:
+                  'Absolutamente. Nuestro protocolo está diseñado específicamente para que ambos tratamientos se complementen de forma segura y efectiva.',
+              },
+              {
+                question: '¿Sentiré molestias durante las 2 horas?',
+                answer:
+                  'No, la mayoría de clientes encuentra el tratamiento relajante. El HydraGlow es completamente confortable y el peeling puede causar ligero hormigueo.',
+              },
+              {
+                question: '¿Con qué frecuencia puedo hacerme este tratamiento?',
+                answer:
+                  'Recomendamos cada 6-8 semanas para permitir la renovación celular completa y maximizar los beneficios.',
+              },
+              {
+                question:
+                  '¿Puedo hacerme este tratamiento si tengo piel sensible?',
+                answer:
+                  'Sí, pero adaptaremos las concentraciones y productos. Es importante informarnos sobre tu sensibilidad durante la consulta.',
+              },
+              {
+                question: '¿Cuándo podré ver los resultados completos?',
+                answer:
+                  'Los resultados son inmediatos, pero la renovación celular completa se aprecia entre 2-4 semanas después del tratamiento.',
+              },
+            ],
+            cta: {
+              title: 'Experimenta la Transformación Definitiva',
+              subtitle:
+                'No te conformes con resultados ordinarios. Descubre por qué esta combinación es nuestro tratamiento facial más solicitado.',
+              highlight:
+                'Glow inmediato + Renovación profunda = Resultados extraordinarios',
+            },
           },
         },
       ],
@@ -724,6 +1275,6 @@ export const SERVICES_DATA = {
     whatsapp: environment.whatsappLink,
     phone: environment.phone,
     email: environment.email,
-    booking: environment.bookingLink
+    booking: environment.bookingLink,
   },
 };

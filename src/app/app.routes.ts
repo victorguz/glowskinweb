@@ -39,6 +39,27 @@ export const routes: Routes = [
       serviceId: ServiceIds.LIMPIEZA_FACIAL_PIELES_SENSIBLES,
     },
   },
+  {
+    path: ServiceIds.HYDRAGLOW,
+    component: ServiceTemplateComponent,
+    data: {
+      serviceId: ServiceIds.HYDRAGLOW,
+    },
+  },
+  {
+    path: ServiceIds.LIMPIEZA_SEBORREGULADORA,
+    component: ServiceTemplateComponent,
+    data: {
+      serviceId: ServiceIds.LIMPIEZA_SEBORREGULADORA,
+    },
+  },
+  {
+    path: ServiceIds.HYDRAGLOW_ANTIOX_PEEL,
+    component: ServiceTemplateComponent,
+    data: {
+      serviceId: ServiceIds.HYDRAGLOW_ANTIOX_PEEL,
+    },
+  },
   // { path: 'blog', component: BlogComponent },
   // Dynamic routes - these will be handled by the components themselves
   // { path: 'blog/:slug', component: BlogComponent },
