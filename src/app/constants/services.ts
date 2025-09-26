@@ -1204,7 +1204,7 @@ export const SERVICES_DATA = {
           name: 'Microneedling Regenerativo + Exosomas',
           description:
             'Potenciamos la terapia de inducción de colágeno con el poder regenerativo de los exosomas. Ideal para una reparación intensiva de cicatrices, arrugas y flacidez.',
-          price: 1800000,
+          price: 1200000,
           currency: 'COP',
           details: {
             includes: [
@@ -1212,6 +1212,23 @@ export const SERVICES_DATA = {
               'Aplicación de vial de Exosomas de alta concentración de laboratorio reconocido',
               'Terapia de luz LED para potenciar la absorción y la respuesta celular',
             ],
+          },
+        },
+        {
+          id: 'microneedling-exosomas-3-sesiones',
+          name: 'Tratamiento 3 Sesiones Microneedling + Exosomas',
+          description:
+            'Tratamiento completo de 3 sesiones para maximizar los beneficios regenerativos de los exosomas. Ideal para resultados óptimos en reparación de cicatrices, arrugas y flacidez.',
+          price: 2700000,
+          currency: 'COP',
+          details: {
+            includes: [
+              '3 Sesiones de Microneedling + Exosomas',
+              'Aplicación de vial de Exosomas de alta concentración en cada sesión',
+              'Terapia de luz LED en cada sesión',
+              'Seguimiento personalizado durante el tratamiento',
+            ],
+            frequency: '1 sesión cada 4-6 semanas',
           },
         },
       ],
@@ -1227,7 +1244,7 @@ export const SERVICES_DATA = {
           name: 'Protocolo PDRN Rejuvenecimiento Intensivo',
           description:
             'Tratamiento enfocado en la reparación profunda de la piel, restaurando la firmeza, elasticidad y atenuando arrugas finas y signos de fatiga.',
-          price: 1500000,
+          price: 900000,
           currency: 'COP',
           details: {
             includes: [
@@ -1235,6 +1252,23 @@ export const SERVICES_DATA = {
               'Ideal para rostro, cuello y escote',
               'Resultados visibles en la mejora de la calidad y densidad de la piel',
             ],
+          },
+        },
+        {
+          id: 'protocolo-pdrn-3-sesiones',
+          name: 'Tratamiento 3 Sesiones PDRN Rejuvenecimiento Intensivo',
+          description:
+            'Tratamiento completo de 3 sesiones para potenciar los efectos regenerativos del PDRN. Ideal para una reparación profunda y resultados duraderos en firmeza, elasticidad y calidad de la piel.',
+          price: 2100000,
+          currency: 'COP',
+          details: {
+            includes: [
+              '3 Sesiones de aplicación de PDRN mediante micropunciones',
+              'Tratamiento completo para rostro, cuello y escote',
+              'Seguimiento personalizado durante todo el proceso',
+              'Resultados progresivos y duraderos',
+            ],
+            frequency: '1 sesión cada 4-6 semanas',
           },
         },
       ],
