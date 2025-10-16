@@ -13,8 +13,7 @@ export const environment = {
   instagramLink: 'https://www.instagram.com/glowskinbq',
   facebookLink: 'https://www.facebook.com/glowskinbq',
   tiktokLink: 'https://www.tiktok.com/@glowskinbq',
-  bookingLink:
-    'https://www.fresha.com/es/a/glow-skin-barranquilla-calle-72-57-62-ly584rnh/all-offer?menu=true&pId=2521045',
+  bookingLink: 'https://wa.link/h5481r',
 
   assetsUrl: 'https://main.d1xrycrl1hw09l.amplifyapp.com/assets/',
   beforeAfterUrl:
