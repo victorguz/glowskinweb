@@ -669,10 +669,10 @@ export const SERVICES_DATA = {
         },
         {
           id: ServiceIds.LIMPIEZA_SEBORREGULADORA,
-          name: 'Limpieza Seborreguladora',
+          name: 'Limpieza Anti-Acné Seborreguladora',
           description:
             'Ideal para pieles en etapas de acné severo activo, con pústulas y alta producción de grasa. Los resultados son progresivos y se perciben desde la primera sesión.',
-          price: 375000,
+          price: 415000,
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 21-30 días',
@@ -687,7 +687,7 @@ export const SERVICES_DATA = {
           page: {
             hero: {
               title: 'Limpieza',
-              titleHighlight: 'Seborreguladora',
+              titleHighlight: 'Anti-Acné Seborreguladora',
               subtitle:
                 'Protocolo especializado para pieles con acné severo activo, pústulas y alta producción de grasa',
               primaryColor: 'emerald',
