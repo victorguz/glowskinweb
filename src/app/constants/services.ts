@@ -320,7 +320,7 @@ export const SERVICES_DATA = {
               title: '¿Listo para decir adiós al acné?',
               subtitle:
                 'No dejes que el acné controle tu vida. Agenda una consulta y descubre cómo nuestro protocolo especializado puede transformar tu piel.',
-              tip: 'El acné severo requiere constancia. ¡Confía en el proceso!',
+              tip: 'El acné comedogénico requiere constancia. ¡Confía en el proceso!',
             },
           },
         },
@@ -671,7 +671,7 @@ export const SERVICES_DATA = {
           id: ServiceIds.LIMPIEZA_SEBORREGULADORA,
           name: 'Limpieza Anti-Acné Seborreguladora',
           description:
-            'Ideal para pieles en etapas de acné severo activo, con pústulas y alta producción de grasa. Los resultados son progresivos y se perciben desde la primera sesión.',
+            'Ideal para pieles en etapas de acné comedogénico activo y alta producción de grasa. Los resultados son progresivos y se perciben desde la primera sesión.',
           price: 415000,
           currency: 'COP',
           details: {
@@ -682,22 +682,22 @@ export const SERVICES_DATA = {
               'Incluye recomendaciones de cuidado en casa',
             ],
             idealFor:
-              'Pieles con acné severo activo y alta producción de grasa',
+              'Pieles con acné comedogénico activo y alta producción de grasa',
           },
           page: {
             hero: {
               title: 'Limpieza',
               titleHighlight: 'Anti-Acné Seborreguladora',
               subtitle:
-                'Protocolo especializado para pieles con acné severo activo, pústulas y alta producción de grasa',
+                'Protocolo especializado para pieles con acné comedogénico activo, pústulas y alta producción de grasa',
               primaryColor: 'emerald',
               gradientFrom: 'from-emerald-50',
               gradientTo: 'to-teal-100',
             },
             problemSection: {
-              title: '¿Sufres de acné severo y piel grasa?',
+              title: '¿Sufres de acné comedogénico y piel grasa?',
               subtitle:
-                'El acné severo con alta producción de grasa requiere un enfoque especializado que vaya más allá de una limpieza facial convencional.',
+                'El acné comedogénico con alta producción de grasa requiere un enfoque especializado que vaya más allá de una limpieza facial convencional.',
               causes: [
                 {
                   title: 'Hiperproducción sebácea',
@@ -705,9 +705,9 @@ export const SERVICES_DATA = {
                     'Las glándulas sebáceas trabajan en exceso, creando un ambiente propicio para bacterias.',
                 },
                 {
-                  title: 'Pústulas activas',
+                  title: 'Acné comedogénico',
                   description:
-                    'Lesiones inflamatorias que requieren tratamiento especializado y cuidadoso.',
+                    'Acné comedogénico que requieren extracciones profesionales y cuidadosas con la piel.',
                 },
                 {
                   title: 'Poros dilatados',
@@ -730,7 +730,7 @@ export const SERVICES_DATA = {
             process: {
               title: 'Protocolo Seborregulador Intensivo',
               subtitle:
-                'Un enfoque científico para controlar la grasa y reducir el acné severo',
+                'Un enfoque científico para controlar la grasa y reducir el acné comedogénico',
               duration: '80-90',
               durationUnit: 'minutos aproximadamente',
               steps: [
@@ -756,7 +756,7 @@ export const SERVICES_DATA = {
                   number: 4,
                   title: 'Extracción Especializada',
                   description:
-                    'Extracción cuidadosa de comedones y pústulas con técnicas avanzadas.',
+                    'Extracción cuidadosa de acné comedogénico con técnicas avanzadas.',
                 },
                 {
                   number: 5,
@@ -782,7 +782,7 @@ export const SERVICES_DATA = {
                   phase: 'Primera Sesión',
                   icon: 'sparkles',
                   description:
-                    'Piel menos grasa y brillante. Reducción visible de pústulas activas.',
+                    'Piel menos grasa y brillante. Reducción visible de pústulas activas y acné comedogénico.',
                 },
                 {
                   phase: '2-3 Sesiones',
@@ -794,13 +794,13 @@ export const SERVICES_DATA = {
                   phase: '4-6 Sesiones',
                   icon: 'star',
                   description:
-                    'Textura mejorada, poros menos dilatados, piel equilibrada.',
+                    'Textura mejorada, poros menos dilatados, piel equilibrada y control de acné comedogénico.',
                 },
                 {
                   phase: 'Mantenimiento',
                   icon: 'shield-checkmark',
                   description:
-                    'Piel controlada con producción sebácea regulada y prevención de brotes.',
+                    'Piel controlada con producción sebácea regulada y prevención de brotes de acné comedogénico.',
                 },
               ],
             },
@@ -856,7 +856,7 @@ export const SERVICES_DATA = {
               {
                 question: '¿Cuántas sesiones necesito para ver resultados?',
                 answer:
-                  'Los primeros cambios se notan desde la primera sesión. Para resultados óptimos en acné severo, recomendamos 6-8 sesiones.',
+                  'Los primeros cambios se notan desde la primera sesión. Para resultados óptimos en acné comedogénico, recomendamos 6-8 sesiones.',
               },
               {
                 question: '¿Puedo usar maquillaje después del tratamiento?',
@@ -870,9 +870,9 @@ export const SERVICES_DATA = {
               },
             ],
             cta: {
-              title: 'Controla tu acné severo definitivamente',
+              title: 'Controla tu acné comedogénico definitivamente',
               subtitle:
-                'No permitas que el acné severo afecte tu autoestima. Nuestro protocolo seborregulador está diseñado específicamente para casos como el tuyo.',
+                'No permitas que el acné comedogénico afecte tu autoestima. Nuestro protocolo seborregulador está diseñado específicamente para casos como el tuyo.',
               promise: 'Resultados progresivos desde la primera sesión',
             },
           },
