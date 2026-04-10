@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { 
   Menu, 
@@ -5,8 +7,8 @@ import {
   ChevronDown,
   Search,
   MessageCircle, 
-  Instagram, 
-  Facebook, 
+  Camera, 
+  Share2, 
   MapPin, 
   Phone, 
   Clock, 
@@ -208,8 +210,8 @@ export default function GlowSkinBlog() {
            <div className="flex flex-col items-center">
               <img src={ASSETS.logo} className="h-8 opacity-90 mb-8" alt="Logo" />
               <div className="flex gap-10 opacity-30">
-                <Instagram size={20} />
-                <Facebook size={20} />
+                <Camera size={20} />
+                <Share2 size={20} />
               </div>
            </div>
            <div>

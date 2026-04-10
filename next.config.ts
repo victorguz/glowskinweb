@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: '/services/limpieza-facial-profunda',
+        destination: '/services/limpieza-facial',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

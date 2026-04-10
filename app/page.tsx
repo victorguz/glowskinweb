@@ -90,7 +90,7 @@ export default function HomePage() {
             <div className="w-24 h-px bg-[#d4b499] mb-8" />
             <h1 className="text-6xl md:text-[9.5rem] font-serif leading-none tracking-tighter text-[#4a3221]">
               Limpieza Facial
-              <span className="block font-script text-5xl md:text-[10rem] text-[#4e3523] -mt-6 md:-mt-12">
+              <span className="block font-script text-5xl md:text-[10rem] text-[#c98d61] -mt-6 md:-mt-12">
                 Glow Skin
               </span>
             </h1>

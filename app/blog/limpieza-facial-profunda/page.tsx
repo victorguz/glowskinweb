@@ -1,18 +1,19 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { 
   Menu, 
   X, 
   ChevronLeft,
   MessageCircle, 
-  Instagram, 
-  Facebook, 
+  Camera, 
+  Share2, 
   MapPin, 
   Phone, 
   Clock, 
   Sparkles,
   ArrowRight,
   Calendar,
-  Share2,
   Bookmark,
   Quote
 } from 'lucide-react';
@@ -171,8 +172,8 @@ export default function GlowSkinPost() {
              <img src={ASSETS.logo} className="h-6 opacity-40 invert grayscale" alt="Logo" />
              <p className="text-[9px] font-black tracking-[0.5em] text-[#d4b499] opacity-30 uppercase">© 2026 MOMENTO GLOW SKIN. EDITORIAL DIVISION.</p>
              <div className="flex gap-6 opacity-30">
-                <Instagram size={18} />
-                <Facebook size={18} />
+                <Camera size={18} />
+                <Share2 size={18} />
              </div>
           </div>
         </div>
