@@ -6,20 +6,21 @@ export const metadata: Metadata = {
   description: 'Conoce a Sofia Nieto, fundadora de Glow Skin. Descubre nuestra historia, empatía y la búsqueda de una belleza facial que no duele en Barranquilla.',
 };
 
-const BASE_URL = 'https://main.d1xrycrl1hw09l.amplifyapp.com/assets/';
+const BASE_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/';
+const HERO_SOFIA_SRC = `${BASE_URL}images/sofia/sofia-nieto-glow-skin-bq-fondo-horizontal.png`;
 
 export default function NosotrosPage() {
   return (
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221]">
-      {/* --- Hero Section --- */}
-      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center">
-        <div className="absolute inset-0 bg-[#4a3221]/40 z-10 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f7f0eb] via-transparent to-transparent z-10"></div>
+      {/* --- Hero: 100vh, imagen horizontal a pantalla completa --- */}
+      <section className="relative flex min-h-[500px] h-[100vh] items-center justify-center text-center">
         <img
-          src={`${BASE_URL}images/sofia/sofia-nieto-glow-skin-bq-2.png`}
+          src={HERO_SOFIA_SRC}
           alt="Sofia Nieto - Fundadora de Glow Skin"
-          className="absolute inset-0 w-full h-full object-cover object-top"
+          className="pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover object-center"
         />
+        <div className="absolute inset-0 z-[2] bg-[#4a3221]/40 mix-blend-multiply" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#f7f0eb] via-transparent to-transparent" />
         <div className="relative z-20 container mx-auto px-6 mt-32">
           <div className="flex flex-col items-center">
             <span className="text-[#d4b499] font-black tracking-[0.4em] text-xs md:text-sm uppercase mb-6 bg-white/10 px-6 py-2 rounded-full backdrop-blur-md border border-white/20">
@@ -28,7 +29,7 @@ export default function NosotrosPage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-none tracking-tight text-white mb-6 drop-shadow-lg">
               Sofia Nieto
               <span className="block font-script text-4xl md:text-6xl lg:text-7xl text-[#d4b499] mt-2">
-                Especialista en Estética Facial
+                Fundadora de Glow Skin
               </span>
             </h1>
             <p className="text-lg md:text-xl font-medium text-white/90 max-w-2xl leading-relaxed tracking-wide italic drop-shadow-md">
@@ -42,8 +43,8 @@ export default function NosotrosPage() {
 
       {/* --- Introducción Sofia --- */}
       <section className="py-24 lg:py-32 container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          <div className="lg:w-1/2 flex flex-col items-start text-left">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 lg:items-start lg:justify-between">
+          <div className="w-full flex-1 min-w-0 flex flex-col items-start text-left">
             <div className="w-16 h-px bg-[#d4b499] mb-8"></div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif tracking-tighter text-[#4a3221] leading-[1.1] mb-8">
               Mi nombre es Sofía Nieto, fundadora de Glow Skin.
@@ -61,11 +62,11 @@ export default function NosotrosPage() {
               </p>
             </div>
           </div>
-          <div className="lg:w-1/2 w-full relative">
+          <div className="relative mx-auto w-fit max-w-[min(100%,42rem)] shrink-0 lg:mx-0">
             <div className="absolute -inset-10 bg-[#d4b499]/10 rounded-full blur-[80px] pointer-events-none" />
             <img
               src={`${BASE_URL}images/sofia/sofia-acne-antes-despues-perfil.jpg`}
-              className="relative rounded-[3rem] shadow-[0_40px_100px_rgba(74,50,33,0.15)] w-full object-cover aspect-[4/5] z-10"
+              className="relative z-10 h-auto w-auto max-h-[min(75vh,800px)] max-w-full rounded-[3rem] object-contain shadow-[0_40px_100px_rgba(74,50,33,0.15)]"
               alt="Sofia Nieto durante su proceso de acné"
             />
           </div>
@@ -108,8 +109,8 @@ export default function NosotrosPage() {
 
       {/* --- La Misión de Glow Skin --- */}
       <section className="py-24 lg:py-32 container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
-          <div className="lg:w-1/2 flex flex-col items-start text-left">
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24 lg:items-start lg:justify-between">
+          <div className="w-full flex-1 min-w-0 flex flex-col items-start text-left">
             <div className="w-16 h-px bg-[#d4b499] mb-8"></div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif tracking-tighter text-[#4a3221] leading-[1.1] mb-8">
               La Búsqueda de una Belleza sin Sufrimiento
@@ -130,11 +131,11 @@ export default function NosotrosPage() {
               </p>
             </div>
           </div>
-          <div className="lg:w-1/2 w-full relative">
+          <div className="relative mx-auto w-fit max-w-[min(100%,42rem)] shrink-0 lg:mx-0">
             <div className="absolute -inset-10 bg-[#4a3221]/5 rounded-full blur-[80px] pointer-events-none" />
             <img
               src={`${BASE_URL}images/sofia/sofia-acne-antes-y-despues.jpg`}
-              className="relative rounded-[3rem] shadow-[0_40px_100px_rgba(74,50,33,0.15)] w-full object-cover aspect-[4/5] z-10"
+              className="relative z-10 h-auto w-auto max-h-[min(75vh,800px)] max-w-full rounded-[3rem] object-contain shadow-[0_40px_100px_rgba(74,50,33,0.15)]"
               alt="Sofia Nieto antes y después de su transformación"
             />
           </div>
@@ -157,7 +158,7 @@ export default function NosotrosPage() {
               importante es que nuestras clientas lo notan.
             </p>
             <p>
-              Muchas de mis clientas y clientes hombres pueden confirmarlo: en otros
+              Muchas de mis clientas y clientes pueden confirmarlo: en otros
               lugares la cara les quedaba super inflamada y roja. En Glow Skin te vas
               con la piel más reluciente y con un Brillo característico que solamente
               puedes tener aquí.

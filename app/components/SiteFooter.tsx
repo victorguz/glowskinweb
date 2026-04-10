@@ -12,17 +12,15 @@ export function SiteFooter() {
     <footer className="bg-white pt-32 pb-12 border-t border-[#f1e4dc]">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
         <div>
-          <div className="mb-8 inline-flex rounded-2xl bg-black p-4 shadow-sm ring-1 ring-black/10">
-            <img
-              src={SITE_FOOTER_LOGO_URL}
-              alt="Glow Skin by Sofía Nieto Aesthetics: logo con iniciales GS y perfil facial minimalista sobre fondo negro"
-              width={160}
-              height={160}
-              className="h-28 w-28 object-contain sm:h-32 sm:w-32"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          <img
+            src={SITE_FOOTER_LOGO_URL}
+            alt="Glow Skin by Sofía Nieto Aesthetics: logo con iniciales GS y perfil facial minimalista"
+            width={160}
+            height={160}
+            className="mb-8 h-28 w-28 object-contain object-left sm:h-32 sm:w-32"
+            loading="lazy"
+            decoding="async"
+          />
           <p className="text-[#7d5a44] text-sm leading-relaxed mb-10 opacity-70">
             Elevando el estándar de la estética facial en Barranquilla con un enfoque humano y
             científico.

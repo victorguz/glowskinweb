@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteWhatsappButton } from "@/app/components/SiteWhatsappButton";
@@ -35,6 +36,14 @@ export default function RootLayout({
         <main className="flex-1 w-full min-h-0">{children}</main>
         <SiteFooter />
         <SiteWhatsappButton />
+        <Script
+          id="metricool-be"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html:
+              'function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"3233026e425033af24d3c672ce991559"})});',
+          }}
+        />
       </body>
     </html>
   );

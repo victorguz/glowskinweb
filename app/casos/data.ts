@@ -13,7 +13,7 @@ export interface BeneficioTratamiento {
   imagenes: ImagenBeneficio[];
 }
 
-const BASE_URL = 'https://main.d1xrycrl1hw09l.amplifyapp.com/assets/';
+const BASE_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/';
 
 export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
   {

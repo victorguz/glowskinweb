@@ -1,0 +1,95 @@
+# AWS Amplify Custom HTTP — Next.js (Glow Skin)
+#
+# El enrutado y /api/* los resuelve el runtime SSR de Next.js en Amplify.
+# No uses fallback SPA a index.html (rompe App Router y API routes).
+
+redirects:
+  # Rutas antiguas (Angular) → Next.js
+  - source: "/home"
+    target: "/"
+    status: "301"
+  - source: "/casos-reales"
+    target: "/casos"
+    status: "301"
+  - source: "/casos-reales/<*>"
+    target: "/casos"
+    status: "301"
+
+customHeaders:
+  # Archivos SEO en public/ (añade robots.txt, sitemap.xml, llm.txt cuando existan)
+  - pattern: "/robots.txt"
+    headers:
+      - key: "Content-Type"
+        value: "text/plain; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=86400"
+
+  - pattern: "/sitemap.xml"
+    headers:
+      - key: "Content-Type"
+        value: "application/xml; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=86400"
+
+  - pattern: "/sitemap.rss"
+    headers:
+      - key: "Content-Type"
+        value: "application/rss+xml; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=3600"
+
+  - pattern: "/llm.txt"
+    headers:
+      - key: "Content-Type"
+        value: "text/plain; charset=utf-8"
+      - key: "Cache-Control"
+        value: "public, max-age=86400"
+
+  # Estáticos versionados de Next.js
+  - pattern: "/_next/static/**"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000, immutable"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  # Recursos en /public (incl. /files/*)
+  - pattern: "/files/**"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "**/*.{png,jpg,jpeg,gif,svg,webp,ico,woff2}"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "**/*.css"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "**/*.js"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  # Seguridad (respuestas que coincidan con el patrón en el edge)
+  - pattern: "**/*"
+    headers:
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+      - key: "X-Frame-Options"
+        value: "DENY"
+      - key: "Referrer-Policy"
+        value: "strict-origin-when-cross-origin"
+      - key: "Permissions-Policy"
+        value: "camera=(), microphone=(), geolocation=()"

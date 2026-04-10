@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 // --- Base Constants ---
-const BASE_IMG_URL = "https://main.d1xrycrl1hw09l.amplifyapp.com/assets/images";
+const BASE_IMG_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
 
 const ASSETS = {
     sofia: `${BASE_IMG_URL}/sofia/sofia-nieto-glow-skin-bq.png`,

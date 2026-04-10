@@ -13,5 +13,5 @@ export const PHONE_TEL = '+573008883486';
 export const PHONE_DISPLAY = '+57 300 888 3486';
 export const CONTACT_EMAIL = 'contact@glowskinbq.com';
 
-export const ADDRESS_LINES = ['Carrera 50# 74-120', 'Barranquilla, Col.'] as const;
-export const HOURS_LINES = ['9:00 AM — 6:00 PM', 'Lunes a Sábados'] as const;
+export const ADDRESS_LINES = ['Carrera 50# 74-120', 'Barranquilla, Colombia.'] as const;
+export const HOURS_LINES = ['8:00 AM — 6:00 PM', 'Lunes a Sábados'] as const;
