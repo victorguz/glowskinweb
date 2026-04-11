@@ -1,0 +1,7 @@
+# Glow Skin (alias llm.txt)
+
+Este archivo enlaza la política de contenido para modelos de lenguaje.
+Versión canónica recomendada: /llms.txt
+
+Sitio: https://glowskinbq.com
+Ubicación: Carrera 50 # 74-120, Barranquilla, Colombia

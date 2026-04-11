@@ -1,9 +1,20 @@
 import type { Metadata } from 'next';
 import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
+import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
+
+const description = `Conoce a Sofía Nieto, fundadora de ${SITE_NAME}. Historia, filosofía y estética facial en ${LOCAL_SEO.city} — ${LOCAL_SEO.addressStreet}.`;
 
 export const metadata: Metadata = {
-  title: 'Sobre Nosotros - Glow Skin',
-  description: 'Conoce a Sofia Nieto, fundadora de Glow Skin. Descubre nuestra historia, empatía y la búsqueda de una belleza facial que no duele en Barranquilla.',
+  title: 'Sobre nosotros',
+  description,
+  keywords: ['Sofía Nieto', SITE_NAME, 'cosmiatría Barranquilla', 'fundadora Glow Skin'],
+  alternates: { canonical: `${getSiteUrl()}/nosotros` },
+  openGraph: {
+    title: `Sobre nosotros | ${SITE_NAME}`,
+    description,
+    url: `${getSiteUrl()}/nosotros`,
+    locale: 'es_CO',
+  },
 };
 
 const BASE_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/';

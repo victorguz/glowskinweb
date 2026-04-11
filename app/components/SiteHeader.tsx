@@ -11,6 +11,7 @@ const NAV_LINKS: { label: string; href: string; match: (path: string) => boolean
   { label: 'Servicios', href: '/#servicios', match: () => false },
   { label: 'Nosotros', href: '/nosotros', match: (p) => p === '/nosotros' },
   { label: 'Precios', href: '/precios', match: (p) => p === '/precios' },
+  { label: 'Blog', href: '/blog', match: (p) => p.startsWith('/blog') },
   { label: 'Resultados', href: '/casos', match: (p) => p === '/casos' || p === '/casos2' },
 ];
 

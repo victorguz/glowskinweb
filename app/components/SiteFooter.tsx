@@ -74,6 +74,9 @@ export function SiteFooter() {
             <Link href="/precios" className="hover:text-[#5c3a21] transition-colors">
               Precios
             </Link>
+            <Link href="/blog" className="hover:text-[#5c3a21] transition-colors">
+              Blog
+            </Link>
           </div>
         </div>
         <div className="bg-[#fbf6f3] p-10 rounded-[2.5rem] border border-[#f1e4dc]">

@@ -3,11 +3,21 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { SERVICES_DATA } from '@/lib/content/services';
 import { formatServicePrice } from '@/lib/content/service-utils';
+import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
+
+const description = `Protocolos faciales en ${LOCAL_SEO.city}: limpiezas, acné, manchas, regeneración y más en ${SITE_NAME}. Dirección ${LOCAL_SEO.addressStreet}.`;
 
 export const metadata: Metadata = {
-  title: 'Servicios | Glow Skin',
-  description:
-    'Protocolos faciales en Barranquilla: limpiezas, acné, manchas, regeneración y más. Conoce cada tratamiento y agenda tu cita.',
+  title: 'Servicios',
+  description,
+  keywords: ['servicios estética Barranquilla', 'tratamientos faciales', SITE_NAME, 'Alto Prado'],
+  alternates: { canonical: `${getSiteUrl()}/servicios` },
+  openGraph: {
+    title: `Servicios | ${SITE_NAME} ${LOCAL_SEO.city}`,
+    description,
+    url: `${getSiteUrl()}/servicios`,
+    locale: 'es_CO',
+  },
 };
 
 export default function ServiciosIndexPage() {
