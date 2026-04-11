@@ -3,6 +3,9 @@ export const WA_LINK = 'https://wa.link/h5481r';
 export const CONTACT_EMAIL = 'contact@glowskinbq.com';
 export const PHONE_TEL = '+573008883486';
 
+/** Duración por sesión en cabina (precios, fichas y `page.process`). */
+export const SESSION_DURATION = '60-90 minutos aproximadamente';
+
 export enum ServiceIds {
   // Categories
   LIMPIEZAS_FACIALES = 'limpiezas-faciales',
@@ -48,6 +51,7 @@ export const SERVICES_DATA = {
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 30-45 días',
+            duration: SESSION_DURATION,
             idealFor:
               'Mantenimiento, pieles congestionadas, y como primer paso para cualquier tratamiento',
           },
@@ -167,8 +171,18 @@ export const SERVICES_DATA = {
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 21 días durante la fase activa',
+            duration: '90-120 minutos aproximadamente',
             activos:
               'Fórmulas seborreguladoras y bactericidas de laboratorios reconocidos',
+            includes: [
+              'Consulta y diagnóstico según tipo y severidad del acné',
+              'Limpieza profunda y desincrustación para control sebáceo',
+              'Extracción profesional de comedones e impurezas cuando procede',
+              'Alta frecuencia para oxigenación y acción bactericida',
+              'Activos seborreguladores de laboratorios reconocidos',
+              'Mascarilla calmante o purificante según tu piel',
+              'Protección solar y recomendaciones de cuidado en casa',
+            ],
           },
           page: {
             hero: {
@@ -337,6 +351,7 @@ export const SERVICES_DATA = {
           details: {
             frequency:
               '1 sesión cada 30-45 días, con protocolos adaptados según la reactividad',
+            duration: SESSION_DURATION,
             idealFor:
               'Pieles sensibles, reactivas, con rosácea, dermatitis o tendencia a irritación',
             activos:
@@ -389,7 +404,7 @@ export const SERVICES_DATA = {
               title: 'Nuestro Proceso Ultra-Suave',
               subtitle:
                 'Cada paso está diseñado para minimizar la irritación y maximizar el confort',
-              duration: '75-90',
+              duration: '60-90',
               durationUnit: 'minutos aproximadamente',
               steps: [
                 {
@@ -552,6 +567,7 @@ export const SERVICES_DATA = {
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 30-45 días',
+            duration: SESSION_DURATION,
             benefits: [
               '🌿 Limpieza profunda',
               '💧 Hidratación en capas',
@@ -599,7 +615,7 @@ export const SERVICES_DATA = {
               title: 'El Proceso HydraGlow',
               subtitle:
                 'Una experiencia completa de renovación y nutrición facial',
-              duration: '110-120',
+              duration: '60-90',
               durationUnit: 'minutos aproximadamente',
               steps: [
                 {
@@ -679,6 +695,7 @@ export const SERVICES_DATA = {
           currency: 'COP',
           details: {
             frequency: '1 sesión cada 21-30 días',
+            duration: SESSION_DURATION,
             benefits: [
               'Equilibra el exceso de grasa en la piel',
               'Regula la producción de sebo',
@@ -734,7 +751,7 @@ export const SERVICES_DATA = {
               title: 'Protocolo Seborregulador Intensivo',
               subtitle:
                 'Un enfoque científico para controlar la grasa y reducir el acné comedogénico',
-              duration: '80-90',
+              duration: '60-90',
               durationUnit: 'minutos aproximadamente',
               steps: [
                 {
@@ -896,6 +913,7 @@ export const SERVICES_DATA = {
           price: 830000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '4 Sesiones de Peeling Químico: Frecuencia de 1 sesión cada 8 días para una renovación celular controlada',
               '2 Sesiones de Limpieza Anti-Acné: Frecuencia de 1 sesión cada 20 días para mantener la pureza de la piel',
@@ -919,6 +937,7 @@ export const SERVICES_DATA = {
           price: 600000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '3 Sesiones de Peeling Químico o Micropunciones: Selección basada en diagnóstico profesional, utilizando activos despigmentantes de alta pureza',
               'Frecuencia: 1 sesión cada 15 días para resultados progresivos y seguros',
@@ -933,6 +952,7 @@ export const SERVICES_DATA = {
           price: 1200000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '3 Sesiones de Microneedling: Para estimular la síntesis de colágeno y elastina',
               '3 Sesiones de Antiox Peel Pro: Para potenciar la renovación y proteger la piel',
@@ -956,6 +976,7 @@ export const SERVICES_DATA = {
           price: 375000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               'Diagnóstico de piel para personalizar la fórmula del peeling.',
               'Aplicación de peeling con potentes antioxidantes de última generación.',
@@ -971,6 +992,7 @@ export const SERVICES_DATA = {
           price: 250000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               'Limpieza Facial Glow Skin.',
               'Aplicación de activos tensores y unificadores.',
@@ -992,7 +1014,7 @@ export const SERVICES_DATA = {
               'Hidratación en capas y luminosidad inmediata',
               'Mejora de textura, uniformidad y vitalidad',
             ],
-            duration: '2 horas',
+            duration: SESSION_DURATION,
             results:
               'Una piel renovada, fresca y radiante desde la primera sesión',
           },
@@ -1034,9 +1056,9 @@ export const SERVICES_DATA = {
             process: {
               title: 'Protocolo de Doble Acción',
               subtitle:
-                'Una experiencia completa de 2 horas para transformar tu piel',
-              duration: '120',
-              durationUnit: 'minutos',
+                'Una experiencia completa en cabina para transformar tu piel',
+              duration: '60-90',
+              durationUnit: 'minutos aproximadamente',
               steps: [
                 {
                   number: 1,
@@ -1164,7 +1186,7 @@ export const SERVICES_DATA = {
                   'Absolutamente. Nuestro protocolo está diseñado específicamente para que ambos tratamientos se complementen de forma segura y efectiva.',
               },
               {
-                question: '¿Sentiré molestias durante las 2 horas?',
+                question: '¿Sentiré molestias durante la sesión?',
                 answer:
                   'No, la mayoría de clientes encuentra el tratamiento relajante. El HydraGlow es completamente confortable y el peeling puede causar ligero hormigueo.',
               },
@@ -1210,6 +1232,7 @@ export const SERVICES_DATA = {
           price: 1200000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '1 Sesión de Microneedling',
               'Aplicación de vial de Exosomas de alta concentración de laboratorio reconocido',
@@ -1225,6 +1248,7 @@ export const SERVICES_DATA = {
           price: 2700000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '3 Sesiones de Microneedling + Exosomas',
               'Aplicación de vial de Exosomas de alta concentración en cada sesión',
@@ -1250,6 +1274,7 @@ export const SERVICES_DATA = {
           price: 900000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '1 Sesión de aplicación de PDRN mediante técnica de micropunciones para una entrega dérmica efectiva',
               'Ideal para rostro, cuello y escote',
@@ -1265,6 +1290,7 @@ export const SERVICES_DATA = {
           price: 2100000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             includes: [
               '3 Sesiones de aplicación de PDRN mediante micropunciones',
               'Tratamiento completo para rostro, cuello y escote',
@@ -1290,6 +1316,7 @@ export const SERVICES_DATA = {
           price: 120000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             frequency:
               '1 sesión. Para resultados óptimos, se recomienda el tratamiento de 3 sesiones',
           },
@@ -1302,6 +1329,7 @@ export const SERVICES_DATA = {
           price: 300000,
           currency: 'COP',
           details: {
+            duration: SESSION_DURATION,
             frequency: '1 sesión cada 15 días',
           },
         },

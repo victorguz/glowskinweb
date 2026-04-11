@@ -157,7 +157,7 @@ function LeadModalFrame({
         {modalFontStyles()}
 
         <div
-          className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+          className="absolute inset-0 bg-[#ebe3da]/82 backdrop-blur-[2px]"
           onClick={busy ? undefined : onClose}
           aria-hidden
         />

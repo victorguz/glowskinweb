@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
 import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
+import { getServiceEditorial } from '@/lib/content/service-editorial';
 import type { CategoryServicePair } from '@/lib/content/service-utils';
 import { formatServicePrice } from '@/lib/content/service-utils';
 import { getServiceHeroImage, getServiceProcessImage } from '@/lib/content/service-media';
@@ -38,6 +39,61 @@ function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null && !Array.isArray(v);
 }
 
+function ServiceEditorialSection({ pair }: { pair: CategoryServicePair }) {
+  const editorial = getServiceEditorial(pair.service.id, {
+    name: pair.service.name,
+    description: pair.service.description,
+    categoryTitle: pair.categoryTitle,
+  });
+
+  return (
+    <section className="border-y border-[#d4b499]/15 bg-white py-16 md:py-24">
+      <div className="container mx-auto px-6 lg:px-24">
+        <div className="mx-auto max-w-3xl">
+          {editorial.eyebrow ? (
+            <p className="mb-3 text-center text-[10px] font-black uppercase tracking-[0.35em] text-[#d4b499] sm:text-left">
+              {editorial.eyebrow}
+            </p>
+          ) : null}
+          <div className="mx-auto mb-6 h-px w-20 bg-[#d4b499] sm:mx-0" />
+          <h2 className="mb-3 font-serif text-3xl leading-tight tracking-tight text-[#4a3221] md:text-4xl">{editorial.title}</h2>
+          {editorial.subtitle ? (
+            <p className="mb-8 text-lg font-medium italic leading-relaxed text-[#7d5a44]">{editorial.subtitle}</p>
+          ) : null}
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#4a3221] md:text-lg md:leading-relaxed [&>p]:opacity-90">
+            {editorial.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+          {editorial.quote ? (
+            <blockquote className="mt-10 rounded-[2rem] border border-[#d4b499]/25 bg-[#fbf6f3] p-8 md:p-10">
+              <p className="font-serif text-lg italic leading-snug text-[#4a3221] md:text-xl lg:text-2xl">
+                &ldquo;{editorial.quote.text}&rdquo;
+              </p>
+              <footer className="mt-4 text-[10px] font-black uppercase tracking-[0.3em] text-[#a5846e]">
+                {editorial.quote.attribution}
+              </footer>
+            </blockquote>
+          ) : null}
+          {editorial.relatedArticle ? (
+            <div className="mt-10 rounded-[2rem] border border-[#d4b499]/30 bg-[#f7f0eb] p-8 md:p-10">
+              <p className="mb-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#a5846e]">En el blog</p>
+              <Link
+                href={editorial.relatedArticle.href}
+                className="group inline-flex items-center gap-2 font-serif text-xl text-[#4a3221] transition-colors hover:text-[#a5846e] md:text-2xl"
+              >
+                {editorial.relatedArticle.title}
+                <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" aria-hidden />
+              </Link>
+              <p className="mt-3 text-sm leading-relaxed text-[#7d5a44]">{editorial.relatedArticle.excerpt}</p>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
   const { service, categoryTitle } = pair;
   const rows = renderDetailsRows(service.details as Record<string, unknown>);
@@ -57,6 +113,8 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
           <p className="mt-8 font-serif text-3xl italic text-[#d4b499]">{formatServicePrice(service.price, service.currency)}</p>
         </div>
       </section>
+
+      <ServiceEditorialSection pair={pair} />
 
       <section className="container mx-auto px-6 py-16 lg:px-12">
         <div className="mx-auto max-w-2xl rounded-[2rem] border border-[#d4b499]/20 bg-white p-10 shadow-sm">
@@ -595,6 +653,8 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
           </div>
         </div>
       </section>
+
+      <ServiceEditorialSection pair={pair} />
 
       {!sectionKeys.includes('process') ? <DetailsWithoutProcess service={service} /> : null}
 

@@ -1,0 +1,3 @@
+Contact: mailto:contact@glowskinbq.com
+Preferred-Languages: es, en
+Canonical: https://glowskinbq.com/.well-known/security.txt
