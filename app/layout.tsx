@@ -4,6 +4,8 @@ import Script from "next/script";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteWhatsappButton } from "@/app/components/SiteWhatsappButton";
+import { LeadFormsProvider } from "@/app/components/marketing/LeadFormsProvider";
+import { FacebookPixelRoot } from "@/app/components/marketing/FacebookPixelRoot";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,10 +38,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SiteHeader />
-        <main className="flex-1 w-full min-h-0">{children}</main>
-        <SiteFooter />
-        <SiteWhatsappButton />
+        <LeadFormsProvider>
+          <FacebookPixelRoot />
+          <SiteHeader />
+          <main className="flex-1 w-full min-h-0">{children}</main>
+          <SiteFooter />
+          <SiteWhatsappButton />
+        </LeadFormsProvider>
         <Script
           id="metricool-be"
           strategy="lazyOnload"

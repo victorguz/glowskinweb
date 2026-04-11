@@ -5,7 +5,6 @@ import {
   Menu, 
   X, 
   ChevronLeft,
-  MessageCircle, 
   Camera, 
   Share2, 
   MapPin, 
@@ -178,11 +177,6 @@ export default function GlowSkinPost() {
           </div>
         </div>
       </footer>
-
-      {/* --- Floating WhatsApp --- */}
-      <a href="https://wa.link/h5481r" target="_blank" className="fixed bottom-10 right-10 z-[90] bg-[#25d366] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform">
-        <MessageCircle size={32} />
-      </a>
 
       {/* Custom Styles */}
       <style>{`

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
-import { WA_LINK } from '@/app/components/site-config';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 import type { CategoryServicePair } from '@/lib/content/service-utils';
 import { formatServicePrice } from '@/lib/content/service-utils';
 import { getServiceHeroImage, getServiceProcessImage } from '@/lib/content/service-media';
@@ -69,14 +69,13 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
               </li>
             ))}
           </ul>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <LeadTrigger
+            mode="booking"
+            suggestedTreatments={[service.name]}
             className="mt-10 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] transition-colors hover:bg-[#d4b499]"
           >
             Agendar por WhatsApp <ArrowRight size={16} />
-          </a>
+          </LeadTrigger>
           <p className="mt-8 text-center text-sm text-[#7d5a44]">
             <Link href="/precios" className="border-b border-[#d4b499]/40 font-semibold hover:text-[#4a3221]">
               Ver todos los precios
@@ -418,14 +417,13 @@ function ProcessAndDetailsSection({
             </div>
           ) : null}
 
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <LeadTrigger
+            mode="booking"
+            suggestedTreatments={[service.name]}
             className="inline-flex items-center gap-4 rounded-full bg-[#4a3221] px-10 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-[#d4b499]"
           >
             Reservar tratamiento <ArrowRight size={16} />
-          </a>
+          </LeadTrigger>
         </div>
       </div>
 
@@ -474,20 +472,19 @@ function DetailsWithoutProcess({
             </li>
           ))}
         </ul>
-        <a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
+        <LeadTrigger
+          mode="booking"
+          suggestedTreatments={[service.name]}
           className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] hover:bg-[#d4b499]"
         >
           Reservar por WhatsApp <ArrowRight size={16} />
-        </a>
+        </LeadTrigger>
       </div>
     </section>
   );
 }
 
-function CtaSection({ data }: { data: Record<string, unknown> }) {
+function CtaSection({ data, serviceName }: { data: Record<string, unknown>; serviceName: string }) {
   return (
     <section className="relative overflow-hidden bg-[#f7f0eb] py-40 text-center">
       <div className="container relative z-10 mx-auto px-6">
@@ -496,14 +493,13 @@ function CtaSection({ data }: { data: Record<string, unknown> }) {
         {data.tip ? <p className="mb-10 text-sm italic text-[#d4b499]">{String(data.tip)}</p> : null}
         {data.promise ? <p className="mb-10 text-sm font-bold text-[#4a3221]">{String(data.promise)}</p> : null}
         {data.highlight ? <p className="mb-10 font-serif text-xl text-[#d4b499]">{String(data.highlight)}</p> : null}
-        <a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
+        <LeadTrigger
+          mode="booking"
+          suggestedTreatments={[serviceName]}
           className="inline-flex items-center gap-2 rounded-full bg-[#4a3221] px-14 py-6 text-xs font-black uppercase tracking-[0.3em] text-[#f7f0eb] shadow-2xl transition-colors hover:bg-[#d4b499]"
         >
           <MessageCircle size={18} /> WhatsApp
-        </a>
+        </LeadTrigger>
       </div>
     </section>
   );
@@ -543,7 +539,7 @@ function renderSection(
       if (!Array.isArray(value)) return null;
       return <ServiceFaqAccordion key={key} items={value as FaqItem[]} />;
     case 'cta':
-      return <CtaSection key={key} data={value} />;
+      return <CtaSection key={key} data={value} serviceName={service.name} />;
     default:
       return null;
   }
@@ -583,14 +579,13 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
             </p>
           ) : null}
           <div className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <LeadTrigger
+              mode="booking"
+              suggestedTreatments={[service.name]}
               className="rounded-full bg-[#4a3221] px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#f7f0eb] shadow-xl transition-all hover:bg-[#d4b499]"
             >
               Agendar mi cita
-            </a>
+            </LeadTrigger>
             <a
               href="#detalles"
               className="rounded-full border border-[#4a3221]/20 px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:bg-white"

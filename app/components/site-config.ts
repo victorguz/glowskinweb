@@ -10,6 +10,8 @@ export const SITE_LOGO_EMBLEM_URL = '/files/glow-skin-emblem-gs-initials.png';
 export const WA_LINK = 'https://wa.link/h5481r';
 export const INSTAGRAM_URL = 'https://instagram.com/glowskinbq';
 export const PHONE_TEL = '+573008883486';
+/** Solo dígitos, para enlaces wa.me */
+export const PHONE_WA_DIGITS = '573008883486';
 export const PHONE_DISPLAY = '+57 300 888 3486';
 export const CONTACT_EMAIL = 'contact@glowskinbq.com';
 

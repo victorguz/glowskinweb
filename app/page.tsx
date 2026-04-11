@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ChevronRight, Sparkles, Award, Zap, Leaf, MessageCircle } from 'lucide-react';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 
 const BASE_IMG_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
 
@@ -19,24 +20,28 @@ const ASSETS = {
       tag: 'Signature',
       desc: 'Una limpieza facial completa y profunda, con los mayores estándares de asepsia y cuidado a tu piel. Observa los cambios desde la primera sesión.',
       img: `${BASE_IMG_URL}/methods/1-limpieza-facial-glow-skin.jpg`,
+      slug: 'limpieza-facial',
     },
     {
       title: 'Método Anti-Acné',
       tag: 'Clinical',
       desc: 'Técnica avanzada de ácidos clínicos de última generación. Un tratamiento progresivo científicamente probado para tratar el acné leve a severo.',
       img: `${BASE_IMG_URL}/methods/1-metodo-anti-acne.webp`,
+      slug: 'tratamiento-anti-acne-intensivo',
     },
     {
       title: 'Método Regenerativo',
       tag: 'Advanced',
       desc: 'Técnica de micropunciones de bioestimulación celular con Alta Nutrición que reconstruye los tejidos de la piel. Ideal para pieles con cicatrices leves.',
       img: `${BASE_IMG_URL}/methods/1-metodo-regenerativo.webp`,
+      slug: 'tratamiento-regenerative-plus',
     },
     {
       title: 'Tratamiento Anti-manchas',
       tag: 'Radiance',
       desc: 'Técnica avanzada que combina Peelings de última generación con activos despigmentantes para eliminar progresivamente las manchas.',
       img: `${BASE_IMG_URL}/methods/1-metodo-anti-manchas.webp`,
+      slug: 'tratamiento-despigmentante',
     },
   ],
 };
@@ -100,14 +105,12 @@ export default function HomePage() {
               Recupera el Glow Natural de tu piel con nuestros tratamientos faciales en Barranquilla.
               {'\u201D'}
             </p>
-            <a
-              href="https://wa.link/h5481r"
-              target="_blank"
-              rel="noopener noreferrer"
+            <LeadTrigger
+              mode="booking"
               className="mt-12 bg-[#4a3221] text-[#f7f0eb] px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#d4b499] transition-all shadow-2xl hover:-translate-y-1"
             >
               Reservar mi espacio
-            </a>
+            </LeadTrigger>
           </div>
         </div>
       </section>
@@ -124,7 +127,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {ASSETS.methods.map((t, idx) => (
-              <div key={idx} className="group relative h-[600px] overflow-hidden rounded-[2.5rem] cursor-pointer shadow-2xl">
+              <div key={idx} className="group relative h-[600px] overflow-hidden rounded-[2.5rem] shadow-2xl">
                 <img src={t.img} alt={t.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#4a3221] via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
 
@@ -139,9 +142,12 @@ export default function HomePage() {
                   <p className="text-sm font-medium opacity-0 group-hover:opacity-80 transition-all duration-500 h-0 group-hover:h-auto overflow-hidden leading-relaxed mb-6">
                     {t.desc}
                   </p>
-                  <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#d4b499]">
-                    Saber más <ChevronRight size={14} />
-                  </div>
+                  <Link
+                    href={`/servicios/${t.slug}`}
+                    className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#d4b499] transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4b499]"
+                  >
+                    Saber más <ChevronRight size={14} aria-hidden />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -254,14 +260,12 @@ export default function HomePage() {
             ¿Qué esperas para <br /> <span className="italic font-light opacity-90 text-[#d4b499]">devolverle el Glow a tu Piel?</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <a
-              href="https://wa.link/h5481r"
-              target="_blank"
-              rel="noopener noreferrer"
+            <LeadTrigger
+              mode="booking"
               className="bg-[#f7f0eb] text-[#4a3221] px-16 py-7 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#d4b499] transition-all shadow-2xl"
             >
               Agendar ahora
-            </a>
+            </LeadTrigger>
             <Link
               href="/casos"
               className="text-[#f7f0eb] border-b-2 border-white/20 pb-1 hover:border-[#d4b499] transition-all font-black text-xs uppercase tracking-[0.3em]"

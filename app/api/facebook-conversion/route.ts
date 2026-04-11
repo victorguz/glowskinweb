@@ -107,6 +107,19 @@ export async function POST(request: NextRequest) {
 
     const body: ConversionAPIRequest = await request.json();
 
+    if (!body.userData) {
+      (body as { userData: ConversionAPIRequest['userData'] }).userData = {};
+    }
+
+    const forwarded = request.headers.get('x-forwarded-for');
+    const clientIp =
+      forwarded?.split(',')[0]?.trim() ||
+      request.headers.get('x-real-ip') ||
+      '';
+    if (clientIp && !body.userData.client_ip_address) {
+      body.userData.client_ip_address = clientIp;
+    }
+
     // Preparar user_data con hashing según requerimientos de Facebook
     const userData: FacebookUserData = {};
 

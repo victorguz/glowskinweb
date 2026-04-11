@@ -12,6 +12,7 @@ import {
     Zap,
     Leaf,
 } from 'lucide-react';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 
 // --- Base Constants ---
 const BASE_IMG_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
@@ -110,9 +111,9 @@ export default function OtraPage() {
                             Transformamos la salud de tu piel con protocolos clínicos diseñados exclusivamente para tu tipo de cutis.
                         </p>
                         <div className="flex flex-wrap gap-8 items-center">
-                            <a href="https://wa.link/h5481r" target="_blank" className="bg-[#5c3a21] text-white px-12 py-6 rounded-full font-bold flex items-center gap-4 hover:bg-[#a5846e] transition-all shadow-2xl group">
+                            <LeadTrigger mode="booking" className="bg-[#5c3a21] text-white px-12 py-6 rounded-full font-bold flex items-center gap-4 hover:bg-[#a5846e] transition-all shadow-2xl group">
                                 RESERVAR VALORACIÓN <ChevronRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                            </a>
+                            </LeadTrigger>
                         </div>
                     </div>
                 </div>
@@ -280,9 +281,9 @@ export default function OtraPage() {
                         Your Skin, <br /> <span className="italic font-light opacity-80 text-[#a5846e]">Redefined.</span>
                     </h2>
                     <div className="flex flex-col sm:flex-row gap-8 justify-center">
-                        <a href="https://wa.link/h5481r" target="_blank" className="bg-[#a5846e] text-white px-16 py-7 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#5c3a21] transition-all shadow-2xl hover:-translate-y-2">
+                        <LeadTrigger mode="booking" className="bg-[#a5846e] text-white px-16 py-7 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#5c3a21] transition-all shadow-2xl hover:-translate-y-2">
                             Agenda tu cita ahora
-                        </a>
+                        </LeadTrigger>
                         <a href="tel:+573008883486" className="bg-white text-[#5c3a21] px-16 py-7 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#a5846e] hover:text-white transition-all shadow-xl hover:-translate-y-2 border border-[#f1e4dc]">
                             Llamar al estudio
                         </a>

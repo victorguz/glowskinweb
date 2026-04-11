@@ -12,6 +12,9 @@ const HERO_BY_SERVICE: Record<string, string> = {
   hydraglow: `${SERVICE_CDN_IMAGES}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
   'limpieza-seborreguladora': `${SERVICE_CDN_IMAGES}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
   'hydraglow-antiox-peel': `${SERVICE_CDN_IMAGES}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
+  'tratamiento-anti-acne-intensivo': `${SERVICE_CDN_IMAGES}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
+  'tratamiento-regenerative-plus': `${SERVICE_CDN_IMAGES}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
+  'tratamiento-despigmentante': `${SERVICE_CDN_IMAGES}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
 };
 
 const PROCESS_BY_SERVICE: Record<string, string> = {
@@ -21,6 +24,9 @@ const PROCESS_BY_SERVICE: Record<string, string> = {
   hydraglow: DEFAULT_PROCESS,
   'limpieza-seborreguladora': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.webp`,
   'hydraglow-antiox-peel': DEFAULT_PROCESS,
+  'tratamiento-anti-acne-intensivo': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.webp`,
+  'tratamiento-regenerative-plus': `${SERVICE_CDN_IMAGES}/methods/1-metodo-regenerativo.webp`,
+  'tratamiento-despigmentante': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-manchas.webp`,
 };
 
 export function getServiceHeroImage(serviceId: string): string {

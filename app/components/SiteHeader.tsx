@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { SITE_LOGO_URL, WA_LINK } from '@/app/components/site-config';
+import { SITE_LOGO_URL } from '@/app/components/site-config';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 
 const NAV_LINKS: { label: string; href: string; match: (path: string) => boolean }[] = [
   { label: 'Servicios', href: '/#servicios', match: () => false },
@@ -99,20 +100,16 @@ export function SiteHeader() {
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <LeadTrigger
+              mode="contact"
               className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-colors ${
                 onDarkHero ? 'text-white/90 hover:text-white' : 'text-[#a5846e] hover:text-[#5c3a21]'
               }`}
             >
               ESCRÍBENOS
-            </a>
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            </LeadTrigger>
+            <LeadTrigger
+              mode="booking"
               className={`px-8 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-bold transition-all shadow-xl transform active:scale-95 ${
                 onDarkHero
                   ? 'bg-[#f7f0eb] text-[#4a3221] hover:bg-white shadow-black/20'
@@ -120,7 +117,7 @@ export function SiteHeader() {
               }`}
             >
               Reservar Ahora
-            </a>
+            </LeadTrigger>
           </div>
 
           <button
@@ -169,14 +166,12 @@ export function SiteHeader() {
               </Link>
             );
           })}
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <LeadTrigger
+            mode="booking"
             className="mt-8 bg-[#5c3a21] text-white px-12 py-5 rounded-full text-lg font-bold"
           >
             Agenda tu Cita
-          </a>
+          </LeadTrigger>
         </div>
       </div>
     </>

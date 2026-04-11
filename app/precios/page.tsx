@@ -2,6 +2,7 @@
 
 import { Sparkles } from 'lucide-react';
 import { SERVICES_PRICING } from '@/lib/content/pricing';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 
 export default function PreciosPage() {
     return (
@@ -55,9 +56,13 @@ export default function PreciosPage() {
                                             <p className="text-[#7d5a44] text-sm md:text-base leading-relaxed max-w-2xl font-medium opacity-90">
                                                 {item.detail}
                                             </p>
-                                            <a href="https://wa.link/h5481r" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#d4b499] hover:text-[#4a3221] transition-all border-b border-transparent hover:border-[#4a3221] pb-1">
+                                            <LeadTrigger
+                                                mode="booking"
+                                                suggestedTreatments={[item.name]}
+                                                className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#d4b499] hover:text-[#4a3221] transition-all border-b border-transparent hover:border-[#4a3221] pb-1"
+                                            >
                                                 Reservar <Sparkles size={12} />
-                                            </a>
+                                            </LeadTrigger>
                                         </div>
                                     </div>
                                 ))}

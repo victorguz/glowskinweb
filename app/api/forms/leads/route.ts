@@ -36,7 +36,7 @@ function formsBaseUrl(): string {
 }
 
 function businessSlug(): string {
-  return process.env.NEXT_FORMS_BUSINESS_SLUG || "mundofitcol";
+  return process.env.NEXT_FORMS_BUSINESS_SLUG || "glowskinbq";
 }
 
 function formSlug(): string {

@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 import { 
   Menu, 
   X, 
   ChevronDown,
   Search,
-  MessageCircle, 
   Camera, 
   Share2, 
   MapPin, 
@@ -99,7 +99,7 @@ export default function GlowSkinBlog() {
           {['Inicio', 'Servicios', 'Blog'].map((item, i) => (
             <a key={i} href="#" onClick={() => setIsMenuOpen(false)} className="text-[#4a3221] text-5xl font-serif">{item}</a>
           ))}
-          <a href="https://wa.link/h5481r" className="mt-8 text-white bg-[#4a3221] px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl">Contacto</a>
+          <LeadTrigger mode="contact" className="mt-8 text-white bg-[#4a3221] px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl">Contacto</LeadTrigger>
         </div>
       </div>
 
@@ -221,11 +221,6 @@ export default function GlowSkinBlog() {
         </div>
         <p className="mt-32 text-center text-[9px] font-black tracking-[0.6em] text-[#d4b499] opacity-40 uppercase">© 2026 MOMENTO GLOW SKIN. Blog DIVISION.</p>
       </footer>
-
-      {/* --- Floating WhatsApp --- */}
-      <a href="https://wa.link/h5481r" target="_blank" className="fixed bottom-10 right-10 z-[90] bg-[#25d366] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform">
-        <MessageCircle size={32} />
-      </a>
 
       {/* Styles */}
       <style>{`

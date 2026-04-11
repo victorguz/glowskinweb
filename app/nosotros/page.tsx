@@ -1,5 +1,5 @@
-import { WA_LINK } from '@/components/site-config';
 import type { Metadata } from 'next';
+import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 
 export const metadata: Metadata = {
   title: 'Sobre Nosotros - Glow Skin',
@@ -199,14 +199,12 @@ export default function NosotrosPage() {
             Permíteme ayudarte a descubrir la mejor versión de tu piel. Agenda una
             valoración y creemos juntos un plan para ti.
           </p>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <LeadTrigger
+            mode="booking"
             className="inline-flex items-center justify-center px-10 py-5 bg-[#d4b499] hover:bg-[#c2a085] text-[#4a3221] font-black text-sm uppercase tracking-[0.2em] rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_20px_40px_rgba(212,180,153,0.3)]"
           >
             Agendar ahora
-          </a>
+          </LeadTrigger>
         </div>
       </section>
 

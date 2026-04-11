@@ -155,3 +155,8 @@ export const SERVICES_PRICING: PricingCategory[] = [
     ],
   },
 ];
+
+/** Nombres planos de tratamientos (formularios / leads). */
+export function getPricingTreatmentNames(): string[] {
+  return SERVICES_PRICING.flatMap((c) => c.items.map((i) => i.name));
+}
