@@ -18,7 +18,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: "2026-04-10",
     category: "Skin Care",
     readTimeLabel: "6 min",
-    image: `${IMG}/hero/1-glow-skin-hero-limpieza-facial.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-limpieza-facial-1.webp`,
     blocks: [
       {
         type: "lead",
@@ -63,7 +63,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: "2026-04-09",
     category: "Skin Care",
     readTimeLabel: "8 min",
-    image: `${IMG}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-limpieza-facial-2.webp`,
     blocks: [
       {
         type: "lead",
@@ -199,7 +199,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: "2026-04-08",
     category: "Glow Skin",
     readTimeLabel: "7 min",
-    image: `${IMG}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-limpieza-facial-3.webp`,
     blocks: [
       {
         type: "lead",
@@ -377,7 +377,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: "2026-04-07",
     category: "Tratamientos",
     readTimeLabel: "8 min",
-    image: `${IMG}/methods/1-limpieza-facial-glow-skin.jpg`,
+    image: `${IMG}/gallery/glow-skin-gallery-limpieza-facial-4.webp`,
     blocks: [
       {
         type: "lead",

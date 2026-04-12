@@ -104,7 +104,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-05",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/methods/2-metodo-regenerativo.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-resultados-facial.webp`,
     blocks: [
       {
         type: "lead",
@@ -211,7 +211,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-04",
     category: "Consejos",
     readTimeLabel: "6 min",
-    image: `${IMG}/cases/caso-3-tratamiento-anti-acne.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-extraccion-facial.webp`,
     blocks: [
       {
         type: "lead",
@@ -309,7 +309,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-03",
     category: "Consejos",
     readTimeLabel: "5 min",
-    image: `${IMG}/methods/2-limpieza-facial-glow-skin.jpg`,
+    image: `${IMG}/methods/2-limpieza-facial-glow-skin.webp`,
     blocks: [
       {
         type: "lead",
@@ -414,7 +414,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-02",
     category: "Glow Skin",
     readTimeLabel: "5 min",
-    image: `${IMG}/sofia/sofia-nieto-glow-skin-bq.png`,
+    image: `${IMG}/gallery/glow-skin-gallery-cuidado-facial.webp`,
     blocks: [
       {
         type: "lead",
@@ -618,7 +618,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-30",
     category: "Skin Care",
     readTimeLabel: "5 min",
-    image: `${IMG}/methods/2-metodo-anti-manchas.webp`,
+    image: `${IMG}/methods/2-metodo-anti-manchas.jpg`,
     blocks: [
       {
         type: "lead",
@@ -711,7 +711,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-28",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/hero/3-glow-skin-hero-tratamiento-facial.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-tratamiento-facial.webp`,
     blocks: [
       {
         type: "lead",
@@ -1019,7 +1019,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-22",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/methods/3-metodo-regenerativo.webp`,
+    image: `${IMG}/methods/2-metodo-regenerativo.webp`,
     blocks: [
       {
         type: "lead",
@@ -1116,7 +1116,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-20",
     category: "Lifestyle",
     readTimeLabel: "6 min",
-    image: `${IMG}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
+    image: `${IMG}/gallery/glow-skin-gallery-peeling-facial.webp`,
     blocks: [
       {
         type: "lead",
@@ -1212,7 +1212,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-18",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/methods/4-metodo-regenerativo.webp`,
+    image: `${IMG}/methods/1-metodo-regenerativo.webp`,
     blocks: [
       {
         type: "lead",
@@ -1322,7 +1322,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-15",
     category: "Lifestyle",
     readTimeLabel: "5 min",
-    image: `${IMG}/hero/4-glow-skin-hero-tratamiento-facial.webp`,
+    image: `${IMG}/hero/1-glow-skin-hero-limpieza-facial.webp`,
     blocks: [
       {
         type: "p",
@@ -1424,7 +1424,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-12",
     category: "Lifestyle",
     readTimeLabel: "6 min",
-    image: `${IMG}/hero/4-glow-skin-hero-servicios-esteticos.webp`,
+    image: `${IMG}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
     blocks: [
       {
         type: "lead",
