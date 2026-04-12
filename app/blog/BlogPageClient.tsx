@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
-import { Menu, X, Camera, Share2, Sparkles, ArrowRight, Calendar } from 'lucide-react';
+import { Sparkles, ArrowRight, Calendar } from 'lucide-react';
 import type { BlogListItem } from '@/lib/blog/posts';
-import { SITE_LOGO_URL } from '@/app/components/site-config';
 
 const BASE_IMG_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
 
@@ -16,79 +15,13 @@ const CATEGORIES = ['Todos', 'Skin Care', 'Ciencia', 'Tratamientos', 'Lifestyle'
 type Props = { posts: BlogListItem[] };
 
 export function BlogPageClient({ posts }: Props) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState('Todos');
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const filtered =
     activeCategory === 'Todos' ? posts : posts.filter((p) => p.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] overflow-x-hidden selection:bg-[#d4b499] selection:text-white">
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-[#f7f0eb]/95 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'}`}
-      >
-        <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-          <Link href="/" className="h-10 transition-transform hover:scale-105">
-            <img src={SITE_LOGO_URL} alt="Glow Skin Barranquilla" className="h-full w-auto" />
-          </Link>
-          <div className="hidden lg:flex items-center gap-12 text-[10px] uppercase tracking-[0.4em] font-black text-[#7d5a44]">
-            <Link href="/" className="hover:text-[#4a3221] transition-all">
-              Inicio
-            </Link>
-            <Link href="/servicios" className="hover:text-[#4a3221] transition-all">
-              Servicios
-            </Link>
-            <Link href="/precios" className="hover:text-[#4a3221] transition-all">
-              Precios
-            </Link>
-            <span className="text-[#4a3221] border-b border-[#d4b499]">Blog</span>
-          </div>
-          <button type="button" className="p-2 text-[#4a3221]" onClick={() => setIsMenuOpen(true)} aria-label="Abrir menú">
-            <Menu size={28} strokeWidth={1.5} />
-          </button>
-        </div>
-      </nav>
-
-      <div
-        className={`fixed inset-0 bg-[#f7f0eb] z-[100] transition-transform duration-700 flex flex-col ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-      >
-        <div className="p-8 flex justify-between items-center border-b border-[#d4b499]/20">
-          <img src={SITE_LOGO_URL} className="h-8" alt="" />
-          <button type="button" onClick={() => setIsMenuOpen(false)} className="p-3 bg-[#4a3221] text-[#f7f0eb] rounded-full" aria-label="Cerrar menú">
-            <X size={24} />
-          </button>
-        </div>
-        <div className="flex-grow flex flex-col justify-center px-12 gap-8 text-center">
-          {[
-            { label: 'Inicio', href: '/' },
-            { label: 'Servicios', href: '/servicios' },
-            { label: 'Precios', href: '/precios' },
-            { label: 'Blog', href: '/blog' },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-[#4a3221] text-5xl font-serif"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <LeadTrigger
-            mode="contact"
-            className="mt-8 text-white bg-[#4a3221] px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl"
-          >
-            Contacto
-          </LeadTrigger>
-        </div>
-      </div>
 
       <header className="pt-52 pb-32 text-center relative">
         <div className="absolute inset-0 -z-10 opacity-[0.12] pointer-events-none">
@@ -205,30 +138,6 @@ export function BlogPageClient({ posts }: Props) {
         </div>
       </section>
 
-      <footer className="bg-[#f7f0eb] pt-32 pb-16 text-[#4a3221]">
-        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-20 text-center border-t border-[#4a3221]/10 pt-20">
-          <div>
-            <p className="text-[9px] font-black uppercase tracking-[0.4em] text-[#d4b499] mb-4">Ubicación</p>
-            <p className="text-sm font-bold opacity-70 leading-relaxed uppercase">
-              Carrera 50# 74-120 <br /> Barranquilla, Atlántico
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <img src={SITE_LOGO_URL} className="h-8 opacity-90 mb-8" alt="Glow Skin" />
-            <div className="flex gap-10 opacity-30">
-              <Camera size={20} aria-hidden />
-              <Share2 size={20} aria-hidden />
-            </div>
-          </div>
-          <div>
-            <p className="text-[9px] font-black uppercase tracking-[0.4em] text-[#d4b499] mb-4">Consultas</p>
-            <p className="text-sm font-bold opacity-70 uppercase">+57 300 888 3486</p>
-          </div>
-        </div>
-        <p className="mt-32 text-center text-[9px] font-black tracking-[0.6em] text-[#d4b499] opacity-40 uppercase">
-          © 2026 Glow Skin · Blog
-        </p>
-      </footer>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');

@@ -1,3 +1,4 @@
-Contact: mailto:contact@glowskinbq.com
+Contact: mailto:contact@glowskinbarranquilla.com
 Preferred-Languages: es, en
-Canonical: https://glowskinbq.com/.well-known/security.txt
+Canonical: https://glowskinbarranquilla.com/.well-known/security.txt
+Expires: 2027-04-12T23:59:00.000Z

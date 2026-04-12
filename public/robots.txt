@@ -1,0 +1,50 @@
+User-agent: *
+Allow: /
+
+# Prioritize important pages
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://glowskinbarranquilla.com/sitemap.xml
+
+# Block admin and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Allow blog and service pages for better indexing
+Allow: /blog/
+Allow: /precios/
+Allow: /casos/
+
+# Enhanced blog indexing for expanded content
+Allow: /blog/mejor-limpieza-facial-alto-prado
+Allow: /blog/que-es-el-dermapen
+Allow: /blog/limpieza-facial-en-casa-por-que-evitarla
+Allow: /blog/que-hacer-despues-de-una-limpieza-facial
+Allow: /blog/resenas-pacientes-google-maps
+Allow: /blog/piel-grasa-acido-seborregulador
+Allow: /blog/piel-opaca-sin-vida
+Allow: /blog/envejecimiento-prematuro-como-prevenirlo
+Allow: /blog/como-curarse-del-acne-guia
+Allow: /blog/metodo-glow-skin-tratamiento-acne
+Allow: /blog/pdrn-o-exosomas-cual-elegir
+Allow: /blog/que-es-pdrn-por-que-lo-prefieren-los-famosos
+Allow: /blog/que-son-los-exosomas
+Allow: /blog/por-que-daddy-yankee-se-ve-joven
+Allow: /blog/secreto-kardashians-piel-porcelana
+
+# Local SEO optimization for Barranquilla area
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Special directives for Spanish content
+User-agent: Googlebot
+Allow: /blog/
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2

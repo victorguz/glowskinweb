@@ -1,19 +1,31 @@
-import { List, Sparkles } from 'lucide-react';
-import { SERVICES_PRICING_ENRICHED } from '@/lib/content/pricing-enriched';
-import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
-import { ProcedureDetailsCard } from '@/app/precios/ProcedureDetailsCard';
+"use client";
+
+import { useState } from "react";
+import { List, Sparkles } from "lucide-react";
+import { SERVICES_PRICING_ENRICHED } from "@/lib/content/pricing-enriched";
+import { LeadTrigger } from "@/app/components/marketing/LeadTrigger";
+import { ProcedureDetailsCard } from "@/app/precios/ProcedureDetailsCard";
 
 const preciosCtaClassName =
-  'inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#d4b499] hover:text-[#4a3221] transition-all border-b border-transparent hover:border-[#4a3221] pb-1';
+  "inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#d4b499] hover:text-[#4a3221] transition-all border-b border-transparent hover:border-[#4a3221] pb-1";
 
 const preciosReservaBtnClassName =
-  'inline-flex items-center gap-2 rounded-sm border border-[#d4b499]/45 bg-white/40 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-[#4a3221] transition-colors hover:border-[#4a3221]/35 hover:bg-[#d4b499]/15';
+  "inline-flex items-center gap-2 rounded-sm border border-[#d4b499]/45 bg-white/40 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-[#4a3221] transition-colors hover:border-[#4a3221]/35 hover:bg-[#d4b499]/15";
 
 function slugifyPrecioId(categoryIdx: number, itemIdx: number) {
   return `precio-${categoryIdx}-${itemIdx}`;
 }
 
 export default function PreciosPage() {
+  const [openDetails, setOpenDetails] = useState<{ [key: string]: boolean }>({});
+
+  const toggleDetails = (key: string) => {
+    setOpenDetails(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] selection:bg-[#d4b499] selection:text-white">
       <section className="pt-52 pb-32 relative flex items-center justify-center text-center">
@@ -28,9 +40,10 @@ export default function PreciosPage() {
             </h1>
             <div className="w-24 h-px bg-[#d4b499] mt-8 mb-12"></div>
             <p className="text-lg md:text-xl font-medium text-[#7d5a44] max-w-2xl leading-relaxed italic tracking-wide px-4">
-              {'\u201C'}
-              Protocolos faciales diseñados científicamente para revelar el máximo potencial de tu piel.
-              {'\u201D'}
+              {"\u201C"}
+              Protocolos faciales diseñados científicamente para revelar el
+              máximo potencial de tu piel.
+              {"\u201D"}
             </p>
           </div>
         </div>
@@ -69,32 +82,17 @@ export default function PreciosPage() {
                         {item.price}
                       </p>
                     </div>
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
                       <p className="min-w-0 flex-1 text-[#7d5a44] text-sm md:text-base leading-relaxed font-medium opacity-90">
                         {item.detail}
                       </p>
-                      <div className="flex shrink-0 flex-wrap items-start gap-3 md:pt-1">
-                        <details className="group min-w-0 max-w-full md:max-w-2xl [open]:w-full">
-                          <summary
-                            className={`${preciosCtaClassName} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
-                          >
-                            Detalles <List size={12} strokeWidth={2.25} aria-hidden />
-                          </summary>
-                          <div className="mt-4 w-full max-w-2xl">
-                            <ProcedureDetailsCard
-                              item={item}
-                              reserveSlot={
-                                <LeadTrigger
-                                  mode="booking"
-                                  suggestedTreatments={[item.name]}
-                                  className={preciosReservaBtnClassName}
-                                >
-                                  Reservar <Sparkles size={12} />
-                                </LeadTrigger>
-                              }
-                            />
-                          </div>
-                        </details>
+                      <div className="flex shrink-0 items-center gap-3">
+                        <button
+                          className={`${preciosCtaClassName} cursor-pointer`}
+                          onClick={() => toggleDetails(`details-${idx}-${i}`)}
+                        >
+                          Detalles <List size={12} strokeWidth={2.25} aria-hidden />
+                        </button>
                         <LeadTrigger
                           mode="booking"
                           suggestedTreatments={[item.name]}
@@ -104,13 +102,35 @@ export default function PreciosPage() {
                         </LeadTrigger>
                       </div>
                     </div>
-                  </article>
+                    <div className={`${openDetails[`details-${idx}-${i}`] ? 'block' : 'hidden'}`}>
+                      <div className="mt-6 w-full flex justify-center">
+                        <div className="w-full max-w-4xl">
+                          <ProcedureDetailsCard
+                            item={item}
+                            reserveSlot={
+                              <LeadTrigger
+                                mode="booking"
+                                suggestedTreatments={[item.name]}
+                                className={preciosReservaBtnClassName}
+                              >
+                                Reservar <Sparkles size={12} />
+                              </LeadTrigger>
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </article>
                 ))}
               </div>
             </div>
           ))}
         </div>
       </section>
+    </div>
+  );
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,600&display=swap');
@@ -118,6 +138,4 @@ export default function PreciosPage() {
         .font-sans { font-family: 'Montserrat', sans-serif; }
         .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; }
       `}</style>
-    </div>
-  );
 }

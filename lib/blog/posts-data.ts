@@ -1,639 +1,583 @@
-import type { BlogPost } from '@/lib/blog/types';
+import type { BlogPost } from "@/lib/blog/types";
 
-const IMG = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
+const IMG = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: 'limpieza-facial-profunda',
-    title: 'El impacto de un facial profesional',
-    deck: 'Por qué la limpieza profunda es el primer paso de una piel radiante en Barranquilla.',
+    slug: "limpieza-facial-profunda",
+    title: "El impacto de un facial profesional",
+    deck: "Por qué la limpieza profunda es el primer paso de una piel radiante en Barranquilla.",
     description:
-      'Limpieza facial profunda en Glow Skin: ciencia, extracción segura y resultados visibles. Guía para quienes buscan luminosidad y poros refinados en Barranquilla.',
+      "Limpieza facial profunda en Glow Skin: ciencia, extracción segura y resultados visibles. Guía para quienes buscan luminosidad y poros refinados en Barranquilla.",
     keywords: [
-      'limpieza facial profunda Barranquilla',
-      'facial profesional',
-      'Glow Skin',
-      'poros',
+      "limpieza facial profunda Barranquilla",
+      "facial profesional",
+      "Glow Skin",
+      "poros",
     ],
-    datePublished: '2026-04-10',
-    category: 'Skin Care',
-    readTimeLabel: '6 min',
+    datePublished: "2026-04-10",
+    category: "Skin Care",
+    readTimeLabel: "6 min",
     image: `${IMG}/hero/1-glow-skin-hero-limpieza-facial.webp`,
     blocks: [
       {
-        type: 'lead',
-        text: 'La piel refleja hábitos, estrés y ciudad. Una limpieza facial profesional ordena el lienzo antes de cualquier otro tratamiento.',
+        type: "lead",
+        text: "La piel refleja hábitos, estrés y ciudad. Una limpieza facial profesional ordena el lienzo antes de cualquier otro tratamiento.",
       },
       {
-        type: 'p',
-        text: 'En Glow Skin (Carrera 50 # 74-120, Barranquilla) trabajamos con diagnóstico previo: no todas las pieles toleran la misma intensidad de extracción ni los mismos activos. Eso marca la diferencia entre irritar y renovar.',
+        type: "p",
+        text: "En Glow Skin (Carrera 50 # 74-120, Barranquilla) trabajamos con diagnóstico previo: no todas las pieles toleran la misma intensidad de extracción ni los mismos activos. Eso marca la diferencia entre irritar y renovar.",
       },
-      { type: 'h2', text: 'Más allá de la superficie' },
+      { type: "h2", text: "Más allá de la superficie" },
       {
-        type: 'p',
-        text: 'La polución, el sebo y los restos de maquillaje forman una capa que en casa es difícil de retirar por completo. El facial profundo combina preparación de la piel, extracción aséptica cuando procede, y fases de calma e hidratación.',
+        type: "p",
+        text: "La polución, el sebo y los restos de maquillaje forman una capa que en casa es difícil de retirar por completo. El facial profundo combina preparación de la piel, extracción aséptica cuando procede, y fases de calma e hidratación.",
       },
       {
-        type: 'quote',
-        text: 'Resultados reales se construyen con técnica, paciencia y un plan que respeta el ciclo de la piel.',
-        attribution: 'Sofía Nieto — Glow Skin',
+        type: "quote",
+        text: "Resultados reales se construyen con técnica, paciencia y un plan que respeta el ciclo de la piel.",
+        attribution: "Sofía Nieto — Glow Skin",
       },
-      { type: 'h2', text: 'Frecuencia recomendada' },
+      { type: "h2", text: "Frecuencia recomendada" },
       {
-        type: 'p',
-        text: 'Como referencia general, muchas personas se benefician de un facial de mantenimiento cada 3–4 semanas, alineado con el ciclo celular. Tu especialista indicará la cadencia según acné, sensibilidad u otros objetivos.',
+        type: "p",
+        text: "Como referencia general, muchas personas se benefician de un facial de mantenimiento cada 3–4 semanas, alineado con el ciclo celular. Tu especialista indicará la cadencia según acné, sensibilidad u otros objetivos.",
       },
     ],
   },
   {
-    slug: 'el-verdadero-glow',
-    title: 'El verdadero glow',
-    deck: 'Brillo saludable vs. grasa: qué buscamos en Glow Skin.',
+    slug: "el-verdadero-glow",
+    title: "El verdadero glow: más allá del brillo artificial",
+    deck: "Descubre la diferencia entre piel luminosa saludable y brillo graso. Guía completa para lograr un glow real en Barranquilla.",
     description:
-      'Qué significa un glow real en cosmiatría: barrera fuerte, hidratación y luminosidad sin lucir grasosa. Enfoque Glow Skin en Barranquilla.',
-    keywords: ['glow skin', 'piel luminosa', 'barrera cutánea', 'Barranquilla'],
-    datePublished: '2026-04-09',
-    category: 'Skin Care',
-    readTimeLabel: '5 min',
+      "Qué significa un glow real en cosmiatría: barrera fuerte, hidratación y luminosidad sin lucir grasosa. Guía completa para lograr piel radiante en Glow Skin Barranquilla.",
+    keywords: [
+      "glow skin barranquilla",
+      "piel luminosa saludable",
+      "barrera cutánea fuerte",
+      "tratamientos faciales barranquilla",
+      "glow vs grasa",
+      "piel radiante norte barranquilla",
+      "glow skin alto prado",
+    ],
+    datePublished: "2026-04-09",
+    category: "Skin Care",
+    readTimeLabel: "8 min",
     image: `${IMG}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
     blocks: [
       {
-        type: 'lead',
-        text: '“Glow” no es brillo graso ni efecto húmedo artificial: es una piel que refleja luz de forma uniforme porque está hidratada y con la textura refinada.',
+        type: "lead",
+        text: 'El "glow" que buscas no es el brillo graso que deja tu piel luciendo aceitosa, ni ese efecto húmedo artificial que vemos en redes sociales. Un glow auténtico es la manifestación visible de una piel sana: refleja la luz de manera uniforme porque está perfectamente hidratada, con una barrera cutánea fuerte y una textura refinada que permite que la luz se difunda naturalmente.',
       },
       {
-        type: 'p',
-        text: 'En consulta vemos a menudo pieles que han sobrecargado la rutina con activos fuertes y han debilitado la barrera. El resultado es opacidad y sensación de tirantez, no luminosidad.',
+        type: "p",
+        text: 'En Glow Skin Barranquilla vemos daily pacientes que llegan frustradas después de probar infinidad de productos "iluminadores" que solo enmascaran problemas subyacentes. La piel opaca, con sensación de tirantez o excesivamente brillante suele ser el resultado de una barrera cutánea comprometida por el sobretratamiento o el uso inadecuado de activos fuertes.',
       },
-      { type: 'h2', text: 'Pilares del glow sostenible' },
+      { type: "h2", text: "La ciencia detrás del glow verdadero" },
       {
-        type: 'list',
+        type: "p",
+        text: "Para entender por qué algunas pieles brillan naturalmente mientras otras se ven apagadas, debemos hablar de tres elementos fundamentales que trabajan en sinergia:",
+      },
+      {
+        type: "h3",
+        text: "1. Barrera cutánea intacta",
+      },
+      {
+        type: "p",
+        text: "La barrera cutánea es tu primera línea de defensa y la responsable de mantener la hidratación dentro y los irritantes fuera. Cuando esta barrera está comprometida, tu piel pierde agua transepidérmica, lo que resulta en deshidratación, opacidad y aumento de la producción de sebo como mecanismo compensatorio.",
+      },
+      {
+        type: "p",
+        text: "Los signos de barrera dañada incluyen: piel que se enrojece fácilmente, sensación de ardor con productos suaves, textura irregular y esa opacidad característica que ningún iluminador puede solucionar de verdad.",
+      },
+      { type: "h3", text: "2. Hidratación óptima" },
+      {
+        type: "p",
+        text: 'La hidratación no es lo mismo que la grasa. Una piel bien hidratada tiene células cutáneas plenas y firmes que reflejan la luz eficientemente. En cambio, una piel deshidratada tiene células "arrugadas" que dispersan la luz de manera irregular, creando apariencia opaca.',
+      },
+      {
+        type: "p",
+        text: "En el clima de Barranquilla, con altas temperaturas y humedad, es crucial mantener un equilibrio hidrolipídico adecuado. No se trata de aplicar más productos, sino de los correctos para tu tipo de piel.",
+      },
+      { type: "h3", text: "3. Textura superficial refinada" },
+      {
+        type: "p",
+        text: "Una superficie lisa permite que la luz se refleje uniformemente. Poros dilatados, textura irregular y microdescamación crean sombras que interfieren con la reflexión luminosa, haciendo que la piel se vea opaca incluso cuando está hidratada.",
+      },
+      {
+        type: "h2",
+        text: "Diferencias clave: Glow saludable vs. Brillo graso",
+      },
+      {
+        type: "list",
         items: [
-          'Limpieza adecuada sin agredir la piel.',
-          'Hidratación y factores humectantes acordes a tu tipo de piel.',
-          'Protección solar diaria en Barranquilla, clave por radiación UV alta.',
-          'Tratamientos en cabina que respeten tiempos de recuperación.',
+          "Glow real: Piel se siente suave al tacto, no grasosa; el brillo es uniforme y natural; los poros se ven refinados; no hay sensación de pesadez.",
+          'Brillo graso: Piel se siente aceitosa; el brillo es irregular y concentrado en zona T; poros visibles y obstruidos; sensación de pesadez y "suciedad".',
+          "Glow real: Color uniforme y tono saludable; piel responde bien a productos; no hay enrojecimiento ni irritación.",
+          "Brillo graso: Tono amarillento o grisáceo; piel reacciona excesivamente; tendencia a brotes e irritación.",
         ],
       },
+      { type: "h2", text: "Pilares del glow sostenible en Barranquilla" },
       {
-        type: 'p',
-        text: 'Si vives en el norte de Barranquilla o zonas como Alto Prado, agenda una valoración: el glow se personaliza; no hay un único protocolo para todas.',
+        type: "h3",
+        text: "Limpieza inteligente",
+      },
+      {
+        type: "p",
+        text: "La limpieza es la base, pero debe ser inteligente. En el norte de Barranquilla, con factores ambientales como polución y humedad alta, necesitamos limpiezas efectivas sin stripping. Esto significa usar limpiadores que respeten el pH natural de la piel (entre 4.5 y 5.5) y no eliminen los lípidos esenciales.",
+      },
+      {
+        type: "h3",
+        text: "Hidratación personalizada",
+      },
+      {
+        type: "p",
+        text: "No existe una fórmula única para todas las pieles en Barranquilla. Las pieles grasosas necesitan hidratación ligera con ácido hialurónico de bajo peso molecular, mientras que las pieles secas requieren lípidos reparadores como ceramidas y colesterol. La clave está en identificar las necesidades específicas de tu barrera cutánea.",
+      },
+      {
+        type: "h3",
+        text: "Protección solar diaria",
+      },
+      {
+        type: "p",
+        text: "La radiación UV en Barranquilla es intensa durante todo el año. Cada día sin protección es un paso hacia el fotoenvejecimiento y la opacidad. Un buen protector solar no solo previene el daño, sino que permite que los tratamientos funcionen mejor y tu piel pueda recuperar su luminosidad natural.",
+      },
+      {
+        type: "h3",
+        text: "Tratamientos profesionales estratégicos",
+      },
+      {
+        type: "p",
+        text: "Los tratamientos en cabina complementan tu rutina diaria. En Glow Skin diseñamos protocolos que trabajan desde adentro hacia afuera: limpiezas profundas que respeten la barrera, bioestimulación con PDRN o exosomas para renovación celular, y tratamientos como dermapen para mejorar textura.",
+      },
+      { type: "h2", text: "Errores comunes que destruyen tu glow natural" },
+      {
+        type: "list",
+        items: [
+          'Sobreexfoliación: Usar ácidos fuertes diariamente pensando que "más es mejor".',
+          "Productos incorrectos: Activos para piel grasa en piel seca (o viceversa).",
+          'Saltar la protección solar: "Solo un día no hace daño" es el inicio del daño acumulado.',
+          "Expectativas irreales: Esperar cambios permanentes en una sesión.",
+          "Ignorar las señales: Seguir usando productos que causan ardor o enrojecimiento.",
+        ],
+      },
+      { type: "h2", text: "Tu plan glow personalizado en Glow Skin" },
+      {
+        type: "p",
+        text: "En nuestra consulta en Carrera 50 # 74-120, evaluamos tu piel con tecnología avanzada para determinar exactamente qué necesita tu barrera cutánea. No aplicamos protocolos genéricos; diseñamos un plan que considera tu estilo de vida en Barranquilla, tus preocupaciones específicas y tus metas a largo plazo.",
+      },
+      {
+        type: "p",
+        text: "El verdadero glow es un journey, no un destino. Es el resultado de consistencia, conocimiento de tu piel y tratamientos profesionales que complementen tu rutina diaria. Cuando trabajas con tu piel en lugar de contra ella, el glow sigue naturalmente.",
+      },
+      {
+        type: "quote",
+        text: "El glow sostenible nace de una barrera fuerte, no de productos iluminadores temporales. Es salud visible.",
+        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+      },
+      {
+        type: "p",
+        text: "Si vives en el norte de Barranquilla, Alto Prado o zonas cercanas y estás lista para transformar tu piel de opaca a radiante, agenda una valoración. Descubre cómo tu piel puede brillar de verdad, sin artificios ni comprometer su salud a largo plazo.",
       },
     ],
   },
   {
-    slug: 'como-llegar-glow-skin',
-    title: 'Cómo llegar a Glow Skin',
-    deck: 'Ubicación en Carrera 50 # 74-120, Barranquilla.',
+    slug: "como-llegar-glow-skin",
+    title: "Cómo llegar a Glow Skin: Guía completa Barranquilla",
+    deck: "Dirección exacta, transporte, parqueo y consejos para tu visita a Glow Skin en Carrera 50 # 74-120, norte de Barranquilla.",
     description:
-      'Indicaciones para llegar a Glow Skin en Barranquilla: dirección en Carrera 50, referencias de zona norte y consejos para tu primera visita.',
+      "Guía completa para llegar a Glow Skin Barranquilla: indicaciones detalladas desde todas las zonas, opciones de transporte, parqueo disponible y preparación para tu primera cita.",
     keywords: [
-      'Glow Skin dirección',
-      'Carrera 50 74-120',
-      'clínica estética Barranquilla norte',
-      'cómo llegar',
+      "Glow Skin dirección Barranquilla",
+      "Carrera 50 74-120 norte barranquilla",
+      "cómo llegar Glow Skin Alto Prado",
+      "clínica estética Barranquilla norte",
+      "transporte Glow Skin Barranquilla",
+      "parqueo Glow Skin Carrera 50",
+      "ubicación estética facial norte barranquilla",
     ],
-    datePublished: '2026-04-08',
-    category: 'Glow Skin',
-    readTimeLabel: '4 min',
+    datePublished: "2026-04-08",
+    category: "Glow Skin",
+    readTimeLabel: "7 min",
     image: `${IMG}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
     blocks: [
       {
-        type: 'lead',
-        text: 'Glow Skin está en Carrera 50 # 74-120, Barranquilla, en zona norte con buena conexión desde Alto Prado y el Centro Histórico.',
+        type: "lead",
+        text: "Glow Skin está estratégicamente ubicada en Carrera 50 # 74-120, en el corazón de la zona norte de Barranquilla. Nuestra ubicación ofrece fácil acceso desde Alto Prado, el Centro Histórico y todas las áreas residenciales importantes, convirtiéndonos en la opción más conveniente para tratamientos faciales profesionales en la ciudad.",
       },
       {
-        type: 'p',
-        text: 'Si vienes en vehículo, revisa en tu app de mapas el nombre “Glow Skin” o la dirección exacta para el punto de acceso más cómodo al edificio. En horas pico el tráfico en corredores principales puede ser intenso; suma unos minutos de margen.',
+        type: "p",
+        text: "Hemos elegido esta dirección por su centralidad y accesibilidad. Estamos en una zona bien conectada con múltiples opciones de transporte, seguridad y servicios cercanos que hacen tu visita a Glow Skin una experiencia cómoda y sin complicaciones.",
       },
-      { type: 'h2', text: 'Antes de tu cita' },
+      { type: "h2", text: "Ubicación exacta y referencias clave" },
       {
-        type: 'list',
+        type: "p",
+        text: "Nuestra dirección completa es Carrera 50 # 74-120, Barranquilla, Atlántico. Estamos en una zona comercial consolidada del norte de la ciudad, con excelentes referencias que te ayudarán a encontrarnos fácilmente:",
+      },
+      {
+        type: "list",
         items: [
-          'Confirma hora por WhatsApp.',
-          'Evita exponerte al sol fuerte justo antes de peelings o tratamientos ablativos suaves.',
-          'Llega 5–10 minutos antes si es tu primera vez para completar datos.',
+          "Referencia principal: A una cuadra de la Avenida Murillo (Calle 72)",
+          "Cerca del Parque Washington y la zona de Alto Prado",
+          "A 5 minutos en auto del Centro Histórico de Barranquilla",
+          "Zona comercial con múltiples bancos y restaurantes cercanos",
+          "Edificio moderno con acceso directo desde la calle",
         ],
       },
       {
-        type: 'p',
-        text: '¿Dudas de parqueo o acceso? Escríbenos y te orientamos según el día y la hora de tu cita.',
+        type: "h2",
+        text: "Cómo llegar desde diferentes zonas de Barranquilla",
+      },
+      { type: "h3", text: "Desde Alto Prado y zona norte" },
+      {
+        type: "p",
+        text: "La forma más fácil es tomar la Carrera 50 hacia sur. Estamos aproximadamente a 10-15 minutos en auto desde Alto Prado. Puedes tomar la Avenida Murillo (Calle 72) hasta la Carrera 50, luego baja dos cuadras hasta encontrar el número 74-120.",
+      },
+      { type: "h3", text: "Desde el Centro Histórico" },
+      {
+        type: "p",
+        text: "Toma la Carrera 50 hacia norte. Estamos a unos 5-10 minutos en auto desde el centro. El trayecto es directo por la misma carrera, lo que facilita la navegación sin necesidad de tomar calles transversales.",
+      },
+      { type: "h3", text: "Desde la zona sur (Villa Country, Boston)" },
+      {
+        type: "p",
+        text: "Recomendamos tomar la Avenida Olaya Herrera hacia norte, luego conectar con la Calle 72 y tomar la Carrera 50 hacia sur. El tiempo estimado es de 20-25 minutos dependiendo del tráfico.",
+      },
+      { type: "h3", text: "Desde la zona este (Barrio Abajo, La Playa)" },
+      {
+        type: "p",
+        text: "La mejor ruta es hacia la Avenida Murillo, luego tomar la Carrera 50. El trayecto toma aproximadamente 15-20 minutos. Evita horas pico si es posible (7-9 AM y 5-7 PM).",
+      },
+      { type: "h2", text: "Opciones de transporte disponibles" },
+      { type: "h3", text: "Vehículo particular" },
+      {
+        type: "p",
+        text: "La opción más conveniente. Usa GPS con nuestra dirección exacta: 'Glow Skin' o 'Carrera 50 # 74-120, Barranquilla'. Ten en cuenta que en horas pico el tráfico puede aumentar tu tiempo de viaje en 10-15 minutos adicionales.",
+      },
+      { type: "h3", text: "Taxi y aplicaciones" },
+      {
+        type: "p",
+        text: "Uber, DiDi y taxis tradicionales conocen bien la zona. Simplemente indica 'Glow Skin Carrera 50 con 74' y la mayoría de conductores te llevarán directamente. El costo desde el centro es aproximadamente $8.000-12.000 COP.",
+      },
+      { type: "h3", text: "Transporte público" },
+      {
+        type: "p",
+        text: "Puedes tomar buses que circulen por la Carrera 50. Baja en la esquina de Calle 74 y camina media cuadra hacia este. Esta opción es económica pero menos cómoda si vienes para un tratamiento facial.",
+      },
+      { type: "h2", text: "Parqueo y acceso" },
+      {
+        type: "p",
+        text: "Contamos con opciones de parqueo seguras y convenientes para nuestros pacientes:",
+      },
+      {
+        type: "list",
+        items: [
+          "Parqueo privado en el edificio (espacios limitados, reserva recomendada)",
+          "Parqueo público en calles cercanas (generalmente disponible)",
+          "Parqueaderos privados a menos de 2 cuadras ($2.000-3.000 COP por hora)",
+          "Zona de descenso rápido en la entrada principal para facilitar tu llegada",
+        ],
+      },
+      {
+        type: "p",
+        text: "Si necesitas espacio de parqueo reservado, avísanos con 24 horas de anticipación y gestionaremos un lugar para ti.",
+      },
+      { type: "h2", text: "Preparación para tu primera visita" },
+      { type: "h3", text: "Documentación necesaria" },
+      {
+        type: "list",
+        items: [
+          "Evita exfoliaciones químicas o físicas 3 días antes",
+          "No uses retinoides 48 horas antes si tendrás tratamiento intensivo",
+          "Protégete del sol los días previos a tu cita",
+          "Llega con el rostro limpio, sin maquillaje pesado",
+          "Evita consumir alcohol 24 horas antes de tratamientos invasivos",
+        ],
+      },
+      { type: "h2", text: "Qué esperar durante tu visita" },
+      {
+        type: "p",
+        text: "Tu primera visita a Glow Skin incluye:",
+      },
+      {
+        type: "list",
+        items: [
+          "Recepción y registro (10-15 minutos)",
+          "Consulta inicial con Sofía Nieto (20-30 minutos)",
+          "Diagnóstico facial con tecnología avanzada",
+          "Recomendación de tratamiento personalizado",
+          "Primera sesión si procede (45-60 minutos)",
+        ],
+      },
+      {
+        type: "p",
+        text: "El tiempo total de tu primera visita es aproximadamente 90 minutos a 2 horas. Planifica tu día accordingly.",
+      },
+      { type: "h2", text: "Servicios cercanos y comodidades" },
+      {
+        type: "p",
+        text: "Nuestra ubicación te ofrece múltiples beneficios adicionales:",
+      },
+      {
+        type: "list",
+        items: [
+          "Restaurantes y cafeterías a menos de 200 metros",
+          "Bancos y cajeros automáticos en la cuadra",
+          "Farmacias para comprar productos post-tratamiento",
+          "Zonas comerciales para hacer compras después de tu cita",
+          "Seguridad permanente en la zona",
+        ],
+      },
+      { type: "h2", text: "Consejos prácticos para tu visita" },
+      {
+        type: "p",
+        text: "Recomendaciones basadas en la experiencia de nuestras pacientes:",
+      },
+      {
+        type: "list",
+        items: [
+          "Confirma tu cita 24 horas antes por WhatsApp",
+          "Llega con tiempo extra en tu primera visita",
+          "Trae gorra o sombrero para después de tratamientos con fotosensibilidad",
+          "Considera el tráfico en horas pico para tu planificación",
+          "Guarda nuestro número +57 300 888 3486 para cualquier emergencia",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Hemos elegido nuestra ubicación pensando en tu comodidad y acceso. Queremos que llegar a Glow Skin sea tan agradable como tus tratamientos.",
+        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+      },
+      {
+        type: "p",
+        text: "¿Tienes dudas específicas sobre cómo llegar? No dudes en contactarnos por WhatsApp o teléfono. Nuestro equipo te orientará con indicaciones personalizadas según tu punto de partida y preferencias de transporte.",
+      },
+      {
+        type: "p",
+        text: "Te esperamos en Carrera 50 # 74-120 para comenzar tu journey hacia una piel más saludable y radiante. Tu transformación empieza aquí, en el corazón de Barranquilla.",
       },
     ],
   },
   {
-    slug: 'mejor-limpieza-facial-norte-barranquilla',
-    title: 'Mejor limpieza facial en el norte de Barranquilla',
-    deck: 'Qué debe incluir un facial de calidad en la zona norte.',
+    slug: "mejor-limpieza-facial-norte-barranquilla",
+    title:
+      "Mejor limpieza facial en el norte de Barranquilla: Guía completa 2026",
+    deck: "Descubre qué diferencia una limpieza facial profesional en el norte de Barranquilla: protocolos, seguridad y resultados reales.",
     description:
-      'Criterios para elegir una limpieza facial profunda en el norte de Barranquilla: higiene, diagnóstico, extracción segura y seguimiento en Glow Skin.',
+      "Guía completa para elegir la mejor limpieza facial en el norte de Barranquilla: criterios de calidad, estándares de higiene, protocolos Glow Skin y comparación de servicios en la zona.",
     keywords: [
-      'limpieza facial norte Barranquilla',
-      'facial Barranquilla',
-      'Glow Skin',
+      "limpieza facial norte Barranquilla",
+      "mejor facial Barranquilla norte",
+      "limpieza profunda Carrera 50",
+      "Glow Skin limpieza facial",
+      "facial profesional Alto Prado",
+      "tratamiento facial norte barranquilla",
+      "limpieza facial segura barranquilla",
     ],
-    datePublished: '2026-04-07',
-    category: 'Tratamientos',
-    readTimeLabel: '6 min',
+    datePublished: "2026-04-07",
+    category: "Tratamientos",
+    readTimeLabel: "8 min",
     image: `${IMG}/methods/1-limpieza-facial-glow-skin.jpg`,
     blocks: [
       {
-        type: 'lead',
-        text: 'Buscar “la mejor” limpieza facial no es marketing: es encontrar protocolo, manos entrenadas y criterio clínico.',
+        type: "lead",
+        text: "Buscar 'la mejor' limpieza facial en el norte de Barranquilla no es una cuestión de marketing o precio: es encontrar protocolos médicos-cosmiátricos, manos entrenadas y criterio clínico que garanticen resultados sin comprometer la salud de tu piel.",
       },
       {
-        type: 'p',
-        text: 'En el norte de la ciudad hay muchas ofertas; lo que diferencia un buen facial es la evaluación inicial (tipo de piel, brotes activos, sensibilidad), el uso de material estéril y la capacidad de decir “hoy no extraemos” cuando la piel está inflamada.',
+        type: "p",
+        text: "El norte de Barranquilla, incluyendo zonas como Alto Prado y el área comercial alrededor de la Carrera 50, ofrece múltiples opciones para tratamientos faciales. Sin embargo, no todas las limpiezas faciales son iguales. La diferencia fundamental está en la evaluación inicial, los estándares de asepsia y la personalización del protocolo según tu tipo de piel y condiciones específicas.",
       },
-      { type: 'h2', text: 'Checklist rápido' },
       {
-        type: 'list',
+        type: "h2",
+        text: "¿Qué define una limpieza facial de calidad en el norte de Barranquilla?",
+      },
+      { type: "h3", text: "Evaluación inicial profesional" },
+      {
+        type: "p",
+        text: "Una limpieza facial de calidad comienza mucho antes del primer toque en tu piel. En Glow Skin realizamos una evaluación completa que incluye:",
+      },
+      {
+        type: "list",
         items: [
-          '¿Te explican pasos y por qué los hacen?',
-          '¿Hay seguimiento post-cita?',
-          '¿Evitan “exprimir todo” sin criterio médico-cosmiátrico?',
+          "Análisis de tipo de piel (grasa, seca, mixta, sensible)",
+          "Identificación de brotes activos y su estado inflamatorio",
+          "Evaluación de la barrera cutánea y sensibilidad",
+          "Historial de tratamientos previos y reacciones",
+          "Metas específicas (acné, manchas, textura, luminosidad)",
         ],
       },
       {
-        type: 'p',
-        text: 'En Glow Skin priorizamos una limpieza profunda con estándares de asepsia y un plan personalizado. Si estás en el norte o Alto Prado, la distancia a nuestra sede en Carrera 50 suele ser corta.',
-      },
-    ],
-  },
-  {
-    slug: 'mejor-limpieza-facial-alto-prado',
-    title: 'La mejor limpieza facial en Alto Prado',
-    deck: 'Faciales de mantenimiento cerca de Alto Prado, Barranquilla.',
-    description:
-      'Limpieza facial para residentes y trabajadores de Alto Prado: qué esperar, frecuencia y por qué elegir Glow Skin en Barranquilla.',
-    keywords: ['limpieza facial Alto Prado', 'facial Barranquilla', 'Glow Skin'],
-    datePublished: '2026-04-06',
-    category: 'Tratamientos',
-    readTimeLabel: '5 min',
-    image: `${IMG}/hero/1-glow-skin-hero-limpieza-facial.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Alto Prado concentra ritmo laboral y social; la piel suele acumular estrés oxidativo y residuos de protector solar mal reaplicado.',
+        type: "h3",
+        text: "Protocolos personalizados vs. protocolos genéricos",
       },
       {
-        type: 'p',
-        text: 'Un facial de mantenimiento cercano te ayuda a sostener poros limpios y tono homogéneo entre tratamientos más intensivos. Glow Skin queda en Carrera 50 # 74-120, con acceso práctico desde la zona.',
+        type: "p",
+        text: "Muchos lugares en el norte de Barranquilla aplican el mismo protocolo a todas las pacientes. Esto es un error grave. Una piel con acné activa necesita un enfoque completamente diferente a una piel con poros dilatados o sensibilidad.",
       },
-      { type: 'h2', text: 'Objetivos frecuentes' },
       {
-        type: 'list',
+        type: "p",
+        text: "En Glow Skin diseñamos cada limpieza facial según las necesidades específicas: algunas pacientes necesitan extracción, otras solo hidratación profunda, y algunas requieren tratamiento antiinflamatorio previo.",
+      },
+      { type: "h2", text: "Estándares de seguridad e higiene indispensables" },
+      { type: "h3", text: "Material estéril y desechable" },
+      {
+        type: "p",
+        text: "Este es un diferenciador crucial en el norte de Barranquilla. Cada paciente debe recibir material completamente estéril y desechable. Esto incluye:",
+      },
+      {
+        type: "list",
         items: [
-          'Refinar textura antes de eventos.',
-          'Complementar tratamiento de acné con extracciones supervisadas.',
-          'Recuperar luminosidad tras viajes o sol.',
+          "Guantes nuevos para cada paciente",
+          "Agujas y extractores estériles de un solo uso",
+          "Toallas y paños desechables o debidamente esterilizados",
+          "Productos aplicados con espátulas limpias o dosificadores sin contacto directo",
+        ],
+      },
+      { type: "h3", text: "Ambiente clínico y protocolos de limpieza" },
+      {
+        type: "p",
+        text: "La sala de tratamiento debe mantener estándares clínicos de limpieza. En nuestra sede en Carrera 50, seguimos protocolos hospitalarios de desinfección entre cada paciente.",
+      },
+      {
+        type: "h2",
+        text: "El proceso de una limpieza facial profesional en Glow Skin",
+      },
+      {
+        type: "h3",
+        text: "Fase 1: Diagnóstico y planificación (15-20 minutos)",
+      },
+      {
+        type: "p",
+        text: "Comenzamos con una consulta detallada donde evaluamos tu piel con tecnología avanzada. Esta fase incluye discusión de tus preocupaciones, revisión de tu rutina actual y establecimiento de metas realistas.",
+      },
+      { type: "h3", text: "Fase 2: Limpieza y preparación (10-15 minutos)" },
+      {
+        type: "p",
+        text: "Utilizamos limpiadores profesionales adaptados a tu tipo de piel. La limpieza inicial elimina maquillaje, contaminantes y exceso de sebo sin agredir la barrera cutánea.",
+      },
+      {
+        type: "h3",
+        text: "Fase 3: Análisis con lámpara de Wood (5-10 minutos)",
+      },
+      {
+        type: "p",
+        text: "Esta luz especial nos permite ver condiciones no visibles a simple vista: poros obstruidos profundos, brotes subclínicos y daño solar. Es fundamental para un tratamiento preciso.",
+      },
+      { type: "h3", text: "Fase 4: Extracción selectiva (15-25 minutos)" },
+      {
+        type: "p",
+        text: "Solo extraemos lo que está listo para salir. Forzar extracciones puede causar inflamación, cicatrices y empeorar el acné. Nuestro criterio médico-cosmiátrico prioriza la salud a largo plazo sobre resultados inmediatos.",
+      },
+      { type: "h3", text: "Fase 5: Tratamiento personalizado (20-30 minutos)" },
+      {
+        type: "p",
+        text: "Según tus necesidades, aplicamos mascarillas terapéuticas, sueros específicos o tecnología como LED terapia. Esta fase es completamente personalizada.",
+      },
+      { type: "h3", text: "Fase 6: Protección y educación (10 minutos)" },
+      {
+        type: "p",
+        text: "Finalizamos con protección solar y educación sobre cuidados post-tratamiento. Recibirás instrucciones específicas para mantener los resultados.",
+      },
+      {
+        type: "h2",
+        text: "Señales de alerta: Cuándo evitar una limpieza facial",
+      },
+      {
+        type: "p",
+        text: "No todas las pieles están listas para extracción. En Glow Skin, a veces recomendamos posponer el tratamiento si observamos:",
+      },
+      {
+        type: "list",
+        items: [
+          "Inflamación activa severa (piel roja y caliente)",
+          "Herpes activo o lesiones abiertas",
+          "Piel extremadamente sensible o reactiva",
+          "Tratamientos dermatológicos recientes (retinoides, peelings)",
+          "Procedimientos cosméticos recientes (inyectables, láser)",
+        ],
+      },
+      { type: "h2", text: "Resultados esperados vs. expectativas realistas" },
+      { type: "h3", text: "Inmediatos (24-72 horas)" },
+      {
+        type: "p",
+        text: "Piel más limpia, poros visiblemente más claros, reducción del brillo excesivo y sensación de ligereza. Puede haber enrojecimiento leve que desaparece en horas.",
+      },
+      { type: "h3", text: "A mediano plazo (1-2 semanas)" },
+      {
+        type: "p",
+        text: "Mejora en textura, reducción de brotes pequeños, mejor absorción de productos y luminosidad más uniforme.",
+      },
+      { type: "h3", text: "A largo plazo (con mantenimiento)" },
+      {
+        type: "p",
+        text: "Piel más equilibrada, reducción significativa de brotes, poros más refinados y mejor salud general de la piel.",
+      },
+      {
+        type: "h2",
+        text: "Frecuencia recomendada para pacientes del norte de Barranquilla",
+      },
+      {
+        type: "p",
+        text: "Considerando el clima y factores ambientales de Barranquilla:",
+      },
+      {
+        type: "list",
+        items: [
+          "Piel normal/grasa: Cada 4-6 semanas para mantenimiento",
+          "Piel con acné activo: Cada 2-3 semanas hasta control",
+          "Piel sensible: Cada 6-8 semanas con protocolos suaves",
+          "Tratamientos específicos (manchas, textura): Según plan personalizado",
         ],
       },
       {
-        type: 'p',
-        text: 'Reserva por WhatsApp y comenta si necesitas horario extendido; adaptamos cuando la agenda lo permite.',
-      },
-    ],
-  },
-  {
-    slug: 'que-es-el-dermapen',
-    title: 'Qué es el Dermapen',
-    deck: 'Microneedling médico-estético explicado sin humo.',
-    description:
-      'Qué es el Dermapen (microneedling), para qué sirve, qué sensaciones tiene y cómo se integra en protocolos de rejuvenecimiento en Barranquilla.',
-    keywords: ['Dermapen', 'microneedling Barranquilla', 'colágeno', 'Glow Skin'],
-    datePublished: '2026-04-05',
-    category: 'Ciencia',
-    readTimeLabel: '7 min',
-    image: `${IMG}/methods/1-metodo-regenerativo.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'El Dermapen es un dispositivo de micropunción controlada que estimula la respuesta natural de reparación de la piel.',
+        type: "h2",
+        text: "Comparativa: Glow Skin vs. otras opciones en el norte",
       },
       {
-        type: 'p',
-        text: 'A diferencia de rodillos caseros de agujas, las plumas electrónicas permiten ajustar profundidad y velocidad con más uniformidad en manos expertas. Eso importa para resultados y para seguridad.',
+        type: "p",
+        text: "¿Qué nos diferencia en el competitivo mercado del norte de Barranquilla?",
       },
-      { type: 'h2', text: 'Indicaciones habituales' },
       {
-        type: 'list',
+        type: "list",
         items: [
-          'Cicatrices de acné leves a moderadas (según valoración).',
-          'Líneas finas y pérdida de firmeza leve.',
-          'Textura irregular o marcas superficiales.',
+          "Enfoque médico-cosmiátrico vs. puramente estético",
+          "Personalización 100% vs. protocolos genéricos",
+          "Seguridad y esterilización hospitalaria",
+          "Seguimiento post-tratamiento incluido",
+          "Educación continua para el paciente",
+          "Tecnología avanzada de diagnóstico",
         ],
       },
       {
-        type: 'p',
-        text: 'No es un tratamiento “de paso”: puede haber enrojecimiento y descamación unos días. La exposición solar debe controlarse; en Barranquilla la foto protección es obligatoria tras el procedimiento.',
+        type: "h2",
+        text: "Inversión vs. valor: Por qué una limpieza facial profesional vale la pena",
       },
       {
-        type: 'quote',
-        text: 'La aguja no sustituye el diagnóstico: primero estabilizamos brotes activos cuando hace falta.',
-        attribution: 'Equipo Glow Skin',
-      },
-    ],
-  },
-  {
-    slug: 'limpieza-facial-en-casa-por-que-evitarla',
-    title: 'Cómo se hace una limpieza facial en casa (y por qué no deberías)',
-    deck: 'Exprimir, vapor y bicarbonato: riesgos que vemos en consulta.',
-    description:
-      'Por qué no imitar una limpieza facial profesional en casa: riesgo de infección, manchas y cicatrices. Qué sí puedes hacer entre citas en Barranquilla.',
-    keywords: ['limpieza facial en casa', 'extracción casera', 'acné Barranquilla'],
-    datePublished: '2026-04-04',
-    category: 'Consejos',
-    readTimeLabel: '6 min',
-    image: `${IMG}/cases/caso-2-tratamiento-anti-acne.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'En internet abundan tutoriales de “limpieza extrema”. En clínica, muchas consultas empiezan después de una mala noche con espejo y alfiler.',
+        type: "p",
+        text: "Aunque existen opciones más económicas en el norte de Barranquilla, una limpieza facial profesional es una inversión en salud cutánea a largo plazo:",
       },
       {
-        type: 'p',
-        text: 'Una limpieza facial profesional combina desincrustación, criterio para extraer solo lo que está maduro, esterilidad y productos con pH y concentración adecuados. En casa casi nunca se reproduce ese entorno.',
-      },
-      { type: 'h2', text: 'Riesgos reales' },
-      {
-        type: 'list',
+        type: "list",
         items: [
-          'Hiperpigmentación postinflamatoria (especialmente en pieles morenas).',
-          'Infección o quistes por manipular profundamente.',
-          'Barrera alterada por exfoliación agresiva repetida.',
+          "Previene problemas mayores (cicatrices, infecciones)",
+          "Optimiza el efecto de productos de rutina diaria",
+          "Educa sobre tu piel y sus necesidades específicas",
+          "Resultados duraderos vs. mejoras temporales",
+          "Seguridad garantizada vs. riesgos potenciales",
         ],
       },
       {
-        type: 'h2',
-        text: 'Qué sí hacer entre citas',
+        type: "quote",
+        text: "En el norte de Barranquilla tienes muchas opciones, pero solo algunas priorizan tu salud cutánea por encima de todo. La diferencia está en el criterio clínico y la ética profesional.",
+        attribution: "Sofía Nieto - Glow Skin Barranquilla",
       },
       {
-        type: 'p',
-        text: 'Limpia suave, hidrata según indicación y usa fotoprotección. Si te tentó un video viral, mejor agenda en Glow Skin: extraemos con método y te enseñamos qué evitar hasta la próxima sesión.',
-      },
-    ],
-  },
-  {
-    slug: 'que-hacer-despues-de-una-limpieza-facial',
-    title: 'Qué hacer después de una limpieza facial',
-    deck: '48 horas clave para resultados duraderos.',
-    description:
-      'Cuidados post limpieza facial: sol, maquillaje, sudor y productos a evitar. Guía Glow Skin para pacientes en Barranquilla.',
-    keywords: ['después de limpieza facial', 'cuidados piel', 'Barranquilla'],
-    datePublished: '2026-04-03',
-    category: 'Consejos',
-    readTimeLabel: '5 min',
-    image: `${IMG}/methods/1-limpieza-facial-glow-skin.jpg`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Tras un facial, la piel es más permeable: lo que pongas (o el sol que reciba) marca la diferencia.',
+        type: "p",
+        text: "Si vives o trabajas en el norte de Barranquilla y estás buscando una limpieza facial que combine efectividad, seguridad y educación, te invitamos a conocer nuestra metodología. Estamos en Carrera 50 # 74-120, convenientemente ubicada para servir a toda la zona norte incluyendo Alto Prado y áreas residenciales cercanas.",
       },
       {
-        type: 'list',
-        items: [
-          'Primeras 24–48 h: evita sauna, ejercicio extremo y sol directo prolongado.',
-          'No introduzcas retinol/ácidos fuertes si no fueron indicados.',
-          'Prefiere sombrero o sombra en Barranquilla; el UV es alto todo el año.',
-          'Hidrata con fórmulas simples si tu piel está sensible.',
-        ],
-      },
-      {
-        type: 'p',
-        text: 'Si hubo extracción, puede haber leve enrojecimiento local: es esperable. Ante dolor intenso, pus o fiebre, busca valoración médica.',
-      },
-    ],
-  },
-  {
-    slug: 'resenas-pacientes-google-maps',
-    title: 'Reseñas de nuestras pacientes',
-    deck: 'Experiencias compartidas en Google Maps (resumen honesto).',
-    description:
-      'Resumen de opiniones públicas de Glow Skin en Google Maps: profesionalismo, resultados de limpieza facial y acompañamiento. Barranquilla.',
-    keywords: ['Glow Skin opiniones', 'reseñas Google Maps', 'limpieza facial Barranquilla'],
-    datePublished: '2026-04-02',
-    category: 'Glow Skin',
-    readTimeLabel: '5 min',
-    image: `${IMG}/sofia/sofia-nieto-glow-skin-bq.png`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Las reseñas públicas ayudan a quienes eligen su primer facial. A continuación, temas que aparecen con frecuencia en comentarios de Google Maps sobre Glow Skin y Sofía Nieto (redacción propia, sin citar texto literal protegido).',
-      },
-      {
-        type: 'p',
-        text: 'Pacientes suelen destacar la explicación paso a paso durante la limpieza, la sensación de piel más liviana tras la primera sesión y la confianza en un ambiente ordenado. También se menciona educación sobre rutina en casa.',
-      },
-      { type: 'h2', text: 'Temas recurrentes' },
-      {
-        type: 'list',
-        items: [
-          'Resultados visibles en luminosidad y textura tras limpiezas profundas.',
-          'Trato cercano y profesional.',
-          'Recomendación a familiares o amistades tras paquetes de varias sesiones.',
-        ],
-      },
-      {
-        type: 'p',
-        text: 'Te invitamos a leer las opiniones directamente en el perfil de Google del negocio y a formar tu propia impresión. Cada piel responde de forma distinta; la valoración presencial sigue siendo el estándar.',
-      },
-    ],
-  },
-  {
-    slug: 'piel-grasa-acido-seborregulador',
-    title: '¿Sientes la piel muy grasosa?',
-    deck: 'El ácido seborregulador como aliado en protocolos guiados.',
-    description:
-      'Piel grasa en clima cálido: cómo puede ayudar un enfoque con ácido seborregulador dentro de un plan profesional en Glow Skin, Barranquilla.',
-    keywords: ['piel grasa', 'ácido seborregulador', 'tratamiento facial Barranquilla'],
-    datePublished: '2026-04-01',
-    category: 'Tratamientos',
-    readTimeLabel: '6 min',
-    image: `${IMG}/methods/1-metodo-anti-acne.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'La grasa en exceso no es “falta de limpieza”: a menudo es genética, hormonal o barrera compensando agresiones.',
-      },
-      {
-        type: 'p',
-        text: 'Los activos seborreguladores, usados en la concentración y pH adecuados, ayudan a normalizar el sebo y a evitar la obstrucción del poro. No son un producto único para todas: el timing respecto a otros ácidos o retinoides importa.',
-      },
-      { type: 'h2', text: 'En cabina' },
-      {
-        type: 'p',
-        text: 'Podemos integrar este enfoque en limpiezas o peelings suaves progresivos, según tolerancia. En Barranquilla, el sudor y el SPF graso mal elegido también empeoran la sensación de brillo; revisamos tu rutina completa.',
-      },
-    ],
-  },
-  {
-    slug: 'piel-opaca-sin-vida',
-    title: '¿Piel opaca y sin vida?',
-    deck: 'Causas comunes y tratamientos que devuelven luminosidad.',
-    description:
-      'Piel opaca: acumulación de células muertas, foto daño y deshidratación. Opciones en Glow Skin Barranquilla para recuperar brillo con criterio.',
-    keywords: ['piel opaca', 'luminosidad facial', 'peeling Barranquilla'],
-    datePublished: '2026-03-30',
-    category: 'Skin Care',
-    readTimeLabel: '5 min',
-    image: `${IMG}/methods/1-metodo-anti-manchas.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'La opacidad casi nunca tiene una sola causa: suele ser mezcla de foto envejecimiento, poca renovación superficial y falta de agua en la capa córnea.',
-      },
-      {
-        type: 'list',
-        items: [
-          'Exfoliación química suave o peelings progresivos en consulta.',
-          'Antioxidantes tópicos según tolerancia.',
-          'Limpieza profunda periódica para liberar el reflejo de la luz.',
-        ],
-      },
-      {
-        type: 'p',
-        text: 'Si vives en zona norte o Alto Prado y trabajas muchas horas con aire acondicionado, la deshidratación “silenciosa” es frecuente. Ajustamos el plan para que no solo brilles un día, sino que sostengas el cambio.',
-      },
-    ],
-  },
-  {
-    slug: 'envejecimiento-prematuro-como-prevenirlo',
-    title: 'Qué es el envejecimiento prematuro y cómo prevenirlo',
-    deck: 'Sol, tabaco y estrés: cómo frenar el foto envejecimiento.',
-    description:
-      'Envejecimiento prematuro de la piel: causas, señales y prevención con fotoprotección y tratamientos en Barranquilla — Glow Skin.',
-    keywords: ['envejecimiento prematuro', 'fotoenvejecimiento', 'Barranquilla'],
-    datePublished: '2026-03-28',
-    category: 'Ciencia',
-    readTimeLabel: '7 min',
-    image: `${IMG}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'El envejecimiento prematuro es el desgaste visible (arrugas finas, manchas, flacidez leve) que aparece antes de lo esperado para tu edad biológica, muy a menudo impulsado por UV.',
-      },
-      {
-        type: 'h2',
-        text: 'Pilares de prevención',
-      },
-      {
-        type: 'list',
-        items: [
-          'Fotoprotección diaria reaplicada si expones al sol.',
-          'Evitar tabaco y exceso de alcohol.',
-          'Sueño y manejo del estrés (el cortisol marca la piel).',
-          'Tratamientos que estimulen colágeno de forma progresiva, no agresiva.',
-        ],
-      },
-      {
-        type: 'p',
-        text: 'En la costa caribe el índice UV es implacable: la prevención no es opcional. En Glow Skin combinamos hábitos con protocolos según tu fototipo y objetivos.',
-      },
-    ],
-  },
-  {
-    slug: 'como-curarse-del-acne-guia',
-    title: 'Cómo curarse del acné',
-    deck: 'Expectativas realistas: control, no magia de una sesión.',
-    description:
-      'Guía sobre el manejo del acné: higiene, tratamiento profesional y paciencia. Enfoque desde cosmiatría en Barranquilla — Glow Skin.',
-    keywords: ['curar acné', 'tratamiento acné Barranquilla', 'Glow Skin'],
-    datePublished: '2026-03-26',
-    category: 'Tratamientos',
-    readTimeLabel: '8 min',
-    image: `${IMG}/cases/caso-2-tratamiento-anti-acne.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'El acné es enfermedad inflamatoria multifactorial. “Curarse” suele significar alcanzar un control estable con brotes mínimos, no una piel perfecta en una semana.',
-      },
-      {
-        type: 'p',
-        text: 'Según grado, puede hacer falta enfoque dermatológico con medicación; la cosmiatría complementa con limpiezas, peelings y cuidado de marcas cuando el cuadro lo permite.',
-      },
-      { type: 'h2', text: 'Qué suele funcionar' },
-      {
-        type: 'list',
-        items: [
-          'Constancia más que productos milagro.',
-          'Evitar manipular lesiones.',
-          'Ajustar rutina a tipo de piel y clima.',
-          'Seguimiento profesional cada varias semanas al inicio.',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'metodo-glow-skin-tratamiento-acne',
-    title: 'El método Glow Skin para tratar el acné',
-    deck: 'Progresión segura de limpieza, ácidos y calma cutánea.',
-    description:
-      'Cómo estructuramos el tratamiento del acné en Glow Skin: fases, educación y objetivos por tipo de lesión. Barranquilla.',
-    keywords: ['método acné Glow Skin', 'limpieza facial acné', 'Barranquilla'],
-    datePublished: '2026-03-24',
-    category: 'Tratamientos',
-    readTimeLabel: '7 min',
-    image: `${IMG}/methods/1-metodo-anti-acne.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'No usamos un solo protocolo cerrado: partimos de historia clínica breve, tipo de acné y sensibilidad actual.',
-      },
-      {
-        type: 'p',
-        text: 'Las fases pueden incluir limpieza profunda con extracción cuando está indicada, introducción de peelings suaves, y en casa activos que toleres. Aumentamos intensidad solo si la barrera acompaña.',
-      },
-      {
-        type: 'quote',
-        text: 'El acné castiga la constancia: premiamos la paciencia con ajustes finos en cada visita.',
-        attribution: 'Glow Skin',
-      },
-    ],
-  },
-  {
-    slug: 'pdrn-o-exosomas-cual-elegir',
-    title: '¿PDRN o exosomas?',
-    deck: 'Dos vías de bioestimulación; la elección es médico-estética.',
-    description:
-      'PDRN vs exosomas: diferencias generales, indicaciones y por qué la decisión depende de valoración profesional en Barranquilla.',
-    keywords: ['PDRN', 'exosomas', 'bioestimulación', 'Barranquilla'],
-    datePublished: '2026-03-22',
-    category: 'Ciencia',
-    readTimeLabel: '7 min',
-    image: `${IMG}/methods/1-metodo-regenerativo.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Ambos nombres suelen aparecer en regeneración tisular, pero no son intercambiables ni “mejor” en abstracto: depende de objetivo, evidencia del producto concreto y normativa local.',
-      },
-      {
-        type: 'h2',
-        text: 'Ideas clave',
-      },
-      {
-        type: 'list',
-        items: [
-          'PDRN (polidesoxirribonucleótido) se asocia históricamente a reparación y mejora de calidad de piel en distintos protocolos.',
-          'Los exosomas en estética son un campo en evolución: calidad y origen del preparado marcan el resultado.',
-        ],
-      },
-      {
-        type: 'p',
-        text: 'En consulta te explicamos opciones alineadas con tu caso y con lo que hoy usamos en Glow Skin con trazabilidad.',
-      },
-    ],
-  },
-  {
-    slug: 'que-es-pdrn-por-que-lo-prefieren-los-famosos',
-    title: 'Qué es el PDRN y por qué los famosos lo prefieren',
-    deck: 'Realidad detrás del trend de “piel de filter” en redes.',
-    description:
-      'PDRN en estética: qué es, para qué se usa y por qué es popular entre figuras públicas. Contexto educativo — Glow Skin Barranquilla.',
-    keywords: ['PDRN', 'tratamiento facial famosos', 'rejuvenecimiento'],
-    datePublished: '2026-03-20',
-    category: 'Lifestyle',
-    readTimeLabel: '6 min',
-    image: `${IMG}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'El PDRN es un compuesto biofísico que se ha promovido por efectos de mejora de hidratación, elasticidad y “calidad de piel” en series de tratamientos.',
-      },
-      {
-        type: 'p',
-        text: 'Las figuras públicas buscan resultados con poco tiempo social de recuperación; los protocolos con PDRN a menudo encajan en esa agenda cuando están indicados. Eso no elimina la necesidad de valoración ni de expectativas realistas.',
-      },
-      {
-        type: 'p',
-        text: 'Este artículo es divulgativo. No afirmamos que ninguna celebridad específica haya usado un producto concreto en Glow Skin.',
-      },
-    ],
-  },
-  {
-    slug: 'que-son-los-exosomas',
-    title: 'Qué son los exosomas',
-    deck: 'Vesículas, señal celular y estética regenerativa.',
-    description:
-      'Definición sencilla de exosomas, su papel en comunicación celular y cómo se discuten en tratamientos faciales avanzados.',
-    keywords: ['exosomas', 'regeneración celular', 'estética Barranquilla'],
-    datePublished: '2026-03-18',
-    category: 'Ciencia',
-    readTimeLabel: '7 min',
-    image: `${IMG}/methods/1-metodo-regenerativo.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Los exosomas son vesículas nanométricas liberadas por células que transportan proteínas, lípidos y ARN; median comunicación entre células.',
-      },
-      {
-        type: 'p',
-        text: 'En medicina y estética se investiga su papel en procesos de reparación. En clínica, lo importante es la fuente, la estandarización del producto y el marco legal del país.',
-      },
-      {
-        type: 'h2',
-        text: 'Para el paciente',
-      },
-      {
-        type: 'p',
-        text: 'Pregunta siempre por evidencia del preparado, número de sesiones esperado y cuidados posteriores. Evita promesas absolutas.',
-      },
-    ],
-  },
-  {
-    slug: 'por-que-daddy-yankee-se-ve-joven',
-    title: '¿Por qué Daddy Yankee se ve tan joven?',
-    deck: 'Genética, estilo de vida y posibles tratamientos (especulación responsable).',
-    description:
-      'Análisis divulgativo sobre factores que influyen en un aspecto juvenil: sin afirmar tratamientos concretos de terceros. Glow Skin Barranquilla.',
-    keywords: ['rejuvenecimiento', 'cuidado facial', 'celebridades'],
-    datePublished: '2026-03-15',
-    category: 'Lifestyle',
-    readTimeLabel: '5 min',
-    image: `${IMG}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Los artistas combinan genética, disciplina con sueño y ejercicio, fotoprotección, posible asesoría nutricional y, en algunos casos, procedimientos estéticos no quirúrgicos. No conocemos el historial médico de ninguna celebridad.',
-      },
-      {
-        type: 'p',
-        text: 'Lo replicable para el público general es el bloque de hábitos: protección solar constante, no fumar, hidratación razonable y seguimiento profesional cuando quieras mejorar foto envejecimiento.',
-      },
-      {
-        type: 'p',
-        text: 'En Glow Skin trabajamos planes personalizados para pacientes en Barranquilla, sin compararte con figuras públicas: tu piel tiene su propia historia.',
-      },
-    ],
-  },
-  {
-    slug: 'secreto-kardashians-piel-porcelana',
-    title: 'El secreto de las Kardashians para lucir una piel de porcelana',
-    deck: 'Filtros, maquillaje y tratamientos: qué hay de cierto.',
-    description:
-      'Sobre la “piel de porcelana” en redes: expectativas, tratamientos profesionales y rutina. Artículo divulgativo — Glow Skin.',
-    keywords: ['piel porcelana', 'tratamientos faciales', 'luminosidad'],
-    datePublished: '2026-03-12',
-    category: 'Lifestyle',
-    readTimeLabel: '6 min',
-    image: `${IMG}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
-    blocks: [
-      {
-        type: 'lead',
-        text: 'Muchas imágenes de “piel perfecta” combinan iluminación, edición y maquillaje. Los tratamientos en clínica mejoran textura y tono, pero no clonan un filtro.',
-      },
-      {
-        type: 'list',
-        items: [
-          'Peelings químicos progresivos.',
-          'Microneedling o bioestimulación según caso.',
-          'Limpiezas profundas periódicas.',
-          'Fotoprotección estricta.',
-        ],
-      },
-      {
-        type: 'p',
-        text: 'No tenemos relación comercial ni información privada sobre familias mencionadas en medios; usamos el tema solo como ancla cultural para hablar de expectativas sanas.',
+        type: "p",
+        text: "Tu piel merece el mejor cuidado profesional. No te conformes con menos cuando se trata de tu salud cutánea.",
       },
     ],
   },
