@@ -27,7 +27,8 @@ export default function PreciosPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] selection:bg-[#d4b499] selection:text-white">
+    <>
+      <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] selection:bg-[#d4b499] selection:text-white">
       <section className="pt-52 pb-32 relative flex items-center justify-center text-center">
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center">
@@ -120,8 +121,6 @@ export default function PreciosPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </details>
               </article>
                 ))}
               </div>
@@ -129,13 +128,13 @@ export default function PreciosPage() {
           ))}
         </div>
       </section>
-    </div>
-  );
-
+      </div>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,600&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
         .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; }
       `}</style>
+    </>
+  );
 }

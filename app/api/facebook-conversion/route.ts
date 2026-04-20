@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import crypto from 'crypto';
+import { NextRequest, NextResponse } from "next/server";
+import crypto from "crypto";
+import { isIP } from "node:net";
 
 // Tipos para la API de Conversiones
 interface ConversionAPIRequest {
@@ -59,7 +60,7 @@ interface FacebookUserData {
 function hashData(data: string | undefined): string | undefined {
   if (!data) return undefined;
   const normalized = data.toLowerCase().trim();
-  return crypto.createHash('sha256').update(normalized).digest('hex');
+  return crypto.createHash("sha256").update(normalized).digest("hex");
 }
 
 /**
@@ -68,7 +69,7 @@ function hashData(data: string | undefined): string | undefined {
 function normalizePhone(phone: string | undefined): string | undefined {
   if (!phone) return undefined;
   // Remover todo excepto dígitos
-  const digits = phone.replace(/\D/g, '');
+  const digits = phone.replace(/\D/g, "");
   // Si no tiene código de país, asumir Colombia (+57)
   if (digits.length === 10) {
     return `57${digits}`;
@@ -76,48 +77,112 @@ function normalizePhone(phone: string | undefined): string | undefined {
   return digits;
 }
 
+function normalizeIpCandidate(raw: string | undefined): string | undefined {
+  if (!raw) return undefined;
+  let value = raw.trim().replace(/^"|"$/g, "");
+  if (!value) return undefined;
+
+  // [IPv6]:port -> IPv6
+  const bracketMatch = value.match(/^\[([^\]]+)\](?::\d+)?$/);
+  if (bracketMatch?.[1]) {
+    value = bracketMatch[1];
+  } else {
+    // IPv4:port -> IPv4
+    const ipv4PortMatch = value.match(/^(\d{1,3}(?:\.\d{1,3}){3}):(\d+)$/);
+    if (ipv4PortMatch?.[1]) {
+      value = ipv4PortMatch[1];
+    }
+  }
+
+  if (isIP(value) === 0) return undefined;
+  return value;
+}
+
+function resolvePreferredClientIp(
+  request: NextRequest,
+  bodyIp?: string,
+): string | undefined {
+  const forwarded = request.headers.get("x-forwarded-for") || "";
+  const forwardedIps = forwarded
+    .split(",")
+    .map((part) => normalizeIpCandidate(part))
+    .filter((part): part is string => Boolean(part));
+
+  const xRealIp = normalizeIpCandidate(
+    request.headers.get("x-real-ip") || undefined,
+  );
+  const requestCandidates = [...forwardedIps, ...(xRealIp ? [xRealIp] : [])];
+  const bodyCandidate = normalizeIpCandidate(bodyIp);
+
+  const ipv6 = requestCandidates.find((ip) => isIP(ip) === 6);
+  if (ipv6) return ipv6;
+
+  if (bodyCandidate) return bodyCandidate;
+  if (requestCandidates.length > 0) return requestCandidates[0];
+  return undefined;
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Skip Facebook events if TYPE is localhost
     const envType = process.env.NEXT_PUBLIC_TYPE || process.env.TYPE;
-    if (envType === 'localhost') {
-      console.log('[Facebook CAPI] Skipping event (localhost mode)');
-      return NextResponse.json({ success: true, skipped: true }, { status: 200 });
+    if (envType === "localhost") {
+      console.log("[Facebook CAPI] Skipping event (localhost mode)");
+      return NextResponse.json(
+        { success: true, skipped: true },
+        { status: 200 },
+      );
     }
 
     // Usar NEXT_PUBLIC_ prefixed variables (disponibles en cliente y servidor en Amplify)
-    const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || process.env.FACEBOOK_PIXEL_ID;
-    const accessToken = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN || process.env.FACEBOOK_PIXEL_TOKEN;
+    const pixelId =
+      process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ||
+      process.env.FACEBOOK_PIXEL_ID;
+    const accessToken =
+      process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN ||
+      process.env.FACEBOOK_PIXEL_TOKEN;
 
     if (!pixelId || !accessToken) {
-      console.error('[Facebook CAPI] Missing credentials', {
+      console.error("[Facebook CAPI] Missing credentials", {
         hasPixelId: !!pixelId,
         hasToken: !!accessToken,
-        pixelIdSource: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ? 'NEXT_PUBLIC' : process.env.FACEBOOK_PIXEL_ID ? 'STANDARD' : 'NONE',
-        tokenSource: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN ? 'NEXT_PUBLIC' : process.env.FACEBOOK_PIXEL_TOKEN ? 'STANDARD' : 'NONE'
+        pixelIdSource: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
+          ? "NEXT_PUBLIC"
+          : process.env.FACEBOOK_PIXEL_ID
+            ? "STANDARD"
+            : "NONE",
+        tokenSource: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN
+          ? "NEXT_PUBLIC"
+          : process.env.FACEBOOK_PIXEL_TOKEN
+            ? "STANDARD"
+            : "NONE",
       });
       return NextResponse.json(
         {
-          error: 'Facebook Pixel not configured',
-          details: 'Please set NEXT_PUBLIC_FACEBOOK_PIXEL_ID and NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN in Amplify environment variables'
+          error: "Facebook Pixel not configured",
+          details:
+            "Please set NEXT_PUBLIC_FACEBOOK_PIXEL_ID and NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN in Amplify environment variables",
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     const body: ConversionAPIRequest = await request.json();
 
     if (!body.userData) {
-      (body as { userData: ConversionAPIRequest['userData'] }).userData = {};
+      (body as { userData: ConversionAPIRequest["userData"] }).userData = {};
     }
 
-    const forwarded = request.headers.get('x-forwarded-for');
-    const clientIp =
-      forwarded?.split(',')[0]?.trim() ||
-      request.headers.get('x-real-ip') ||
-      '';
-    if (clientIp && !body.userData.client_ip_address) {
-      body.userData.client_ip_address = clientIp;
+    const preferredClientIp = resolvePreferredClientIp(
+      request,
+      body.userData.client_ip_address,
+    );
+    if (body.eventName === "ViewContent") {
+      if (preferredClientIp) {
+        body.userData.client_ip_address = preferredClientIp;
+      }
+    } else if (!body.userData.client_ip_address && preferredClientIp) {
+      body.userData.client_ip_address = preferredClientIp;
     }
 
     // Preparar user_data con hashing según requerimientos de Facebook
@@ -186,9 +251,9 @@ export async function POST(request: NextRequest) {
     const apiUrl = `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${accessToken}`;
 
     const response = await fetch(apiUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(conversionPayload),
     });
@@ -196,14 +261,14 @@ export async function POST(request: NextRequest) {
     const responseData = await response.json();
 
     if (!response.ok) {
-      console.error('[Facebook CAPI] API Error:', responseData);
+      console.error("[Facebook CAPI] API Error:", responseData);
       return NextResponse.json(
-        { error: 'Failed to send event to Facebook', details: responseData },
-        { status: response.status }
+        { error: "Failed to send event to Facebook", details: responseData },
+        { status: response.status },
       );
     }
 
-    console.log('[Facebook CAPI] Event sent successfully:', {
+    console.log("[Facebook CAPI] Event sent successfully:", {
       eventName: body.eventName,
       eventId: body.eventId,
       response: responseData,
@@ -215,10 +280,13 @@ export async function POST(request: NextRequest) {
       fbtrace_id: responseData.fbtrace_id,
     });
   } catch (error) {
-    console.error('[Facebook CAPI] Error:', error);
+    console.error("[Facebook CAPI] Error:", error);
     return NextResponse.json(
-      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
+      {
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
     );
   }
 }

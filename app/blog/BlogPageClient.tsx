@@ -1,24 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
-import { Sparkles, ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import type { BlogListItem } from '@/lib/blog/posts';
 
 const BASE_IMG_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
 
 const BLOG_HERO = `${BASE_IMG_URL}/hero/3-glow-skin-hero-servicios-esteticos.webp`;
 
-const CATEGORIES = ['Todos', 'Skin Care', 'Ciencia', 'Tratamientos', 'Lifestyle', 'Glow Skin', 'Consejos'];
-
 type Props = { posts: BlogListItem[] };
 
 export function BlogPageClient({ posts }: Props) {
-  const [activeCategory, setActiveCategory] = useState('Todos');
-
-  const filtered =
-    activeCategory === 'Todos' ? posts : posts.filter((p) => p.category === activeCategory);
+  const filtered = posts;
 
   return (
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] overflow-x-hidden selection:bg-[#d4b499] selection:text-white">
@@ -43,23 +37,6 @@ export function BlogPageClient({ posts }: Props) {
           </div>
         </div>
       </header>
-
-      <section className="pb-24">
-        <div className="container mx-auto px-6 lg:px-24">
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 border-y border-[#d4b499]/20 py-8">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`text-[11px] font-black uppercase tracking-[0.3em] transition-all hover:text-[#4a3221] ${activeCategory === cat ? 'text-[#4a3221] border-b border-[#4a3221]' : 'text-[#a5846e]'}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="pb-56 container mx-auto px-6 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
@@ -110,34 +87,6 @@ export function BlogPageClient({ posts }: Props) {
           <p className="text-center text-[#7d5a44] mt-16">No hay artículos en esta categoría todavía.</p>
         ) : null}
       </section>
-
-      <section className="py-40 bg-[#4a3221] text-[#f7f0eb] relative overflow-hidden">
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="max-w-2xl mx-auto">
-            <Sparkles size={40} className="mx-auto mb-10 text-[#d4b499]" />
-            <h2 className="text-4xl md:text-7xl font-serif mb-8 tracking-tighter uppercase leading-none">
-              Únete a la <br /> <span className="font-script text-[#d4b499] lowercase">Comunidad Glow</span>
-            </h2>
-            <p className="text-lg text-[#f7f0eb]/60 mb-12 leading-relaxed">
-              Recibe consejos exclusivos de Sofía Nieto y entérate de nuevos protocolos en Barranquilla.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="TU EMAIL"
-                className="flex-grow bg-white/5 border border-white/20 rounded-full px-8 py-5 text-xs font-black uppercase tracking-widest focus:outline-none focus:border-[#d4b499] transition-all"
-              />
-              <button
-                type="button"
-                className="bg-[#d4b499] text-[#4a3221] px-10 py-5 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-[#f7f0eb] transition-all shadow-2xl"
-              >
-                Suscribirme
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');

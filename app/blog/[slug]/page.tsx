@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Calendar } from 'lucide-react';
 import { BlogArticleBody } from '@/app/components/blog/BlogArticleBody';
-import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
 import { getAllBlogSlugs, getPostBySlug } from '@/lib/blog/posts';
 import { getSiteUrl, SITE_NAME } from '@/lib/seo/site';
 
@@ -130,20 +129,6 @@ export default async function BlogPostPage({ params }: Props) {
 
         <article className="container mx-auto px-6 max-w-3xl pb-24">
           <BlogArticleBody blocks={post.blocks} />
-          <footer className="mt-16 pt-10 border-t border-[#4a3221]/10">
-            <div className="flex flex-col items-center gap-6">
-              <p className="text-sm text-[#7d5a44] leading-relaxed text-center">
-                ¿Quieres una valoración personalizada en{' '}
-                <strong className="text-[#4a3221]">Glow Skin</strong>?
-              </p>
-              <LeadTrigger
-                mode="booking"
-                className="bg-[#d4b499] hover:bg-[#c2a085] text-[#4a3221] px-12 py-5 rounded-full font-black text-sm uppercase tracking-[0.2em] transition-all duration-300 transform hover:scale-105 shadow-[0_20px_40px_rgba(212,180,153,0.3)]"
-              >
-                Agendar valoración ahora
-              </LeadTrigger>
-            </div>
-          </footer>
         </article>
       </div>
     </>
