@@ -101,9 +101,9 @@ export default function HomePageClient() {
             </h1>
             <div className="w-24 h-px bg-[#d4b499] mt-8 mb-12" />
             <p className="text-lg md:text-2xl font-medium text-[#7d5a44] max-w-2xl leading-relaxed italic tracking-wide text-balance px-4">
-              {'\u201C'}
+              
               Recupera el Glow Natural de tu piel con nuestros tratamientos faciales en Barranquilla — Carrera 50 # 74-120, zona norte y Alto Prado.
-              {'\u201D'}
+              
             </p>
             <LeadTrigger
               mode="booking"
@@ -222,9 +222,9 @@ export default function HomePageClient() {
                   }`}
                 >
                   <p className="text-xl sm:text-2xl md:text-4xl lg:text-[2.75rem] font-serif text-[#4a3221] leading-snug md:leading-tight mb-10 italic text-balance max-w-3xl">
-                    {'\u201C'}
+                    
                     {review.text}
-                    {'\u201D'}
+                    
                   </p>
                   <div>
                     <p className="font-black uppercase tracking-[0.2em] text-xs text-[#d4b499] mb-1">{review.name}</p>

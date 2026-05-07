@@ -32,9 +32,9 @@ export default function ServiciosIndexPage() {
           </h1>
           <div className="mx-auto mt-8 mb-10 h-px w-24 bg-[#d4b499]" />
           <p className="mx-auto max-w-2xl text-lg font-medium italic leading-relaxed tracking-wide text-[#7d5a44] text-balance md:text-xl">
-            {'\u201C'}
+            
             Elige el protocolo que tu piel necesita; cada ficha incluye detalles y precio orientativo.
-            {'\u201D'}
+            
           </p>
         </div>
       </section>

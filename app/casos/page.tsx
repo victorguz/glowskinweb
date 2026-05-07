@@ -99,9 +99,9 @@ export default function CasosPage() {
                         </h1>
                         <div className="w-24 h-px bg-[#d4b499] mt-8 mb-12"></div>
                         <p className="text-lg md:text-xl font-medium text-[#7d5a44] max-w-2xl leading-relaxed tracking-wide italic">
-                            {'\u201C'}
+                            
                             Resultados reales que transforman la vida de nuestras pacientes desde la primera sesión.
-                            {'\u201D'}
+                            
                         </p>
                     </div>
                 </div>
@@ -174,9 +174,9 @@ export default function CasosPage() {
                                 <div className="mb-12 p-8 lg:p-10 bg-white rounded-[2rem] border border-[#d4b499]/10 shadow-[0_20px_40px_rgba(74,50,33,0.05)] relative">
                                     <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#d4b499] mb-4">ANÁLISIS DEL CASO</p>
                                     <p className="text-[#4a3221] leading-relaxed text-xl font-medium italic opacity-90">
-                                        {'\u201C'}
+                                        
                                         {caseItem.descripcion}
-                                        {'\u201D'}
+                                        
                                     </p>
                                 </div>
 

@@ -2,13 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { SITE_LOGO_URL } from '@/app/components/site-config';
 import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
+import { SERVICES_DATA } from '@/lib/content/services';
+
+const SERVICES_MENU = SERVICES_DATA.categories
+  .map((cat) => ({
+    category: cat.title,
+    items: cat.services.map((s) => ({ label: s.name, href: `/servicios/${s.id}` })),
+  }))
+  .filter((g) => g.items.length > 0);
 
 const NAV_LINKS: { label: string; href: string; match: (path: string) => boolean }[] = [
-  { label: 'Servicios', href: '/#servicios', match: () => false },
   { label: 'Nosotros', href: '/nosotros', match: (p) => p === '/nosotros' },
   { label: 'Precios', href: '/precios', match: (p) => p === '/precios' },
   { label: 'Blog', href: '/blog', match: (p) => p.startsWith('/blog') },
@@ -25,6 +32,9 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [viewportH, setViewportH] = useState(800);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const update = () => {
@@ -48,7 +58,18 @@ export function SiteHeader() {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setServicesOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) document.body.style.overflow = 'hidden';
@@ -85,6 +106,53 @@ export function SiteHeader() {
               />
             </Link>
             <div className="hidden lg:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-bold">
+              {/* Servicios dropdown */}
+              <div ref={dropdownRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen((v) => !v)}
+                  className={`flex items-center gap-1 ${linkClass(pathname.startsWith('/servicios'))}`}
+                >
+                  Servicios
+                  <ChevronDown
+                    size={13}
+                    className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {servicesOpen && (
+                  <div className="absolute left-0 top-full mt-3 min-w-[220px] rounded-2xl border border-[#d4b499]/20 bg-white shadow-2xl overflow-hidden">
+                    {SERVICES_MENU.map((group, gi) => (
+                      <div key={group.category}>
+                        {gi > 0 && <div className="mx-4 border-t border-[#d4b499]/15" />}
+                        <p className="px-5 pt-3 pb-1 text-[8px] font-black uppercase tracking-[0.35em] text-[#d4b499]">
+                          {group.category}
+                        </p>
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setServicesOpen(false)}
+                            className="block px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] text-[#7d5a44] hover:text-[#5c3a21] hover:bg-[#fbf6f3] transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                    <div className="border-t border-[#d4b499]/15 px-5 py-3">
+                      <Link
+                        href="/servicios"
+                        onClick={() => setServicesOpen(false)}
+                        className="text-[10px] font-black uppercase tracking-[0.3em] text-[#a5846e] hover:text-[#5c3a21] transition-colors"
+                      >
+                        Ver todos →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               {NAV_LINKS.map(({ label, href, match }) => {
                 const isActive = match(pathname);
                 return href.startsWith('/#') ? (
@@ -132,47 +200,114 @@ export function SiteHeader() {
         </div>
       </nav>
 
+      {/* Mobile menu — dos pantallas deslizantes */}
       <div
-        className={`fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center transition-all duration-700 lg:hidden ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-          }`}
+        className={`fixed inset-0 bg-white z-[60] flex flex-col overflow-hidden transition-all duration-500 lg:hidden ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        }`}
       >
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen(false)}
-          className="absolute top-8 right-8 p-3 bg-[#fbf6f3] rounded-full"
-          aria-label="Cerrar menú"
-        >
-          <X size={32} />
-        </button>
-        <div className="flex flex-col gap-8 text-center px-6">
-          {NAV_LINKS.map(({ label, href }) => {
-            const isAnchor = href.startsWith('/#');
-            return isAnchor ? (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-4xl font-serif text-[#5c3a21]"
-              >
-                {label}
-              </a>
-            ) : (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-4xl font-serif text-[#5c3a21]"
-              >
-                {label}
-              </Link>
-            );
-          })}
-          <LeadTrigger
-            mode="booking"
-            className="mt-8 bg-[#5c3a21] text-white px-12 py-5 rounded-full text-lg font-bold"
+        {/* Header fijo con botón cerrar / volver */}
+        <div className="relative flex items-center justify-between px-8 pt-10 pb-4 shrink-0">
+          {mobileServicesOpen ? (
+            <button
+              type="button"
+              onClick={() => setMobileServicesOpen(false)}
+              className="flex items-center gap-2 text-[#7d5a44] text-sm font-bold uppercase tracking-widest"
+              aria-label="Volver"
+            >
+              <ChevronDown size={18} className="rotate-90" />
+              Volver
+            </button>
+          ) : (
+            <span />
+          )}
+          <button
+            type="button"
+            onClick={() => { setIsMenuOpen(false); setMobileServicesOpen(false); }}
+            className="p-3 bg-[#fbf6f3] rounded-full"
+            aria-label="Cerrar menú"
           >
-            Agenda tu Cita
-          </LeadTrigger>
+            <X size={28} />
+          </button>
+        </div>
+
+        {/* Carrusel de dos pantallas */}
+        <div
+          className="flex flex-1 min-h-0 transition-transform duration-500 ease-in-out"
+          style={{ width: '200%', transform: mobileServicesOpen ? 'translateX(-50%)' : 'translateX(0)' }}
+        >
+          {/* Pantalla 1: menú principal */}
+          <div className="w-1/2 flex flex-col overflow-y-auto overscroll-contain px-8 pb-12">
+            <button
+              type="button"
+              onClick={() => setMobileServicesOpen(true)}
+              className="flex w-full items-center justify-between border-b border-[#d4b499]/15 py-5 text-4xl font-serif text-[#5c3a21]"
+            >
+              Servicios
+              <ChevronDown size={22} className="-rotate-90" />
+            </button>
+
+            {NAV_LINKS.map(({ label, href }) => {
+              const isAnchor = href.startsWith('/#');
+              return (
+                <div key={href} className="border-b border-[#d4b499]/15 py-5">
+                  {isAnchor ? (
+                    <a
+                      href={href}
+                      onClick={() => { setIsMenuOpen(false); setMobileServicesOpen(false); }}
+                      className="block text-4xl font-serif text-[#5c3a21]"
+                    >
+                      {label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={href}
+                      onClick={() => { setIsMenuOpen(false); setMobileServicesOpen(false); }}
+                      className="block text-4xl font-serif text-[#5c3a21]"
+                    >
+                      {label}
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
+
+            <LeadTrigger
+              mode="booking"
+              className="mt-10 bg-[#5c3a21] text-white px-12 py-5 rounded-full text-lg font-bold text-center"
+            >
+              Agenda tu Cita
+            </LeadTrigger>
+          </div>
+
+          {/* Pantalla 2: lista de servicios */}
+          <div className="w-1/2 flex flex-col overflow-y-auto overscroll-contain px-8 pb-12">
+            <p className="mb-2 text-[9px] font-black uppercase tracking-[0.35em] text-[#d4b499]">
+              Nuestros servicios
+            </p>
+            {SERVICES_MENU.flatMap((group) =>
+              group.items.map((item) => (
+                <div key={item.href} className="border-b border-[#d4b499]/15 py-5">
+                  <Link
+                    href={item.href}
+                    onClick={() => { setIsMenuOpen(false); setMobileServicesOpen(false); }}
+                    className="block text-4xl font-serif text-[#5c3a21]"
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              ))
+            )}
+            <div className="border-b border-[#d4b499]/15 py-5">
+              <Link
+                href="/servicios"
+                onClick={() => { setIsMenuOpen(false); setMobileServicesOpen(false); }}
+                className="block text-4xl font-serif text-[#a5846e]"
+              >
+                Ver todos
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </>

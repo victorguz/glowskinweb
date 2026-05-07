@@ -246,9 +246,9 @@ export default function OtraPage() {
                             {REVIEWS.map((review, i) => (
                                 <div key={i} className={`transition-all duration-1000 flex flex-col items-center ${i === activeReview ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'}`}>
                                     <p className="text-3xl md:text-5xl font-serif text-[#5c3a21] leading-tight mb-12 italic">
-                                        {'\u201C'}
+                                        
                                         {review.text}
-                                        {'\u201D'}
+                                        
                                     </p>
                                     <div>
                                         <p className="font-black uppercase tracking-[0.2em] text-xs text-[#a5846e] mb-1">{review.name}</p>
