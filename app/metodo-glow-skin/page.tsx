@@ -1,6 +1,8 @@
 ﻿"use client";
 
 import { useState, useEffect } from "react";
+import { VslVideoPlayer } from "@/app/components/marketing/VslVideoPlayer";
+import { InstagramEmbed } from "@/app/components/marketing/InstagramEmbed";
 import {
   ChevronDown,
   MessageCircle,
@@ -21,9 +23,9 @@ const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
 const IMGS = {
   logo: `${CDN}/images/logo/glow-skin-logo.png`,
   heroMethod: `${CDN}/images/methods/1-metodo-anti-acne.webp`,
-  method1: `${CDN}/images/gallery/glow-skin-gallery-extraccion-facial.webp`,
-  method2: `${CDN}/images/gallery/glow-skin-gallery-peeling-facial.webp`,
-  method3: `${CDN}/images/methods/3-metodo-anti-acne.webp`,
+  method1: `${CDN}/metodo-glow-skin/extraccion-manual-cuidadosa.png`,
+  method2: `${CDN}/metodo-glow-skin/mascarilla-descongestiva.png`,
+  method3: `${CDN}/metodo-glow-skin/microneedling-de-perfil.PNG`,
   caseMain1: `${CDN}/images/cases/caso-2-tratamiento-anti-acne.webp`,
   caseMain2: `${CDN}/images/cases/caso-4-tratamiento-anti-acne.webp`,
   caseMain3: `${CDN}/images/cases/caso-5-tratamiento-anti-acne-2.webp`,
@@ -52,6 +54,15 @@ const BOOKING = {
   intensivo:
     "https://app.vyvapos.com/a/glowskinbq/a5dd0703-15b3-4b57-a85b-5aa5afaf7422",
   whatsapp: "https://wa.link/h5481r",
+};
+
+const HERO_VSL = {
+  videoUrl: "https://www.youtube.com/shorts/-RD-tayxRbM",
+  title: "Método Glow Skin",
+  subtitle: "VSL Anti-Acné",
+  progressPercent: 94,
+  progressLabel: "48:37",
+  durationLabel: "51:09",
 };
 
 export default function GlowSkinMethodVSL() {
@@ -85,7 +96,6 @@ export default function GlowSkinMethodVSL() {
       {/* SECTION 1: HERO / PAIN */}
       <section className="pt-40 pb-20 px-6">
         <div className="flex flex-col items-center max-w-md mx-auto text-center animate-reveal">
-
           <h1 className="text-[10vw] font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221]">
             ¿Te cansaste
             <span className="block font-script text-[14vw] text-[#d4b499] -mt-1 lowercase italic">
@@ -109,25 +119,12 @@ export default function GlowSkinMethodVSL() {
             </span>
           </div>
 
-          
-          <div className="w-full relative mb-12 px-2">
-            <div className="absolute -inset-4 bg-[#d4b499]/10 rounded-[3rem] blur-2xl opacity-50"></div>
-            <div className="relative rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(74,50,33,0.25)] border-4 border-white aspect-[4/5]">
-              <img
-                src={IMGS.heroMethod}
-                alt="Tratamiento anti-acné Método Glow Skin"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#4a3221]/80 to-transparent p-6 text-left">
-                <p className="text-white text-xs font-black uppercase tracking-widest">
-                  Método Glow Skin
-                </p>
-                <p className="text-[#d4b499] text-[10px] uppercase tracking-widest mt-1">
-                  Protocolo Anti-Acné Profesional
-                </p>
-              </div>
-            </div>
-          </div>
+          <VslVideoPlayer
+            videoUrl={HERO_VSL.videoUrl}
+            title={HERO_VSL.title}
+            posterUrl={IMGS.heroMethod}
+            className="mb-12 px-2"
+          />
 
           <div className="w-full space-y-3 mb-12 text-left">
             {[
@@ -180,7 +177,7 @@ export default function GlowSkinMethodVSL() {
             </p>
             <h2 className="text-4xl font-serif uppercase tracking-tight mb-2">
               El cambio de{" "}
-              <span className="font-script italic lowercase text-[#d4b499] text-5xl">
+              <span className="font-script italic capitalize text-[#d4b499] text-5xl">
                 Valentina
               </span>
             </h2>
@@ -216,8 +213,8 @@ export default function GlowSkinMethodVSL() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 mb-10">
-            {[IMGS.vale2, IMGS.vale3, IMGS.caseMain1].map((img, i) => (
+          <div className="grid grid-cols-2 gap-2 mb-10">
+            {[IMGS.vale2, IMGS.vale3].map((img, i) => (
               <div
                 key={i}
                 className="rounded-xl overflow-hidden aspect-square shadow-md"
@@ -254,6 +251,11 @@ export default function GlowSkinMethodVSL() {
           >
             Quiero resultados como este <ArrowUpRight size={15} />
           </a>
+
+          <InstagramEmbed
+            permalink="https://www.instagram.com/reel/DUKDP1jEbPS/"
+            className="mt-8"
+          />
         </div>
       </section>
 
@@ -265,8 +267,8 @@ export default function GlowSkinMethodVSL() {
             <h2 className="text-5xl font-serif tracking-tighter uppercase mb-2 leading-none">
               El Método
             </h2>
-            <p className="font-script text-4xl text-[#d4b499] lowercase italic">
-              Glow Skin Anti-Acné
+            <p className="font-script text-6xl text-[#d4b499] italic">
+              Glow Skin
             </p>
             <p className="text-sm text-[#7d5a44] mt-6 leading-relaxed max-w-xs mx-auto">
               No es una limpieza de spa. Es un protocolo clínico de 3 fases,
@@ -280,7 +282,7 @@ export default function GlowSkinMethodVSL() {
               {
                 num: "01",
                 tag: "Fase 1 — Siempre",
-                title: "Higiene Anti-acné Profunda",
+                title: "Limpieza Anti-acné Profunda",
                 desc: "Una desincrustación técnica que va mucho más allá de la limpieza convencional. Adaptada para no generar hinchazón extrema ni dolor innecesario — tu piel sale limpia, no traumatizada.",
                 img: IMGS.method1,
                 alt: "Extracción facial profesional anti-acné Glow Skin",

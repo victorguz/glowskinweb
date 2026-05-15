@@ -64,7 +64,10 @@ export async function POST(request: NextRequest) {
     try {
       const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": process.env.NEXT_FORMS_API_KEY || "",
+        },
         body: JSON.stringify({ data: dataString }),
         signal: controller.signal,
       });
