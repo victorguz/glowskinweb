@@ -2,10 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   compress: true,
-  swcMinify: true,
   experimental: {
     optimizeCss: true,
-    optimizeImages: true,
   },
   images: {
     remotePatterns: [

@@ -55,7 +55,6 @@ export function SiteFooter() {
               aria-label="WhatsApp"
               onClick={() => {
                 if (typeof window !== "undefined") {
-                  // @ts-expect-error
                   if (window.__LEAD_FORMS__?.openContact)
                     window.__LEAD_FORMS__.openContact();
                 }

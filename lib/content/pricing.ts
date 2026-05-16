@@ -55,8 +55,8 @@ export const SERVICES_PRICING: PricingCategory[] = [
       "Tratamientos especializados para el control y eliminación del acné.",
     items: [
       {
-        name: "Tratamiento Anti-Acné Intensivo",
-        price: cop(830_000),
+        name: "Método Glow Skin Anti-Acné",
+        price: cop(2_150_000),
         detail:
           "Programa integral diseñado para tratar el acné activo de leve a severo.",
       },
@@ -143,4 +143,11 @@ export const SERVICES_PRICING: PricingCategory[] = [
 /** Nombres planos de tratamientos (formularios / leads). */
 export function getPricingTreatmentNames(): string[] {
   return SERVICES_PRICING.flatMap((c) => c.items.map((i) => i.name));
+}
+export function getPricingByTreatmentName(name: string): string {
+  for (const category of SERVICES_PRICING) {
+    const item = category.items.find((i) => i.name === name);
+    if (item) return item.price;
+  }
+  return "";
 }

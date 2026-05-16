@@ -13,9 +13,14 @@ import {
   Star,
   Shield,
   Clock,
+  Droplets,
+  Sun,
+  Smile,
+  CheckCircle,
 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { SITE_LOGO_URL } from "../components/site-config";
+import { getPricingByTreatmentName } from "@/lib/content/pricing";
 
 const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
 
@@ -39,8 +44,8 @@ const IMGS = {
   valeAfter: `${CDN}/landings/anti-acne/caso-real-valentina/caso-valentina-acne-4.jpg`,
   vale2: `${CDN}/landings/anti-acne/caso-real-valentina/caso-valentina-acne-2.jpg`,
   vale3: `${CDN}/landings/anti-acne/caso-real-valentina/caso-valentina-acne-3.jpg`,
-  resultado1: `${CDN}/landings/anti-acne/tratamiento-salud-piel/tratamiento-anti-acne-resultado-1.jpg`,
-  resultado2: `${CDN}/landings/anti-acne/tratamiento-salud-piel/tratamiento-anti-acne-resultado-2.jpg`,
+  resultado1: `${CDN}/landings/microneedling/manchas-y-cicatrices-3-meses/microneedling-cicatrices-antes-despues-2.jpg`,
+  resultado2: `${CDN}/landings/microneedling/manchas-y-cicatrices-3-meses/microneedling-cicatrices-antes-despues-1.jpg`,
   gallery1: `${CDN}/images/gallery/glow-skin-gallery-antes-despues-1.webp`,
   gallery2: `${CDN}/images/gallery/glow-skin-gallery-antes-despues-2.webp`,
 };
@@ -69,13 +74,14 @@ export default function GlowSkinMethodVSL() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-500 px-6 ${isScrolled ? "bg-white/95 py-4 shadow-sm" : "bg-transparent py-8"}`}
       >
-        <div className="flex justify-center items-center max-w-md mx-auto">
-          <img
-            src={IMGS.logo}
-            className="h-13"
-            alt="Glow Skin"
-            loading="lazy"
-          />
+        <div className="flex justify-center items-center gap-4 max-w-md mx-auto">
+          <img src={IMGS.logo} className="h-8" alt="Glow Skin" loading="lazy" />
+          <a
+            href="#precios"
+            className="bg-[#4a3221] text-[#f7f0eb] px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg hover:bg-[#5c3a21] transition-colors"
+          >
+            Reservar
+          </a>
         </div>
       </nav>
 
@@ -258,7 +264,7 @@ export default function GlowSkinMethodVSL() {
             </p>
           </div>
 
-          <div className="space-y-24">
+          <div className="space-y-10">
             {[
               {
                 num: "01",
@@ -301,12 +307,12 @@ export default function GlowSkinMethodVSL() {
               },
             ].map((item, i) => (
               <div key={i}>
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#d4b499] bg-[#d4b499]/10 px-3 py-1.5 rounded-full">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#4a3221]/65 bg-[#4a3221]/10 px-3 py-1.5 rounded-full">
                     {item.tag}
                   </span>
                   <div className="flex-grow border-b border-dotted border-[#d4b499]/20"></div>
-                  <span className="text-3xl font-serif text-[#d4b499]/25 italic">
+                  <span className="text-3xl font-serif text-[#4a3221]/65 italic">
                     {item.num}
                   </span>
                 </div>
@@ -363,22 +369,27 @@ export default function GlowSkinMethodVSL() {
           <div className="space-y-4 mb-16">
             {[
               {
-                img: IMGS.proceso1,
+                icon: <Sparkles size={20} className="text-white" />, // Sesión 1–2
                 label: "Sesión 1–2",
                 desc: "Inicio del control. Piel más limpia.",
               },
               {
-                img: IMGS.proceso2,
+                icon: <Droplets size={20} className="text-white" />, // Sesión 3–4
                 label: "Sesión 3–4",
                 desc: "Reducción visible de brotes activos.",
               },
               {
-                img: IMGS.proceso3,
+                icon: <Sun size={20} className="text-white" />, // Sesión 5–6
                 label: "Sesión 5–6",
-                desc: "Acné en proceso de secado.",
+                desc: "Acné en proceso de secado. Tu piel empieza a sentirse más lisa.",
               },
               {
-                img: IMGS.proceso4,
+                icon: <Smile size={20} className="text-white" />, // Sesión 7–8
+                label: "Sesión 7–8",
+                desc: "Regeneración celular avanzada. Manchas y cicatrices empiezan a desaparecer.",
+              },
+              {
+                icon: <CheckCircle size={20} className="text-white" />, // Resultado
                 label: "Resultado",
                 desc: "Piel restaurada y uniforme.",
               },
@@ -387,12 +398,8 @@ export default function GlowSkinMethodVSL() {
                 key={i}
                 className="flex gap-4 items-center bg-white/5 border border-white/10 rounded-3xl overflow-hidden p-2 pr-5"
               >
-                <div className="w-28 h-28 rounded-2xl overflow-hidden shrink-0">
-                  <img
-                    src={item.img}
-                    alt={item.desc}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
+                  {item.icon}
                 </div>
                 <div className="flex-grow">
                   <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#d4b499] mb-1">
@@ -475,31 +482,11 @@ export default function GlowSkinMethodVSL() {
               className="absolute -top-3 left-6 text-[#d4b499]/40 fill-current"
             />
             <p className="text-base font-serif italic leading-relaxed text-[#4a3221]">
-              "Tu piel no necesita milagros, necesita un plan que responda a lo
+              Tu piel no necesita milagros, necesita un plan que responda a lo
               que realmente está viviendo. Cuando hay constancia, el espejo deja
               de mostrar siempre el mismo problema y empieza a reflejar un
-              avance real."
+              avance real.
             </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-3 mb-10">
-            {[
-              { val: "+4", label: "meses de seguimiento" },
-              { val: "4", label: "limpiezas incluidas" },
-              { val: "100%", label: "sin filtros" },
-            ].map((s, i) => (
-              <div
-                key={i}
-                className="text-center bg-[#f7f0eb] rounded-2xl py-5 px-3 border border-[#d4b499]/20"
-              >
-                <p className="text-2xl font-serif font-bold text-[#4a3221]">
-                  {s.val}
-                </p>
-                <p className="text-[8px] uppercase tracking-wider text-[#a5846e] mt-1 leading-tight">
-                  {s.label}
-                </p>
-              </div>
-            ))}
           </div>
 
           <BookingCtaButtons
@@ -513,22 +500,39 @@ export default function GlowSkinMethodVSL() {
       {/* SECTION 6: MÁS RESULTADOS */}
       <section className="py-16 px-6 bg-[#f7f0eb]">
         <div className="max-w-md mx-auto">
-          <p className="text-center text-[9px] font-black uppercase tracking-[0.3em] text-[#d4b499] mb-8">
-            Más resultados reales
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            {[IMGS.resultado1, IMGS.resultado2].map((img, i) => (
-              <div
-                key={i}
-                className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]"
-              >
+          <div className="flex flex-col items-center justify-center mb-8">
+            <div className="bg-[#d4b499]/20 rounded-full p-4 mb-3 flex items-center justify-center">
+              <Sun size={32} className="text-[#d4b499]" />
+            </div>
+            <p className="text-center text-[11px] font-black uppercase tracking-[0.35em] text-[#4a3221] px-6 py-2">
+              Un ejemplo de la etapa de manchas y cicatrices
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            <span className="mt-2 text-center text-[18px] font-black uppercase tracking-widest text-[#c17f5a]">
+              Antes
+            </span>
+            <div className="flex flex-col items-center">
+              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] w-full">
                 <img
-                  src={img}
-                  alt={`Resultado tratamiento anti-acné ${i + 1}`}
+                  src={IMGS.resultado1}
+                  alt="Antes: manchas y cicatrices"
                   className="w-full h-full object-cover"
                 />
               </div>
-            ))}
+            </div>
+            <span className="mt-2 text-center text-[18px] font-black uppercase tracking-widest text-[#c17f5a]">
+              Después
+            </span>
+            <div className="flex flex-col items-center">
+              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] w-full">
+                <img
+                  src={IMGS.resultado2}
+                  alt="Después: piel restaurada"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -586,7 +590,7 @@ export default function GlowSkinMethodVSL() {
       </section>
 
       {/* SECTION 8: PROTOCOLOS / PRECIOS */}
-      <section className="py-32 px-6 bg-[#4a3221] text-[#f7f0eb]">
+      <section className="py-32 px-6 bg-[#4a3221] text-[#f7f0eb]" id="precios">
         <div className="max-w-md mx-auto">
           <div className="text-center mb-16">
             <Sparkles size={28} className="text-[#d4b499] mx-auto mb-6" />
@@ -616,15 +620,18 @@ export default function GlowSkinMethodVSL() {
                 Ideal para tu primera sesión de exploración.
               </p>
               <div className="flex items-end justify-between mb-6">
-                <p className="text-3xl font-serif">$165.000</p>
+                <p className="text-3xl font-serif">
+                  {getPricingByTreatmentName("Limpieza Facial Anti-Acné")}
+                </p>
                 <p className="text-[9px] opacity-50 uppercase tracking-widest">
                   Por sesión
                 </p>
               </div>
               <BookingCtaButtons
                 className="flex flex-col gap-3"
-                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-[#d4b499]/10 transition-colors"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
+                whatsappContext="limpieza-anti-acne"
               />
             </div>
 
@@ -640,15 +647,20 @@ export default function GlowSkinMethodVSL() {
                 Protocolo extendido con activos específicos.
               </p>
               <div className="flex items-end justify-between mb-6">
-                <p className="text-3xl font-serif">$415.000</p>
+                <p className="text-3xl font-serif">
+                  {getPricingByTreatmentName(
+                    "Limpieza Anti-Acné Seborreguladora",
+                  )}
+                </p>
                 <p className="text-[9px] opacity-50 uppercase tracking-widest">
                   Por sesión
                 </p>
               </div>
               <BookingCtaButtons
                 className="flex flex-col gap-3"
-                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-[#d4b499]/10 transition-colors"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
+                whatsappContext="limpieza-anti-acne-seborreguladora"
               />
             </div>
 
@@ -691,17 +703,12 @@ export default function GlowSkinMethodVSL() {
               </div>
               <BookingCtaButtons
                 className="flex flex-col gap-3"
-                reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center shadow-xl active:scale-95 transition-all"
-                reserveWhatsappClassName="w-full border border-[#4a3221]/30 bg-white/50 text-[#4a3221] py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center transition-all"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
+                reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-[#4a3221] hover:bg-white/10 transition-colors"
+                whatsappContext="metodo-glow-skin"
               />
             </div>
           </div>
-
-          <BookingCtaButtons
-            className="mt-8 flex w-full flex-col gap-3"
-            reserveHereClassName="w-full border border-white/20 text-white/70 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:border-white/40 transition-colors"
-            reserveWhatsappClassName="w-full border border-white/40 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
-          />
         </div>
       </section>
 
@@ -736,7 +743,7 @@ export default function GlowSkinMethodVSL() {
       <footer className="bg-white py-16 px-6 border-t border-[#f1e4dc] text-center">
         <img
           src={IMGS.logo}
-          className="h-6 mx-auto mb-8 opacity-60"
+          className="h-18 mx-auto mb-8 opacity-60"
           alt="Glow Skin"
         />
         <p className="text-[8px] font-black uppercase tracking-[0.5em] text-[#a5846e]">

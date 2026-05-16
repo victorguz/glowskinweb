@@ -77,7 +77,6 @@ const ModalCarousel = ({
               src={caseItem.imagenes[currentIndex].src}
               alt={caseItem.imagenes[currentIndex].alt}
               className="w-full h-auto max-h-[60vh] object-contain rounded-xl lg:rounded-[2rem] shadow-2xl"
-              loading="lazy"
             />
             {caseItem.imagenes[currentIndex].descripcion && (
               <p className="text-[#f7f0eb]/90 font-medium italic text-sm text-center max-w-2xl px-4 mt-2">
