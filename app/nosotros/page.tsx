@@ -1,23 +1,28 @@
-import type { Metadata } from 'next';
-import { LeadTrigger } from '@/app/components/marketing/LeadTrigger';
-import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
+import type { Metadata } from "next";
+import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
+import { getSiteUrl, LOCAL_SEO, SITE_NAME } from "@/lib/seo/site";
 
 const description = `Conoce a Sofía Nieto, fundadora de ${SITE_NAME}. Historia, filosofía y estética facial en ${LOCAL_SEO.city} — ${LOCAL_SEO.addressStreet}.`;
 
 export const metadata: Metadata = {
-  title: 'Sobre nosotros',
+  title: "Sobre nosotros",
   description,
-  keywords: ['Sofía Nieto', SITE_NAME, 'cosmiatría Barranquilla', 'fundadora Glow Skin'],
+  keywords: [
+    "Sofía Nieto",
+    SITE_NAME,
+    "cosmiatría Barranquilla",
+    "fundadora Glow Skin",
+  ],
   alternates: { canonical: `${getSiteUrl()}/nosotros` },
   openGraph: {
     title: `Sobre nosotros | ${SITE_NAME}`,
     description,
     url: `${getSiteUrl()}/nosotros`,
-    locale: 'es_CO',
+    locale: "es_CO",
   },
 };
 
-const BASE_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/';
+const BASE_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/";
 const HERO_SOFIA_SRC = `${BASE_URL}images/sofia/sofia-nieto-glow-skin-bq-fondo-horizontal.png`;
 
 export default function NosotrosPage() {
@@ -45,8 +50,8 @@ export default function NosotrosPage() {
             </h1>
             <p className="text-lg md:text-xl font-medium text-white/90 max-w-2xl leading-relaxed tracking-wide italic drop-shadow-md">
               La historia de Glow Skin no es solo sobre estética; es un viaje de
-              transformación, empatía y la búsqueda incansable de una belleza que no
-              duele en Barranquilla.
+              transformación, empatía y la búsqueda incansable de una belleza
+              que no duele en Barranquilla.
             </p>
           </div>
         </div>
@@ -62,14 +67,15 @@ export default function NosotrosPage() {
             </h2>
             <div className="space-y-6 text-[#7d5a44] text-lg leading-relaxed">
               <p>
-                Glow Skin empezó con un sueño inspirado en un proceso de acné que viví
-                hace varios años, entrando a mis 20's. Fue ahí cuando viví la peor
-                etapa de mi vida a nivel físico; me sentía muy mal conmigo misma y eso
-                me llevó a hacer de todo para poder recuperar la textura de mi piel.
+                Glow Skin empezó con un sueño inspirado en un proceso de acné
+                que viví hace varios años, entrando a mis 20's. Fue ahí cuando
+                viví la peor etapa de mi vida a nivel físico; me sentía muy mal
+                conmigo misma y eso me llevó a hacer de todo para poder
+                recuperar la textura de mi piel.
               </p>
               <p>
-                Tuve un acné muy severo, cosa que me hacía percibirme a mí misma con
-                una mala imagen porque nunca me había visto de esa manera.
+                Tuve un acné muy severo, cosa que me hacía percibirme a mí misma
+                con una mala imagen porque nunca me había visto de esa manera.
               </p>
             </div>
           </div>
@@ -88,32 +94,37 @@ export default function NosotrosPage() {
       <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#f7f0eb] to-transparent pointer-events-none" />
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center max-w-4xl">
-          <span className="text-[#d4b499] font-black tracking-[0.4em] text-xs uppercase mb-4 block">El Origen</span>
+          <span className="text-[#d4b499] font-black tracking-[0.4em] text-xs uppercase mb-4 block">
+            El Origen
+          </span>
           <h2 className="text-4xl md:text-5xl font-serif text-[#4a3221] tracking-tighter mb-10">
             Del Dolor a la Vocación
           </h2>
           <p className="text-lg md:text-xl text-[#7d5a44] leading-relaxed mb-12">
-            Un tiempo después de intentar varios tratamientos, de pasar por varias
-            limpiezas, dermatólogos y especialistas, mi piel empezó a ver un cambio y
-            una recuperación. No lo niego, el acné me dejó buenas marcas en mi piel,
-            algunas cicatrices que no he podido borrar por más que lo intente, sobre
-            todo las emocionales...
+            Un tiempo después de intentar varios tratamientos, de pasar por
+            varias limpiezas, dermatólogos y especialistas, mi piel empezó a ver
+            un cambio y una recuperación. No lo niego, el acné me dejó buenas
+            marcas en mi piel, algunas cicatrices que no he podido borrar por
+            más que lo intente, sobre todo las emocionales...
           </p>
-          
+
           <div className="relative py-12 px-8 md:px-16 mb-12">
-            <div className="absolute left-0 top-0 text-[8rem] text-[#d4b499]/20 font-serif leading-none select-none">"</div>
+            <div className="absolute left-0 top-0 text-[8rem] text-[#d4b499]/20 font-serif leading-none select-none">
+              "
+            </div>
             <blockquote className="relative z-10 font-serif text-2xl md:text-3xl text-[#4a3221] italic leading-relaxed text-left border-l-2 border-[#d4b499] pl-8">
               Algo que experimentaba mucho como paciente es que cada vez que me
-              realizaba una limpieza facial me dolía mucho. Lloraba antes de salir de mi
-              casa y después de salir del procedimiento.
+              realizaba una limpieza facial me dolía mucho. Lloraba antes de
+              salir de mi casa y después de salir del procedimiento.
             </blockquote>
           </div>
 
           <p className="text-lg text-[#7d5a44] leading-relaxed max-w-3xl mx-auto">
-            Esa experiencia me marcó profundamente. Por eso, estudié Cosmetología y
-            Cosmiatría, porque quería aprender sobre los principios que usaron
-            aquellos profesionales que trataron mi piel, pero con la firme convicción
-            de que podía hacerlo diferente, de una manera más compasiva.
+            Esa experiencia me marcó profundamente. Por eso, estudié
+            Cosmetología y Cosmiatría, porque quería aprender sobre los
+            principios que usaron aquellos profesionales que trataron mi piel,
+            pero con la firme convicción de que podía hacerlo diferente, de una
+            manera más compasiva.
           </p>
         </div>
       </section>
@@ -128,17 +139,18 @@ export default function NosotrosPage() {
             </h2>
             <div className="space-y-6 text-[#7d5a44] text-lg leading-relaxed">
               <p>
-                Trabajé en otros centros de estética, pero mi pasión siempre fue hacer
-                que las personas, especialmente las mujeres, pudieran recuperar su
-                belleza sin tener que sufrir en el intento. Investigué muchísimo antes
-                de fundar Glow Skin sobre cómo hacer que las limpiezas faciales
-                dejaran de ser una experiencia traumática.
+                Trabajé en otros centros de estética, pero mi pasión siempre fue
+                hacer que las personas, especialmente las mujeres, pudieran
+                recuperar su belleza sin tener que sufrir en el intento.
+                Investigué muchísimo antes de fundar Glow Skin sobre cómo hacer
+                que las limpiezas faciales dejaran de ser una experiencia
+                traumática.
               </p>
               <p>
-                Trabajando con una colega muy reconocida de aquí de Barranquilla,
-                descubrí la manera de lograrlo. Cuando inicié Glow Skin, mi meta era
-                clara: hacer que toda Barranquilla tuviera una PIEL GLOW, sin tener
-                que sufrir en el proceso.
+                Trabajando con una colega muy reconocida de aquí de
+                Barranquilla, descubrí la manera de lograrlo. Cuando inicié Glow
+                Skin, mi meta era clara: hacer que toda Barranquilla tuviera una
+                PIEL GLOW, sin tener que sufrir en el proceso.
               </p>
             </div>
           </div>
@@ -157,22 +169,25 @@ export default function NosotrosPage() {
       <section className="py-24 lg:py-32 bg-white relative">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4b499]/30 to-transparent"></div>
         <div className="container mx-auto px-6 lg:px-12 text-center max-w-5xl">
-          <span className="text-[#d4b499] font-black tracking-[0.4em] text-xs uppercase mb-4 block">El Resultado</span>
+          <span className="text-[#d4b499] font-black tracking-[0.4em] text-xs uppercase mb-4 block">
+            El Resultado
+          </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#4a3221] tracking-tighter mb-10">
             El Brillo Único de Glow Skin
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-[#7d5a44] text-lg leading-relaxed mb-16">
             <p>
-              Hoy, gracias a todo ese descubrimiento e investigación, la limpieza facial
-              en Glow Skin casi no genera dolor. Realizamos la extracción de una manera
-              que la cara no quede hinchada ni genere un dolor insoportable. Pero lo más
-              importante es que nuestras clientas lo notan.
+              Hoy, gracias a todo ese descubrimiento e investigación, la
+              limpieza facial en Glow Skin casi no genera dolor. Realizamos la
+              extracción de una manera que la cara no quede hinchada ni genere
+              un dolor insoportable. Pero lo más importante es que nuestras
+              clientas lo notan.
             </p>
             <p>
               Muchas de mis clientas y clientes pueden confirmarlo: en otros
-              lugares la cara les quedaba super inflamada y roja. En Glow Skin te vas
-              con la piel más reluciente y con un Brillo característico que solamente
-              puedes tener aquí.
+              lugares la cara les quedaba super inflamada y roja. En Glow Skin
+              te vas con la piel más reluciente y con un Brillo característico
+              que solamente puedes tener aquí.
             </p>
           </div>
 
@@ -187,13 +202,13 @@ export default function NosotrosPage() {
 
           <div className="max-w-3xl mx-auto mt-16">
             <blockquote className="font-serif text-3xl md:text-4xl text-[#4a3221] italic leading-tight text-center mb-10">
-              "Nada me apasiona más que tratar tan bien a mis clientas que todas quieren
-              volver, así sea una vez en la vida."
+              "Nada me apasiona más que tratar tan bien a mis clientas que todas
+              quieren volver, así sea una vez en la vida."
             </blockquote>
             <p className="text-lg text-[#7d5a44] leading-relaxed">
-              Yo estoy cumpliendo mi sueño con Glow Skin y motivo a todos a poder hacer
-              también sus sueños realidad, sobre todo si tiene una causa tan noble y
-              buena como ayudar a los demás.
+              Yo estoy cumpliendo mi sueño con Glow Skin y motivo a todos a
+              poder hacer también sus sueños realidad, sobre todo si tiene una
+              causa tan noble y buena como ayudar a los demás.
             </p>
           </div>
         </div>
@@ -207,15 +222,14 @@ export default function NosotrosPage() {
             ¿Lista para empezar tu propia transformación?
           </h2>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12 font-medium">
-            Permíteme ayudarte a descubrir la mejor versión de tu piel. Agenda una
-            valoración y creemos juntos un plan para ti.
+            Permíteme ayudarte a descubrir la mejor versión de tu piel. Agenda
+            una valoración y creemos juntos un plan para ti.
           </p>
-          <LeadTrigger
-            mode="booking"
-            className="inline-flex items-center justify-center px-10 py-5 bg-[#d4b499] hover:bg-[#c2a085] text-[#4a3221] font-black text-sm uppercase tracking-[0.2em] rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_20px_40px_rgba(212,180,153,0.3)]"
-          >
-            Agendar ahora
-          </LeadTrigger>
+          <BookingCtaButtons
+            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            reserveHereClassName="inline-flex items-center justify-center px-10 py-5 bg-[#d4b499] hover:bg-[#c2a085] text-[#4a3221] font-black text-sm uppercase tracking-[0.2em] rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_20px_40px_rgba(212,180,153,0.3)]"
+            reserveWhatsappClassName="inline-flex items-center justify-center px-10 py-5 border border-[#d4b499]/50 text-white font-black text-sm uppercase tracking-[0.2em] rounded-full transition-all duration-300 hover:bg-white/10"
+          />
         </div>
       </section>
 

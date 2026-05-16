@@ -1,18 +1,16 @@
-'use client';
+"use client";
 
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
-  useMemo,
   useState,
   type ReactNode,
-} from 'react';
-import { usePathname } from 'next/navigation';
-import { X, Sparkles, ChevronRight, ShieldCheck, Loader2 } from 'lucide-react';
-import { getPricingTreatmentNames } from '@/lib/content/pricing';
-import { PHONE_WA_DIGITS } from '@/app/components/site-config';
+} from "react";
+import { usePathname } from "next/navigation";
+import { X, Sparkles, ChevronRight, ShieldCheck, Loader2 } from "lucide-react";
+import { PHONE_WA_DIGITS } from "@/app/components/site-config";
 import {
   buildWaMeUrl,
   fbqTrack,
@@ -20,7 +18,7 @@ import {
   sendCapiEvent,
   sendFormsLead,
   splitFullName,
-} from './tracking';
+} from "./tracking";
 
 type Ctx = {
   openBooking: (suggestedTreatments?: string[]) => void;
@@ -31,53 +29,28 @@ const LeadFormsContext = createContext<Ctx | null>(null);
 
 export function useLeadForms() {
   const c = useContext(LeadFormsContext);
-  if (!c) throw new Error('useLeadForms debe usarse dentro de LeadFormsProvider');
+  if (!c)
+    throw new Error("useLeadForms debe usarse dentro de LeadFormsProvider");
   return c;
-}
-
-function formatDateCol(d: Date) {
-  return d.toLocaleDateString('es-CO', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-}
-
-function defaultDatePair(): [string, string] {
-  const t = new Date();
-  const a = new Date(t);
-  a.setDate(a.getDate() + 1);
-  const b = new Date(t);
-  b.setDate(b.getDate() + 2);
-  return [formatDateCol(a), formatDateCol(b)];
-}
-
-function pickTreatments(suggested: string[], allNames: string[]): string[] {
-  const valid = new Set(allNames);
-  const fromS = suggested.filter((s) => valid.has(s));
-  if (fromS.length) return fromS;
-  return allNames[0] ? [allNames[0]] : [];
 }
 
 function buildBookingWaMessage(p: Record<string, unknown>) {
   const lines = [
-    '*Reserva Glow Skin*',
+    "*Reserva Glow Skin*",
     `Nombre: ${p.nombre}`,
     `Email: ${p.tu_mejor_email}`,
     `Cel/WhatsApp: ${p.celular_con_whatsapp}`,
-    `Tratamientos: ${(p.tratamiento_de_interes as string[]).join(', ')}`,
-    `1ª fecha: ${p.fecha_preferida}`,
-    `2ª fecha: ${p.fecha_preferida_si_no_disponible_la_primera}`,
-    `Horario: ${p.horario}`,
   ];
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 function buildContactWaMessage(p: Record<string, unknown>) {
-  return ['*Contacto Glow Skin*', `Nombre: ${p.nombre}`, `Email: ${p.tu_mejor_email}`, `Cel: ${p.celular_con_whatsapp}`].join(
-    '\n',
-  );
+  return [
+    "*Contacto Glow Skin*",
+    `Nombre: ${p.nombre}`,
+    `Email: ${p.tu_mejor_email}`,
+    `Cel: ${p.celular_con_whatsapp}`,
+  ].join("\n");
 }
 
 function modalFontStyles() {
@@ -92,18 +65,25 @@ function modalFontStyles() {
 }
 
 const inputCls =
-  'w-full px-4 py-3 rounded-xl bg-white border border-[#d4b499]/45 focus:border-[#5c3a21] focus:outline-none text-[#4a3221] placeholder:text-[#7d5a44]/55 transition-colors disabled:opacity-50 disabled:cursor-not-allowed';
+  "w-full px-4 py-3 rounded-xl bg-white border border-[#d4b499]/45 focus:border-[#5c3a21] focus:outline-none text-[#4a3221] placeholder:text-[#7d5a44]/55 transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
 
-const labelCls = 'block text-sm font-bold text-[#4a3221] mb-2';
+const labelCls = "block text-sm font-bold text-[#4a3221] mb-2";
 
 function LeadLoadingOverlay({ message }: { message: string }) {
   return (
     <div className="fixed inset-0 z-[210] flex items-center justify-center bg-[#4a3221]/95 backdrop-blur-md">
       <div className="space-y-6 text-center">
-        <Loader2 className="mx-auto h-16 w-16 animate-spin text-[#d4b499]" aria-hidden />
+        <Loader2
+          className="mx-auto h-16 w-16 animate-spin text-[#d4b499]"
+          aria-hidden
+        />
         <div className="space-y-2">
-          <h3 className="font-serif text-2xl font-bold text-[#f7f0eb]">{message}</h3>
-          <p className="text-sm text-[#f7f0eb]/65">Por favor espera un momento</p>
+          <h3 className="font-serif text-2xl font-bold text-[#f7f0eb]">
+            {message}
+          </h3>
+          <p className="text-sm text-[#f7f0eb]/65">
+            Por favor espera un momento
+          </p>
         </div>
       </div>
     </div>
@@ -138,14 +118,14 @@ function LeadModalFrame({
   children,
 }: LeadModalFrameProps) {
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && !busy) onClose();
+      if (e.key === "Escape" && !busy) onClose();
     };
-    window.addEventListener('keydown', onKey);
+    window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [onClose, busy]);
 
@@ -197,8 +177,8 @@ function LeadModalFrame({
                 disabled={!canSubmit || busy}
                 className={`flex w-full items-center justify-center gap-2 rounded-xl py-5 text-lg font-bold transition-all ${
                   canSubmit && !busy
-                    ? 'bg-[#4a3221] text-[#f7f0eb] hover:bg-[#5c3a21] shadow-lg'
-                    : 'cursor-not-allowed bg-[#e8dcd3] text-[#7d5a44]/60'
+                    ? "bg-[#4a3221] text-[#f7f0eb] hover:bg-[#5c3a21] shadow-lg"
+                    : "cursor-not-allowed bg-[#e8dcd3] text-[#7d5a44]/60"
                 }`}
               >
                 {busy ? (
@@ -225,50 +205,31 @@ function LeadModalFrame({
 function BookingLeadOverlay({
   pathname,
   onClose,
-  suggested,
-  treatmentOptions,
 }: {
   pathname: string;
   onClose: () => void;
-  suggested: string[];
-  treatmentOptions: string[];
 }) {
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [cel, setCel] = useState('');
-  const datePair = useMemo(() => defaultDatePair(), []);
-  const [fecha1, setFecha1] = useState(datePair[0]);
-  const [fecha2, setFecha2] = useState(datePair[1]);
-  const [tratamientos, setTratamientos] = useState(() => pickTreatments(suggested, treatmentOptions));
-  const [horario, setHorario] = useState<'mañana' | 'tarde'>('mañana');
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [cel, setCel] = useState("");
   const [busy, setBusy] = useState(false);
 
-  const phoneDigits = cel.replace(/\D/g, '');
+  const phoneDigits = cel.replace(/\D/g, "");
   const canSubmit =
     nombre.trim().length >= 2 &&
-    email.includes('@') &&
+    email.includes("@") &&
     email.length >= 5 &&
-    phoneDigits.length >= 10 &&
-    tratamientos.length > 0;
-
-  function toggleTrat(t: string) {
-    setTratamientos((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
-  }
+    phoneDigits.length >= 10;
 
   async function onFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!canSubmit) return;
 
-    const horarioLabel = horario === 'tarde' ? 'Tarde' : 'Mañana';
     const data: Record<string, unknown> = {
       nombre: nombre.trim(),
       tu_mejor_email: email.trim(),
       celular_con_whatsapp: cel.trim(),
-      tratamiento_de_interes: tratamientos,
-      fecha_preferida: fecha1,
-      fecha_preferida_si_no_disponible_la_primera: fecha2,
-      horario: horarioLabel,
-      formType: 'reserva',
+      formType: "reserva",
       page_path: pathname,
     };
 
@@ -279,9 +240,9 @@ function BookingLeadOverlay({
 
     setBusy(true);
     try {
-      fbqTrack('track', 'Lead', {
-        content_name: 'Reserva Glow Skin',
-        content_category: 'booking',
+      fbqTrack("track", "Lead", {
+        content_name: "Reserva Glow Skin",
+        content_category: "booking",
       });
     } catch {
       /* noop */
@@ -289,23 +250,25 @@ function BookingLeadOverlay({
 
     try {
       await sendCapiEvent({
-        eventName: 'Lead',
+        eventName: "Lead",
         eventTime: Math.floor(Date.now() / 1000),
         eventId,
-        eventSourceUrl: typeof window !== 'undefined' ? window.location.href : '',
-        actionSource: 'website',
+        eventSourceUrl:
+          typeof window !== "undefined" ? window.location.href : "",
+        actionSource: "website",
         userData: {
           email: email.trim(),
           phone: cel.trim(),
           firstName,
           lastName,
-          client_user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : undefined,
+          client_user_agent:
+            typeof navigator !== "undefined" ? navigator.userAgent : undefined,
           fbp,
           fbc,
         },
         customData: {
-          content_name: 'Reserva',
-          content_category: 'booking',
+          content_name: "Reserva",
+          content_category: "booking",
           page_type: pathname,
         },
       });
@@ -319,7 +282,7 @@ function BookingLeadOverlay({
       /* noop */
     }
 
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
+    window.open(waUrl, "_blank", "noopener,noreferrer");
     setBusy(false);
     onClose();
   }
@@ -330,7 +293,7 @@ function BookingLeadOverlay({
       maxWidthClass="max-w-3xl"
       title={
         <h2 className="font-serif text-2xl font-bold tracking-tight text-[#4a3221] md:text-3xl md:leading-tight">
-          RESERVA TU{' '}
+          RESERVA TU{" "}
           <span className="bg-gradient-to-r from-[#a5846e] to-[#d4b499] bg-clip-text font-script text-2xl font-normal lowercase text-transparent md:text-3xl">
             cita glow skin
           </span>
@@ -378,7 +341,7 @@ function BookingLeadOverlay({
 
       <div>
         <label htmlFor="lead-booking-cel" className={labelCls}>
-          Celular con WhatsApp *
+          WhatsApp *
         </label>
         <input
           id="lead-booking-cel"
@@ -393,93 +356,19 @@ function BookingLeadOverlay({
         />
       </div>
 
-      <div>
-        <p className={`${labelCls} mb-3`}>Tratamiento de interés *</p>
-        <p className="mb-4 text-sm text-[#7d5a44]">Puedes elegir uno o varios (listado de precios).</p>
-        <div className="max-h-48 overflow-y-auto pr-1 md:max-h-56">
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {treatmentOptions.map((t) => (
-              <label
-                key={t}
-                className={`flex cursor-pointer items-start gap-3 rounded-xl border-2 px-4 py-3 text-left text-sm font-semibold leading-snug transition-colors ${
-                  tratamientos.includes(t)
-                    ? 'border-[#4a3221] bg-white text-[#4a3221]'
-                    : 'border-[#d4b499]/35 bg-white/90 text-[#7d5a44] hover:border-[#d4b499]'
-                }`}
-              >
-                <input
-                  type="checkbox"
-                  checked={tratamientos.includes(t)}
-                  onChange={() => toggleTrat(t)}
-                  disabled={busy}
-                  className="mt-1 h-4 w-4 shrink-0 rounded border-[#d4b499] text-[#4a3221] focus:ring-[#d4b499]"
-                />
-                <span>{t}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label htmlFor="lead-booking-f1" className={labelCls}>
-            Fecha preferida
-          </label>
-          <input
-            id="lead-booking-f1"
-            value={fecha1}
-            onChange={(e) => setFecha1(e.target.value)}
-            disabled={busy}
-            className={inputCls}
-          />
-        </div>
-        <div>
-          <label htmlFor="lead-booking-f2" className={labelCls}>
-            Fecha alternativa
-          </label>
-          <input
-            id="lead-booking-f2"
-            value={fecha2}
-            onChange={(e) => setFecha2(e.target.value)}
-            disabled={busy}
-            className={inputCls}
-          />
-        </div>
-      </div>
-
-      <div>
-        <p className={`${labelCls} mb-3`}>Horario preferido</p>
-        <div className="flex flex-wrap gap-3">
-          {(
-            [
-              { id: 'mañana' as const, label: 'Mañana' },
-              { id: 'tarde' as const, label: 'Tarde' },
-            ] as const
-          ).map(({ id, label }) => (
-            <label
-              key={id}
-              className={`cursor-pointer rounded-xl border-2 px-6 py-3 text-sm font-bold transition-all ${
-                horario === id
-                  ? 'border-[#4a3221] bg-[#4a3221] text-[#f7f0eb]'
-                  : 'border-[#d4b499]/40 bg-white text-[#4a3221] hover:border-[#a5846e]'
-              }`}
-            >
-              <input type="radio" name="horario-reserva" className="sr-only" checked={horario === id} onChange={() => setHorario(id)} disabled={busy} />
-              {label}
-            </label>
-          ))}
-        </div>
-      </div>
-
       <div className="rounded-2xl border-2 border-[#d4b499] bg-white/90 p-6 shadow-[0_0_24px_rgba(212,180,153,0.2)]">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-[#a5846e]" aria-hidden />
+          <ShieldCheck
+            className="mt-0.5 h-6 w-6 shrink-0 text-[#a5846e]"
+            aria-hidden
+          />
           <div>
-            <p className="mb-2 font-serif text-lg font-bold text-[#4a3221]">Datos seguros · Atención personalizada</p>
+            <p className="mb-2 font-serif text-lg font-bold text-[#4a3221]">
+              Datos seguros · Atención personalizada
+            </p>
             <p className="text-sm leading-relaxed text-[#7d5a44]">
-              Usamos tu información solo para coordinar tu cita. Por defecto sugerimos <strong className="text-[#4a3221]">mañana y pasado mañana en horario de mañana</strong>
-              ; puedes cambiarlo arriba.
+              Usamos tu información solo para coordinar tu cita y te abriremos
+              WhatsApp con un mensaje listo para enviar.
             </p>
           </div>
         </div>
@@ -488,15 +377,24 @@ function BookingLeadOverlay({
   );
 }
 
-function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: () => void }) {
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [cel, setCel] = useState('');
+function ContactLeadOverlay({
+  pathname,
+  onClose,
+}: {
+  pathname: string;
+  onClose: () => void;
+}) {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [cel, setCel] = useState("");
   const [busy, setBusy] = useState(false);
 
-  const phoneDigits = cel.replace(/\D/g, '');
+  const phoneDigits = cel.replace(/\D/g, "");
   const canSubmit =
-    nombre.trim().length >= 2 && email.includes('@') && email.length >= 5 && phoneDigits.length >= 10;
+    nombre.trim().length >= 2 &&
+    email.includes("@") &&
+    email.length >= 5 &&
+    phoneDigits.length >= 10;
 
   async function onFormSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -506,7 +404,7 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
       nombre: nombre.trim(),
       tu_mejor_email: email.trim(),
       celular_con_whatsapp: cel.trim(),
-      formType: 'contacto',
+      formType: "contacto",
       page_path: pathname,
     };
 
@@ -517,9 +415,9 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
 
     setBusy(true);
     try {
-      fbqTrack('track', 'Lead', {
-        content_name: 'Contacto Glow Skin',
-        content_category: 'contact',
+      fbqTrack("track", "Lead", {
+        content_name: "Contacto Glow Skin",
+        content_category: "contact",
       });
     } catch {
       /* noop */
@@ -527,23 +425,25 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
 
     try {
       await sendCapiEvent({
-        eventName: 'Lead',
+        eventName: "Lead",
         eventTime: Math.floor(Date.now() / 1000),
         eventId,
-        eventSourceUrl: typeof window !== 'undefined' ? window.location.href : '',
-        actionSource: 'website',
+        eventSourceUrl:
+          typeof window !== "undefined" ? window.location.href : "",
+        actionSource: "website",
         userData: {
           email: email.trim(),
           phone: cel.trim(),
           firstName,
           lastName,
-          client_user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : undefined,
+          client_user_agent:
+            typeof navigator !== "undefined" ? navigator.userAgent : undefined,
           fbp,
           fbc,
         },
         customData: {
-          content_name: 'Contacto',
-          content_category: 'contact',
+          content_name: "Contacto",
+          content_category: "contact",
           page_type: pathname,
         },
       });
@@ -557,7 +457,7 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
       /* noop */
     }
 
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
+    window.open(waUrl, "_blank", "noopener,noreferrer");
     setBusy(false);
     onClose();
   }
@@ -568,7 +468,7 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
       maxWidthClass="max-w-3xl"
       title={
         <h2 className="font-serif text-2xl font-bold tracking-tight text-[#4a3221] md:text-3xl md:leading-tight">
-          ESCRÍBENOS —{' '}
+          ESCRÍBENOS —{" "}
           <span className="bg-gradient-to-r from-[#a5846e] to-[#d4b499] bg-clip-text font-script text-2xl font-normal lowercase text-transparent md:text-3xl">
             glow skin
           </span>
@@ -633,11 +533,17 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
 
       <div className="rounded-2xl border-2 border-[#d4b499] bg-white/90 p-6 shadow-[0_0_24px_rgba(212,180,153,0.2)]">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-[#a5846e]" aria-hidden />
+          <ShieldCheck
+            className="mt-0.5 h-6 w-6 shrink-0 text-[#a5846e]"
+            aria-hidden
+          />
           <div>
-            <p className="mb-2 font-serif text-lg font-bold text-[#4a3221]">Respuesta en horario de atención</p>
+            <p className="mb-2 font-serif text-lg font-bold text-[#4a3221]">
+              Respuesta en horario de atención
+            </p>
             <p className="text-sm leading-relaxed text-[#7d5a44]">
-              Te dirigimos a WhatsApp con un mensaje listo para que solo envíes y nuestro equipo te responda.
+              Te dirigimos a WhatsApp con un mensaje listo para que solo envíes
+              y nuestro equipo te responda.
             </p>
           </div>
         </div>
@@ -647,19 +553,15 @@ function ContactLeadOverlay({ pathname, onClose }: { pathname: string; onClose: 
 }
 
 export function LeadFormsProvider({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname() || '/';
-  const [mode, setMode] = useState<'booking' | 'contact' | null>(null);
-  const [suggested, setSuggested] = useState<string[]>([]);
-  const treatmentOptions = useMemo(() => getPricingTreatmentNames(), []);
+  const pathname = usePathname() || "/";
+  const [mode, setMode] = useState<"booking" | "contact" | null>(null);
 
-  const openBooking = useCallback((s?: string[]) => {
-    setSuggested(s?.filter(Boolean) ?? []);
-    setMode('booking');
+  const openBooking = useCallback((_suggestedTreatments?: string[]) => {
+    setMode("booking");
   }, []);
 
   const openContact = useCallback(() => {
-    setSuggested([]);
-    setMode('contact');
+    setMode("contact");
   }, []);
 
   const close = useCallback(() => setMode(null), []);
@@ -667,15 +569,12 @@ export function LeadFormsProvider({ children }: { children: React.ReactNode }) {
   return (
     <LeadFormsContext.Provider value={{ openBooking, openContact }}>
       {children}
-      {mode === 'booking' ? (
-        <BookingLeadOverlay
-          pathname={pathname}
-          onClose={close}
-          suggested={suggested}
-          treatmentOptions={treatmentOptions}
-        />
+      {mode === "booking" ? (
+        <BookingLeadOverlay pathname={pathname} onClose={close} />
       ) : null}
-      {mode === 'contact' ? <ContactLeadOverlay pathname={pathname} onClose={close} /> : null}
+      {mode === "contact" ? (
+        <ContactLeadOverlay pathname={pathname} onClose={close} />
+      ) : null}
     </LeadFormsContext.Provider>
   );
 }

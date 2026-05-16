@@ -17,7 +17,7 @@ export enum ServiceIds {
   REJUVENECIMIENTO = "rejuvenecimiento",
   EXOSOMAS = "exosomas",
   PDRN = "pdrn",
-  CUIDADO_LABIOS = "cuidado-labios",
+  // CUIDADO_LABIOS eliminado
 
   // Services
   LIMPIEZA_FACIAL = "limpieza-facial",
@@ -33,8 +33,7 @@ export enum ServiceIds {
   PORCELANIZACION_FACIAL = "porcelanizacion-facial",
   MICRONEEDLING_EXOSOMAS = "microneedling-exosomas",
   PROTOCOLO_PDRN = "protocolo-pdrn",
-  GLOW_LIPS = "glow-lips",
-  TRATAMIENTO_3_SESIONES_GLOW_LIPS = "tratamiento-3-sesiones-glow-lips",
+  // GLOW_LIPS y TRATAMIENTO_3_SESIONES_GLOW_LIPS eliminados
 }
 
 export const SERVICES_DATA = {
@@ -1699,39 +1698,7 @@ export const SERVICES_DATA = {
         },
       ],
     },
-    {
-      id: "cuidado-labios",
-      title: "Cuidado de Labios",
-      description:
-        "Tratamientos especializados para revitalizar y mejorar la apariencia de los labios",
-      services: [
-        {
-          id: "glow-lips",
-          name: "Glow Lips",
-          description:
-            "Revitaliza, neutraliza y devuelve la vida a tus labios, mejorando su color y textura natural.",
-          price: 120000,
-          currency: "COP",
-          details: {
-            duration: SESSION_DURATION,
-            frequency:
-              "1 sesión. Para resultados óptimos, se recomienda el tratamiento de 3 sesiones",
-          },
-        },
-        {
-          id: "tratamiento-3-sesiones-glow-lips",
-          name: "Tratamiento 3 Sesiones Glow Lips",
-          description:
-            "Tratamiento completo para un resultado óptimo y duradero en la revitalización de tus labios.",
-          price: 300000,
-          currency: "COP",
-          details: {
-            duration: SESSION_DURATION,
-            frequency: "1 sesión cada 15 días",
-          },
-        },
-      ],
-    },
+    // Categoría Cuidado de Labios eliminada
   ],
   contactInfo: {
     whatsapp: WA_LINK,

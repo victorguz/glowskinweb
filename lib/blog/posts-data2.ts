@@ -175,7 +175,7 @@ export const BLOG_POSTS2: BlogPost[] = [
         type: "list",
         items: [
           "Cicatrices de acné antiguas, sin inflamación activa.",
-          "Líneas finas alrededor de ojos y boca.",
+          "Líneas finas alrededor de los ojos.",
           "Piel con pérdida de firmeza leve a moderada.",
           "Textura irregular por daño solar acumulado.",
           "Poros dilatados sin obstrucción activa.",
@@ -568,7 +568,7 @@ export const BLOG_POSTS2: BlogPost[] = [
         type: "list",
         items: [
           "Ácido azelaico: Antibacteriano y antiinflamatorio, ideal para acné.",
-          "Ácido salicílico: Liposoluble, penetra poros para desobstruir.",
+          "Ácido salicílico: penetra poros para desobstruir.",
           "Ácido mandélico: Más suave, adecuado para pieles sensibles.",
           "Ácido glicólico: Exfoliante, usado en concentraciones bajas.",
           "Niacinamida: Regula sebo y mejora barrera cutánea.",

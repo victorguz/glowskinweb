@@ -137,23 +137,7 @@ export const SERVICES_PRICING: PricingCategory[] = [
       },
     ],
   },
-  {
-    category: "Cuidado de Labios",
-    description:
-      "Tratamientos para revitalizar y mejorar la apariencia de los labios.",
-    items: [
-      {
-        name: "Glow Lips",
-        price: cop(120_000),
-        detail: "Revitaliza, neutraliza y devuelve la vida a tus labios.",
-      },
-      {
-        name: "Tratamiento 3 Sesiones Glow Lips",
-        price: cop(300_000),
-        detail: "Resultado óptimo y duradero en la revitalización labial.",
-      },
-    ],
-  },
+  // Categoría Cuidado de Labios eliminada
 ];
 
 /** Nombres planos de tratamientos (formularios / leads). */

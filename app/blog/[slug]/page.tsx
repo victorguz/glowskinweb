@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { Calendar } from 'lucide-react';
-import { BlogArticleBody } from '@/app/components/blog/BlogArticleBody';
-import { getAllBlogSlugs, getPostBySlug } from '@/lib/blog/posts';
-import { getSiteUrl, SITE_NAME } from '@/lib/seo/site';
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Calendar } from "lucide-react";
+import { BlogArticleBody } from "@/app/components/blog/BlogArticleBody";
+import { getAllBlogSlugs, getPostBySlug } from "@/lib/blog/posts";
+import { getSiteUrl, SITE_NAME } from "@/lib/seo/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) {
-    return { title: 'Artículo' };
+    return { title: "Artículo" };
   }
   const url = `${getSiteUrl()}/blog/${slug}`;
   return {
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [...post.keywords],
     alternates: { canonical: url },
     openGraph: {
-      type: 'article',
-      locale: 'es_CO',
+      type: "article",
+      locale: "es_CO",
       url,
       siteName: SITE_NAME,
       title: post.title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.title,
       description: post.description,
       images: [post.image],
@@ -52,30 +52,33 @@ export default async function BlogPostPage({ params }: Props) {
 
   const url = `${getSiteUrl()}/blog/${slug}`;
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
     datePublished: post.datePublished,
     author: {
-      '@type': 'Person',
-      name: 'Sofía Nieto',
+      "@type": "Person",
+      name: "Sofía Nieto",
     },
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: SITE_NAME,
-        logo: {
-        '@type': 'ImageObject',
+      logo: {
+        "@type": "ImageObject",
         url: `${getSiteUrl()}/files/glow-skin-sofia-nieto-logo-horizontal.png`,
       },
     },
     image: [post.image],
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] selection:bg-[#d4b499] selection:text-white">
         <header className="pt-24 md:pt-28 pb-12 text-center container mx-auto px-6">
           <div className="flex flex-col items-center max-w-4xl mx-auto">
@@ -100,11 +103,14 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-[#a5846e]">
               <span className="inline-flex items-center gap-2">
                 <Calendar size={14} aria-hidden />
-                {new Date(`${post.datePublished}T12:00:00`).toLocaleDateString('es-CO', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}
+                {new Date(`${post.datePublished}T12:00:00`).toLocaleDateString(
+                  "es-CO",
+                  {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  },
+                )}
               </span>
               <span className="w-1 h-1 rounded-full bg-[#d4b499]" aria-hidden />
               <span>{post.readTimeLabel} lectura</span>

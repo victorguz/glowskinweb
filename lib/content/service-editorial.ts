@@ -186,22 +186,7 @@ const BY_ID: Record<string, ServiceEditorialBlock> = {
     ],
     relatedArticle: blogIndexArticle(),
   },
-  "glow-lips": {
-    eyebrow: "Zona labial",
-    title: "Revitalización y aspecto saludable de labios",
-    paragraphs: [
-      "Tratamiento focal para labios secos, opacos o con líneas finas; combina hidratación y activos según el estado de la mucosa y contorno.",
-    ],
-    relatedArticle: facialArticle(),
-  },
-  "tratamiento-3-sesiones-glow-lips": {
-    eyebrow: "Paquete labios",
-    title: "Tres sesiones para resultado óptimo",
-    paragraphs: [
-      "La repetición programada ayuda a mantener humectación y mejora del aspecto cuando el daño acumulado es notable.",
-    ],
-    relatedArticle: facialArticle(),
-  },
+  // Bloques editoriales de labios eliminados
 };
 
 export function getServiceEditorial(

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRight, Calendar } from 'lucide-react';
-import type { BlogListItem } from '@/lib/blog/posts';
+import React from "react";
+import Link from "next/link";
+import { ArrowRight, Calendar } from "lucide-react";
+import type { BlogListItem } from "@/lib/blog/posts";
 
-const BASE_IMG_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
+const BASE_IMG_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
 
 const BLOG_HERO = `${BASE_IMG_URL}/hero/3-glow-skin-hero-servicios-esteticos.webp`;
 
@@ -16,7 +16,6 @@ export function BlogPageClient({ posts }: Props) {
 
   return (
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] overflow-x-hidden selection:bg-[#d4b499] selection:text-white">
-
       <header className="pt-52 pb-32 text-center relative">
         <div className="absolute inset-0 -z-10 opacity-[0.12] pointer-events-none">
           <img src={BLOG_HERO} alt="" className="w-full h-full object-cover" />
@@ -32,7 +31,8 @@ export function BlogPageClient({ posts }: Props) {
             </h1>
             <div className="w-24 h-px bg-[#d4b499] mt-8 mb-12" />
             <p className="text-lg md:text-xl font-medium text-[#7d5a44] max-w-2xl leading-relaxed italic tracking-wide text-balance px-4">
-              Ciencia, bienestar y cuidado facial en Barranquilla — artículos por Sofía Nieto y el equipo Glow Skin.
+              Ciencia, bienestar y cuidado facial en Barranquilla — artículos
+              por Sofía Nieto y el equipo Glow Skin.
             </p>
           </div>
         </div>
@@ -42,7 +42,10 @@ export function BlogPageClient({ posts }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
           {filtered.map((post) => (
             <article key={post.slug} className="group flex flex-col">
-              <Link href={`/blog/${post.slug}`} className="block flex flex-col flex-grow">
+              <Link
+                href={`/blog/${post.slug}`}
+                className="block flex flex-col flex-grow"
+              >
                 <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-10 shadow-[0_30px_80px_rgba(74,50,33,0.12)]">
                   <img
                     src={post.img}
@@ -84,7 +87,9 @@ export function BlogPageClient({ posts }: Props) {
           ))}
         </div>
         {filtered.length === 0 ? (
-          <p className="text-center text-[#7d5a44] mt-16">No hay artículos en esta categoría todavía.</p>
+          <p className="text-center text-[#7d5a44] mt-16">
+            No hay artículos en esta categoría todavía.
+          </p>
         ) : null}
       </section>
 

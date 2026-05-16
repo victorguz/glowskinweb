@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { LeadTrigger } from "@/app/components/marketing/LeadTrigger";
+import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { getServiceEditorial } from "@/lib/content/service-editorial";
 import type { CategoryServicePair } from "@/lib/content/service-utils";
 import { formatServicePrice } from "@/lib/content/service-utils";
@@ -170,13 +170,12 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
               </li>
             ))}
           </ul>
-          <LeadTrigger
-            mode="booking"
+          <BookingCtaButtons
+            className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center"
             suggestedTreatments={[service.name]}
-            className="mt-10 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] transition-colors hover:bg-[#d4b499]"
-          >
-            Agenda tu cita <ArrowRight size={16} />
-          </LeadTrigger>
+            reserveHereClassName="inline-flex w-full items-center justify-center rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] transition-colors hover:bg-[#d4b499] sm:w-auto"
+            reserveWhatsappClassName="inline-flex w-full items-center justify-center rounded-full border border-[#4a3221]/25 bg-white px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#4a3221] transition-colors hover:bg-[#f7f0eb] sm:w-auto"
+          />
           <p className="mt-8 text-center text-sm text-[#7d5a44]">
             <Link
               href="/precios"
@@ -796,13 +795,12 @@ function ProcessAndDetailsSection({
             </div>
           ) : null}
 
-          <LeadTrigger
-            mode="booking"
+          <BookingCtaButtons
+            className="flex flex-col gap-3 sm:flex-row sm:justify-center"
             suggestedTreatments={[service.name]}
-            className="inline-flex items-center gap-4 rounded-full bg-[#4a3221] px-10 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-[#d4b499]"
-          >
-            Agenda tu cita <ArrowRight size={16} />
-          </LeadTrigger>
+            reserveHereClassName="inline-flex items-center justify-center rounded-full bg-[#4a3221] px-10 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-[#d4b499]"
+            reserveWhatsappClassName="inline-flex items-center justify-center rounded-full border border-[#4a3221]/25 bg-white px-10 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#4a3221] transition-all hover:bg-[#f7f0eb]"
+          />
         </div>
       </div>
 
@@ -884,13 +882,12 @@ function DetailsWithoutProcess({
             </li>
           ))}
         </ul>
-        <LeadTrigger
-          mode="booking"
+        <BookingCtaButtons
+          className="flex flex-col gap-3 sm:flex-row sm:justify-center"
           suggestedTreatments={[service.name]}
-          className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] hover:bg-[#d4b499]"
-        >
-          Agenda tu cita <ArrowRight size={16} />
-        </LeadTrigger>
+          reserveHereClassName="inline-flex w-full items-center justify-center rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] hover:bg-[#d4b499] sm:w-auto"
+          reserveWhatsappClassName="inline-flex w-full items-center justify-center rounded-full border border-[#4a3221]/25 bg-white px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#4a3221] hover:bg-[#f7f0eb] sm:w-auto"
+        />
       </div>
     </section>
   );
@@ -929,13 +926,12 @@ function CtaSection({
             {String(data.highlight)}
           </p>
         ) : null}
-        <LeadTrigger
-          mode="booking"
+        <BookingCtaButtons
+          className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           suggestedTreatments={[serviceName]}
-          className="inline-flex items-center gap-2 rounded-full bg-[#4a3221] px-14 py-6 text-xs font-black uppercase tracking-[0.3em] text-[#f7f0eb] shadow-2xl transition-colors hover:bg-[#d4b499]"
-        >
-          Agenda tu cita
-        </LeadTrigger>
+          reserveHereClassName="inline-flex items-center justify-center rounded-full bg-[#4a3221] px-14 py-6 text-xs font-black uppercase tracking-[0.3em] text-[#f7f0eb] shadow-2xl transition-colors hover:bg-[#d4b499]"
+          reserveWhatsappClassName="inline-flex items-center justify-center rounded-full border border-[#4a3221]/25 bg-white px-14 py-6 text-xs font-black uppercase tracking-[0.3em] text-[#4a3221] shadow-xl transition-colors hover:bg-[#f7f0eb]"
+        />
       </div>
     </section>
   );
@@ -1036,13 +1032,12 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
             </p>
           ) : null}
           <div className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <LeadTrigger
-              mode="booking"
+            <BookingCtaButtons
+              className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
               suggestedTreatments={[service.name]}
-              className="rounded-full bg-[#4a3221] px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#f7f0eb] shadow-xl transition-all hover:bg-[#d4b499]"
-            >
-              Agenda tu cita
-            </LeadTrigger>
+              reserveHereClassName="rounded-full bg-[#4a3221] px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#f7f0eb] shadow-xl transition-all hover:bg-[#d4b499]"
+              reserveWhatsappClassName="rounded-full border border-[#4a3221]/20 bg-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#4a3221] shadow-lg transition-all hover:bg-[#f7f0eb]"
+            />
             <a
               href="#detalles"
               className="rounded-full border border-[#4a3221]/20 px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:bg-white"

@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
     } catch {
       return NextResponse.json(
         { success: false, error: "invalid_json" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
               body: upstreamText,
             },
           },
-          { status: 200 }
+          { status: 200 },
         );
       }
 
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
             body: upstreamText,
           },
         },
-        { status: 200 }
+        { status: 200 },
       );
     } catch (fetchError) {
       clearTimeout(timeoutId);
@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
                 : String(fetchError),
           },
         },
-        { status: 200 }
+        { status: 200 },
       );
     }
   } catch (error) {
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
           error: error instanceof Error ? error.message : String(error),
         },
       },
-      { status: 200 }
+      { status: 200 },
     );
   }
 }

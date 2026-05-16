@@ -97,7 +97,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "En el clima de Barranquilla, con altas temperaturas y humedad, es crucial mantener un equilibrio hidrolipídico adecuado. No se trata de aplicar más productos, sino de los correctos para tu tipo de piel.",
+        text: "En el clima de Barranquilla, con altas temperaturas y humedad, es crucial mantener un equilibrio adecuado en la piel. No se trata de aplicar más productos, sino de los correctos para tu tipo de piel.",
       },
       { type: "h3", text: "3. Textura superficial refinada" },
       {

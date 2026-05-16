@@ -1,11 +1,13 @@
-import Link from 'next/link';
-import { MapPin, Clock, Camera, Users } from 'lucide-react';
+"use client";
+import Link from "next/link";
+import { MapPin, Clock, Camera, Users } from "lucide-react";
+import Image from "next/image";
 import {
   SITE_FOOTER_LOGO_URL,
   INSTAGRAM_URL,
   ADDRESS_LINES,
   HOURS_LINES,
-} from '@/app/components/site-config';
+} from "@/app/components/site-config";
 
 export function SiteFooter() {
   return (
@@ -22,8 +24,8 @@ export function SiteFooter() {
             decoding="async"
           />
           <p className="text-[#7d5a44] text-sm leading-relaxed mb-10 opacity-70">
-            Elevando el estándar de la estética facial en Barranquilla con un enfoque humano y
-            científico.
+            Elevando el estándar de la estética facial en Barranquilla con un
+            enfoque humano y científico.
           </p>
           <div className="flex gap-4">
             <a
@@ -33,14 +35,47 @@ export function SiteFooter() {
               aria-label="Instagram"
               className="w-10 h-10 rounded-full bg-[#fbf6f3] flex items-center justify-center text-[#5c3a21] hover:bg-[#5c3a21] hover:text-white transition-all"
             >
-              <Camera size={18} />
+              <Image
+                src="/icons/logo-instagram.svg"
+                alt="Instagram"
+                width={22}
+                height={22}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
-            <a
-              href="#"
-              aria-label="Facebook"
+            <button
+              type="button"
+              aria-label="WhatsApp"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  // @ts-ignore
+                  if (window.__LEAD_FORMS__?.openContact)
+                    window.__LEAD_FORMS__.openContact();
+                }
+              }}
               className="w-10 h-10 rounded-full bg-[#fbf6f3] flex items-center justify-center text-[#5c3a21] hover:bg-[#5c3a21] hover:text-white transition-all"
             >
-              <Users size={18} />
+              <Image
+                src="/icons/logo-whatsapp.svg"
+                alt="WhatsApp"
+                width={22}
+                height={22}
+                priority={false}
+              />
+            </button>
+            <a
+              href="tel:+573008883486"
+              aria-label="Llamar"
+              className="w-10 h-10 rounded-full bg-[#fbf6f3] flex items-center justify-center text-[#5c3a21] hover:bg-[#5c3a21] hover:text-white transition-all"
+            >
+              <Image
+                src="/icons/call-outline.svg"
+                alt="Llamar"
+                width={22}
+                height={22}
+                priority={false}
+              />
             </a>
           </div>
         </div>
@@ -49,13 +84,22 @@ export function SiteFooter() {
             Tratamientos
           </p>
           <div className="flex flex-col gap-4 text-sm font-medium text-[#7d5a44]">
-            <Link href="/#servicios" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/#servicios"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Limpieza Profunda
             </Link>
-            <Link href="/#servicios" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/#servicios"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Control Acné
             </Link>
-            <Link href="/#servicios" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/#servicios"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Peeling Químico
             </Link>
           </div>
@@ -65,16 +109,28 @@ export function SiteFooter() {
             Navegación
           </p>
           <div className="flex flex-col gap-4 text-sm font-medium text-[#7d5a44]">
-            <Link href="/#filosofia" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/#filosofia"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Nosotros
             </Link>
-            <Link href="/casos" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/casos"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Resultados
             </Link>
-            <Link href="/precios" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/precios"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Precios
             </Link>
-            <Link href="/blog" className="hover:text-[#5c3a21] transition-colors">
+            <Link
+              href="/blog"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
               Blog
             </Link>
           </div>

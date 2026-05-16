@@ -5,18 +5,16 @@ import { VslVideoPlayer } from "@/app/components/marketing/VslVideoPlayer";
 import { InstagramEmbed } from "@/app/components/marketing/InstagramEmbed";
 import {
   ChevronDown,
-  MessageCircle,
   Sparkles,
-  ArrowRight,
   CheckCircle2,
   Quote,
   AlertCircle,
   Calendar,
-  ArrowUpRight,
   Star,
   Shield,
   Clock,
 } from "lucide-react";
+import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 
 const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
 
@@ -46,16 +44,6 @@ const IMGS = {
   gallery2: `${CDN}/images/gallery/glow-skin-gallery-antes-despues-2.webp`,
 };
 
-const BOOKING = {
-  basica:
-    "https://app.vyvapos.com/a/glowskinbq/7b2fb297-15ad-4aae-84e5-42c82c34cc7a",
-  seborreguladora:
-    "https://app.vyvapos.com/a/glowskinbq/6af93343-fbb4-47a0-b947-be94023e2c38",
-  intensivo:
-    "https://app.vyvapos.com/a/glowskinbq/a5dd0703-15b3-4b57-a85b-5aa5afaf7422",
-  whatsapp: "https://wa.link/h5481r",
-};
-
 const HERO_VSL = {
   videoUrl: "https://www.youtube.com/shorts/-RD-tayxRbM",
   title: "Método Glow Skin",
@@ -82,14 +70,11 @@ export default function GlowSkinMethodVSL() {
       >
         <div className="flex justify-between items-center max-w-md mx-auto">
           <img src={IMGS.logo} className="h-8" alt="Glow Skin" />
-          <a
-            href={BOOKING.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#4a3221] text-[#f7f0eb] px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg"
-          >
-            Agendar
-          </a>
+          <BookingCtaButtons
+            className="flex items-center gap-2"
+            reserveHereClassName="bg-[#4a3221] text-[#f7f0eb] px-4 py-2 rounded-full text-[8px] font-black uppercase tracking-widest shadow-lg"
+            reserveWhatsappClassName="border border-[#4a3221]/25 bg-white text-[#4a3221] px-4 py-2 rounded-full text-[8px] font-black uppercase tracking-widest shadow-lg"
+          />
         </div>
       </nav>
 
@@ -143,14 +128,11 @@ export default function GlowSkinMethodVSL() {
             ))}
           </div>
 
-          <a
-            href={BOOKING.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full bg-[#4a3221] text-[#f7f0eb] py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-xl active:scale-95 transition-all flex items-center justify-center gap-3 mb-10"
-          >
-            Quiero mi piel libre de acné <ArrowUpRight size={16} />
-          </a>
+          <BookingCtaButtons
+            className="mb-10 flex w-full flex-col gap-3"
+            reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-6 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-xl active:scale-95 transition-all text-center"
+            reserveWhatsappClassName="w-full border border-[#4a3221]/20 bg-white text-[#4a3221] py-6 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
+          />
 
           <button
             onClick={() =>
@@ -243,14 +225,11 @@ export default function GlowSkinMethodVSL() {
             </p>
           </div>
 
-          <a
-            href={BOOKING.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-xl active:scale-95 transition-all flex items-center justify-center gap-3"
-          >
-            Quiero resultados como este <ArrowUpRight size={15} />
-          </a>
+          <BookingCtaButtons
+            className="flex w-full flex-col gap-3"
+            reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-xl active:scale-95 transition-all text-center"
+            reserveWhatsappClassName="w-full border border-[#4a3221]/20 bg-white text-[#4a3221] py-5 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
+          />
 
           <InstagramEmbed
             permalink="https://www.instagram.com/reel/DUKDP1jEbPS/"
@@ -521,14 +500,11 @@ export default function GlowSkinMethodVSL() {
             ))}
           </div>
 
-          <a
-            href={BOOKING.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-xl active:scale-95 transition-all flex items-center justify-center gap-3"
-          >
-            Empezar mi proceso hoy <ArrowUpRight size={15} />
-          </a>
+          <BookingCtaButtons
+            className="flex w-full flex-col gap-3"
+            reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-xl active:scale-95 transition-all text-center"
+            reserveWhatsappClassName="w-full border border-[#4a3221]/20 bg-white text-[#4a3221] py-5 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
+          />
         </div>
       </section>
 
@@ -648,14 +624,11 @@ export default function GlowSkinMethodVSL() {
                   Por sesión
                 </p>
               </div>
-              <a
-                href={BOOKING.basica}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full border border-[#d4b499]/40 text-[#d4b499] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2 hover:bg-[#d4b499]/10 transition-colors"
-              >
-                Agendar esta sesión <ArrowRight size={14} />
-              </a>
+              <BookingCtaButtons
+                className="flex flex-col gap-3"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-[#d4b499]/10 transition-colors"
+                reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
+              />
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
@@ -675,14 +648,11 @@ export default function GlowSkinMethodVSL() {
                   Por sesión
                 </p>
               </div>
-              <a
-                href={BOOKING.seborreguladora}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full border border-[#d4b499]/40 text-[#d4b499] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2 hover:bg-[#d4b499]/10 transition-colors"
-              >
-                Agendar esta sesión <ArrowRight size={14} />
-              </a>
+              <BookingCtaButtons
+                className="flex flex-col gap-3"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-[#d4b499]/10 transition-colors"
+                reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
+              />
             </div>
 
             <div className="bg-[#d4b499] text-[#4a3221] rounded-3xl p-8 relative overflow-hidden">
@@ -722,25 +692,19 @@ export default function GlowSkinMethodVSL() {
                   </p>
                 </div>
               </div>
-              <a
-                href={BOOKING.intensivo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2 shadow-xl active:scale-95 transition-all"
-              >
-                Quiero este programa <ArrowUpRight size={14} />
-              </a>
+              <BookingCtaButtons
+                className="flex flex-col gap-3"
+                reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center shadow-xl active:scale-95 transition-all"
+                reserveWhatsappClassName="w-full border border-[#4a3221]/30 bg-white/50 text-[#4a3221] py-5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center transition-all"
+              />
             </div>
           </div>
 
-          <a
-            href={BOOKING.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 w-full border border-white/20 text-white/70 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2 hover:border-white/40 transition-colors"
-          >
-            <MessageCircle size={14} /> ¿No sabes cuál elegir? Consúltanos
-          </a>
+          <BookingCtaButtons
+            className="mt-8 flex w-full flex-col gap-3"
+            reserveHereClassName="w-full border border-white/20 text-white/70 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:border-white/40 transition-colors"
+            reserveWhatsappClassName="w-full border border-white/40 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
+          />
         </div>
       </section>
 
@@ -760,14 +724,11 @@ export default function GlowSkinMethodVSL() {
               ¿La tuya cuándo es?
             </strong>
           </p>
-          <a
-            href={BOOKING.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full bg-[#4a3221] text-[#f7f0eb] py-7 rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-2xl active:scale-95 transition-all flex items-center justify-center gap-4 mb-4"
-          >
-            Agendar mi valoración <ArrowUpRight size={18} />
-          </a>
+          <BookingCtaButtons
+            className="mb-4 flex w-full flex-col gap-3"
+            reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-7 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-2xl active:scale-95 transition-all text-center"
+            reserveWhatsappClassName="w-full border border-[#4a3221]/25 bg-white text-[#4a3221] py-7 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
+          />
           <p className="text-[9px] text-[#a5846e] uppercase tracking-widest mb-16">
             Sin compromiso · Diagnóstico profesional
           </p>
@@ -785,16 +746,6 @@ export default function GlowSkinMethodVSL() {
           © 2026 Glow Skin Barranquilla · Método Anti-Acné
         </p>
       </footer>
-
-      {/* WhatsApp Float */}
-      <a
-        href={BOOKING.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-10 right-6 z-[100] bg-[#25d366] text-white p-4 rounded-full shadow-[0_15px_40px_rgba(37,211,102,0.4)] active:scale-90 transition-transform"
-      >
-        <MessageCircle size={28} />
-      </a>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');
