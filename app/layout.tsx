@@ -6,8 +6,19 @@ import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteWhatsappButton } from "@/app/components/SiteWhatsappButton";
 import { LeadFormsProvider } from "@/app/components/marketing/LeadFormsProvider";
 import { FacebookPixelRoot } from "@/app/components/marketing/FacebookPixelRoot";
-import { INSTAGRAM_URL, PHONE_TEL, WA_LINK } from "@/app/components/site-config";
-import { DEFAULT_KEYWORDS, getSiteUrl, LOCAL_SEO, SITE_NAME, SITE_TAGLINE } from "@/lib/seo/site";
+import landingPages from "@/app/landing-pages.config";
+import {
+  INSTAGRAM_URL,
+  PHONE_TEL,
+  WA_LINK,
+} from "@/app/components/site-config";
+import {
+  DEFAULT_KEYWORDS,
+  getSiteUrl,
+  LOCAL_SEO,
+  SITE_NAME,
+  SITE_TAGLINE,
+} from "@/lib/seo/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -81,7 +92,14 @@ const jsonLd = {
       openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
           opens: "08:00",
           closes: "18:00",
         },
@@ -105,9 +123,10 @@ const jsonLd = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  // Detectar si la ruta actual es una landing page
+  // next/navigation sólo funciona en componentes Client, así que necesitamos un wrapper
+  // para condicionar el renderizado de header/footer
   return (
     <html
       lang="es-CO"
@@ -122,10 +141,7 @@ export default function RootLayout({
         />
         <LeadFormsProvider>
           <FacebookPixelRoot />
-          <SiteHeader />
-          <main className="flex-1 w-full min-h-0">{children}</main>
-          <SiteFooter />
-          <SiteWhatsappButton />
+          <LayoutContent>{children}</LayoutContent>
         </LeadFormsProvider>
         <Script
           id="metricool-be"
@@ -137,5 +153,26 @@ export default function RootLayout({
         />
       </body>
     </html>
+  );
+}
+
+// Wrapper Client Component para condicionar header/footer
+import React from "react";
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  // next/navigation sólo en client components
+  // fallback: mostrar header/footer si no se puede detectar pathname
+  let pathname = "";
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    pathname = typeof window !== "undefined" ? window.location.pathname : "";
+  } catch {}
+  const isLanding = landingPages.includes(pathname);
+  return (
+    <>
+      {!isLanding && <SiteHeader />}
+      <main className="flex-1 w-full min-h-0">{children}</main>
+      {!isLanding && <SiteFooter />}
+      {!isLanding && <SiteWhatsappButton />}
+    </>
   );
 }

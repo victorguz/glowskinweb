@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import { MapPin, Clock, Camera, Users } from "lucide-react";
+import landingPages from "@/app/landing-pages.config";
+import { usePathname } from "next/navigation";
+import { MapPin, Clock } from "lucide-react";
 import Image from "next/image";
 import {
   SITE_FOOTER_LOGO_URL,
@@ -10,11 +12,15 @@ import {
 } from "@/app/components/site-config";
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  // ... otros hooks si los hay
+  if (landingPages.includes(pathname)) return <></>;
   return (
     <footer className="bg-white pt-32 pb-12 border-t border-[#f1e4dc]">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
         <div>
-          <img
+          {/* Considera usar <Image /> de next/image para optimización */}
+          <Image
             src={SITE_FOOTER_LOGO_URL}
             alt="Glow Skin by Sofía Nieto Aesthetics: logo con iniciales GS y perfil facial minimalista"
             width={160}
@@ -33,7 +39,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-10 h-10 rounded-full bg-[#fbf6f3] flex items-center justify-center text-[#5c3a21] hover:bg-[#5c3a21] hover:text-white transition-all"
+              className="w-10 h-10 rounded-full bg-[#fbf6f3] flex items-center justify-center text-[#5c3a21] hover:bg-[#5c3a21] hover:text-white"
             >
               <Image
                 src="/icons/logo-instagram.svg"
@@ -49,7 +55,7 @@ export function SiteFooter() {
               aria-label="WhatsApp"
               onClick={() => {
                 if (typeof window !== "undefined") {
-                  // @ts-ignore
+                  // @ts-expect-error
                   if (window.__LEAD_FORMS__?.openContact)
                     window.__LEAD_FORMS__.openContact();
                 }

@@ -104,6 +104,7 @@ export default function PreciosPage() {
                             reserveWhatsappClassName={
                               preciosReservaBtnClassName
                             }
+                            whatsappContext={item.name}
                           />
                         </div>
                       </div>
@@ -124,6 +125,7 @@ export default function PreciosPage() {
                                   reserveWhatsappClassName={
                                     preciosReservaBtnClassName
                                   }
+                                  whatsappContext={item.name}
                                 />
                               }
                             />
@@ -139,7 +141,7 @@ export default function PreciosPage() {
         </section>
       </div>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,600&display=swap');
+        /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
         .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; }

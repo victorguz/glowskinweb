@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import landingPages from "@/app/landing-pages.config";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -34,7 +35,7 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [viewportH, setViewportH] = useState(800);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  // const [servicesOpen, setServicesOpen] = useState(false); // Eliminado: no se usa
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -67,7 +68,7 @@ export function SiteHeader() {
       return;
     }
     setIsMenuOpen(false);
-    setServicesOpen(false);
+    // setServicesOpen(false); // Eliminado: no se usa
   }, [pathname]);
 
   useEffect(() => {
@@ -76,7 +77,7 @@ export function SiteHeader() {
         dropdownRef.current &&
         !dropdownRef.current.contains(e.target as Node)
       ) {
-        setServicesOpen(false);
+        // setServicesOpen(false); // Eliminado: no se usa
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -91,19 +92,21 @@ export function SiteHeader() {
     };
   }, [isMenuOpen]);
 
+  if (landingPages.includes(pathname)) return <></>;
+
   const linkClass = (active: boolean) =>
     onDarkHero
       ? active
         ? "text-white border-b border-[#d4b499] pb-0.5"
-        : "text-white/90 hover:text-white transition-all"
+        : "text-white/90 hover:text-white"
       : active
         ? "text-[#5c3a21] border-b border-[#a5846e] pb-0.5"
-        : "text-[#7d5a44] hover:text-[#5c3a21] transition-all";
+        : "text-[#7d5a44] hover:text-[#5c3a21]";
 
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-700 ${
+        className={`fixed top-0 w-full z-50 ${
           useGlassNav
             ? "bg-white/80 backdrop-blur-xl border-b border-[#a5846e]/10 py-3 shadow-lg"
             : "bg-transparent py-6"
@@ -117,7 +120,7 @@ export function SiteHeader() {
                 alt="Glow Skin"
                 height={48}
                 width={160}
-                className={`h-full w-auto transition-[filter] duration-500 ${onDarkHero ? "brightness-0 invert" : ""}`}
+                className={`h-full w-auto ${onDarkHero ? "brightness-0 invert" : ""}`}
                 priority
                 unoptimized={SITE_LOGO_URL.startsWith("http")}
               />
@@ -141,12 +144,12 @@ export function SiteHeader() {
           <div className="hidden md:flex items-center gap-6">
             <BookingCtaButtons
               className="flex items-center gap-3"
-              reserveHereClassName={`px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold transition-all shadow-xl transform active:scale-95 ${
+              reserveHereClassName={`px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold shadow-xl ${
                 onDarkHero
                   ? "bg-[#f7f0eb] text-[#4a3221] hover:bg-white shadow-black/20"
                   : "bg-[#5c3a21] text-white hover:bg-[#a5846e] shadow-[#5c3a21]/20"
               }`}
-              reserveWhatsappClassName={`px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold transition-all border ${
+              reserveWhatsappClassName={`px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold border ${
                 onDarkHero
                   ? "border-white/40 text-white hover:bg-white/10"
                   : "border-[#5c3a21]/30 text-[#5c3a21] hover:bg-[#f7f0eb]"
@@ -156,7 +159,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className={`lg:hidden p-2 transition-colors ${onDarkHero ? "text-white" : "text-[#5c3a21]"}`}
+            className={`lg:hidden p-2 ${onDarkHero ? "text-white" : "text-[#5c3a21]"}`}
             aria-label="Abrir menú"
             onClick={() => setIsMenuOpen(true)}
           >
@@ -167,7 +170,7 @@ export function SiteHeader() {
 
       {/* Mobile menu — dos pantallas deslizantes */}
       <div
-        className={`fixed inset-0 bg-white z-[60] flex flex-col overflow-hidden transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 bg-white z-[60] flex flex-col overflow-hidden lg:hidden ${
           isMenuOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -203,7 +206,7 @@ export function SiteHeader() {
 
         {/* Carrusel de dos pantallas */}
         <div
-          className="flex flex-1 min-h-0 transition-transform duration-500 ease-in-out"
+          className="flex flex-1 min-h-0"
           style={{
             width: "200%",
             transform: mobileServicesOpen

@@ -1,0 +1,9 @@
+/* CSS no crítico para carga diferida */
+
+@media (min-width: 640px) {
+  .whatsapp-fab {
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.4);
+  }
+}
+
+/* Puedes mover aquí animaciones, helpers, o estilos secundarios */

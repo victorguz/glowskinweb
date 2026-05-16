@@ -235,7 +235,7 @@ export default function NosotrosPage() {
 
       {/* Custom Styles */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@100;400;700;900&family=Cormorant+Garamond:ital,wght@1,300;1,600&display=swap');
+        /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
         .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; }

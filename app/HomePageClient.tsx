@@ -81,7 +81,7 @@ export default function HomePageClient() {
             <img
               key={idx}
               src={img}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ${idx === currentHero ? "opacity-100" : "opacity-0"}`}
+              className={`absolute inset-0 w-full h-full object-cover ${idx === currentHero ? "opacity-100" : "opacity-0"}`}
               alt=""
             />
           ))} */}
@@ -108,8 +108,8 @@ export default function HomePageClient() {
             </small>
             <BookingCtaButtons
               className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-              reserveHereClassName="bg-[#4a3221] text-[#f7f0eb] px-12 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#d4b499] transition-all shadow-2xl hover:-translate-y-1"
-              reserveWhatsappClassName="bg-white text-[#4a3221] border border-[#4a3221]/20 px-12 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#f0e5dd] transition-all shadow-xl hover:-translate-y-1"
+              reserveHereClassName="bg-[#4a3221] text-[#f7f0eb] px-12 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#d4b499] shadow-2xl"
+              reserveWhatsappClassName="bg-white text-[#4a3221] border border-[#4a3221]/20 px-12 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-[#f0e5dd] shadow-xl"
             />
           </div>
         </div>
@@ -338,7 +338,7 @@ export default function HomePageClient() {
       </section>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+        /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
         .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; }

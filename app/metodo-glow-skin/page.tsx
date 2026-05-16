@@ -15,11 +15,12 @@ import {
   Clock,
 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
+import { SITE_LOGO_URL } from "../components/site-config";
 
 const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
 
 const IMGS = {
-  logo: `${CDN}/images/logo/glow-skin-logo.png`,
+  logo: `${SITE_LOGO_URL}`,
   heroMethod: `${CDN}/images/methods/1-metodo-anti-acne.webp`,
   method1: `${CDN}/metodo-glow-skin/extraccion-manual-cuidadosa.png`,
   method2: `${CDN}/metodo-glow-skin/mascarilla-descongestiva.png`,
@@ -68,12 +69,12 @@ export default function GlowSkinMethodVSL() {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-500 px-6 ${isScrolled ? "bg-white/95 py-4 shadow-sm" : "bg-transparent py-8"}`}
       >
-        <div className="flex justify-between items-center max-w-md mx-auto">
-          <img src={IMGS.logo} className="h-8" alt="Glow Skin" />
-          <BookingCtaButtons
-            className="flex items-center gap-2"
-            reserveHereClassName="bg-[#4a3221] text-[#f7f0eb] px-4 py-2 rounded-full text-[8px] font-black uppercase tracking-widest shadow-lg"
-            reserveWhatsappClassName="border border-[#4a3221]/25 bg-white text-[#4a3221] px-4 py-2 rounded-full text-[8px] font-black uppercase tracking-widest shadow-lg"
+        <div className="flex justify-center items-center max-w-md mx-auto">
+          <img
+            src={IMGS.logo}
+            className="h-13"
+            alt="Glow Skin"
+            loading="lazy"
           />
         </div>
       </nav>
@@ -81,9 +82,9 @@ export default function GlowSkinMethodVSL() {
       {/* SECTION 1: HERO / PAIN */}
       <section className="pt-40 pb-20 px-6">
         <div className="flex flex-col items-center max-w-md mx-auto text-center animate-reveal">
-          <h1 className="text-[10vw] font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221]">
+          <h1 className="text-6xl font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221]">
             ¿Te cansaste
-            <span className="block font-script text-[14vw] text-[#d4b499] -mt-1 lowercase italic">
+            <span className="block font-script text-7xl text-[#d4b499] -mt-1 lowercase italic">
               de luchar
             </span>
             con el acné?
@@ -132,6 +133,7 @@ export default function GlowSkinMethodVSL() {
             className="mb-10 flex w-full flex-col gap-3"
             reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-6 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-xl active:scale-95 transition-all text-center"
             reserveWhatsappClassName="w-full border border-[#4a3221]/20 bg-white text-[#4a3221] py-6 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
+            whatsappContext="metodo-glow-skin"
           />
 
           <button
@@ -260,7 +262,7 @@ export default function GlowSkinMethodVSL() {
             {[
               {
                 num: "01",
-                tag: "Fase 1 — Siempre",
+                tag: "Fase 1 — Descarga bacteriana",
                 title: "Limpieza Anti-acné Profunda",
                 desc: "Una desincrustación técnica que va mucho más allá de la limpieza convencional. Adaptada para no generar hinchazón extrema ni dolor innecesario — tu piel sale limpia, no traumatizada.",
                 img: IMGS.method1,
@@ -273,7 +275,7 @@ export default function GlowSkinMethodVSL() {
               },
               {
                 num: "02",
-                tag: "Fase 2 — Acompañada",
+                tag: "Fase 2 — Volver a la calma",
                 title: "Peeling Seborregulador",
                 desc: "Aplicamos activos bactericidas que eliminan la bacteria del acné desde adentro. Reduce el brillo excesivo, equilibra la producción de sebo y empieza a aclarar manchas desde la primera sesión.",
                 img: IMGS.method2,
@@ -286,7 +288,7 @@ export default function GlowSkinMethodVSL() {
               },
               {
                 num: "03",
-                tag: "Fase 3 — Cuando el acné está seco",
+                tag: "Fase 3 — Restauración y Glow",
                 title: "Restauración con Microneedling",
                 desc: "Una vez controlado el acné activo, rellenamos marcas y eliminamos manchas profundas. Las cicatrices se cierran gradualmente y la piel recupera su textura natural con el efecto Glow.",
                 img: IMGS.method3,
@@ -443,7 +445,7 @@ export default function GlowSkinMethodVSL() {
           </div>
 
           <div className="grid grid-cols-3 gap-2 mb-3">
-            {[IMGS.carla1, IMGS.carla2, IMGS.carla3].map((img, i) => (
+            {[IMGS.carla3, IMGS.carla1, IMGS.carla2].map((img, i) => (
               <div
                 key={i}
                 className="rounded-2xl overflow-hidden aspect-square shadow-lg"
@@ -515,12 +517,7 @@ export default function GlowSkinMethodVSL() {
             Más resultados reales
           </p>
           <div className="grid grid-cols-2 gap-4">
-            {[
-              IMGS.resultado1,
-              IMGS.resultado2,
-              IMGS.gallery1,
-              IMGS.gallery2,
-            ].map((img, i) => (
+            {[IMGS.resultado1, IMGS.resultado2].map((img, i) => (
               <div
                 key={i}
                 className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4]"
@@ -748,7 +745,7 @@ export default function GlowSkinMethodVSL() {
       </footer>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+        /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */
         html { scroll-behavior: smooth; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }

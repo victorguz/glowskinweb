@@ -175,6 +175,7 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
             suggestedTreatments={[service.name]}
             reserveHereClassName="inline-flex w-full items-center justify-center rounded-full bg-[#4a3221] px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#f7f0eb] transition-colors hover:bg-[#d4b499] sm:w-auto"
             reserveWhatsappClassName="inline-flex w-full items-center justify-center rounded-full border border-[#4a3221]/25 bg-white px-8 py-5 text-[10px] font-black uppercase tracking-[0.3em] text-[#4a3221] transition-colors hover:bg-[#f7f0eb] sm:w-auto"
+            whatsappContext={service.name}
           />
           <p className="mt-8 text-center text-sm text-[#7d5a44]">
             <Link
@@ -1059,7 +1060,7 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
       )}
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+        /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
         .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; }

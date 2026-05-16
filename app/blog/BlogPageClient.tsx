@@ -18,7 +18,12 @@ export function BlogPageClient({ posts }: Props) {
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] overflow-x-hidden selection:bg-[#d4b499] selection:text-white">
       <header className="pt-52 pb-32 text-center relative">
         <div className="absolute inset-0 -z-10 opacity-[0.12] pointer-events-none">
-          <img src={BLOG_HERO} alt="" className="w-full h-full object-cover" />
+          <img
+            src={BLOG_HERO}
+            alt=""
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center">
@@ -94,7 +99,7 @@ export function BlogPageClient({ posts }: Props) {
       </section>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap');
+        /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */
         html { scroll-behavior: smooth; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Montserrat', sans-serif; }
