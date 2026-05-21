@@ -1,20 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import landingPages from "@/app/landing-pages.config";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { SITE_LOGO_URL } from "@/app/components/site-config";
-import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
+import { LeadTrigger } from "@/app/components/marketing/LeadTrigger";
+import { SERVICES_DATA } from "@/lib/content/services";
+import landingPages from "@/app/landing-pages.config";
+
+const SERVICES_MENU = SERVICES_DATA.categories
+  .map((cat) => ({
+    category: cat.title,
+    items: cat.services.map((s) => ({
+      label: s.name,
+      href: `/servicios/${s.id}`,
+    })),
+  }))
+  .filter((g) => g.items.length > 0);
 
 const NAV_LINKS: {
   label: string;
   href: string;
   match: (path: string) => boolean;
 }[] = [
-  { label: "Servicios", href: "/servicios", match: (p) => p === "/servicios" },
   { label: "Nosotros", href: "/nosotros", match: (p) => p === "/nosotros" },
   { label: "Precios", href: "/precios", match: (p) => p === "/precios" },
   { label: "Blog", href: "/blog", match: (p) => p.startsWith("/blog") },
@@ -32,10 +41,11 @@ function getScrollY() {
 
 export function SiteHeader() {
   const pathname = usePathname();
+  if (landingPages.includes(pathname)) return <></>;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [viewportH, setViewportH] = useState(800);
-  // const [servicesOpen, setServicesOpen] = useState(false); // Eliminado: no se usa
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -60,15 +70,9 @@ export function SiteHeader() {
     pathname === "/nosotros" ? nosotrosPastHero : scrollY > 80;
   const onDarkHero = pathname === "/nosotros" && !nosotrosPastHero;
 
-  // Evita setState directo en efecto: usa un flag para evitar render en el primer montaje
   useEffect(() => {
-    let first = true;
-    if (first) {
-      first = false;
-      return;
-    }
     setIsMenuOpen(false);
-    // setServicesOpen(false); // Eliminado: no se usa
+    setServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -77,7 +81,7 @@ export function SiteHeader() {
         dropdownRef.current &&
         !dropdownRef.current.contains(e.target as Node)
       ) {
-        // setServicesOpen(false); // Eliminado: no se usa
+        setServicesOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -92,21 +96,19 @@ export function SiteHeader() {
     };
   }, [isMenuOpen]);
 
-  if (landingPages.includes(pathname)) return <></>;
-
   const linkClass = (active: boolean) =>
     onDarkHero
       ? active
         ? "text-white border-b border-[#d4b499] pb-0.5"
-        : "text-white/90 hover:text-white"
+        : "text-white/90 hover:text-white transition-all"
       : active
         ? "text-[#5c3a21] border-b border-[#a5846e] pb-0.5"
-        : "text-[#7d5a44] hover:text-[#5c3a21]";
+        : "text-[#7d5a44] hover:text-[#5c3a21] transition-all";
 
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-700 ${
           useGlassNav
             ? "bg-white/80 backdrop-blur-xl border-b border-[#a5846e]/10 py-3 shadow-lg"
             : "bg-transparent py-6"
@@ -115,14 +117,10 @@ export function SiteHeader() {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-8 lg:gap-12">
             <Link href="/" className="h-10 md:h-12 shrink-0">
-              <Image
+              <img
                 src={SITE_LOGO_URL}
                 alt="Glow Skin"
-                height={48}
-                width={160}
-                className={`h-full w-auto ${onDarkHero ? "brightness-0 invert" : ""}`}
-                priority
-                unoptimized={SITE_LOGO_URL.startsWith("http")}
+                className={`h-full w-auto transition-[filter] duration-500 ${onDarkHero ? "brightness-0 invert" : ""}`}
               />
             </Link>
             <div className="hidden lg:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-bold">
@@ -142,24 +140,31 @@ export function SiteHeader() {
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            <BookingCtaButtons
-              className="flex items-center gap-3"
-              reserveHereClassName={`px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold shadow-xl ${
+            <LeadTrigger
+              mode="contact"
+              className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-colors ${
+                onDarkHero
+                  ? "text-white/90 hover:text-white"
+                  : "text-[#a5846e] hover:text-[#5c3a21]"
+              }`}
+            >
+              ESCRÍBENOS
+            </LeadTrigger>
+            <LeadTrigger
+              mode="booking"
+              className={`px-8 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-bold transition-all shadow-xl transform active:scale-95 ${
                 onDarkHero
                   ? "bg-[#f7f0eb] text-[#4a3221] hover:bg-white shadow-black/20"
                   : "bg-[#5c3a21] text-white hover:bg-[#a5846e] shadow-[#5c3a21]/20"
               }`}
-              reserveWhatsappClassName={`px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold border ${
-                onDarkHero
-                  ? "border-white/40 text-white hover:bg-white/10"
-                  : "border-[#5c3a21]/30 text-[#5c3a21] hover:bg-[#f7f0eb]"
-              }`}
-            />
+            >
+              Reservar Ahora
+            </LeadTrigger>
           </div>
 
           <button
             type="button"
-            className={`lg:hidden p-2 ${onDarkHero ? "text-white" : "text-[#5c3a21]"}`}
+            className={`lg:hidden p-2 transition-colors ${onDarkHero ? "text-white" : "text-[#5c3a21]"}`}
             aria-label="Abrir menú"
             onClick={() => setIsMenuOpen(true)}
           >
@@ -206,7 +211,7 @@ export function SiteHeader() {
 
         {/* Carrusel de dos pantallas */}
         <div
-          className="flex flex-1 min-h-0"
+          className="flex flex-1 min-h-0 transition-transform duration-500 ease-in-out"
           style={{
             width: "200%",
             transform: mobileServicesOpen
@@ -216,6 +221,15 @@ export function SiteHeader() {
         >
           {/* Pantalla 1: menú principal */}
           <div className="w-1/2 flex flex-col overflow-y-auto overscroll-contain px-8 pb-12">
+            <button
+              type="button"
+              onClick={() => setMobileServicesOpen(true)}
+              className="flex w-full items-center justify-between border-b border-[#d4b499]/15 py-5 text-4xl font-serif text-[#5c3a21]"
+            >
+              Servicios
+              <ChevronDown size={22} className="-rotate-90" />
+            </button>
+
             {NAV_LINKS.map(({ label, href }) => {
               const isAnchor = href.startsWith("/#");
               return (
@@ -247,11 +261,50 @@ export function SiteHeader() {
               );
             })}
 
-            <BookingCtaButtons
-              className="mt-10 flex flex-col gap-3"
-              reserveHereClassName="bg-[#5c3a21] text-white px-10 py-4 rounded-full text-sm font-bold text-center uppercase tracking-[0.2em]"
-              reserveWhatsappClassName="border border-[#5c3a21]/30 text-[#5c3a21] px-10 py-4 rounded-full text-sm font-bold text-center uppercase tracking-[0.2em]"
-            />
+            <LeadTrigger
+              mode="booking"
+              className="mt-10 bg-[#5c3a21] text-white px-12 py-5 rounded-full text-lg font-bold text-center"
+            >
+              Agenda tu Cita
+            </LeadTrigger>
+          </div>
+
+          {/* Pantalla 2: lista de servicios */}
+          <div className="w-1/2 flex flex-col overflow-y-auto overscroll-contain px-8 pb-12">
+            <p className="mb-2 text-[9px] font-black uppercase tracking-[0.35em] text-[#d4b499]">
+              Nuestros servicios
+            </p>
+            {SERVICES_MENU.flatMap((group) =>
+              group.items.map((item) => (
+                <div
+                  key={item.href}
+                  className="border-b border-[#d4b499]/15 py-5"
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setMobileServicesOpen(false);
+                    }}
+                    className="block text-4xl font-serif text-[#5c3a21]"
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              )),
+            )}
+            <div className="border-b border-[#d4b499]/15 py-5">
+              <Link
+                href="/servicios"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setMobileServicesOpen(false);
+                }}
+                className="block text-4xl font-serif text-[#a5846e]"
+              >
+                Ver todos
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -34,6 +34,21 @@ function getWhatsappMessage(context?: string) {
   if (context === "limpieza-anti-acne-seborreguladora") {
     return "Hola, me gustaría agendar una cita de Limpieza Anti-Acné Seborreguladora del Método Glow Skin. Mi nombre es _____";
   }
+  if (context === "limpieza-facial") {
+    return "Hola, me gustaría agendar una Limpieza Facial en Glow Skin. Mi nombre es _____";
+  }
+  if (context === "antiox-peel-pro") {
+    return "Hola, me gustaría agendar una cita de Antiox Peel Pro en Glow Skin. Mi nombre es _____";
+  }
+  if (context === "anti-acne") {
+    return "Hola, me gustaría agendar una cita de Tratamiento Anti-Acné en Glow Skin. Mi nombre es _____";
+  }
+  if (context === "microneedling") {
+    return "Hola, me gustaría agendar una cita de Microneedling en Glow Skin. Mi nombre es _____";
+  }
+  if (context === "porcelanizacion-facial") {
+    return "Hola, me gustaría agendar una cita de Porcelanización Facial en Glow Skin. Mi nombre es _____";
+  }
   if (context && context !== "") {
     return `Hola, me gustaría agendar una cita para ${context}. Mi nombre es _____`;
   }

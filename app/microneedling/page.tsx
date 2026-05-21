@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { QuickLandingPage } from "@/app/components/marketing/QuickLandingPage";
 import { quickLandings } from "@/lib/landings/quick-landings";
 
-const config = quickLandings["limpieza-facial"];
+const config = quickLandings["microneedling"];
 
 export const metadata: Metadata = {
   title: config.metadata.title,
   description: config.metadata.description,
 };
 
-export default function LimpiezaFacialLandingPage() {
+export default function MicroneedlingLandingPage() {
   return <QuickLandingPage config={config} />;
 }
