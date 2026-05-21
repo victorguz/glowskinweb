@@ -55,7 +55,7 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
                   ? index === 0
                     ? "Antes"
                     : "Después"
-                  : undefined);
+                    : undefined);
               return (
                 <div key={img.src} className="flex flex-col gap-2">
                   {label ? (
@@ -77,6 +77,12 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
               );
             })}
           </div>
+            <BookingCtaButtons
+              className="mb-4 flex w-full flex-col gap-3 mt-10"
+              reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-7 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-2xl active:scale-95 transition-all text-center"
+              reserveWhatsappClassName="w-full border border-[#4a3221]/25 bg-white text-[#4a3221] py-7 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
+              whatsappContext={config.whatsappContext}
+            />
         </div>
       </section>
 
@@ -106,6 +112,9 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
             reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-7 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-2xl active:scale-95 transition-all text-center"
             reserveWhatsappClassName="w-full border border-[#4a3221]/25 bg-white text-[#4a3221] py-7 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
             whatsappContext={config.whatsappContext}
+            reserveHereText="reservar ya mismo"
+            showReserveHere={true}
+            showReserveWhatsapp={false}
           />
 
           <p className="text-[9px] text-[#a5846e] uppercase tracking-widest">

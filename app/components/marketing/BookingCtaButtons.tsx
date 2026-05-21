@@ -7,7 +7,11 @@ import { BOOKING_LINK } from "@/app/components/site-config";
 type BookingCtaButtonsProps = {
   className?: string;
   reserveHereClassName?: string;
+  reserveHereText?: string;
+  showReserveHere?: boolean;
   reserveWhatsappClassName?: string;
+  reserveWhatsappText?: string;
+  showReserveWhatsapp?: boolean;
   suggestedTreatments?: string[];
   whatsappContext?:
     | "metodo-glow-skin"
@@ -63,6 +67,10 @@ export function BookingCtaButtons({
   className,
   reserveHereClassName,
   reserveWhatsappClassName,
+  reserveHereText,
+  reserveWhatsappText,
+  showReserveHere,
+  showReserveWhatsapp,
   suggestedTreatments,
   whatsappContext,
 }: BookingCtaButtonsProps) {
@@ -79,21 +87,25 @@ export function BookingCtaButtons({
         "flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
       }
     >
+      {showReserveHere === undefined || showReserveHere ? (
       <Link
         href={BOOKING_LINK}
         target="_blank"
         rel="noopener noreferrer"
         className={reserveHereClassName ?? defaultReserveHereClassName}
       >
-        reservar aquí
+        {reserveHereText ?? "reservar aquí"}
       </Link>
+      ) : null}
+      {showReserveWhatsapp ==undefined || showReserveWhatsapp ? (
       <button
         type="button"
         onClick={handleWhatsappClick}
         className={reserveWhatsappClassName ?? defaultReserveWhatsappClassName}
       >
-        reservar por whatsapp
+        {reserveWhatsappText ?? "reservar por whatsapp"}
       </button>
+      ) : null}
     </div>
   );
 }

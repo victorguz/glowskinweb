@@ -48,7 +48,7 @@ export const quickLandings = {
     ],
     ctaEyebrow: "Una sesión basta",
     ctaTitleLine: "Devuélvele",
-    ctaTitleAccent: "la luz.",
+    ctaTitleAccent: "la luz a tu piel.",
     ctaBody:
       "Tu rostro no siempre necesita más producto: a veces necesita menos acumulación y mejores manos. Agenda tu limpieza facial en Barranquilla.",
     ctaFootnote: "Sin compromiso · Diagnóstico profesional",
@@ -66,20 +66,20 @@ export const quickLandings = {
     body: "Esa sorpresa frente al espejo no es casualidad: Antiox Peel Pro deja la piel tan luminosa que el cambio se nota al instante — más uniforme, más fresca y con un glow que muchas sienten apenas termina la sesión. La mejor prueba es una reacción auténtica, no una promesa vacía.",
     images: [
       {
+        src: landingAsset("antiox-peel-pro/antiox-min.png"),
+        alt: "Resultado luminoso tras Antiox Peel Pro",
+        label: "Antes",
+      },
+      {
         src: landingAsset(
           "antiox-peel-pro/reacciones-reales-pacientes/antiox-peel-pro-reaccion-paciente-1.jpg",
         ),
         alt: "Paciente durante Antiox Peel Pro en Glow Skin",
-        label: "Antes",
-      },
-      {
-        src: landingAsset("antiox-peel-pro/antiox-min.png"),
-        alt: "Resultado luminoso tras Antiox Peel Pro",
         label: "Después",
       },
     ],
     ctaEyebrow: "Glow inmediato",
-    ctaTitleLine: "Míralo",
+    ctaTitleLine: "Mírate de nuevo",
     ctaTitleAccent: "en el espejo.",
     ctaBody:
       "El hit de Glow Skin: textura más fina, luz renovada y un facial que se siente premium desde el primer día. Reserva tu Antiox Peel Pro.",
@@ -112,9 +112,9 @@ export const quickLandings = {
         label: "Después",
       },
     ],
-    ctaEyebrow: "Cambio real",
-    ctaTitleLine: "Tu proceso",
-    ctaTitleAccent: "también empieza.",
+    ctaEyebrow: "Cambios reales",
+    ctaTitleLine: "Tu transformación",
+    ctaTitleAccent: "empieza hoy.",
     ctaBody:
       "Lo que hoy ves en Valentina comenzó con una valoración seria y decisiones a tiempo. Deja de posponerlo: agenda y conoce el protocolo indicado para tu piel.",
     ctaFootnote: "Caso documentado · Sin filtros",
@@ -146,9 +146,9 @@ export const quickLandings = {
         label: "Después",
       },
     ],
-    ctaEyebrow: "Proceso visible",
-    ctaTitleLine: "Textura",
-    ctaTitleAccent: "nueva.",
+    ctaEyebrow: "Procesos visibles",
+    ctaTitleLine: "Devuélvele",
+    ctaTitleAccent: "el Glow a tu piel.",
     ctaBody:
       "Tres meses de trabajo constante pueden devolverte uniformidad y confianza frente al espejo. Agenda tu valoración y diseñemos tu protocolo de microneedling.",
     ctaFootnote: "Resultados progresivos · Expectativas realistas",
@@ -172,9 +172,9 @@ export const quickLandings = {
         alt: "Antes y después de porcelanización facial en Glow Skin",
       },
     ],
-    ctaEyebrow: "Rostro pulido",
-    ctaTitleLine: "Sin",
-    ctaTitleAccent: "exagerar.",
+    ctaEyebrow: "Rostro radiante",
+    ctaTitleLine: "No necesitarás",
+    ctaTitleAccent: "maquillaje para lucirte.",
     ctaBody:
       "Acabado uniforme, textura más fina y un look cuidado que habla solo. Reserva tu porcelanización facial en Barranquilla.",
     ctaFootnote: "Primera sesión · Valoración incluida",
