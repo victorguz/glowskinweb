@@ -150,17 +150,22 @@ export const SERVICES_PRICING: PricingCategory[] = [
   },
   {
     category: "Bio-regeneración PDRN",
-    description: "Reparación del ADN celular con polinucleótidos de salmón.",
+    description:
+      "El PDRN (polinucleótidos de salmón) es el bioestimulador de medicina regenerativa que eligen muchas celebridades: repara el ADN celular dañado y renueva la piel desde su núcleo, sin cirugía.",
     items: [
       {
         name: "Protocolo PDRN Rejuvenecimiento Intensivo",
-        price: cop(900_000),
-        detail: "Restaura firmeza, elasticidad y atenúa arrugas finas.",
+        price: cop(2_100_000),
+        detail:
+          "El favorito de famosos y figuras públicas para rejuvenecer en profundidad. El PDRN son fragmentos de ADN natural que actúan como mensajeros biológicos: instruyen a las células fatigadas a repararse, estimulan colágeno y devuelven firmeza, elasticidad y luminosidad con resultados progresivos y duraderos.",
+        highlights: ["3 Sesiones de Bioestimulación celular con PDRN"],
       },
       {
-        name: "Tratamiento 3 Sesiones PDRN",
-        price: cop(2_100_000),
-        detail: "Resultados duraderos en firmeza y calidad de la piel.",
+        name: "PDRN Rejuvenecimiento por Sesión",
+        price: cop(900_000),
+        priceNote: "Valor por sesión",
+        detail:
+          "La misma tecnología PDRN que usan celebridades en clínicas de élite, en formato de sesión individual. Ideal para probar el tratamiento o reforzar tu protocolo entre mantenimientos.",
       },
     ],
   },

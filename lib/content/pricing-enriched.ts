@@ -20,7 +20,9 @@ const PRICING_NAME_TO_SERVICE_NAME: Record<string, string> = {
   'Tratamiento Regenerativo con Exosomas (Regeneración celular x10.000)':
     'Tratamiento 3 Sesiones Microneedling + Exosomas',
   'Protocolo Anti-Acné Intensivo': 'Tratamiento Anti-Acné Intensivo',
-  'Tratamiento 3 Sesiones PDRN': 'Tratamiento 3 Sesiones PDRN Rejuvenecimiento Intensivo',
+  'Protocolo PDRN Rejuvenecimiento Intensivo':
+    'Tratamiento 3 Sesiones PDRN Rejuvenecimiento Intensivo',
+  'PDRN Rejuvenecimiento por Sesión': 'Protocolo PDRN Rejuvenecimiento Intensivo',
 };
 
 type ServiceShape = {
@@ -41,6 +43,12 @@ function findService(pricingItemName: string): ServiceShape | undefined {
 
 function sessionsSummaryFromService(svc: ServiceShape, pricingName: string): string {
   const n = pricingName.toLowerCase();
+  if (n.includes('protocolo pdrn')) {
+    return '3 sesiones de bioestimulación celular con PDRN';
+  }
+  if (n.includes('pdrn') && n.includes('por sesión')) {
+    return '1 sesión (valor por sesión)';
+  }
   if (n.includes('3 sesiones') || n.includes('x10.000')) {
     return '3 sesiones de bioestimulación celular con exosomas';
   }
