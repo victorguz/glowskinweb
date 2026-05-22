@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { SERVICES_DATA } from '@/lib/content/services';
-import { formatServicePrice } from '@/lib/content/service-utils';
+import { getServiceHref } from '@/lib/routing/service-routes';
 import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
 
 const description = `Protocolos faciales en ${LOCAL_SEO.city}: limpiezas, acné, manchas, regeneración y más en ${SITE_NAME}. Dirección ${LOCAL_SEO.addressStreet}.`;
@@ -33,7 +33,7 @@ export default function ServiciosIndexPage() {
           <div className="mx-auto mt-8 mb-10 h-px w-24 bg-[#d4b499]" />
           <p className="mx-auto max-w-2xl text-lg font-medium italic leading-relaxed tracking-wide text-[#7d5a44] text-balance md:text-xl">
             
-            Elige el protocolo que tu piel necesita; cada ficha incluye detalles y precio orientativo.
+            Elige el protocolo que tu piel necesita; cada ficha incluye detalles del tratamiento.
             
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function ServiciosIndexPage() {
                 {category.services.map((service) => (
                   <li key={service.id}>
                     <Link
-                      href={`/servicios/${service.id}`}
+                      href={getServiceHref(service.id)}
                       className="group flex h-full flex-col justify-between gap-4 rounded-[2rem] border border-[#d4b499]/20 bg-white p-8 shadow-sm transition-all hover:border-[#d4b499]/45 hover:shadow-lg"
                     >
                       <div>
@@ -72,9 +72,6 @@ export default function ServiciosIndexPage() {
                           {service.description}
                         </p>
                       </div>
-                      <p className="text-left font-serif text-lg italic text-[#d4b499]">
-                        {formatServicePrice(service.price, service.currency)}
-                      </p>
                     </Link>
                   </li>
                 ))}

@@ -3,7 +3,7 @@ export const WA_LINK = "https://wa.link/h5481r";
 export const CONTACT_EMAIL = "contact@glowskinbq.com";
 export const PHONE_TEL = "+573008883486";
 
-/** Duración por sesión en cabina (precios, fichas y `page.process`). */
+/** Duración por sesión en cabina (fichas y `page.process`). */
 export const SESSION_DURATION = "60-90 minutos aproximadamente";
 
 const LANDINGS_CDN =
@@ -49,8 +49,6 @@ export const SERVICES_DATA = {
           name: "Limpieza Facial Glow Skin",
           description:
             "Nuestro protocolo insignia. Una higiene facial profunda que combina tecnología y activos de alta gama para purificar, equilibrar y revitalizar todo tipo de piel.",
-          price: 125000,
-          currency: "COP",
           details: {
             frequency: "1 sesión cada 30-45 días",
             duration: SESSION_DURATION,
@@ -208,8 +206,6 @@ export const SERVICES_DATA = {
           name: "Limpieza Facial Anti-Acné",
           description:
             "Protocolo de higiene profunda enfocado en el control sebáceo y la reducción de la carga bacteriana. Ideal para pieles con tendencia a brotes e imperfecciones.",
-          price: 165000,
-          currency: "COP",
           details: {
             frequency: "1 sesión cada 21 días durante la fase activa",
             duration: "90-120 minutos aproximadamente",
@@ -427,8 +423,6 @@ export const SERVICES_DATA = {
           name: "Limpieza Facial para Pieles Sensibles",
           description:
             "Protocolo ultra-suave diseñado específicamente para pieles reactivas, sensibles o con rosácea. Utilizamos técnicas delicadas y productos hipoalergénicos para limpiar sin irritar.",
-          price: 140000,
-          currency: "COP",
           details: {
             frequency:
               "1 sesión cada 30-45 días, con protocolos adaptados según la reactividad",
@@ -644,8 +638,6 @@ export const SERVICES_DATA = {
           name: "Limpieza Facial HydraGlow",
           description:
             "La HydraGlow es nuestra limpieza facial más completa en Glow Skin. Combina la tecnología de la máquina Hydrafacial con principios activos seleccionados de acuerdo a las necesidades de tu piel.",
-          price: 250000,
-          currency: "COP",
           details: {
             frequency: "1 sesión cada 30-45 días",
             duration: SESSION_DURATION,
@@ -787,8 +779,6 @@ export const SERVICES_DATA = {
           name: "Limpieza Anti-Acné Seborreguladora",
           description:
             "Ideal para pieles en etapas de acné comedogénico activo y alta producción de grasa. Los resultados son progresivos y se perciben desde la primera sesión.",
-          price: 415000,
-          currency: "COP",
           details: {
             frequency: "1 sesión cada 21-30 días",
             duration: SESSION_DURATION,
@@ -1007,8 +997,6 @@ export const SERVICES_DATA = {
           name: "Tratamiento Anti-Acné Intensivo",
           description:
             "Programa integral de alta estética diseñado para tratar el acné activo de leve a severo, controlando brotes y previniendo secuelas. Un enfoque científico para una piel sana.",
-          price: 830000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1031,8 +1019,6 @@ export const SERVICES_DATA = {
           name: "Tratamiento Despigmentante con Peelings Químicos",
           description:
             "Renovación celular controlada mediante la aplicación de ácidos de última generación para atenuar manchas (melasma, hiperpigmentación post-inflamatoria) y unificar el tono de la piel.",
-          price: 600000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1046,8 +1032,6 @@ export const SERVICES_DATA = {
           name: "Tratamiento Regenerative + (Cicatrices y Textura)",
           description:
             "Avanzado protocolo de bioestimulación celular con tecnología de micropunciones y alta nutrición para reconstruir el tejido dañado, mejorando visiblemente la apariencia de cicatrices y la textura general de la piel.",
-          price: 1200000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1070,8 +1054,6 @@ export const SERVICES_DATA = {
           name: "Antiox Peel Pro (Peeling Antioxidante)",
           description:
             "Tratamiento de renovación celular que combate los radicales libres, principales causantes del envejecimiento prematuro. Aporta luminosidad y mejora la textura de la piel.",
-          price: 375000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1198,8 +1180,6 @@ export const SERVICES_DATA = {
           name: "Porcelanización Facial (Efecto Glow)",
           description:
             "Consigue una piel visiblemente más joven, tersa y luminosa. Este tratamiento combina técnicas para unificar el tono, minimizar poros y aportar un brillo saludable y duradero.",
-          price: 250000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1295,8 +1275,6 @@ export const SERVICES_DATA = {
           name: "HydraGlow + Antiox Peel Pro",
           description:
             "La combinación perfecta para lograr un Glow inmediato y duradero. Iniciamos con la Limpieza HydraGlow, nuestra limpieza más completa que utiliza tecnología Hydrafacial junto con principios activos personalizados según tu piel. Luego potenciamos los resultados con el Antiox Peel Pro, un avanzado cóctel de ácidos de medicina estética que mejora textura, uniformidad y vitalidad de la piel.",
-          price: 450000,
-          currency: "COP",
           details: {
             includes: [
               "HydraGlow: Limpieza profunda con tecnología Hydrafacial",
@@ -1519,8 +1497,6 @@ export const SERVICES_DATA = {
           name: "Microneedling Regenerativo + Exosomas",
           description:
             "Potenciamos la terapia de inducción de colágeno con el poder regenerativo de los exosomas. Ideal para una reparación intensiva de cicatrices, arrugas y flacidez.",
-          price: 1200000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1641,8 +1617,6 @@ export const SERVICES_DATA = {
           name: "Tratamiento 3 Sesiones Microneedling + Exosomas",
           description:
             "Tratamiento completo de 3 sesiones para maximizar los beneficios regenerativos de los exosomas. Ideal para resultados óptimos en reparación de cicatrices, arrugas y flacidez.",
-          price: 2700000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1667,8 +1641,6 @@ export const SERVICES_DATA = {
           name: "Protocolo PDRN Rejuvenecimiento Intensivo",
           description:
             "Tratamiento enfocado en la reparación profunda de la piel, restaurando la firmeza, elasticidad y atenuando arrugas finas y signos de fatiga.",
-          price: 900000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [
@@ -1683,8 +1655,6 @@ export const SERVICES_DATA = {
           name: "Tratamiento 3 Sesiones PDRN Rejuvenecimiento Intensivo",
           description:
             "Tratamiento completo de 3 sesiones para potenciar los efectos regenerativos del PDRN. Ideal para una reparación profunda y resultados duraderos en firmeza, elasticidad y calidad de la piel.",
-          price: 2100000,
-          currency: "COP",
           details: {
             duration: SESSION_DURATION,
             includes: [

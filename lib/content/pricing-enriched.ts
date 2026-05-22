@@ -9,9 +9,17 @@ import { SERVICES_DATA } from '@/lib/content/services';
 
 /** Nombre en lista de precios → nombre exacto en SERVICES_DATA (si difiere). */
 const PRICING_NAME_TO_SERVICE_NAME: Record<string, string> = {
+  'Limpieza "Piel de Porcelana" (Efecto Glow)': 'Porcelanización Facial (Efecto Glow)',
+  'Antiox Peel Pro (Efecto Lifting)': 'Antiox Peel Pro (Peeling Antioxidante)',
+  'HydraGlow + AntioxPeelPro': 'HydraGlow + Antiox Peel Pro',
   'Despigmentante con Peelings Químicos': 'Tratamiento Despigmentante con Peelings Químicos',
-  'Regenerative + (Cicatrices y Textura)': 'Tratamiento Regenerative + (Cicatrices y Textura)',
-  'Tratamiento 3 Sesiones Exosomas': 'Tratamiento 3 Sesiones Microneedling + Exosomas',
+  'Tratamiento Regenerative (Cicatrices con Textura)':
+    'Tratamiento Regenerative + (Cicatrices y Textura)',
+  'Microneedling Regenerativo con Exosomas (Regeneración celular x1000)':
+    'Microneedling Regenerativo + Exosomas',
+  'Tratamiento Regenerativo con Exosomas (Regeneración celular x10.000)':
+    'Tratamiento 3 Sesiones Microneedling + Exosomas',
+  'Protocolo Anti-Acné Intensivo': 'Tratamiento Anti-Acné Intensivo',
   'Tratamiento 3 Sesiones PDRN': 'Tratamiento 3 Sesiones PDRN Rejuvenecimiento Intensivo',
 };
 
@@ -33,9 +41,14 @@ function findService(pricingItemName: string): ServiceShape | undefined {
 
 function sessionsSummaryFromService(svc: ServiceShape, pricingName: string): string {
   const n = pricingName.toLowerCase();
-  if (n.includes('3 sesiones')) return 'Paquete de 3 sesiones';
+  if (n.includes('3 sesiones') || n.includes('x10.000')) {
+    return '3 sesiones de bioestimulación celular con exosomas';
+  }
+  if (n.includes('x1000')) return '1 sesión (valor por sesión)';
   if (svc.name.includes('Tratamiento Anti-Acné Intensivo'))
-    return 'Programa: 4 peelings químicos + 2 limpiezas anti-acné (incluido)';
+    return 'Programa integral: 4 limpiezas + 4 peelings + 4 microneedling o despigmentante';
+  if (svc.name.includes('Tratamiento Regenerative'))
+    return '6 sesiones de bioestimulación celular (micropunciones y alta nutrición)';
   const inc = svc.details?.includes;
   if (Array.isArray(inc)) {
     const line = inc.find((x) => /^\d+\s*sesi[oó]n(es)?\b/i.test(String(x)));
@@ -86,21 +99,33 @@ export type EnrichedPricingCategory = Omit<PricingCategory, 'items'> & {
   items: EnrichedPricingItem[];
 };
 
+const INTENSIVE_ACNE_INCLUDES = [
+  '4 Limpiezas Faciales Anti-Acné',
+  '4 Sesiones de Peeling Seborregulador',
+  '4 Sesiones de Microneedling o Peeling Despigmentante',
+];
+
 function enrichItem(item: PricingItem): EnrichedPricingItem {
   const svc = findService(item.name);
   if (!svc) {
     return {
       ...item,
       sessionsSummary: 'Consulta en estudio para plan personalizado',
-      includes: [],
+      includes: item.highlights ?? [],
     };
   }
+  const includes =
+    item.highlights && item.highlights.length > 0
+      ? item.highlights
+      : item.name === 'Protocolo Anti-Acné Intensivo'
+        ? INTENSIVE_ACNE_INCLUDES
+        : includesList(svc);
   return {
     ...item,
     sessionsSummary: sessionsSummaryFromService(svc, item.name),
     durationSummary: durationSummary(svc),
     frequencySummary: frequencySummary(svc),
-    includes: includesList(svc),
+    includes,
   };
 }
 
@@ -110,3 +135,4 @@ export const SERVICES_PRICING_ENRICHED: EnrichedPricingCategory[] = SERVICES_PRI
     items: cat.items.map(enrichItem),
   }),
 );
+

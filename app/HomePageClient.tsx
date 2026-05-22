@@ -10,6 +10,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
+import { getServiceHref } from "@/lib/routing/service-routes";
 
 const BASE_IMG_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
 
@@ -154,7 +155,7 @@ export default function HomePageClient() {
                     {t.desc}
                   </p>
                   <Link
-                    href={`/servicios/${t.slug}`}
+                    href={getServiceHref(t.slug)}
                     className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-[#d4b499] transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4b499]"
                   >
                     Saber más <ChevronRight size={14} aria-hidden />

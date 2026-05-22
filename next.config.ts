@@ -39,7 +39,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/services/limpieza-facial-profunda",
-        destination: "/services/limpieza-facial",
+        destination: "/limpieza-facial",
+        permanent: true,
+      },
+      {
+        source: "/services/limpieza-facial",
+        destination: "/limpieza-facial",
+        permanent: true,
+      },
+      {
+        source: "/servicios/tratamiento-anti-acne-intensivo",
+        destination: "/metodo-glow-skin",
+        permanent: true,
+      },
+      {
+        source: "/servicios/protocolos-acne",
+        destination: "/metodo-glow-skin",
         permanent: true,
       },
     ];

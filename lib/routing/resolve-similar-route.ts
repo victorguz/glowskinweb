@@ -1,14 +1,17 @@
+import landingPages from "@/app/landing-pages.config";
 import { getAllServiceSlugs } from "@/lib/content/service-utils";
 
 export const DEFAULT_NOT_FOUND_DESTINATION = "/limpieza-facial";
+
+const LANDING_PATHS = new Set<string>(landingPages);
 
 type RouteCandidate = {
   path: string;
   keywords: string[];
 };
 
-/** Rutas canónicas y palabras que suelen aparecer en URLs rotas o campañas. */
-const ROUTE_CANDIDATES: RouteCandidate[] = [
+/** Solo landings de acción rápida + método Glow Skin. */
+const LANDING_ROUTE_CANDIDATES: RouteCandidate[] = [
   {
     path: "/limpieza-facial",
     keywords: [
@@ -20,8 +23,9 @@ const ROUTE_CANDIDATES: RouteCandidate[] = [
       "higiene",
       "profunda",
       "hydraglow",
-      "glow-skin",
       "glowskin",
+      "pieles-sensibles",
+      "sensible",
     ],
   },
   {
@@ -78,15 +82,45 @@ const ROUTE_CANDIDATES: RouteCandidate[] = [
   },
   {
     path: "/metodo-glow-skin",
-    keywords: ["metodo", "método", "metodologia", "metodología", "glow-skin"],
+    keywords: [
+      "metodo",
+      "método",
+      "metodologia",
+      "metodología",
+      "glow-skin",
+      "protocolos-acne",
+      "protocolo-acne",
+      "tratamiento-anti-acne-intensivo",
+      "anti-acne-intensivo",
+      "metodo-anti-acne",
+      "protocolo",
+      "protocolos",
+      "tratamiento",
+      "tratamientos",
+      "servicio",
+      "servicios",
+    ],
   },
-  { path: "/servicios", keywords: ["servicios", "servicio", "services", "tratamiento", "tratamientos", "protocolo"] },
-  { path: "/precios", keywords: ["precios", "precio", "tarifas", "tarifa", "costo", "costos", "valor"] },
-  { path: "/blog", keywords: ["blog", "articulo", "artículo", "articulos", "noticia", "noticias"] },
-  { path: "/casos", keywords: ["casos", "caso", "antes-despues", "resultados", "testimonio"] },
-  { path: "/nosotros", keywords: ["nosotros", "quienes-somos", "equipo", "clinica", "clínica", "spa"] },
-  { path: "/", keywords: ["inicio", "home", "principal"] },
 ];
+
+/** Slugs de ficha de servicio → landing más cercana (nunca `/servicios/...`). */
+const SERVICE_SLUG_TO_LANDING: Record<string, string> = {
+  "limpieza-facial": "/limpieza-facial",
+  "limpieza-facial-anti-acne": "/anti-acne",
+  "limpieza-facial-pieles-sensibles": "/limpieza-facial",
+  hydraglow: "/limpieza-facial",
+  "limpieza-seborreguladora": "/anti-acne",
+  "tratamiento-anti-acne-intensivo": "/metodo-glow-skin",
+  "tratamiento-despigmentante": "/microneedling",
+  "tratamiento-regenerative-plus": "/microneedling",
+  "antiox-peel-pro": "/antiox-peel-pro",
+  "porcelanizacion-facial": "/porcelanizacion-facial",
+  "hydraglow-antiox-peel": "/antiox-peel-pro",
+  "microneedling-exosomas": "/microneedling",
+  "microneedling-exosomas-3-sesiones": "/microneedling",
+  "protocolo-pdrn": "/microneedling",
+  "protocolo-pdrn-3-sesiones": "/microneedling",
+};
 
 function normalize(text: string): string {
   return text
@@ -128,9 +162,13 @@ function scoreServiceSlug(haystack: string, segments: string[], slug: string): n
   return score;
 }
 
+function assertLandingPath(path: string): string {
+  return LANDING_PATHS.has(path) ? path : DEFAULT_NOT_FOUND_DESTINATION;
+}
+
 /**
- * Dada una ruta inexistente, devuelve la ruta canónica más parecida por palabras en la URL.
- * Si no hay coincidencias, usa la landing por defecto.
+ * Dada una ruta inexistente, devuelve la landing más parecida por palabras en la URL.
+ * Si no hay coincidencias, usa `/limpieza-facial`.
  */
 export function resolveSimilarRoute(pathname: string): string {
   const normalizedPath = normalize(pathname || "/");
@@ -142,7 +180,7 @@ export function resolveSimilarRoute(pathname: string): string {
   let bestPath = DEFAULT_NOT_FOUND_DESTINATION;
   let bestScore = 0;
 
-  for (const candidate of ROUTE_CANDIDATES) {
+  for (const candidate of LANDING_ROUTE_CANDIDATES) {
     let score = 0;
     for (const keyword of candidate.keywords) {
       score += scoreKeyword(haystack, segments, keyword);
@@ -158,12 +196,15 @@ export function resolveSimilarRoute(pathname: string): string {
   }
 
   for (const slug of getAllServiceSlugs()) {
+    const landing = SERVICE_SLUG_TO_LANDING[slug];
+    if (!landing) continue;
+
     const score = scoreServiceSlug(haystack, segments, slug);
     if (score > bestScore) {
       bestScore = score;
-      bestPath = `/servicios/${slug}`;
+      bestPath = landing;
     }
   }
 
-  return bestScore > 0 ? bestPath : DEFAULT_NOT_FOUND_DESTINATION;
+  return assertLandingPath(bestScore > 0 ? bestPath : DEFAULT_NOT_FOUND_DESTINATION);
 }

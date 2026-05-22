@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { ServiceDetailContent } from '@/app/components/services/ServiceDetailContent';
 import { getAllServiceSlugs, getServiceBySlug } from '@/lib/content/service-utils';
+import { getServiceHref, isServicePathOverride } from '@/lib/routing/service-routes';
 import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
 
 type Props = {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Servicio | Glow Skin' };
   }
   const { service } = pair;
-  const url = `${getSiteUrl()}/servicios/${slug}`;
+  const url = `${getSiteUrl()}${getServiceHref(slug)}`;
   const description = `${service.description} — ${SITE_NAME}, ${LOCAL_SEO.city} (${LOCAL_SEO.addressStreet}).`;
   return {
     title: service.name,
@@ -37,6 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServiceBySlugPage({ params }: Props) {
   const { slug } = await params;
+  if (isServicePathOverride(slug)) {
+    redirect(getServiceHref(slug));
+  }
   const pair = getServiceBySlug(slug);
   if (!pair) {
     notFound();

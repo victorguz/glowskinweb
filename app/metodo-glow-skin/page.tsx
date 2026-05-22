@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { SITE_LOGO_URL } from "../components/site-config";
-import { getPricingByTreatmentName } from "@/lib/content/pricing";
+import Link from "next/link";
 
 const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
 
@@ -77,7 +77,7 @@ export default function GlowSkinMethodVSL() {
         <div className="flex justify-center items-center gap-4 max-w-md mx-auto">
           <img src={IMGS.logo} className="h-8" alt="Glow Skin" loading="lazy" />
           <a
-            href="#precios"
+            href="#protocolos"
             className="bg-[#4a3221] text-[#f7f0eb] px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg hover:bg-[#5c3a21] transition-colors"
           >
             Reservar
@@ -589,8 +589,8 @@ export default function GlowSkinMethodVSL() {
         </div>
       </section>
 
-      {/* SECTION 8: PROTOCOLOS / PRECIOS */}
-      <section className="py-32 px-6 bg-[#4a3221] text-[#f7f0eb]" id="precios">
+      {/* SECTION 8: PROTOCOLOS */}
+      <section className="py-32 px-6 bg-[#4a3221] text-[#f7f0eb]" id="protocolos">
         <div className="max-w-md mx-auto">
           <div className="text-center mb-16">
             <Sparkles size={28} className="text-[#d4b499] mx-auto mb-6" />
@@ -619,16 +619,8 @@ export default function GlowSkinMethodVSL() {
                 Enfocado en el control sebáceo y reducción de carga bacteriana.
                 Ideal para tu primera sesión de exploración.
               </p>
-              <div className="flex items-end justify-between mb-6">
-                <p className="text-3xl font-serif">
-                  {getPricingByTreatmentName("Limpieza Facial Anti-Acné")}
-                </p>
-                <p className="text-[9px] opacity-50 uppercase tracking-widest">
-                  Por sesión
-                </p>
-              </div>
               <BookingCtaButtons
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-3 mt-6"
                 reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
                 whatsappContext="limpieza-anti-acne"
@@ -646,18 +638,8 @@ export default function GlowSkinMethodVSL() {
                 Ideal para acné comedogénico activo y alta producción de grasa.
                 Protocolo extendido con activos específicos.
               </p>
-              <div className="flex items-end justify-between mb-6">
-                <p className="text-3xl font-serif">
-                  {getPricingByTreatmentName(
-                    "Limpieza Anti-Acné Seborreguladora",
-                  )}
-                </p>
-                <p className="text-[9px] opacity-50 uppercase tracking-widest">
-                  Por sesión
-                </p>
-              </div>
               <BookingCtaButtons
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-3 mt-6"
                 reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
                 whatsappContext="limpieza-anti-acne-seborreguladora"
@@ -693,14 +675,9 @@ export default function GlowSkinMethodVSL() {
                   </div>
                 ))}
               </div>
-              <div className="flex items-end justify-between mb-6">
-                <div>
-                  <p className="text-4xl font-serif font-bold">$2.160.000</p>
-                  <p className="text-[9px] opacity-60 uppercase tracking-widest mt-1">
-                    Requiere valoración previa
-                  </p>
-                </div>
-              </div>
+              <p className="text-[9px] opacity-60 uppercase tracking-widest mb-4">
+                Requiere valoración previa
+              </p>
               <BookingCtaButtons
                 className="flex flex-col gap-3"
                 reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
@@ -709,6 +686,15 @@ export default function GlowSkinMethodVSL() {
               />
             </div>
           </div>
+
+          <p className="mt-12 text-center text-sm opacity-80">
+            <Link
+              href="/precios"
+              className="border-b border-[#d4b499]/50 font-semibold uppercase tracking-widest text-[#d4b499] hover:text-white"
+            >
+              Ver lista de precios
+            </Link>
+          </p>
         </div>
       </section>
 

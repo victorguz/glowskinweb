@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getSiteUrl } from '@/lib/seo/site';
 import { getAllServiceSlugs } from '@/lib/content/service-utils';
+import { getServiceHref } from '@/lib/routing/service-routes';
 import { getAllBlogSlugs } from '@/lib/blog/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/servicios',
     '/blog',
     '/otra',
+    '/metodo-glow-skin',
+    '/limpieza-facial',
+    '/anti-acne',
+    '/antiox-peel-pro',
+    '/microneedling',
+    '/porcelanizacion-facial',
   ];
 
   const entries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
@@ -24,9 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === '' ? 1 : path === '/servicios' || path === '/precios' ? 0.9 : 0.8,
   }));
 
+  const servicePaths = new Set<string>();
   for (const slug of getAllServiceSlugs()) {
+    servicePaths.add(getServiceHref(slug));
+  }
+  for (const path of servicePaths) {
     entries.push({
-      url: `${base}/servicios/${slug}`,
+      url: `${base}${path}`,
       lastModified: lastMod,
       changeFrequency: 'monthly',
       priority: 0.85,

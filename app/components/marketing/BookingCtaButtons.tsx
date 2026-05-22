@@ -20,10 +20,10 @@ type BookingCtaButtonsProps = {
     | string;
 };
 
-const defaultReserveHereClassName =
+export const bookingCtaReserveHereClassName =
   "inline-flex items-center justify-center rounded-full bg-[#4a3221] px-10 py-5 text-[10px] font-black uppercase tracking-[0.25em] text-[#f7f0eb] transition-colors hover:bg-[#5c3a21]";
 
-const defaultReserveWhatsappClassName =
+export const bookingCtaReserveWhatsappClassName =
   "inline-flex items-center justify-center rounded-full border border-[#4a3221]/30 bg-white px-10 py-5 text-[10px] font-black uppercase tracking-[0.25em] text-[#4a3221] transition-colors hover:bg-[#f7f0eb]";
 
 import { PHONE_WA_DIGITS } from "@/app/components/site-config";
@@ -92,7 +92,7 @@ export function BookingCtaButtons({
         href={BOOKING_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        className={reserveHereClassName ?? defaultReserveHereClassName}
+        className={reserveHereClassName ?? bookingCtaReserveHereClassName}
       >
         {reserveHereText ?? "reservar aquí"}
       </Link>
@@ -101,7 +101,7 @@ export function BookingCtaButtons({
       <button
         type="button"
         onClick={handleWhatsappClick}
-        className={reserveWhatsappClassName ?? defaultReserveWhatsappClassName}
+        className={reserveWhatsappClassName ?? bookingCtaReserveWhatsappClassName}
       >
         {reserveWhatsappText ?? "reservar por whatsapp"}
       </button>

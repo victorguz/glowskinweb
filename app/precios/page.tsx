@@ -2,8 +2,18 @@
 
 import { useState } from "react";
 import { List } from "lucide-react";
-import { SERVICES_PRICING_ENRICHED } from "@/lib/content/pricing-enriched";
-import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
+import {
+  getPricingItemAnchorId,
+  TOP_SELLER_TREATMENT_NAMES,
+} from "@/lib/content/pricing";
+import {
+  SERVICES_PRICING_ENRICHED,
+  type EnrichedPricingItem,
+} from "@/lib/content/pricing-enriched";
+import {
+  BookingCtaButtons,
+  bookingCtaReserveHereClassName,
+} from "@/app/components/marketing/BookingCtaButtons";
 import { ProcedureDetailsCard } from "@/app/precios/ProcedureDetailsCard";
 
 const preciosCtaClassName =
@@ -12,8 +22,145 @@ const preciosCtaClassName =
 const preciosReservaBtnClassName =
   "inline-flex items-center justify-center rounded-sm border border-[#d4b499]/45 bg-white/40 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-[#4a3221] transition-colors hover:border-[#4a3221]/35 hover:bg-[#d4b499]/15";
 
-function slugifyPrecioId(categoryIdx: number, itemIdx: number) {
-  return `precio-${categoryIdx}-${itemIdx}`;
+function PreciosBestSellersNav() {
+  return (
+    <nav
+      className="relative"
+      aria-label="Tratamientos más solicitados"
+    >
+      <div className="mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-serif text-[#4a3221] mb-4 tracking-tighter uppercase">
+          Los más solicitados
+        </h2>
+        <p className="text-xs font-black text-[#d4b499] uppercase tracking-[0.3em] italic max-w-xl mx-auto">
+          Los protocolos favoritos de nuestras pacientes
+        </p>
+        <div className="w-20 h-px bg-[#d4b499] mx-auto mt-8"></div>
+      </div>
+      <ul className="mx-auto flex w-full max-w-md flex-col gap-4">
+        {TOP_SELLER_TREATMENT_NAMES.map((name) => (
+          <li key={name} className="w-full">
+            <a
+              href={`#${getPricingItemAnchorId(name)}`}
+              className={`${bookingCtaReserveHereClassName} !flex w-full !text-sm md:!text-base text-center leading-snug`}
+            >
+              {name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function PreciosCategorySection({
+  sectionKey,
+  title,
+  description,
+  items,
+  openDetails,
+  onToggleDetails,
+}: {
+  sectionKey: string;
+  title: string;
+  description: string;
+  items: EnrichedPricingItem[];
+  openDetails: Record<string, boolean>;
+  onToggleDetails: (key: string) => void;
+}) {
+  if (items.length === 0) return null;
+
+  return (
+    <div className="relative">
+      <div className="mb-16 text-center">
+        <h2 className="text-4xl md:text-5xl font-serif text-[#4a3221] mb-4 tracking-tighter uppercase">
+          {title}
+        </h2>
+        <p className="text-xs font-black text-[#d4b499] uppercase tracking-[0.3em] italic max-w-xl mx-auto">
+          {description}
+        </p>
+        <div className="w-20 h-px bg-[#d4b499] mx-auto mt-8"></div>
+      </div>
+
+      <div className="space-y-14">
+        {items.map((item, i) => {
+          const detailsKey = `details-${sectionKey}-${i}`;
+          return (
+            <article
+              key={detailsKey}
+              id={getPricingItemAnchorId(item.name)}
+              className="group cursor-default scroll-mt-40"
+            >
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4">
+                <h3 className="text-lg md:text-xl font-sans font-bold text-[#4a3221] tracking-wide uppercase leading-tight">
+                  {item.name}
+                </h3>
+                <div className="hidden md:block flex-grow border-b border-[#d4b499]/30 mb-1.5 mx-6"></div>
+                <div className="text-right shrink-0">
+                  {item.priceNote ? (
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#d4b499] mb-1">
+                      {item.priceNote}
+                    </p>
+                  ) : null}
+                  <p className="text-lg md:text-xl font-sans font-black text-[#4a3221]">
+                    {item.price}
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <div className="min-w-0 flex-1">
+                  <p className="text-[#7d5a44] text-sm md:text-base leading-relaxed font-medium opacity-90">
+                    {item.detail}
+                  </p>
+                  {item.highlights && item.highlights.length > 0 ? (
+                    <ul className="mt-3 space-y-1 text-sm text-[#7d5a44] leading-relaxed font-medium opacity-90 list-disc pl-5">
+                      {item.highlights.map((line, hi) => (
+                        <li key={hi}>{line}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+                <div className="flex shrink-0 items-center gap-3">
+                  <button
+                    type="button"
+                    className={`${preciosCtaClassName} cursor-pointer`}
+                    onClick={() => onToggleDetails(detailsKey)}
+                  >
+                    Detalles <List size={12} strokeWidth={2.25} aria-hidden />
+                  </button>
+                  <BookingCtaButtons
+                    className="flex items-center gap-2"
+                    suggestedTreatments={[item.name]}
+                    reserveHereClassName={preciosReservaBtnClassName}
+                    reserveWhatsappClassName={preciosReservaBtnClassName}
+                    whatsappContext={item.name}
+                  />
+                </div>
+              </div>
+              <div className={openDetails[detailsKey] ? "block" : "hidden"}>
+                <div className="mt-6 w-full flex justify-center">
+                  <div className="w-full max-w-4xl">
+                    <ProcedureDetailsCard
+                      item={item}
+                      reserveSlot={
+                        <BookingCtaButtons
+                          className="flex flex-col gap-2 sm:flex-row sm:items-center"
+                          suggestedTreatments={[item.name]}
+                          reserveHereClassName={preciosReservaBtnClassName}
+                          reserveWhatsappClassName={preciosReservaBtnClassName}
+                          whatsappContext={item.name}
+                        />
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default function PreciosPage() {
@@ -57,85 +204,17 @@ export default function PreciosPage() {
           aria-label="Lista de precios y detalle de procedimientos"
         >
           <div className="max-w-4xl mx-auto space-y-32">
+            <PreciosBestSellersNav />
             {SERVICES_PRICING_ENRICHED.map((category, idx) => (
-              <div key={idx} className="relative">
-                <div className="mb-16 text-center">
-                  <h2 className="text-4xl md:text-5xl font-serif text-[#4a3221] mb-4 tracking-tighter uppercase">
-                    {category.category}
-                  </h2>
-                  <p className="text-xs font-black text-[#d4b499] uppercase tracking-[0.3em] italic max-w-xl mx-auto">
-                    {category.description}
-                  </p>
-                  <div className="w-20 h-px bg-[#d4b499] mx-auto mt-8"></div>
-                </div>
-
-                <div className="space-y-14">
-                  {category.items.map((item, i) => (
-                    <article
-                      key={i}
-                      id={slugifyPrecioId(idx, i)}
-                      className="group cursor-default"
-                    >
-                      <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4">
-                        <h3 className="text-lg md:text-xl font-sans font-bold text-[#4a3221] tracking-wide uppercase leading-tight">
-                          {item.name}
-                        </h3>
-                        <div className="hidden md:block flex-grow border-b border-[#d4b499]/30 mb-1.5 mx-6"></div>
-                        <p className="text-lg md:text-xl font-sans font-black text-[#4a3221]">
-                          {item.price}
-                        </p>
-                      </div>
-                      <div className="flex flex-col md:flex-row md:items-center gap-4">
-                        <p className="min-w-0 flex-1 text-[#7d5a44] text-sm md:text-base leading-relaxed font-medium opacity-90">
-                          {item.detail}
-                        </p>
-                        <div className="flex shrink-0 items-center gap-3">
-                          <button
-                            className={`${preciosCtaClassName} cursor-pointer`}
-                            onClick={() => toggleDetails(`details-${idx}-${i}`)}
-                          >
-                            Detalles{" "}
-                            <List size={12} strokeWidth={2.25} aria-hidden />
-                          </button>
-                          <BookingCtaButtons
-                            className="flex items-center gap-2"
-                            suggestedTreatments={[item.name]}
-                            reserveHereClassName={preciosReservaBtnClassName}
-                            reserveWhatsappClassName={
-                              preciosReservaBtnClassName
-                            }
-                            whatsappContext={item.name}
-                          />
-                        </div>
-                      </div>
-                      <div
-                        className={`${openDetails[`details-${idx}-${i}`] ? "block" : "hidden"}`}
-                      >
-                        <div className="mt-6 w-full flex justify-center">
-                          <div className="w-full max-w-4xl">
-                            <ProcedureDetailsCard
-                              item={item}
-                              reserveSlot={
-                                <BookingCtaButtons
-                                  className="flex flex-col gap-2 sm:flex-row sm:items-center"
-                                  suggestedTreatments={[item.name]}
-                                  reserveHereClassName={
-                                    preciosReservaBtnClassName
-                                  }
-                                  reserveWhatsappClassName={
-                                    preciosReservaBtnClassName
-                                  }
-                                  whatsappContext={item.name}
-                                />
-                              }
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </div>
+              <PreciosCategorySection
+                key={idx}
+                sectionKey={String(idx)}
+                title={category.category}
+                description={category.description}
+                items={category.items}
+                openDetails={openDetails}
+                onToggleDetails={toggleDetails}
+              />
             ))}
           </div>
         </section>

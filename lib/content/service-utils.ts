@@ -27,12 +27,3 @@ export function getServiceBySlug(slug: string): CategoryServicePair | null {
 export function getAllServiceSlugs(): string[] {
   return getAllCategoryServices().map(({ service }) => service.id);
 }
-
-function cop(n: number): string {
-  return `$ ${n.toLocaleString('es-CO')}`;
-}
-
-export function formatServicePrice(price: number, currency: string): string {
-  if (currency === 'COP') return cop(price);
-  return `${price} ${currency}`;
-}

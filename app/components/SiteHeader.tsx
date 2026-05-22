@@ -7,6 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { SITE_LOGO_URL } from "@/app/components/site-config";
 import { LeadTrigger } from "@/app/components/marketing/LeadTrigger";
 import { SERVICES_DATA } from "@/lib/content/services";
+import { getServiceHref } from "@/lib/routing/service-routes";
 import landingPages from "@/app/landing-pages.config";
 
 const SERVICES_MENU = SERVICES_DATA.categories
@@ -14,7 +15,7 @@ const SERVICES_MENU = SERVICES_DATA.categories
     category: cat.title,
     items: cat.services.map((s) => ({
       label: s.name,
-      href: `/servicios/${s.id}`,
+      href: getServiceHref(s.id),
     })),
   }))
   .filter((g) => g.items.length > 0);

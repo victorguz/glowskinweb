@@ -4,7 +4,6 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { getServiceEditorial } from "@/lib/content/service-editorial";
 import type { CategoryServicePair } from "@/lib/content/service-utils";
-import { formatServicePrice } from "@/lib/content/service-utils";
 import {
   getServiceHeroImage,
   getServiceProcessImage,
@@ -141,9 +140,6 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
           </h1>
           <p className="mx-auto max-w-2xl text-lg font-medium italic leading-relaxed text-[#7d5a44]">
             {service.description}
-          </p>
-          <p className="mt-8 font-serif text-3xl italic text-[#d4b499]">
-            {formatServicePrice(service.price, service.currency)}
           </p>
         </div>
       </section>
@@ -730,12 +726,6 @@ function ProcessAndDetailsSection({
           <h2 className="mb-4 font-serif text-4xl tracking-tighter text-[#4a3221] uppercase md:text-6xl">
             {service.name}
           </h2>
-          <div className="mb-10 flex items-center gap-6">
-            <span className="font-serif text-3xl italic text-[#d4b499]">
-              {formatServicePrice(service.price, service.currency)}
-            </span>
-            <div className="h-px flex-grow bg-[#d4b499]/30" />
-          </div>
           <p className="mb-12 text-lg font-medium leading-relaxed text-[#4a3221] opacity-80">
             {service.description}
           </p>
@@ -859,9 +849,6 @@ function DetailsWithoutProcess({
         <h2 className="mb-2 font-serif text-3xl text-[#4a3221] md:text-4xl">
           {service.name}
         </h2>
-        <p className="mb-8 font-serif text-2xl italic text-[#d4b499]">
-          {formatServicePrice(service.price, service.currency)}
-        </p>
         <p className="mb-10 text-lg font-medium leading-relaxed text-[#7d5a44]">
           {service.description}
         </p>
