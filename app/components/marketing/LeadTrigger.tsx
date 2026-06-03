@@ -15,7 +15,11 @@ export function LeadTrigger({ mode, className, children, suggestedTreatments }: 
     <button
       type="button"
       className={className}
-      onClick={() => (mode === 'booking' ? openBooking(suggestedTreatments) : openContact())}
+      onClick={() =>
+        mode === 'booking'
+          ? openBooking({ suggestedTreatments })
+          : openContact()
+      }
     >
       {children}
     </button>

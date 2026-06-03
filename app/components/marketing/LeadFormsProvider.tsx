@@ -19,9 +19,20 @@ import {
   sendFormsLead,
   splitFullName,
 } from "./tracking";
+import {
+  buildBookingWhatsappText,
+  pickBookingWhatsappContext,
+} from "./whatsapp-messages";
+
+export type OpenBookingOptions = {
+  suggestedTreatments?: string[];
+  whatsappContext?: string;
+};
+
+export type OpenBookingArg = string[] | OpenBookingOptions | undefined;
 
 type Ctx = {
-  openBooking: (suggestedTreatments?: string[]) => void;
+  openBooking: (arg?: OpenBookingArg) => void;
   openContact: () => void;
 };
 
@@ -32,16 +43,6 @@ export function useLeadForms() {
   if (!c)
     throw new Error("useLeadForms debe usarse dentro de LeadFormsProvider");
   return c;
-}
-
-function buildBookingWaMessage(p: Record<string, unknown>) {
-  const lines = [
-    "*Reserva Glow Skin*",
-    `Nombre: ${p.nombre}`,
-    `Email: ${p.tu_mejor_email}`,
-    `Cel/WhatsApp: ${p.celular_con_whatsapp}`,
-  ];
-  return lines.join("\n");
 }
 
 function buildContactWaMessage(p: Record<string, unknown>) {
@@ -204,9 +205,11 @@ function LeadModalFrame({
 
 function BookingLeadOverlay({
   pathname,
+  whatsappContext,
   onClose,
 }: {
   pathname: string;
+  whatsappContext?: string;
   onClose: () => void;
 }) {
   const [nombre, setNombre] = useState("");
@@ -236,7 +239,12 @@ function BookingLeadOverlay({
     const { firstName, lastName } = splitFullName(nombre.trim());
     const eventId = crypto.randomUUID();
     const { fbp, fbc } = readFbCookies();
-    const waUrl = buildWaMeUrl(PHONE_WA_DIGITS, buildBookingWaMessage(data));
+    const waText = buildBookingWhatsappText(whatsappContext, {
+      nombre: nombre.trim(),
+      email: email.trim(),
+      cel: cel.trim(),
+    });
+    const waUrl = buildWaMeUrl(PHONE_WA_DIGITS, waText);
 
     setBusy(true);
     try {
@@ -555,8 +563,20 @@ function ContactLeadOverlay({
 export function LeadFormsProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() || "/";
   const [mode, setMode] = useState<"booking" | "contact" | null>(null);
+  const [bookingWhatsappContext, setBookingWhatsappContext] = useState<
+    string | undefined
+  >();
 
-  const openBooking = useCallback((_suggestedTreatments?: string[]) => {
+  const openBooking = useCallback((arg?: OpenBookingArg) => {
+    if (Array.isArray(arg)) {
+      setBookingWhatsappContext(pickBookingWhatsappContext(undefined, arg));
+    } else if (arg !== undefined && arg !== null && !Array.isArray(arg)) {
+      setBookingWhatsappContext(
+        pickBookingWhatsappContext(arg.whatsappContext, arg.suggestedTreatments),
+      );
+    } else {
+      setBookingWhatsappContext(undefined);
+    }
     setMode("booking");
   }, []);
 
@@ -564,13 +584,20 @@ export function LeadFormsProvider({ children }: { children: React.ReactNode }) {
     setMode("contact");
   }, []);
 
-  const close = useCallback(() => setMode(null), []);
+  const close = useCallback(() => {
+    setMode(null);
+    setBookingWhatsappContext(undefined);
+  }, []);
 
   return (
     <LeadFormsContext.Provider value={{ openBooking, openContact }}>
       {children}
       {mode === "booking" ? (
-        <BookingLeadOverlay pathname={pathname} onClose={close} />
+        <BookingLeadOverlay
+          pathname={pathname}
+          whatsappContext={bookingWhatsappContext}
+          onClose={close}
+        />
       ) : null}
       {mode === "contact" ? (
         <ContactLeadOverlay pathname={pathname} onClose={close} />

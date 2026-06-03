@@ -595,7 +595,7 @@ export default function GlowSkinMethodVSL() {
           <div className="text-center mb-16">
             <Sparkles size={28} className="text-[#d4b499] mx-auto mb-6" />
             <h2 className="text-5xl font-serif uppercase tracking-tighter leading-[0.85] mb-4">
-              Elige tu
+              Empieza tu
               <br />
               <span className="font-script lowercase italic text-[#d4b499] text-6xl">
                 camino
@@ -603,12 +603,12 @@ export default function GlowSkinMethodVSL() {
             </h2>
             <p className="text-sm opacity-70 leading-relaxed max-w-xs mx-auto">
               Cada protocolo está diseñado para un momento diferente de tu
-              proceso. ¿No sabes cuál es el tuyo? Consúltanos.
+              proceso. ¿Deseas más información? Reserva una valoración previa.
             </p>
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
+            {/* <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
               <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#d4b499] mb-3">
                 Para empezar
               </p>
@@ -621,7 +621,7 @@ export default function GlowSkinMethodVSL() {
               </p>
               <BookingCtaButtons
                 className="flex flex-col gap-3 mt-6"
-                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
                 whatsappContext="limpieza-anti-acne"
               />
@@ -640,11 +640,11 @@ export default function GlowSkinMethodVSL() {
               </p>
               <BookingCtaButtons
                 className="flex flex-col gap-3 mt-6"
-                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center hover:bg-white/10 transition-colors"
                 whatsappContext="limpieza-anti-acne-seborreguladora"
               />
-            </div>
+            </div> */}
 
             <div className="bg-[#d4b499] text-[#4a3221] rounded-3xl p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#4a3221] text-[#d4b499] text-[8px] font-black uppercase tracking-widest px-5 py-2 rounded-bl-2xl">
@@ -680,21 +680,21 @@ export default function GlowSkinMethodVSL() {
               </p>
               <BookingCtaButtons
                 className="flex flex-col gap-3"
-                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#d4b499] hover:text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
+                reserveHereClassName="w-full border border-[#d4b499]/40 text-[#4a3221] py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-white hover:bg-white/70 transition-colors"
                 reserveWhatsappClassName="w-full border border-white/25 text-white py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-center bg-[#4a3221] hover:bg-white/10 transition-colors"
                 whatsappContext="metodo-glow-skin"
               />
             </div>
           </div>
 
-          <p className="mt-12 text-center text-sm opacity-80">
+          {/* <p className="mt-12 text-center text-sm opacity-80">
             <Link
               href="/precios"
               className="border-b border-[#d4b499]/50 font-semibold uppercase tracking-widest text-[#d4b499] hover:text-white"
             >
               Ver lista de precios
             </Link>
-          </p>
+          </p> */}
         </div>
       </section>
 

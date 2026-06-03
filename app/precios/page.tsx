@@ -132,7 +132,6 @@ function PreciosCategorySection({
                     className="flex items-center gap-2"
                     suggestedTreatments={[item.name]}
                     reserveHereClassName={preciosReservaBtnClassName}
-                    reserveWhatsappClassName={preciosReservaBtnClassName}
                     whatsappContext={item.name}
                   />
                 </div>
@@ -147,7 +146,6 @@ function PreciosCategorySection({
                           className="flex flex-col gap-2 sm:flex-row sm:items-center"
                           suggestedTreatments={[item.name]}
                           reserveHereClassName={preciosReservaBtnClassName}
-                          reserveWhatsappClassName={preciosReservaBtnClassName}
                           whatsappContext={item.name}
                         />
                       }

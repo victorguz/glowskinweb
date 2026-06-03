@@ -3,11 +3,11 @@
 import { useLeadForms } from '@/app/components/marketing/LeadFormsProvider';
 
 export function SiteWhatsappButton() {
-  const { openContact } = useLeadForms();
+  const { openBooking } = useLeadForms();
   return (
     <button
       type="button"
-      onClick={() => openContact()}
+      onClick={() => openBooking()}
       className="whatsapp-fab fixed bottom-6 right-6 z-[100] flex shrink-0 items-center justify-center rounded-full bg-[#25D366] text-base leading-none text-white transition-colors hover:bg-[#20bd5a]"
       aria-label="Hablar por WhatsApp"
     >

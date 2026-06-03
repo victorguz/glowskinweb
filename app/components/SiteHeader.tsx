@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { SITE_LOGO_URL } from "@/app/components/site-config";
+import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { LeadTrigger } from "@/app/components/marketing/LeadTrigger";
 import { SERVICES_DATA } from "@/lib/content/services";
 import { getServiceHref } from "@/lib/routing/service-routes";
@@ -140,27 +141,15 @@ export function SiteHeader() {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-6">
-            <LeadTrigger
-              mode="contact"
-              className={`text-[11px] uppercase tracking-[0.2em] font-bold transition-colors ${
-                onDarkHero
-                  ? "text-white/90 hover:text-white"
-                  : "text-[#a5846e] hover:text-[#5c3a21]"
-              }`}
-            >
-              ESCRÍBENOS
-            </LeadTrigger>
-            <LeadTrigger
-              mode="booking"
-              className={`px-8 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-bold transition-all shadow-xl transform active:scale-95 ${
+          <div className="hidden md:flex items-center">
+            <BookingCtaButtons
+              reserveHereClassName={`px-8 py-3 rounded-full text-[11px] uppercase tracking-[0.2em] font-bold transition-all shadow-xl transform active:scale-95 ${
                 onDarkHero
                   ? "bg-[#f7f0eb] text-[#4a3221] hover:bg-white shadow-black/20"
                   : "bg-[#5c3a21] text-white hover:bg-[#a5846e] shadow-[#5c3a21]/20"
               }`}
-            >
-              Reservar Ahora
-            </LeadTrigger>
+              reserveHereText="Reservar Ahora"
+            />
           </div>
 
           <button
