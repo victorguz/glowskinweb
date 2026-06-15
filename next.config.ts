@@ -38,6 +38,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/sitemap.rss",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/sitemap",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
         source: "/services/limpieza-facial-profunda",
         destination: "/limpieza-facial",
         permanent: true,
