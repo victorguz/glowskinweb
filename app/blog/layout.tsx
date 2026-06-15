@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     'exosomas',
   ],
   alternates: { canonical: `${getSiteUrl()}/blog` },
+  robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
     locale: 'es_CO',

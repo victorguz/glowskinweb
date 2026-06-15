@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getSiteUrl } from '@/lib/seo/site';
 import { getAllServiceSlugs } from '@/lib/content/service-utils';
 import { getServiceHref } from '@/lib/routing/service-routes';
-import { getAllBlogSlugs } from '@/lib/blog/posts';
+import { getAllBlogSlugs, getAllPosts } from '@/lib/blog/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -51,6 +51,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.75,
     });
+  }
+
+  for (const post of getAllPosts()) {
+    const idx = entries.findIndex((e) => e.url === `${base}/blog/${post.slug}`);
+    if (idx >= 0) {
+      entries[idx] = {
+        ...entries[idx],
+        lastModified: new Date(`${post.datePublished}T12:00:00`),
+      };
+    }
   }
 
   return entries;

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { getBlogLegacyRedirectsForConfig } from "./lib/blog/blog-legacy-redirects";
 
 const nextConfig: NextConfig = {
   compress: true,
@@ -37,6 +38,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...getBlogLegacyRedirectsForConfig(),
       {
         source: "/sitemap.rss",
         destination: "/sitemap.xml",
