@@ -19,14 +19,14 @@ const HERO_BY_SERVICE: Record<string, string> = {
 
 const PROCESS_BY_SERVICE: Record<string, string> = {
   'limpieza-facial': DEFAULT_PROCESS,
-  'limpieza-facial-anti-acne': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.jpg`,
+  'limpieza-facial-anti-acne': `${SERVICE_CDN_IMAGES}/methods/home-metodo-anti-acne-antes-despues.jpg`,
   'limpieza-facial-pieles-sensibles': DEFAULT_PROCESS,
   hydraglow: DEFAULT_PROCESS,
-  'limpieza-seborreguladora': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.jpg`,
+  'limpieza-seborreguladora': `${SERVICE_CDN_IMAGES}/methods/home-metodo-anti-acne-antes-despues.jpg`,
   'hydraglow-antiox-peel': DEFAULT_PROCESS,
-  'tratamiento-anti-acne-intensivo': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.jpg`,
+  'tratamiento-anti-acne-intensivo': `${SERVICE_CDN_IMAGES}/methods/home-metodo-anti-acne-antes-despues.jpg`,
   'tratamiento-regenerative-plus': `${SERVICE_CDN_IMAGES}/methods/1-metodo-regenerativo.webp`,
-  'tratamiento-despigmentante': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-manchas.webp`,
+  'tratamiento-despigmentante': `${SERVICE_CDN_IMAGES}/methods/home-metodo-anti-manchas-antes-despues.jpg`,
 };
 
 export function getServiceHeroImage(serviceId: string): string {

@@ -36,7 +36,7 @@ const ASSETS = {
       title: "Método Anti-Acné",
       tag: "Clinical",
       desc: "Protocolo correctivo diseñado para equilibrar el microbioma cutáneo y reducir inflamaciones activas.",
-      img: `${BASE_IMG_URL}/methods/1-metodo-anti-acne.jpg`,
+      img: `${BASE_IMG_URL}/methods/home-metodo-anti-acne-antes-despues.jpg`,
     },
     {
       id: "regen",
@@ -50,7 +50,7 @@ const ASSETS = {
       title: "Tratamiento Anti-manchas",
       tag: "Radiance",
       desc: "Terapia despigmentante selectiva que unifica el tono de la piel sin comprometer su barrera protectora.",
-      img: `${BASE_IMG_URL}/methods/1-metodo-anti-manchas.webp`,
+      img: `${BASE_IMG_URL}/methods/home-metodo-anti-manchas-antes-despues.jpg`,
     },
   ],
   cases: [
@@ -254,7 +254,7 @@ export default function OtraPage() {
                   <img
                     src={method.img}
                     alt={method.title}
-                    className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110${method.slug === "tratamiento-despigmentante" ? " object-left" : ""}`}
+                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
                   />
                   <div className="absolute top-8 left-8">
                     <span className="px-5 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-white text-[10px] font-black uppercase tracking-[0.2em]">

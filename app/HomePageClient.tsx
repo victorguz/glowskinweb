@@ -33,7 +33,7 @@ const ASSETS = {
       title: "Método Anti-Acné",
       tag: "Clinical",
       desc: "Técnica avanzada de ácidos clínicos de última generación. Un tratamiento progresivo científicamente probado para tratar el acné leve a severo.",
-      img: `${BASE_IMG_URL}/methods/1-metodo-anti-acne.jpg`,
+      img: `${BASE_IMG_URL}/methods/home-metodo-anti-acne-antes-despues.jpg`,
       slug: "tratamiento-anti-acne-intensivo",
     },
     {
@@ -47,7 +47,7 @@ const ASSETS = {
       title: "Tratamiento Anti-manchas",
       tag: "Radiance",
       desc: "Técnica avanzada que combina Peelings de última generación con activos despigmentantes para eliminar progresivamente las manchas.",
-      img: `${BASE_IMG_URL}/methods/1-metodo-anti-manchas.webp`,
+      img: `${BASE_IMG_URL}/methods/home-metodo-anti-manchas-antes-despues.jpg`,
       slug: "tratamiento-despigmentante",
     },
   ],
@@ -137,7 +137,7 @@ export default function HomePageClient() {
                 <img
                   src={t.img}
                   alt={t.title}
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110${t.slug === "tratamiento-despigmentante" ? " object-left" : ""}`}
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#4a3221] via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
 
