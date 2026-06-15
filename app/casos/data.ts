@@ -31,9 +31,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/1-puntos-negros-nariz.jpg',
-        alt: 'Caso 1 - Puntos negros nariz - Antes',
-        descripcion: 'Antes: Comedones profundos y puntos negros obstinados',
+        src: 'images/resultados/resultado-01.png',
+        alt: 'Caso 1 - Puntos negros nariz - Antes y después',
+        descripcion: 'Antes y después: Piel completamente limpia y descargada',
       },
       {
         src: 'images/instagram/2-puntos-negros-nariz.jpg',
@@ -67,10 +67,10 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/5-limpieza-poros.jpg',
+        src: 'images/resultados/resultado-02.png',
         alt: 'Caso 2 - Limpieza de poros - Antes y después',
         descripcion:
-          'Transformación completa: de poros obstruidos a piel limpia',
+          'Antes y después: Poros limpios y piel descongestionada',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -89,10 +89,10 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/6-eliminar-manchas.jpg',
+        src: 'images/resultados/resultado-03.png',
         alt: 'Caso 3 - Eliminar manchas - Antes y después',
         descripcion:
-          'Resultado: Tono de piel completamente uniforme y luminoso',
+          'Antes y después: Tono de piel uniforme y luminoso',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -111,9 +111,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/7-manchas-acne.jpg',
+        src: 'images/resultados/resultado-04.png',
         alt: 'Caso 4 - Manchas acné - Antes y después',
-        descripcion: 'Antes: Manchas oscuras post-acné',
+        descripcion: 'Antes y después: Despigmentación efectiva y piel renovada',
       },
       {
         src: 'images/instagram/8-manchas-acne.mp4',
@@ -142,9 +142,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/10-tratamiento-anti-edad.mp4',
-        alt: 'Caso 5 - Tratamiento anti-edad - Proceso completo',
-        descripcion: 'Proceso completo de rejuvenecimiento facial',
+        src: 'images/resultados/resultado-05.png',
+        alt: 'Caso 5 - Tratamiento anti-edad - Antes y después',
+        descripcion: 'Antes y después: Piel rejuvenecida y firme',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -163,9 +163,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/11-limpieza-facial.mp4',
-        alt: 'Caso 6 - Limpieza facial efecto descarga - Proceso',
-        descripcion: 'Proceso de descarga completa y efecto glow',
+        src: 'images/resultados/resultado-06.png',
+        alt: 'Caso 6 - Limpieza facial efecto descarga - Antes y después',
+        descripcion: 'Antes y después: Piel descargada y con glow natural',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -184,10 +184,10 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/12-rejuvenecimiento-extremo.jpg',
+        src: 'images/resultados/resultado-07.png',
         alt: 'Caso 7 - Rejuvenecimiento extremo - Antes y después',
         descripcion:
-          'Transformación completa: restauración de juventud y firmeza',
+          'Antes y después: Rejuvenecimiento extremo y restauración de firmeza',
       },
       {
         src: 'images/instagram/21-rejuvenecimiento-extremo-antes.mp4',
@@ -216,9 +216,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/13-antioxpeelpro.mp4',
-        alt: 'Caso 8 - Antioxpeelpro - Tratamiento antioxidante',
-        descripcion: 'Proceso de protección antioxidante y rejuvenecimiento',
+        src: 'images/resultados/resultado-08.png',
+        alt: 'Caso 8 - Antioxpeelpro - Antes y después',
+        descripcion: 'Antes y después: Protección antioxidante y rejuvenecimiento',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -237,9 +237,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/14-limpieza-facial-profunda.jpg',
+        src: 'images/resultados/resultado-09.png',
         alt: 'Caso 9 - Limpieza facial profunda - Antes y después',
-        descripcion: 'Transformación: de piel irritada a calmada y saludable',
+        descripcion: 'Antes y después: Piel calmada y fortalecida',
       },
       {
         src: 'images/instagram/19-limpieza-facial-glow-skin-antes.jpg',
@@ -268,9 +268,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/17-acne-puntos-negros-comedones.jpg',
+        src: 'images/resultados/resultado-10.png',
         alt: 'Caso 10 - Acné y comedones - Antes y después',
-        descripcion: 'Transformación completa: control del acné severo',
+        descripcion: 'Antes y después: Acné controlado y piel limpia',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -289,10 +289,10 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/16-revitalizacion-facial.jpg',
+        src: 'images/resultados/resultado-11.png',
         alt: 'Caso 11 - Revitalización facial - Antes y después',
         descripcion:
-          'Transformación: de piel deshidratada a hidratada y vital',
+          'Antes y después: Piel hidratada y revitalizada',
       },
       {
         src: 'images/instagram/23-tratamiento-revitalizador.jpg',
@@ -316,10 +316,10 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/15-limpieza-de-poros.jpg',
+        src: 'images/resultados/resultado-12.png',
         alt: 'Caso 12 - Limpieza de poros - Antes y después',
         descripcion:
-          'Resultado: Poros refinados y textura completamente suave',
+          'Antes y después: Poros refinados y textura suave',
       },
     ].map(img => ({ ...img, src: `${BASE_URL}${img.src}` })),
   },
@@ -338,9 +338,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/18-limpieza-facial-glow-skin.jpg',
+        src: 'images/resultados/resultado-13.png',
         alt: 'Caso 13 - Limpieza facial Glow Skin - Antes y después',
-        descripcion: 'Transformación: de piel opaca a luminosa con glow',
+        descripcion: 'Antes y después: Piel luminosa con glow natural',
       },
       {
         src: 'images/instagram/24-limpieza-facial-profunda-glow-skin.jpg',
@@ -364,9 +364,9 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     ],
     imagenes: [
       {
-        src: 'images/instagram/25-acne-quistico-antes.jpg',
-        alt: 'Caso 14 - Acné quístico - Antes',
-        descripcion: 'Antes: Acné quístico y brotes inflamatorios severos',
+        src: 'images/resultados/resultado-14.png',
+        alt: 'Caso 14 - Acné quístico - Antes y después',
+        descripcion: 'Antes y después: Inflamación controlada y brotes reducidos',
       },
       {
         src: 'images/instagram/26-acne-quistico-despues.mp4',

@@ -26,7 +26,7 @@ const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
 
 const IMGS = {
   logo: `${SITE_LOGO_URL}`,
-  heroMethod: `${CDN}/images/methods/1-metodo-anti-acne.webp`,
+  heroMethod: `${CDN}/images/methods/1-metodo-anti-acne.jpg`,
   method1: `${CDN}/metodo-glow-skin/extraccion-manual-cuidadosa.png`,
   method2: `${CDN}/metodo-glow-skin/mascarilla-descongestiva.png`,
   method3: `${CDN}/metodo-glow-skin/microneedling-de-perfil.PNG`,

@@ -2,7 +2,7 @@
 export const SERVICE_CDN_IMAGES = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
 
 const DEFAULT_HERO = `${SERVICE_CDN_IMAGES}/hero/1-glow-skin-hero-limpieza-facial.webp`;
-const DEFAULT_PROCESS = `${SERVICE_CDN_IMAGES}/methods/1-limpieza-facial-glow-skin.jpg`;
+const DEFAULT_PROCESS = `${SERVICE_CDN_IMAGES}/methods/1-limpieza-facial-glow-skin.png`;
 
 /** Hero / proceso por id de servicio; si no hay entrada, defaults genéricos */
 const HERO_BY_SERVICE: Record<string, string> = {
@@ -19,12 +19,12 @@ const HERO_BY_SERVICE: Record<string, string> = {
 
 const PROCESS_BY_SERVICE: Record<string, string> = {
   'limpieza-facial': DEFAULT_PROCESS,
-  'limpieza-facial-anti-acne': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.webp`,
+  'limpieza-facial-anti-acne': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.jpg`,
   'limpieza-facial-pieles-sensibles': DEFAULT_PROCESS,
   hydraglow: DEFAULT_PROCESS,
-  'limpieza-seborreguladora': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.webp`,
+  'limpieza-seborreguladora': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.jpg`,
   'hydraglow-antiox-peel': DEFAULT_PROCESS,
-  'tratamiento-anti-acne-intensivo': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.webp`,
+  'tratamiento-anti-acne-intensivo': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-acne.jpg`,
   'tratamiento-regenerative-plus': `${SERVICE_CDN_IMAGES}/methods/1-metodo-regenerativo.webp`,
   'tratamiento-despigmentante': `${SERVICE_CDN_IMAGES}/methods/1-metodo-anti-manchas.webp`,
 };

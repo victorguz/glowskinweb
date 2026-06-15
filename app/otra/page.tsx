@@ -29,14 +29,14 @@ const ASSETS = {
       title: "Limpieza Facial GlowSkin",
       tag: "Signature",
       desc: "Nuestra técnica insignia que combina extracción manual precisa con hidratación profunda para un brillo inmediato.",
-      img: `${BASE_IMG_URL}/methods/1-limpieza-facial-glow-skin.jpg`,
+      img: `${BASE_IMG_URL}/methods/1-limpieza-facial-glow-skin.png`,
     },
     {
       id: "acne",
       title: "Método Anti-Acné",
       tag: "Clinical",
       desc: "Protocolo correctivo diseñado para equilibrar el microbioma cutáneo y reducir inflamaciones activas.",
-      img: `${BASE_IMG_URL}/methods/1-metodo-anti-acne.webp`,
+      img: `${BASE_IMG_URL}/methods/1-metodo-anti-acne.jpg`,
     },
     {
       id: "regen",
@@ -254,7 +254,7 @@ export default function OtraPage() {
                   <img
                     src={method.img}
                     alt={method.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110${method.slug === "tratamiento-despigmentante" ? " object-left" : ""}`}
                   />
                   <div className="absolute top-8 left-8">
                     <span className="px-5 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-white text-[10px] font-black uppercase tracking-[0.2em]">

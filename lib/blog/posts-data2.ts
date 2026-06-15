@@ -17,7 +17,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-06",
     category: "Tratamientos",
     readTimeLabel: "5 min",
-    image: `${IMG}/hero/1-glow-skin-hero-limpieza-facial.webp`,
+    image: `${IMG}/blog/blog-mejor-limpieza-facial-alto-prado.png`,
     blocks: [
       {
         type: "lead",
@@ -104,7 +104,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-05",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/gallery/glow-skin-gallery-resultados-facial.webp`,
+    image: `${IMG}/blog/blog-que-es-el-dermapen.jpg`,
     blocks: [
       {
         type: "lead",
@@ -211,7 +211,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-04",
     category: "Consejos",
     readTimeLabel: "6 min",
-    image: `${IMG}/gallery/glow-skin-gallery-extraccion-facial.webp`,
+    image: `${IMG}/blog/blog-limpieza-facial-en-casa.png`,
     blocks: [
       {
         type: "lead",
@@ -309,7 +309,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-03",
     category: "Consejos",
     readTimeLabel: "5 min",
-    image: `${IMG}/methods/2-limpieza-facial-glow-skin.webp`,
+    image: `${IMG}/blog/blog-que-hacer-despues-limpieza-facial.jpeg`,
     blocks: [
       {
         type: "lead",
@@ -509,7 +509,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-04-01",
     category: "Tratamientos",
     readTimeLabel: "6 min",
-    image: `${IMG}/methods/2-metodo-anti-acne.webp`,
+    image: `${IMG}/blog/blog-piel-grasa.png`,
     blocks: [
       {
         type: "lead",
@@ -711,7 +711,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-28",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/gallery/glow-skin-gallery-tratamiento-facial.webp`,
+    image: `${IMG}/blog/blog-envejecimiento-prematuro.jpg`,
     blocks: [
       {
         type: "lead",
@@ -811,7 +811,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-26",
     category: "Tratamientos",
     readTimeLabel: "8 min",
-    image: `${IMG}/cases/caso-4-tratamiento-anti-acne.webp`,
+    image: `${IMG}/blog/blog-como-curarse-del-acne.png`,
     blocks: [
       {
         type: "lead",
@@ -912,7 +912,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-24",
     category: "Tratamientos",
     readTimeLabel: "7 min",
-    image: `${IMG}/methods/3-metodo-anti-acne.webp`,
+    image: `${IMG}/blog/blog-metodo-glow-skin-acne.png`,
     blocks: [
       {
         type: "lead",
@@ -1019,7 +1019,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-22",
     category: "Ciencia",
     readTimeLabel: "7 min",
-    image: `${IMG}/methods/2-metodo-regenerativo.webp`,
+    image: `${IMG}/blog/blog-pdrn-o-exosomas.png`,
     blocks: [
       {
         type: "lead",
@@ -1116,7 +1116,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-20",
     category: "Lifestyle",
     readTimeLabel: "6 min",
-    image: `${IMG}/gallery/glow-skin-gallery-peeling-facial.webp`,
+    image: `${IMG}/blog/blog-que-es-pdrn.png`,
     blocks: [
       {
         type: "lead",
@@ -1322,7 +1322,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-15",
     category: "Lifestyle",
     readTimeLabel: "5 min",
-    image: `${IMG}/hero/1-glow-skin-hero-limpieza-facial.webp`,
+    image: `${IMG}/blog/blog-daddy-yankee-joven.png`,
     blocks: [
       {
         type: "p",
@@ -1424,7 +1424,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     datePublished: "2024-03-12",
     category: "Lifestyle",
     readTimeLabel: "6 min",
-    image: `${IMG}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
+    image: `${IMG}/blog/blog-secreto-kardashians.png`,
     blocks: [
       {
         type: "lead",
