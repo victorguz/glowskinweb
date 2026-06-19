@@ -6,6 +6,7 @@ import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteWhatsappButton } from "@/app/components/SiteWhatsappButton";
 import { LeadFormsProvider } from "@/app/components/marketing/LeadFormsProvider";
 import { FacebookPixelRoot } from "@/app/components/marketing/FacebookPixelRoot";
+import { MicrosoftClarity } from "@/app/utilities/MicrosoftClarity";
 import landingPages from "@/app/landing-pages.config";
 import {
   INSTAGRAM_URL,
@@ -141,6 +142,7 @@ export default function RootLayout({
         />
         <LeadFormsProvider>
           <FacebookPixelRoot />
+          <MicrosoftClarity />
           <LayoutContent>{children}</LayoutContent>
         </LeadFormsProvider>
         <Script
