@@ -1,6 +1,8 @@
 import type { BlogPost } from "@/lib/blog/types";
 
-const IMG = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
+import { IMAGES_CDN } from "@/lib/landings/cdn";
+
+const IMG = IMAGES_CDN;
 
 export const BLOG_POSTS2: BlogPost[] = [
   {

@@ -22,7 +22,9 @@ export const metadata: Metadata = {
   },
 };
 
-const BASE_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/";
+import { ASSETS_CDN } from "@/lib/landings/cdn";
+
+const BASE_URL = `${ASSETS_CDN}/`;
 const HERO_SOFIA_SRC = `${BASE_URL}images/sofia/sofia-nieto-glow-skin-bq-fondo-horizontal.png`;
 
 export default function NosotrosPage() {

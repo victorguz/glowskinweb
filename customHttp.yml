@@ -1,7 +1,26 @@
-# AWS Amplify - cabeceras HTTP para SEO, archivos planos y seguridad.
-# Next.js sirve /robots.txt y /sitemap.xml vía App Router; estas reglas refuerzan tipos MIME y caché en CDN.
+# AWS Amplify - cabeceras HTTP para SEO, archivos planos, caché en CDN y seguridad.
+# Next.js sirve /robots.txt y /sitemap.xml vía App Router; estas reglas refuerzan tipos MIME y caché en edge.
 
 customHeaders:
+  - pattern: "/api/**"
+    headers:
+      - key: "Cache-Control"
+        value: "private, no-store, max-age=0"
+
+  - pattern: "/_next/static/**"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=31536000, immutable"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/_next/image*"
+    headers:
+      - key: "Cache-Control"
+        value: "public, max-age=86400, stale-while-revalidate=604800"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
   - pattern: "/robots.txt"
     headers:
       - key: "Content-Type"
@@ -30,28 +49,103 @@ customHeaders:
       - key: "Cache-Control"
         value: "public, max-age=86400"
 
-  # Blog pages SEO optimization
-  - pattern: "/blog/**"
-    headers:
-      - key: "Cache-Control"
-        value: "public, max-age=3600, stale-while-revalidate=86400"
-      - key: "X-Content-Type-Options"
-        value: "nosniff"
-
-  # Pricing page optimization
-  - pattern: "/precios"
-    headers:
-      - key: "Cache-Control"
-        value: "public, max-age=7200, stale-while-revalidate=86400"
-      - key: "X-Content-Type-Options"
-        value: "nosniff"
-
   - pattern: "/.well-known/security.txt"
     headers:
       - key: "Content-Type"
         value: "text/plain; charset=utf-8"
       - key: "Cache-Control"
         value: "public, max-age=86400"
+
+  - pattern: "/"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/blog/**"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/precios"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=7200, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/nosotros"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/casos"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/metodo-glow-skin"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/servicios"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/servicios/**"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/limpieza-facial"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/anti-acne"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/microneedling"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/antiox-peel-pro"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
+
+  - pattern: "/porcelanizacion-facial"
+    headers:
+      - key: "Cache-Control"
+        value: "public, s-maxage=3600, stale-while-revalidate=86400"
+      - key: "X-Content-Type-Options"
+        value: "nosniff"
 
   - pattern: "**/*.{png,jpg,jpeg,gif,svg,webp,ico,woff2}"
     headers:

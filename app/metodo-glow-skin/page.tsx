@@ -20,9 +20,10 @@ import {
 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { SITE_LOGO_URL } from "../components/site-config";
+import { ASSETS_CDN } from "@/lib/landings/cdn";
 import Link from "next/link";
 
-const CDN = "https://main.dlloltrpvu8dp.amplifyapp.com/assets";
+const CDN = ASSETS_CDN;
 
 const IMGS = {
   logo: `${SITE_LOGO_URL}`,

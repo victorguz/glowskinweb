@@ -14,7 +14,9 @@ import {
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 
 // --- Base Constants ---
-const BASE_IMG_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
+import { IMAGES_CDN } from "@/lib/landings/cdn";
+
+const BASE_IMG_URL = IMAGES_CDN;
 
 const ASSETS = {
   sofia: `${BASE_IMG_URL}/sofia/sofia-nieto-glow-skin-bq.png`,

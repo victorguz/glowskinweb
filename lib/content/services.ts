@@ -1,3 +1,5 @@
+import { LANDINGS_CDN } from "@/lib/landings/cdn";
+
 // Fallback constants for contact info
 export const WA_LINK = "https://wa.link/h5481r";
 export const CONTACT_EMAIL = "contact@glowskinbq.com";
@@ -5,9 +7,6 @@ export const PHONE_TEL = "+573008883486";
 
 /** Duración por sesión en cabina (fichas y `page.process`). */
 export const SESSION_DURATION = "60-90 minutos aproximadamente";
-
-const LANDINGS_CDN =
-  "https://main.dlloltrpvu8dp.amplifyapp.com/assets/landings";
 
 export enum ServiceIds {
   // Categories

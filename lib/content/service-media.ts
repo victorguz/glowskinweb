@@ -1,5 +1,7 @@
+import { IMAGES_CDN } from "@/lib/landings/cdn";
+
 /** CDN de imágenes (mismo host que el resto del sitio) */
-export const SERVICE_CDN_IMAGES = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/images';
+export const SERVICE_CDN_IMAGES = IMAGES_CDN;
 
 const DEFAULT_HERO = `${SERVICE_CDN_IMAGES}/hero/1-glow-skin-hero-limpieza-facial.webp`;
 const DEFAULT_PROCESS = `${SERVICE_CDN_IMAGES}/methods/1-limpieza-facial-glow-skin.png`;

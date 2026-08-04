@@ -5,7 +5,9 @@ import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
 import type { BlogListItem } from "@/lib/blog/posts";
 
-const BASE_IMG_URL = "https://main.dlloltrpvu8dp.amplifyapp.com/assets/images";
+import { IMAGES_CDN } from "@/lib/landings/cdn";
+
+const BASE_IMG_URL = IMAGES_CDN;
 
 const BLOG_HERO = `${BASE_IMG_URL}/hero/3-glow-skin-hero-servicios-esteticos.webp`;
 

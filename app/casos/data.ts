@@ -13,7 +13,9 @@ export interface BeneficioTratamiento {
   imagenes: ImagenBeneficio[];
 }
 
-const BASE_URL = 'https://main.dlloltrpvu8dp.amplifyapp.com/assets/';
+import { ASSETS_CDN } from "@/lib/landings/cdn";
+
+const BASE_URL = `${ASSETS_CDN}/`;
 
 export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
   {
