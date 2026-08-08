@@ -3,12 +3,16 @@
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { fbqTrack, readFbCookies, sendCapiEvent } from './tracking';
+import { fbqTrack, getClientIp, getIdentityUserData, readFbCookies, sendCapiEvent } from './tracking';
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
-function sendPageViewCapi() {
+async function sendPageViewCapi() {
   const { fbp, fbc } = readFbCookies();
+  const [clientIp, identity] = await Promise.all([
+    getClientIp(),
+    getIdentityUserData(),
+  ]);
   return sendCapiEvent({
     eventName: 'PageView',
     eventTime: Math.floor(Date.now() / 1000),
@@ -17,6 +21,10 @@ function sendPageViewCapi() {
     actionSource: 'website',
     userData: {
       client_user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : undefined,
+      client_ip_address: clientIp,
+      externalId: identity.externalId,
+      email: identity.email,
+      phone: identity.phone,
       fbp,
       fbc,
     },

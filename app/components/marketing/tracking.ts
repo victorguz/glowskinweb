@@ -1,9 +1,42 @@
 'use client';
 
+import { getIdentity, getOrCreateExternalId } from '../../utilities/secureStorage';
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
   }
+}
+
+/**
+ * Obtiene la IP pública del cliente, prefiriendo IPv6 cuando el navegador la
+ * soporte (api64.ipify.org retorna IPv6 si está disponible, si no IPv4).
+ * Se usa para que el evento PageView llegue con la misma IP que ve el Pixel,
+ * ya que el servidor (detrás de Amplify/CloudFront) puede recibir solo IPv4.
+ */
+export async function getClientIp(): Promise<string | undefined> {
+  if (typeof window === 'undefined') return undefined;
+  try {
+    const response = await fetch('https://api64.ipify.org?format=json');
+    const data = await response.json();
+    return data.ip;
+  } catch {
+    console.warn('[tracking] No se pudo obtener la IP del cliente');
+    return undefined;
+  }
+}
+
+/** Datos de identidad (externalId siempre; email/phone si el visitante ya fue identificado). */
+export async function getIdentityUserData(): Promise<{
+  externalId?: string;
+  email?: string;
+  phone?: string;
+}> {
+  const [externalId, identity] = await Promise.all([
+    getOrCreateExternalId(),
+    getIdentity(),
+  ]);
+  return { externalId, email: identity.email, phone: identity.phone };
 }
 
 export function readFbCookies(): { fbp?: string; fbc?: string } {
@@ -22,21 +55,36 @@ export function fbqTrack(...args: unknown[]) {
   window.fbq?.(...args);
 }
 
-export async function sendCapiEvent(payload: Record<string, unknown>) {
-  await fetch('/api/facebook-conversion', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
+/** Envía el evento a la API de Conversiones. Retorna `true` si el servidor confirmó el envío. */
+export async function sendCapiEvent(payload: Record<string, unknown>): Promise<boolean> {
+  try {
+    const res = await fetch('/api/facebook-conversion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) return false;
+    const body = await res.json().catch(() => null);
+    return Boolean(body?.success);
+  } catch {
+    return false;
+  }
 }
 
-export async function sendFormsLead(data: Record<string, unknown>) {
-  const res = await fetch('/api/forms/leads', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ data }),
-  });
-  return res.json().catch(() => ({}));
+/** Envía la respuesta al formulario de Leads. Retorna `true` si el upstream confirmó el envío. */
+export async function sendFormsLead(data: Record<string, unknown>): Promise<boolean> {
+  try {
+    const res = await fetch('/api/forms/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data }),
+    });
+    if (!res.ok) return false;
+    const body = await res.json().catch(() => null);
+    return Boolean(body?.success);
+  } catch {
+    return false;
+  }
 }
 
 export function splitFullName(nombre: string): { firstName: string; lastName: string } {

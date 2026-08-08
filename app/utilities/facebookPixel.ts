@@ -1,5 +1,6 @@
 // Facebook Pixel Service - Cliente y Servidor
 import { v4 as uuidv4 } from "uuid";
+import { getIdentity, getOrCreateExternalId } from "./secureStorage";
 
 // Tipos de eventos
 export type FacebookEventName = "ViewContent" | "CompleteRegistration" | "Lead";
@@ -167,6 +168,10 @@ class FacebookPixelService {
       const clientIpAddress = await this.getClientIp();
       const fbp = this.getCookie("_fbp");
       const fbc = this.getCookie("_fbc");
+      const [externalId, savedIdentity] = await Promise.all([
+        getOrCreateExternalId(),
+        getIdentity(),
+      ]);
 
       const response = await fetch("/api/facebook-conversion", {
         method: "POST",
@@ -180,6 +185,9 @@ class FacebookPixelService {
           eventSourceUrl: data.eventSourceUrl,
           actionSource: "website",
           userData: {
+            externalId,
+            email: savedIdentity.email,
+            phone: savedIdentity.phone,
             ...data.userData,
             client_user_agent: userAgent,
             client_ip_address: clientIpAddress,
