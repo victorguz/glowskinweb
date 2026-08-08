@@ -149,6 +149,7 @@ export function SiteHeader() {
                   : "bg-[#5c3a21] text-white hover:bg-[#a5846e] shadow-[#5c3a21]/20"
               }`}
               reserveHereText="Reservar Ahora"
+              showReserveWhatsapp={false}
             />
           </div>
 

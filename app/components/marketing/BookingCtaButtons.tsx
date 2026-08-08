@@ -39,7 +39,7 @@ export function BookingCtaButtons({
   reserveHereText,
   reserveWhatsappText,
   showReserveHere,
-  showReserveWhatsapp = false,
+  showReserveWhatsapp = true,
   suggestedTreatments,
   whatsappContext,
 }: BookingCtaButtonsProps) {

@@ -91,7 +91,18 @@ function PreciosCategorySection({
               id={getPricingItemAnchorId(item.name)}
               className="group cursor-default scroll-mt-40"
             >
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4">
+              <div
+                className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-4 cursor-pointer"
+                role="button"
+                tabIndex={0}
+                onClick={() => onToggleDetails(detailsKey)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onToggleDetails(detailsKey);
+                  }
+                }}
+              >
                 <h3 className="text-lg md:text-xl font-sans font-bold text-[#4a3221] tracking-wide uppercase leading-tight">
                   {item.name}
                 </h3>
@@ -108,7 +119,18 @@ function PreciosCategorySection({
                 </div>
               </div>
               <div className="flex flex-col md:flex-row md:items-center gap-4">
-                <div className="min-w-0 flex-1">
+                <div
+                  className="min-w-0 flex-1 cursor-pointer"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => onToggleDetails(detailsKey)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onToggleDetails(detailsKey);
+                    }
+                  }}
+                >
                   <p className="text-[#7d5a44] text-sm md:text-base leading-relaxed font-medium opacity-90">
                     {item.detail}
                   </p>
@@ -133,6 +155,7 @@ function PreciosCategorySection({
                     suggestedTreatments={[item.name]}
                     reserveHereClassName={preciosReservaBtnClassName}
                     whatsappContext={item.name}
+                    showReserveWhatsapp={false}
                   />
                 </div>
               </div>
@@ -147,6 +170,7 @@ function PreciosCategorySection({
                           suggestedTreatments={[item.name]}
                           reserveHereClassName={preciosReservaBtnClassName}
                           whatsappContext={item.name}
+                          showReserveWhatsapp={false}
                         />
                       }
                     />

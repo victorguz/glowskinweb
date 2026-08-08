@@ -9,7 +9,14 @@ import {
   type ReactNode,
 } from "react";
 import { usePathname } from "next/navigation";
-import { X, Sparkles, ChevronRight, ShieldCheck, Loader2 } from "lucide-react";
+import {
+  X,
+  Sparkles,
+  ChevronRight,
+  ShieldCheck,
+  Loader2,
+  AlertCircle,
+} from "lucide-react";
 import { PHONE_WA_DIGITS } from "@/app/components/site-config";
 import {
   buildWaMeUrl,
@@ -19,6 +26,7 @@ import {
   sendFormsLead,
   splitFullName,
 } from "./tracking";
+import { getOrCreateExternalId, setIdentity } from "../../utilities/secureStorage";
 import {
   buildBookingWhatsappText,
   pickBookingWhatsappContext,
@@ -69,6 +77,56 @@ const inputCls =
   "w-full px-4 py-3 rounded-xl bg-white border border-[#d4b499]/45 focus:border-[#5c3a21] focus:outline-none text-[#4a3221] placeholder:text-[#7d5a44]/55 transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
 
 const labelCls = "block text-sm font-bold text-[#4a3221] mb-2";
+
+function validateLeadFields({
+  nombre,
+  email,
+  phoneDigits,
+}: {
+  nombre: string;
+  email: string;
+  phoneDigits: string;
+}): string | null {
+  if (nombre.trim().length < 2) {
+    return "Ingresa tu nombre completo.";
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+    return "Ingresa un correo electrónico válido.";
+  }
+  if (phoneDigits.length < 10) {
+    return "Ingresa un número de WhatsApp válido (mínimo 10 dígitos).";
+  }
+  return null;
+}
+
+/**
+ * Envía el evento a Meta CAPI y el registro al formulario de Leads.
+ * Es "fire and forget": nunca debe bloquear ni impedir la redirección a
+ * WhatsApp, que es la acción principal que el usuario espera al enviar.
+ */
+function sendLeadSignals({
+  capiPayload,
+  formsData,
+}: {
+  capiPayload: Record<string, unknown>;
+  formsData: Record<string, unknown>;
+}): void {
+  void sendCapiEvent(capiPayload).catch(() => false);
+  void sendFormsLead(formsData).catch(() => false);
+}
+
+function FieldErrorHint({ message }: { message: string | null }) {
+  if (!message) return null;
+  return (
+    <p
+      role="alert"
+      className="flex items-start gap-2 text-sm font-medium text-[#b3261e]"
+    >
+      <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+      <span>{message}</span>
+    </p>
+  );
+}
 
 function LeadLoadingOverlay({ message }: { message: string }) {
   return (
@@ -166,7 +224,12 @@ function LeadModalFrame({
 
           <div className="flex min-h-0 flex-1 flex-col">
             <div className="min-h-0 flex-1 overflow-y-auto p-6 md:p-8">
-              <form id={formId} onSubmit={onFormSubmit} className="space-y-6">
+              <form
+                id={formId}
+                onSubmit={onFormSubmit}
+                noValidate
+                className="space-y-6"
+              >
                 {children}
               </form>
             </div>
@@ -175,7 +238,8 @@ function LeadModalFrame({
               <button
                 type="submit"
                 form={formId}
-                disabled={!canSubmit || busy}
+                disabled={busy}
+                aria-disabled={!canSubmit || busy}
                 className={`flex w-full items-center justify-center gap-2 rounded-xl py-5 text-lg font-bold transition-all ${
                   canSubmit && !busy
                     ? "bg-[#4a3221] text-[#f7f0eb] hover:bg-[#5c3a21] shadow-lg"
@@ -216,6 +280,7 @@ function BookingLeadOverlay({
   const [email, setEmail] = useState("");
   const [cel, setCel] = useState("");
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const phoneDigits = cel.replace(/\D/g, "");
   const canSubmit =
@@ -226,7 +291,13 @@ function BookingLeadOverlay({
 
   async function onFormSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit) return;
+    if (busy) return;
+
+    const validationError = validateLeadFields({ nombre, email, phoneDigits });
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
 
     const data: Record<string, unknown> = {
       nombre: nombre.trim(),
@@ -246,6 +317,7 @@ function BookingLeadOverlay({
     });
     const waUrl = buildWaMeUrl(PHONE_WA_DIGITS, waText);
 
+    setError(null);
     setBusy(true);
     try {
       fbqTrack("track", "Lead", {
@@ -256,43 +328,50 @@ function BookingLeadOverlay({
       /* noop */
     }
 
-    try {
-      await sendCapiEvent({
-        eventName: "Lead",
-        eventTime: Math.floor(Date.now() / 1000),
-        eventId,
-        eventSourceUrl:
-          typeof window !== "undefined" ? window.location.href : "",
-        actionSource: "website",
-        userData: {
-          email: email.trim(),
-          phone: cel.trim(),
-          firstName,
-          lastName,
-          client_user_agent:
-            typeof navigator !== "undefined" ? navigator.userAgent : undefined,
-          fbp,
-          fbc,
-        },
-        customData: {
-          content_name: "Reserva",
-          content_category: "booking",
-          page_type: pathname,
-        },
-      });
-    } catch {
-      /* noop */
-    }
-
-    try {
-      await sendFormsLead(data);
-    } catch {
-      /* noop */
-    }
-
+    // WhatsApp se abre de inmediato: es la acción que el usuario espera y no
+    // debe depender de que el tracking o el guardado del lead tengan éxito.
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setBusy(false);
     onClose();
+
+    void (async () => {
+      const externalId = await getOrCreateExternalId();
+      sendLeadSignals({
+        capiPayload: {
+          eventName: "Lead",
+          eventTime: Math.floor(Date.now() / 1000),
+          eventId,
+          eventSourceUrl:
+            typeof window !== "undefined" ? window.location.href : "",
+          actionSource: "website",
+          userData: {
+            email: email.trim(),
+            phone: cel.trim(),
+            firstName,
+            lastName,
+            externalId,
+            client_user_agent:
+              typeof navigator !== "undefined"
+                ? navigator.userAgent
+                : undefined,
+            fbp,
+            fbc,
+          },
+          customData: {
+            content_name: "Reserva",
+            content_category: "booking",
+            page_type: pathname,
+          },
+        },
+        formsData: data,
+      });
+
+      try {
+        await setIdentity({ email: email.trim(), phone: cel.trim() });
+      } catch {
+        /* noop */
+      }
+    })();
   }
 
   return (
@@ -324,7 +403,10 @@ function BookingLeadOverlay({
           type="text"
           required
           value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          onChange={(e) => {
+            setNombre(e.target.value);
+            setError(null);
+          }}
           disabled={busy}
           className={inputCls}
           placeholder="Tu nombre"
@@ -340,7 +422,10 @@ function BookingLeadOverlay({
           type="email"
           required
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError(null);
+          }}
           disabled={busy}
           className={inputCls}
           placeholder="tu@email.com"
@@ -357,11 +442,17 @@ function BookingLeadOverlay({
           inputMode="tel"
           required
           value={cel}
-          onChange={(e) => setCel(e.target.value)}
+          onChange={(e) => {
+            setCel(e.target.value);
+            setError(null);
+          }}
           disabled={busy}
           className={inputCls}
           placeholder="+57 300 123 4567"
         />
+        <div className="mt-2">
+          <FieldErrorHint message={error} />
+        </div>
       </div>
 
       <div className="rounded-2xl border-2 border-[#d4b499] bg-white/90 p-6 shadow-[0_0_24px_rgba(212,180,153,0.2)]">
@@ -396,6 +487,7 @@ function ContactLeadOverlay({
   const [email, setEmail] = useState("");
   const [cel, setCel] = useState("");
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const phoneDigits = cel.replace(/\D/g, "");
   const canSubmit =
@@ -406,7 +498,13 @@ function ContactLeadOverlay({
 
   async function onFormSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit) return;
+    if (busy) return;
+
+    const validationError = validateLeadFields({ nombre, email, phoneDigits });
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
 
     const data: Record<string, unknown> = {
       nombre: nombre.trim(),
@@ -421,6 +519,7 @@ function ContactLeadOverlay({
     const { fbp, fbc } = readFbCookies();
     const waUrl = buildWaMeUrl(PHONE_WA_DIGITS, buildContactWaMessage(data));
 
+    setError(null);
     setBusy(true);
     try {
       fbqTrack("track", "Lead", {
@@ -431,43 +530,50 @@ function ContactLeadOverlay({
       /* noop */
     }
 
-    try {
-      await sendCapiEvent({
-        eventName: "Lead",
-        eventTime: Math.floor(Date.now() / 1000),
-        eventId,
-        eventSourceUrl:
-          typeof window !== "undefined" ? window.location.href : "",
-        actionSource: "website",
-        userData: {
-          email: email.trim(),
-          phone: cel.trim(),
-          firstName,
-          lastName,
-          client_user_agent:
-            typeof navigator !== "undefined" ? navigator.userAgent : undefined,
-          fbp,
-          fbc,
-        },
-        customData: {
-          content_name: "Contacto",
-          content_category: "contact",
-          page_type: pathname,
-        },
-      });
-    } catch {
-      /* noop */
-    }
-
-    try {
-      await sendFormsLead(data);
-    } catch {
-      /* noop */
-    }
-
+    // WhatsApp se abre de inmediato: es la acción que el usuario espera y no
+    // debe depender de que el tracking o el guardado del lead tengan éxito.
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setBusy(false);
     onClose();
+
+    void (async () => {
+      const externalId = await getOrCreateExternalId();
+      sendLeadSignals({
+        capiPayload: {
+          eventName: "Lead",
+          eventTime: Math.floor(Date.now() / 1000),
+          eventId,
+          eventSourceUrl:
+            typeof window !== "undefined" ? window.location.href : "",
+          actionSource: "website",
+          userData: {
+            email: email.trim(),
+            phone: cel.trim(),
+            firstName,
+            lastName,
+            externalId,
+            client_user_agent:
+              typeof navigator !== "undefined"
+                ? navigator.userAgent
+                : undefined,
+            fbp,
+            fbc,
+          },
+          customData: {
+            content_name: "Contacto",
+            content_category: "contact",
+            page_type: pathname,
+          },
+        },
+        formsData: data,
+      });
+
+      try {
+        await setIdentity({ email: email.trim(), phone: cel.trim() });
+      } catch {
+        /* noop */
+      }
+    })();
   }
 
   return (
@@ -499,7 +605,10 @@ function ContactLeadOverlay({
           type="text"
           required
           value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          onChange={(e) => {
+            setNombre(e.target.value);
+            setError(null);
+          }}
           disabled={busy}
           className={inputCls}
           placeholder="Tu nombre"
@@ -515,7 +624,10 @@ function ContactLeadOverlay({
           type="email"
           required
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError(null);
+          }}
           disabled={busy}
           className={inputCls}
           placeholder="tu@email.com"
@@ -532,11 +644,17 @@ function ContactLeadOverlay({
           inputMode="tel"
           required
           value={cel}
-          onChange={(e) => setCel(e.target.value)}
+          onChange={(e) => {
+            setCel(e.target.value);
+            setError(null);
+          }}
           disabled={busy}
           className={inputCls}
           placeholder="+57 300 123 4567"
         />
+        <div className="mt-2">
+          <FieldErrorHint message={error} />
+        </div>
       </div>
 
       <div className="rounded-2xl border-2 border-[#d4b499] bg-white/90 p-6 shadow-[0_0_24px_rgba(212,180,153,0.2)]">

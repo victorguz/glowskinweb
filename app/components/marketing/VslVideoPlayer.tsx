@@ -220,38 +220,43 @@ export function VslVideoPlayer({
 
     if (isYoutube && youtubeVideoId) {
       setShowIframe(true);
-      await loadYoutubeApi();
+      try {
+        await loadYoutubeApi();
 
-      if (!window.YT?.Player) {
-        return;
-      }
+        if (!window.YT?.Player) {
+          return;
+        }
 
-      youtubePlayerRef.current?.destroy();
+        youtubePlayerRef.current?.destroy();
 
-      const isShort = videoUrl?.includes("/shorts/");
-      const playerVars: Record<string, string | number> = {
-        autoplay: 1,
-        mute: 0,
-        playsinline: 1,
-        rel: 0,
-        modestbranding: 1,
-      };
+        const isShort = videoUrl?.includes("/shorts/");
+        const playerVars: Record<string, string | number> = {
+          autoplay: 1,
+          mute: 0,
+          playsinline: 1,
+          rel: 0,
+          modestbranding: 1,
+        };
 
-      if (isShort) {
-        playerVars.loop = 1;
-        playerVars.playlist = youtubeVideoId;
-      }
+        if (isShort) {
+          playerVars.loop = 1;
+          playerVars.playlist = youtubeVideoId;
+        }
 
-      youtubePlayerRef.current = new window.YT.Player(playerContainerId, {
-        videoId: youtubeVideoId,
-        playerVars,
-        events: {
-          onReady: (event) => {
-            event.target.unMute();
-            event.target.playVideo();
+        youtubePlayerRef.current = new window.YT.Player(playerContainerId, {
+          videoId: youtubeVideoId,
+          playerVars,
+          events: {
+            onReady: (event) => {
+              event.target.unMute();
+              event.target.playVideo();
+            },
           },
-        },
-      });
+        });
+      } catch {
+        // El WebView de Instagram/Facebook a veces bloquea la API de YouTube;
+        // el iframe ya está visible como fallback silencioso.
+      }
       return;
     }
 
@@ -268,19 +273,6 @@ export function VslVideoPlayer({
     videoUrl,
     youtubeVideoId,
   ]);
-
-  useEffect(() => {
-    if (hasStarted || !hasVideo) {
-      return;
-    }
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [hasStarted, hasVideo]);
 
   useEffect(() => {
     return () => {

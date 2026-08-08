@@ -19,14 +19,18 @@ export function InstagramEmbed({
   useEffect(() => {
     if (processed.current) return;
     // If embed.js already loaded (e.g. hot-reload), re-process manually
-    if (
-      typeof window !== "undefined" &&
-      (window as { instgrm?: { Embeds: { process: () => void } } }).instgrm
-    ) {
-      (
-        window as { instgrm?: { Embeds: { process: () => void } } }
-      ).instgrm!.Embeds.process();
-      processed.current = true;
+    try {
+      if (
+        typeof window !== "undefined" &&
+        (window as { instgrm?: { Embeds: { process: () => void } } }).instgrm
+      ) {
+        (
+          window as { instgrm?: { Embeds: { process: () => void } } }
+        ).instgrm!.Embeds.process();
+        processed.current = true;
+      }
+    } catch {
+      // Instagram embed.js puede fallar dentro del in-app browser de Instagram/Meta.
     }
   }, []);
 
@@ -52,15 +56,19 @@ export function InstagramEmbed({
         src="https://www.instagram.com/embed.js"
         strategy="lazyOnload"
         onLoad={() => {
-          if (
-            typeof window !== "undefined" &&
-            (window as { instgrm?: { Embeds: { process: () => void } } })
-              .instgrm
-          ) {
-            (
-              window as { instgrm?: { Embeds: { process: () => void } } }
-            ).instgrm!.Embeds.process();
-            processed.current = true;
+          try {
+            if (
+              typeof window !== "undefined" &&
+              (window as { instgrm?: { Embeds: { process: () => void } } })
+                .instgrm
+            ) {
+              (
+                window as { instgrm?: { Embeds: { process: () => void } } }
+              ).instgrm!.Embeds.process();
+              processed.current = true;
+            }
+          } catch {
+            // Instagram embed.js puede fallar dentro del in-app browser de Instagram/Meta.
           }
         }}
       />
