@@ -24,12 +24,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/porcelanizacion-facial',
   ];
 
+  const legalPaths = [
+    '/terminos-y-condiciones',
+    '/politica-de-privacidad',
+    '/politica-de-cookies',
+  ];
+
   const entries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${base}${path || '/'}`,
     lastModified: lastMod,
     changeFrequency: path === '/blog' ? 'weekly' : 'monthly',
     priority: path === '' ? 1 : path === '/servicios' || path === '/precios' ? 0.9 : 0.8,
   }));
+
+  for (const path of legalPaths) {
+    entries.push({
+      url: `${base}${path}`,
+      lastModified: lastMod,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    });
+  }
 
   const servicePaths = new Set<string>();
   for (const slug of getAllServiceSlugs()) {

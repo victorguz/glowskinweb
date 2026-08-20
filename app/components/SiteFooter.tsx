@@ -9,6 +9,7 @@ import {
   INSTAGRAM_URL,
   ADDRESS_LINES,
   HOURS_LINES,
+  LEGAL_BUSINESS_NAME,
 } from "@/app/components/site-config";
 
 export function SiteFooter() {
@@ -156,6 +157,39 @@ export function SiteFooter() {
               {HOURS_LINES[0]} <br /> {HOURS_LINES[1]}
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Barra legal — no se renderiza en landings porque el footer completo se oculta */}
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col gap-6 border-t border-[#f1e4dc] pt-10 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-[#a5846e]">
+            © {new Date().getFullYear()} {LEGAL_BUSINESS_NAME}. Todos los
+            derechos reservados.
+          </p>
+          <nav
+            aria-label="Enlaces legales"
+            className="flex flex-col gap-3 text-xs font-medium text-[#7d5a44] sm:flex-row sm:flex-wrap sm:gap-6"
+          >
+            <Link
+              href="/terminos-y-condiciones"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
+              Términos y Condiciones
+            </Link>
+            <Link
+              href="/politica-de-privacidad"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
+              Política de Privacidad
+            </Link>
+            <Link
+              href="/politica-de-cookies"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
+              Política de Cookies
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

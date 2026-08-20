@@ -22,3 +22,25 @@ export const ADDRESS_LINES = [
   "Barranquilla, Colombia.",
 ] as const;
 export const HOURS_LINES = ["8:00 AM — 6:00 PM", "Lunes a Sábados"] as const;
+
+/* ------------------------------------------------------------------ */
+/* Datos legales — usados en /terminos-y-condiciones, /politica-de-*   */
+/* ------------------------------------------------------------------ */
+
+/** Nombre comercial del responsable del tratamiento de datos. */
+export const LEGAL_BUSINESS_NAME = "Glow Skin by Sofía Nieto Aesthetics";
+
+/**
+ * NIT o documento del responsable. Déjalo vacío si aún no se va a publicar:
+ * las páginas legales omiten la línea automáticamente cuando está vacío.
+ */
+export const LEGAL_TAX_ID = "";
+
+/** Dirección de notificaciones en una sola línea. */
+export const LEGAL_ADDRESS = "Carrera 50 # 74-120, Barranquilla, Atlántico, Colombia";
+
+/** Canal oficial para solicitudes de datos personales (habeas data). */
+export const LEGAL_CONTACT_EMAIL = CONTACT_EMAIL;
+
+/** Fecha de última actualización de los documentos legales. */
+export const LEGAL_LAST_UPDATED = "20 de agosto de 2026";
