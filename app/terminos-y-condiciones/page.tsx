@@ -90,18 +90,28 @@ export default function TerminosYCondicionesPage() {
 
       <LegalSection id="servicios" title="3. Naturaleza de los servicios">
         <p>
-          {SITE_NAME} presta servicios de <strong>estética y cuidado facial</strong>{" "}
-          (limpiezas faciales, tratamientos para acné y manchas, microneedling,
-          peelings y procedimientos afines) realizados por personal capacitado.
+          {SITE_NAME} es un <strong>centro de estética y belleza</strong>.
+          Prestamos servicios de cuidado facial estético —limpiezas faciales,
+          protocolos para el aspecto del acné y las manchas, microneedling,
+          peelings y procedimientos afines— realizados por personal capacitado
+          en cosmetología y estética.
         </p>
         <p>
-          Nuestros servicios <strong>no constituyen un diagnóstico médico ni
-          reemplazan la consulta con un dermatólogo o cualquier otro
-          profesional de la salud</strong>. Si presentas una condición médica,
-          estás en embarazo o lactancia, tomas medicamentos fotosensibilizantes
-          o tienes antecedentes relevantes, te pedimos informarlo antes del
-          procedimiento y, cuando corresponda, consultar previamente a tu
-          médico tratante.
+          <strong>
+            No somos un prestador de servicios de salud y nuestros servicios no
+            tienen finalidad médica ni terapéutica.
+          </strong>{" "}
+          No realizamos diagnósticos, no prescribimos medicamentos y no
+          tratamos patologías. Nuestros procedimientos son estéticos y no
+          quirúrgicos, y buscan mejorar el aspecto y la apariencia de la piel.
+        </p>
+        <p>
+          Nada de lo que hacemos reemplaza la consulta con un dermatólogo u
+          otro profesional de la salud. Si tienes una condición que requiera
+          atención médica, te recomendaremos acudir a un profesional. Si estás
+          en embarazo o lactancia, usas medicamentos fotosensibilizantes o
+          tienes antecedentes que puedan afectar la tolerancia a un producto,
+          te pedimos informarlo antes de la sesión.
         </p>
       </LegalSection>
 
@@ -123,13 +133,13 @@ export default function TerminosYCondicionesPage() {
         </p>
       </LegalSection>
 
-      <LegalSection id="valoracion" title="5. Valoración y consentimiento">
+      <LegalSection id="valoracion" title="5. Valoración y autorización del servicio">
         <LegalList
           items={[
-            "Antes de iniciar cualquier tratamiento realizamos una valoración de la piel y revisamos tus antecedentes relevantes.",
-            "Te explicamos en qué consiste el procedimiento, sus beneficios esperados, los cuidados posteriores y los efectos temporales normales (enrojecimiento, descamación, sensibilidad o el llamado efecto purga).",
-            "Para procedimientos que lo requieran firmarás un consentimiento informado específico. Puedes retirar tu consentimiento en cualquier momento antes de la ejecución del procedimiento.",
-            "La información que entregues durante la valoración debe ser veraz y completa. Omitir antecedentes relevantes puede afectar tu seguridad y el resultado del tratamiento.",
+            "Antes de iniciar cualquier protocolo realizamos una valoración estética de la piel y revisamos la información que nos compartas sobre sensibilidades, alergias a productos y cuidados previos.",
+            "Te explicamos en qué consiste el procedimiento, qué esperar de él, los cuidados posteriores y los efectos temporales normales (enrojecimiento, descamación, sensibilidad o el llamado efecto purga).",
+            "Antes de comenzar te pedimos tu autorización para realizar el servicio. Puedes retirarla en cualquier momento antes de que la sesión inicie.",
+            "La información que nos entregues debe ser veraz y completa. Omitir datos relevantes puede afectar la tolerancia de tu piel a los productos y el resultado del servicio.",
           ]}
         />
       </LegalSection>
@@ -169,25 +179,72 @@ export default function TerminosYCondicionesPage() {
         />
       </LegalSection>
 
-      <LegalSection id="retracto" title="8. Derecho de retracto y reversión del pago">
+      <LegalSection
+        id="anticipos"
+        title="8. Anticipos, derecho de retracto y cancelaciones"
+      >
         <p>
-          Cuando la contratación se realice por medios no presenciales (sitio
-          web, WhatsApp o teléfono), aplican los derechos que reconoce el
-          Estatuto del Consumidor colombiano (Ley 1480 de 2011), incluyendo el{" "}
-          <strong>derecho de retracto</strong> dentro de los cinco (5) días
-          hábiles siguientes a la compra, siempre que el servicio aún no se haya
-          prestado o comenzado a prestar.
+          <strong>Anticipo para agendar.</strong> Para reservar tu cita
+          solicitamos el pago total o parcial del servicio. Ese anticipo
+          asegura un horario específico de nuestra agenda y el personal
+          dispuesto para atenderte.
+        </p>
+
+        <p>
+          <strong>Derecho de retracto.</strong> Si agendaste por medios no
+          presenciales (sitio web, WhatsApp o teléfono), el Estatuto del
+          Consumidor (Ley 1480 de 2011, artículo 47) te reconoce el derecho de
+          retractarte dentro de los <strong>cinco (5) días hábiles</strong>{" "}
+          siguientes a la celebración del contrato, siempre que la sesión aún no
+          se haya prestado. Si ejerces este derecho te devolvemos la totalidad
+          de lo pagado, por el mismo medio de pago y dentro de los plazos
+          legales.
         </p>
         <p>
-          Para ejercerlo, escríbenos a{" "}
+          Este derecho no aplica cuando el agendamiento se realiza de forma
+          presencial en nuestra sede, ni cuando la sesión ya fue prestada. Para
+          ejercerlo, escríbenos a{" "}
           <a
             href={`mailto:${LEGAL_CONTACT_EMAIL}`}
             className="underline underline-offset-4 hover:text-[#5c3a21]"
           >
             {LEGAL_CONTACT_EMAIL}
           </a>{" "}
-          indicando tu nombre y la compra correspondiente. El reembolso se
-          realizará por el mismo medio de pago dentro de los plazos legales.
+          indicando tu nombre y la reserva correspondiente.
+        </p>
+
+        <p>
+          <strong>
+            Política de cancelación fuera del plazo de retracto.
+          </strong>{" "}
+          Cumplido el término anterior, o cuando el retracto no resulte
+          aplicable, el anticipo no se reembolsa en dinero, pero{" "}
+          <strong>conserva íntegramente su valor</strong> y puedes destinarlo,
+          dentro de los <strong>noventa (90) días calendario</strong> siguientes
+          a la fecha originalmente agendada, a cualquiera de estas opciones:
+        </p>
+        <LegalList
+          items={[
+            "Reprogramar tu sesión para una nueva fecha disponible.",
+            "Aplicarlo a otro servicio de nuestro portafolio, de igual o menor valor.",
+            "Cederlo a otra persona que desees, informándonos previamente por escrito.",
+          ]}
+        />
+        <p>
+          Esta política responde a que la reserva compromete un espacio de
+          agenda que dejamos de ofrecer a otras personas, además de costos de
+          pasarela de pago, gravámenes financieros y preparación logística que
+          se causan en el momento del agendamiento.
+        </p>
+        <p>
+          Te pedimos avisarnos con al menos veinticuatro (24) horas de
+          anticipación para reprogramar. Si no puedes asistir y no nos avisas,
+          el anticipo se mantiene bajo estas mismas condiciones.
+        </p>
+        <p>
+          Nada de lo anterior limita los derechos que la ley colombiana te
+          reconoce como consumidor, incluida la devolución del dinero cuando el
+          servicio no se preste por causas atribuibles a {SITE_NAME}.
         </p>
       </LegalSection>
 
@@ -216,12 +273,15 @@ export default function TerminosYCondicionesPage() {
         </p>
       </LegalSection>
 
-      <LegalSection id="imagenes" title="11. Uso de imágenes de pacientes">
+      <LegalSection id="imagenes" title="11. Uso de imágenes de clientes">
         <p>
-          Las fotografías de antes y después que publicamos se usan{" "}
-          <strong>únicamente con autorización previa, expresa y por escrito</strong>{" "}
-          de la persona. Esa autorización es voluntaria, no condiciona el acceso
-          al tratamiento y puede revocarse en cualquier momento escribiéndonos a{" "}
+          Tomamos fotografías de antes y después como parte del historial de
+          atención de cada cliente, siempre con tu autorización previa. Esa
+          autorización es independiente de la que solicitamos para{" "}
+          <strong>publicar</strong> tu imagen: publicar requiere una
+          autorización adicional, expresa y por escrito, que es voluntaria, no
+          condiciona el acceso al servicio y puede revocarse en cualquier
+          momento escribiéndonos a{" "}
           <a
             href={`mailto:${LEGAL_CONTACT_EMAIL}`}
             className="underline underline-offset-4 hover:text-[#5c3a21]"

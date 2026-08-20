@@ -78,15 +78,21 @@ export default function PoliticaDePrivacidadPage() {
               número de teléfono o WhatsApp, correo electrónico y ciudad.
             </>,
             <>
-              <strong>Datos de la cita y del servicio:</strong> tratamientos
-              realizados, fechas de sesión, plan recomendado y notas de
+              <strong>Datos de la cita y del servicio:</strong> servicios
+              realizados, fechas de sesión, protocolo recomendado y notas de
               seguimiento.
             </>,
             <>
-              <strong>Datos relacionados con tu piel y tu salud:</strong>{" "}
-              condición de la piel, alergias, antecedentes relevantes,
-              medicamentos en uso y fotografías clínicas de evolución, cuando
-              apliquen.
+              <strong>Datos sobre el estado de tu piel:</strong> tipo y
+              condición de la piel, sensibilidades o alergias conocidas a
+              productos cosméticos, cuidados previos y cualquier información que
+              nos compartas y resulte relevante para elegir los productos
+              adecuados.
+            </>,
+            <>
+              <strong>Fotografías de registro:</strong> imágenes de antes y
+              después que forman parte del historial de atención y nos permiten
+              comparar la evolución del aspecto de tu piel entre sesiones.
             </>,
             <>
               <strong>Datos de facturación:</strong> los necesarios para emitir
@@ -108,21 +114,24 @@ export default function PoliticaDePrivacidadPage() {
         />
       </LegalSection>
 
-      <LegalSection id="sensibles" title="4. Datos sensibles y datos de menores">
+      <LegalSection id="sensibles" title="4. Tu imagen y datos de menores">
         <p>
-          La información sobre tu salud y las fotografías de tu rostro son{" "}
-          <strong>datos sensibles</strong> según la ley colombiana. Esto
-          significa que:
+          {SITE_NAME} es un centro de estética y belleza, no un prestador de
+          servicios de salud: no elaboramos historias clínicas ni registramos
+          diagnósticos. Aun así, tu imagen facial es información que afecta tu
+          intimidad, y por eso la tratamos con el estándar reforzado que la ley
+          reserva a los datos sensibles:
         </p>
         <LegalList
           items={[
-            "No estás obligado a entregarlos. Puedes negarte y aun así recibir atención, aunque en algunos casos ello puede limitar los tratamientos que podamos ofrecerte de forma segura.",
-            "Solo los tratamos con tu autorización previa, expresa e informada, y exclusivamente para las finalidades relacionadas con tu atención.",
-            "El acceso a esta información está restringido al personal que interviene directamente en tu tratamiento.",
+            "No estás obligada u obligado a autorizar la toma de fotografías. Puedes negarte y recibir el servicio con normalidad; solo perderías la comparación visual de tu evolución entre sesiones.",
+            "Pedimos dos autorizaciones distintas y separadas: una para tomar y conservar las fotos en tu historial de atención, y otra —adicional y siempre opcional— para publicarlas en nuestros canales.",
+            "Negarte a la segunda no afecta en nada tu acceso al servicio ni su precio, y puedes revocarla después aunque ya la hayas concedido.",
+            "El acceso a tu historial de atención está restringido al personal que participa directamente en tu servicio.",
           ]}
         />
         <p>
-          Cuando el usuario sea menor de edad, se requiere la autorización de su
+          Cuando la persona sea menor de edad, se requiere la autorización de su
           padre, madre o representante legal, y el tratamiento respetará su
           interés superior y sus derechos fundamentales.
         </p>
@@ -137,14 +146,15 @@ export default function PoliticaDePrivacidadPage() {
           items={[
             <>
               <strong>Prestar y mejorar nuestros servicios:</strong> agendar y
-              confirmar citas, realizar la valoración, definir y ajustar tu plan
-              de tratamiento, hacer seguimiento a tu evolución y elevar la
-              calidad de la atención con base en la experiencia acumulada.
+              confirmar citas, realizar la valoración estética, definir y
+              ajustar el protocolo de tus sesiones, hacer seguimiento a la
+              evolución del aspecto de tu piel y elevar la calidad de la
+              atención con base en la experiencia acumulada.
             </>,
             <>
               <strong>Comunicarnos contigo:</strong> responder tus consultas,
               enviarte recordatorios de cita, indicaciones de cuidado posterior,
-              información sobre tu tratamiento y mensajes de seguimiento.
+              información sobre tus sesiones y mensajes de seguimiento.
             </>,
             <>
               <strong>Adelantar campañas de marketing y comunicación:</strong>{" "}
