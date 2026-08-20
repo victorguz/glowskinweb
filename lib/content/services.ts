@@ -1112,7 +1112,7 @@ export const SERVICES_DATA = {
             socialProof: {
               eyebrow: "Lo que dicen quienes ya lo vivieron",
               title: "La reacción lo dice todo",
-              body: "Cuando una paciente ve su piel con glow inmediato después de Antiox Peel Pro, entiende por qué este tratamiento llama tanto la atención y se convierte en tema de conversación.",
+              body: "Cuando una persona ve su piel con glow inmediato después de Antiox Peel Pro, entiende por qué este tratamiento llama tanto la atención y se convierte en tema de conversación.",
               items: [
                 {
                   name: "Glow inmediato",
@@ -1584,7 +1584,7 @@ export const SERVICES_DATA = {
               {
                 question: "¿Es doloroso el microneedling?",
                 answer:
-                  "Aplicamos crema anestésica antes del procedimiento para minimizar la incomodidad. La mayoría de pacientes describe una sensación de presión leve y tolerable.",
+                  "Aplicamos crema anestésica antes del procedimiento para minimizar la incomodidad. La mayoría de personas describe una sensación de presión leve y tolerable.",
               },
               {
                 question: "¿Cuántas sesiones necesito?",

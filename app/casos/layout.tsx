@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
 
-const description = `Casos reales y resultados de pacientes en ${SITE_NAME}, ${LOCAL_SEO.city}: acné, limpieza facial, manchas y rejuvenecimiento.`;
+const description = `Casos reales y resultados de personas en ${SITE_NAME}, ${LOCAL_SEO.city}: acné, limpieza facial, manchas y rejuvenecimiento.`;
 
 export const metadata: Metadata = {
   title: 'Casos y resultados',

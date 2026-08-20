@@ -58,6 +58,20 @@ export default function TerminosYCondicionesPage() {
           </a>{" "}
           o al teléfono {PHONE_DISPLAY}.
         </p>
+        {!LEGAL_TAX_ID && (
+          <p>
+            Nuestro Número de Identificación Tributaria (NIT) y los demás datos
+            de identificación tributaria están disponibles para cualquier
+            persona que los solicite. Escríbenos a{" "}
+            <a
+              href={`mailto:${LEGAL_CONTACT_EMAIL}`}
+              className="underline underline-offset-4 hover:text-[#5c3a21]"
+            >
+              {LEGAL_CONTACT_EMAIL}
+            </a>{" "}
+            y te los entregamos.
+          </p>
+        )}
       </LegalSection>
 
       <LegalSection id="aceptacion" title="2. Aceptación de estas condiciones">
@@ -103,7 +117,7 @@ export default function TerminosYCondicionesPage() {
           </strong>{" "}
           No realizamos diagnósticos, no prescribimos medicamentos y no
           tratamos patologías. Nuestros procedimientos son estéticos y no
-          quirúrgicos, y buscan mejorar el aspecto y la apariencia de la piel.
+          invasivos, y buscan mejorar el aspecto y la apariencia de la piel.
         </p>
         <p>
           Nada de lo que hacemos reemplaza la consulta con un dermatólogo u

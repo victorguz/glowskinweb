@@ -22,7 +22,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Comedones profundos y puntos negros obstinados',
     solucion: 'Piel completamente limpia y descargada',
     descripcion:
-      'Paciente con comedones profundos, puntos negros obstinados y acné incrustado. A través de nuestra limpieza facial profunda Glow Skin, logramos extraer todas las impurezas, descargando completamente su piel y devolviéndole su suavidad natural.',
+      'Persona con comedones profundos, puntos negros obstinados y acné incrustado. A través de nuestra limpieza facial profunda Glow Skin, logramos extraer todas las impurezas, descargando completamente su piel y devolviéndole su suavidad natural.',
     keywords: [
       'limpieza facial profunda',
       'comedones',
@@ -58,7 +58,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Congestión facial severa con poros obstruidos',
     solucion: 'Poros limpios y piel descongestionada',
     descripcion:
-      'Paciente con congestión facial severa y poros completamente obstruidos. Nuestro tratamiento de limpieza de poros logró desincrustar completamente todas las impurezas, devolviendo la suavidad a su piel.',
+      'Persona con congestión facial severa y poros completamente obstruidos. Nuestro tratamiento de limpieza de poros logró desincrustar completamente todas las impurezas, devolviendo la suavidad a su piel.',
     keywords: [
       'limpieza de poros',
       'congestión facial',
@@ -80,7 +80,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Manchas faciales y tono irregular',
     solucion: 'Tono de piel uniforme y luminoso',
     descripcion:
-      'Paciente con manchas faciales y tono irregular. A través de nuestro tratamiento especializado para eliminar manchas, logramos unificar completamente el tono de su piel, devolviéndole su luminosidad natural.',
+      'Persona con manchas faciales y tono irregular. A través de nuestro tratamiento especializado para eliminar manchas, logramos unificar completamente el tono de su piel, devolviéndole su luminosidad natural.',
     keywords: [
       'manchas faciales',
       'hiperpigmentación',
@@ -102,7 +102,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Manchas oscuras post-acné y cicatrices pigmentadas',
     solucion: 'Despigmentación efectiva y piel renovada',
     descripcion:
-      'Paciente con manchas oscuras post-acné y cicatrices pigmentadas. Nuestro tratamiento especializado logró eliminar completamente las manchas post-acné, devolviéndole una piel limpia, uniforme y renovada.',
+      'Persona con manchas oscuras post-acné y cicatrices pigmentadas. Nuestro tratamiento especializado logró eliminar completamente las manchas post-acné, devolviéndole una piel limpia, uniforme y renovada.',
     keywords: [
       'manchas post-acné',
       'cicatrices pigmentadas',
@@ -133,7 +133,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Signos evidentes de envejecimiento y pérdida de firmeza',
     solucion: 'Piel rejuvenecida y firme',
     descripcion:
-      'Paciente con signos evidentes de envejecimiento y pérdida de firmeza. A través de nuestro tratamiento anti-edad especializado, logramos restaurar la firmeza de su piel, reduciendo líneas de expresión y devolviéndole su juventud natural.',
+      'Persona con signos evidentes de envejecimiento y pérdida de firmeza. A través de nuestro tratamiento anti-edad especializado, logramos restaurar la firmeza de su piel, reduciendo líneas de expresión y devolviéndole su juventud natural.',
     keywords: [
       'envejecimiento',
       'pérdida de firmeza',
@@ -154,7 +154,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Piel congestionada, opaca y sin luminosidad',
     solucion: 'Piel descargada y con glow natural',
     descripcion:
-      'Paciente con piel completamente congestionada, opaca y sin luminosidad. Nuestra limpieza facial con efecto descarga logró eliminar todas las impurezas acumuladas, devolviéndole el brillo natural y un efecto glow duradero.',
+      'Persona con piel completamente congestionada, opaca y sin luminosidad. Nuestra limpieza facial con efecto descarga logró eliminar todas las impurezas acumuladas, devolviéndole el brillo natural y un efecto glow duradero.',
     keywords: [
       'piel congestionada',
       'sin luminosidad',
@@ -175,7 +175,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Pérdida de juventud y firmeza facial',
     solucion: 'Rejuvenecimiento extremo y restauración de firmeza',
     descripcion:
-      'Paciente con pérdida significativa de firmeza y juventud facial. A través de nuestro tratamiento de rejuvenecimiento extremo, logramos restaurar completamente la firmeza de su piel, devolviéndole su juventud natural.',
+      'Persona con pérdida significativa de firmeza y juventud facial. A través de nuestro tratamiento de rejuvenecimiento extremo, logramos restaurar completamente la firmeza de su piel, devolviéndole su juventud natural.',
     keywords: [
       'pérdida de juventud',
       'firmeza facial',
@@ -207,7 +207,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Estrés oxidativo y envejecimiento prematuro',
     solucion: 'Protección antioxidante y rejuvenecimiento',
     descripcion:
-      'Paciente con estrés oxidativo y envejecimiento prematuro. Nuestro tratamiento Antioxpeelpro logró combatir efectivamente los radicales libres, protegiendo su piel del envejecimiento prematuro y devolviéndole su vitalidad natural.',
+      'Persona con estrés oxidativo y envejecimiento prematuro. Nuestro tratamiento Antioxpeelpro logró combatir efectivamente los radicales libres, protegiendo su piel del envejecimiento prematuro y devolviéndole su vitalidad natural.',
     keywords: [
       'estrés oxidativo',
       'envejecimiento prematuro',
@@ -228,7 +228,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Piel extremadamente sensible e irritada',
     solucion: 'Piel calmada y fortalecida',
     descripcion:
-      'Paciente con piel extremadamente sensible e irritada. Nuestro tratamiento suave logró calmar completamente la irritación, fortalecer su barrera cutánea y devolverle la salud a su piel.',
+      'Persona con piel extremadamente sensible e irritada. Nuestro tratamiento suave logró calmar completamente la irritación, fortalecer su barrera cutánea y devolverle la salud a su piel.',
     keywords: [
       'piel sensible',
       'irritación',
@@ -259,7 +259,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Acné severo con comedones profundos',
     solucion: 'Acné controlado y piel limpia',
     descripcion:
-      'Paciente con acné severo y comedones profundos. Nuestro tratamiento especializado logró controlar completamente el acné, eliminar los comedones y devolverle una piel limpia y saludable.',
+      'Persona con acné severo y comedones profundos. Nuestro tratamiento especializado logró controlar completamente el acné, eliminar los comedones y devolverle una piel limpia y saludable.',
     keywords: [
       'acné severo',
       'comedones profundos',
@@ -280,7 +280,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Piel deshidratada, opaca y sin vida',
     solucion: 'Piel hidratada y revitalizada',
     descripcion:
-      'Paciente con piel completamente deshidratada, opaca y sin vida. Nuestro tratamiento revitalizador logró restaurar completamente la hidratación de su piel, devolviéndole su brillo natural y vitalidad.',
+      'Persona con piel completamente deshidratada, opaca y sin vida. Nuestro tratamiento revitalizador logró restaurar completamente la hidratación de su piel, devolviéndole su brillo natural y vitalidad.',
     keywords: [
       'piel deshidratada',
       'sin vida',
@@ -307,7 +307,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Poros extremadamente dilatados y textura irregular',
     solucion: 'Poros refinados y textura suave',
     descripcion:
-      'Paciente con poros extremadamente dilatados y textura irregular. Nuestro tratamiento de refinamiento logró reducir visiblemente el tamaño de los poros y suavizar completamente la textura de su piel.',
+      'Persona con poros extremadamente dilatados y textura irregular. Nuestro tratamiento de refinamiento logró reducir visiblemente el tamaño de los poros y suavizar completamente la textura de su piel.',
     keywords: [
       'poros dilatados',
       'textura irregular',
@@ -329,7 +329,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Piel completamente opaca y sin glow',
     solucion: 'Piel luminosa con glow natural',
     descripcion:
-      'Paciente con piel completamente opaca y sin glow. Nuestra limpieza facial profunda Glow Skin logró devolverle el brillo natural a su piel, creando un efecto glow duradero y radiante.',
+      'Persona con piel completamente opaca y sin glow. Nuestra limpieza facial profunda Glow Skin logró devolverle el brillo natural a su piel, creando un efecto glow duradero y radiante.',
     keywords: [
       'piel opaca',
       'sin glow',
@@ -355,7 +355,7 @@ export const BENEFICIOS_TRATAMIENTOS: BeneficioTratamiento[] = [
     problema: 'Acné quístico y brotes inflamatorios',
     solucion: 'Inflamación controlada y brotes reducidos',
     descripcion:
-      'Paciente con acné quístico activo y brotes altamente inflamatorios. Nuestro protocolo clínico especializado logró controlar la inflamación, reducir significativamente los brotes y estabilizar la piel.',
+      'Persona con acné quístico activo y brotes altamente inflamatorios. Nuestro protocolo clínico especializado logró controlar la inflamación, reducir significativamente los brotes y estabilizar la piel.',
     keywords: [
       'acné quístico',
       'brotes inflamatorios',

@@ -2,9 +2,9 @@ Reel 6: Cómo es el tratamiento para recuperar tu piel del acné, siguiendo el M
 En este video te explicaré cuál es el Método Glow Skin que seguimos al pie de la letra para que recuperes la confianza y naturalidad de tu piel si estás sufriendo de acné. Para pasar de esto (mostrar persona con acné moderado) a esto (mostrar misma persona sin acné)
 "Este video será un poco largo, pero si quieres los resultados, quédate hasta el final
 
-Lo primero es que cuando el paciente llega a una valoración o limpieza facial evaluamos cuál es el estado de su piel. En este caso de pieles acneicas el tratamiento es de mucho más cuidado que otras pieles, no basta con los procedimientos sino que debe llevar algunas recomendaciones para usar en casa como pueden ser productos y alimentación sana.
+Lo primero es que cuando la persona llega a una valoración o limpieza facial evaluamos cuál es el estado de su piel. En este caso de pieles acneicas el tratamiento es de mucho más cuidado que otras pieles, no basta con los procedimientos sino que debe llevar algunas recomendaciones para usar en casa como pueden ser productos y alimentación sana.
 
-Primero realizamos nuestra Limpieza Facial Anti-acné, que es una limpieza aún más profunda diseñada para este tipo de pieles. Lo ideal es que nunca te vayas con el rostro demasiado hinchado, o que sufras mucho dolor, por eso el Método Glow Skin de limpiezas faciales está adaptado para hacer el proceso más llevadero para nuestros pacientes desde la primera sesión.
+Primero realizamos nuestra Limpieza Facial Anti-acné, que es una limpieza aún más profunda diseñada para este tipo de pieles. Lo ideal es que nunca te vayas con el rostro demasiado hinchado, o que sufras mucho dolor, por eso el Método Glow Skin de limpiezas faciales está adaptado para hacer el proceso más llevadero para las personas que atendemos desde la primera sesión.
 
 La recomendación en el Método Glow Skin es que acompañemos estas limpiezas faciales con un Peeling Químico Seborregulador y Bactericida, que ayudará a combatir la bacteria del acné a la vez que empieza a mejorar la visibilidad de las manchas.
 

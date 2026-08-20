@@ -201,7 +201,7 @@ export default function HomePageClient() {
               <p>
                 Glow Skin es un espacio creado para cuidar, sanar y transformar.
                 Aquí no solo buscamos la piel, también restauramos la confianza
-                y el bienestar de cada uno de nuestros pacientes.
+                y el bienestar de cada uno de las personas que atendemos.
               </p>
               <p>
                 Mi nombre es Sofía Nieto, especialista en Cosmetología y

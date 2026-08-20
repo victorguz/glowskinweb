@@ -5,7 +5,7 @@ const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Casos de Éxito | Antes y Después Tratamientos Glow Skin Barranquilla",
-  description: "Resultados reales de nuestras pacientes en Barranquilla. Antes y después de limpiezas faciales, tratamientos para acné, rejuvenecimiento y más. Transformaciones en Glow Skin.",
+  description: "Resultados reales de las personas que atendemos en Barranquilla. Antes y después de limpiezas faciales, tratamientos para acné, rejuvenecimiento y más. Transformaciones en Glow Skin.",
   keywords: [
     "casos éxito glow skin barranquilla",
     "antes después limpieza facial barranquilla",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Casos de Éxito | Antes y Después Tratamientos Glow Skin Barranquilla",
-    description: "Resultados reales de nuestras pacientes en Barranquilla. Antes y después de limpiezas faciales, tratamientos para acné, rejuvenecimiento y más.",
+    description: "Resultados reales de las personas que atendemos en Barranquilla. Antes y después de limpiezas faciales, tratamientos para acné, rejuvenecimiento y más.",
     url: `${siteUrl}/casos`,
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Casos de Éxito | Glow Skin Barranquilla",
-    description: "Resultados reales de nuestras pacientes. Antes y después de tratamientos faciales en Barranquilla.",
+    description: "Resultados reales de las personas que atendemos. Antes y después de tratamientos faciales en Barranquilla.",
     images: [`${siteUrl}/files/glow-skin-casos-exito-barranquilla.jpg`]
   },
   alternates: {

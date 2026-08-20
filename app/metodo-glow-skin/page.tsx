@@ -362,7 +362,7 @@ export default function GlowSkinMethodVSL() {
               </span>
             </h2>
             <p className="text-sm opacity-70 leading-relaxed max-w-xs mx-auto">
-              Cada imagen es un proceso real, con pacientes reales. Sin filtros,
+              Cada imagen es un proceso real, con personas reales. Sin filtros,
               sin promesas vacías.
             </p>
           </div>

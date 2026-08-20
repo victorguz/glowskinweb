@@ -243,7 +243,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       { type: "h2", text: "Los peligros reales que vemos en consulta" },
       {
         type: "p",
-        text: "En Glow Skin Barranquilla recibimos semanalmente pacientes con complicaciones por intentos de limpieza facial en casa. Los casos más comunes incluyen infecciones por usar herramientas no esterilizadas, hiperpigmentación severa por manipular lesiones inflamadas, y cicatrices permanentes por extracciones incorrectas.",
+        text: "En Glow Skin Barranquilla recibimos semanalmente personas con complicaciones por intentos de limpieza facial en casa. Los casos más comunes incluyen infecciones por usar herramientas no esterilizadas, hiperpigmentación severa por manipular lesiones inflamadas, y cicatrices permanentes por extracciones incorrectas.",
       },
       {
         type: "list",
@@ -306,7 +306,7 @@ export const BLOG_POSTS2: BlogPost[] = [
     title: "Qué hacer después de una limpieza facial",
     deck: "48 horas clave para resultados duraderos.",
     description:
-      "Cuidados post limpieza facial: sol, maquillaje, sudor y productos a evitar. Guía Glow Skin para pacientes en Barranquilla.",
+      "Cuidados post limpieza facial: sol, maquillaje, sudor y productos a evitar. Guía Glow Skin para quienes viven en Barranquilla.",
     keywords: ["después de limpieza facial", "cuidados piel", "Barranquilla"],
     datePublished: "2024-04-03",
     category: "Consejos",
@@ -404,7 +404,7 @@ export const BLOG_POSTS2: BlogPost[] = [
   },
   {
     slug: "resenas-pacientes-google-maps",
-    title: "Reseñas de nuestras pacientes",
+    title: "Reseñas de las personas que atendemos",
     deck: "Experiencias compartidas en Google Maps (resumen honesto).",
     description:
       "Resumen de opiniones públicas de Glow Skin en Google Maps: profesionalismo, resultados de limpieza facial y acompañamiento. Barranquilla.",
@@ -424,7 +424,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Pacientes suelen destacar la explicación paso a paso durante la limpieza, la sensación de piel más liviana tras la primera sesión y la confianza en un ambiente ordenado. También se menciona educación sobre rutina en casa.",
+        text: "Las personas suelen destacar la explicación paso a paso durante la limpieza, la sensación de piel más liviana tras la primera sesión y la confianza en un ambiente ordenado. También se menciona educación sobre rutina en casa.",
       },
       { type: "h2", text: "Temas recurrentes" },
       {
@@ -441,11 +441,11 @@ export const BLOG_POSTS2: BlogPost[] = [
       },
       {
         type: "h2",
-        text: "Lo que más destacan nuestras pacientes de Barranquilla",
+        text: "Lo que más destacan las personas que atendemos de Barranquilla",
       },
       {
         type: "p",
-        text: "Analizando las reseñas de Google Maps de los últimos 12 meses, identificamos patrones consistentes que reflejan nuestra filosofía de trabajo. Las pacientes del norte de Barranquilla, Alto Prado y zonas cercanas valoran especialmente aspectos que marcan la diferencia en su experiencia.",
+        text: "Analizando las reseñas de Google Maps de los últimos 12 meses, identificamos patrones consistentes que reflejan nuestra filosofía de trabajo. Las personas del norte de Barranquilla, Alto Prado y zonas cercanas valoran especialmente aspectos que marcan la diferencia en su experiencia.",
       },
       {
         type: "list",
@@ -460,16 +460,16 @@ export const BLOG_POSTS2: BlogPost[] = [
       { type: "h2", text: "Historias transformadoras: casos reales" },
       {
         type: "p",
-        text: "Entre nuestras reseñas más significativas están pacientes que llegaron con problemas crónicos y encontraron soluciones sostenibles. Desde profesionales del norte con estrés laboral hasta estudiantes con acné persistente, cada historia refleja un enfoque personalizado.",
+        text: "Entre nuestras reseñas más significativas están personas que llegaron con problemas crónicos y encontraron soluciones sostenibles. Desde profesionales del norte con estrés laboral hasta estudiantes con acné persistente, cada historia refleja un enfoque personalizado.",
       },
       {
         type: "list",
         items: [
           "Profesionales de Alto Prado recuperando luminosidad sin tiempo social de recuperación.",
-          "Pacientes con acné hormonal logrando control estable.",
+          "Personas con acné hormonal logrando control estable.",
           "Pieles sensibles encontrando protocolos no agresivos.",
           "Personas mayores de 40 años mejorando textura y tono.",
-          "Pacientes que probaron múltiples clínicas antes de encontrar resultados.",
+          "Personas que probaron múltiples clínicas antes de encontrar resultados.",
         ],
       },
       { type: "h2", text: "Por qué las reseñas auténticas importan" },
@@ -479,12 +479,12 @@ export const BLOG_POSTS2: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Valoramos cada opinión, incluso las constructivas, porque nos ayudan a mejorar continuamente. Cada reseña es una oportunidad para aprender y ajustar nuestros protocolos según las necesidades específicas de las pacientes de Barranquilla.",
+        text: "Valoramos cada opinión, incluso las constructivas, porque nos ayudan a mejorar continuamente. Cada reseña es una oportunidad para aprender y ajustar nuestros protocolos según las necesidades específicas de las personas de Barranquilla.",
       },
       { type: "h2", text: "El proceso de dejar una reseña" },
       {
         type: "p",
-        text: "Muchas pacientes nos preguntan cómo compartir su experiencia. El proceso es simple: buscan 'Glow Skin' en Google Maps, hacen clic en 'Escribir una reseña' y comparten su historia honesta. No incentivamos reseñas pagadas ni falsas; creemos en la autenticidad.",
+        text: "Muchas personas nos preguntan cómo compartir su experiencia. El proceso es simple: buscan 'Glow Skin' en Google Maps, hacen clic en 'Escribir una reseña' y comparten su historia honesta. No incentivamos reseñas pagadas ni falsas; creemos en la autenticidad.",
       },
       {
         type: "p",
@@ -932,7 +932,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       { type: "h2", text: "Fase 1: Evaluación y estabilización" },
       {
         type: "p",
-        text: "La primera consulta es crucial. Realizamos historia clínica completa, evaluamos tipo de acné (inflamatorio, comedónico, mixto), y revisamos factores desencadenantes específicos del paciente. No comenzamos tratamientos agresivos sin estabilizar primero.",
+        text: "La primera consulta es crucial. Realizamos historia clínica completa, evaluamos tipo de acné (inflamatorio, comedónico, mixto), y revisamos factores desencadenantes específicos de la persona. No comenzamos tratamientos agresivos sin estabilizar primero.",
       },
       {
         type: "list",
@@ -992,7 +992,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       { type: "h2", text: "Resultados esperados por tipo de acné" },
       {
         type: "p",
-        text: "Cada tipo de acné responde diferente. Establecemos expectativas realistas basadas en nuestra experiencia con pacientes de Barranquilla y considerando factores ambientales específicos.",
+        text: "Cada tipo de acné responde diferente. Establecemos expectativas realistas basadas en nuestra experiencia con personas de Barranquilla y considerando factores ambientales específicos.",
       },
       {
         type: "list",
@@ -1072,7 +1072,7 @@ export const BLOG_POSTS2: BlogPost[] = [
           "Regulación: Marco legal variable por país.",
         ],
       },
-      { type: "h2", text: "Diferencias clave para el paciente" },
+      { type: "h2", text: "Diferencias clave para la persona" },
       {
         type: "p",
         text: "Aunque ambos promueven regeneración, tienen perfiles diferentes. En Glow Skin evaluamos cuál se alinea mejor con tus objetivos, tolerancia y consideraciones específicas del clima tropical.",
@@ -1226,7 +1226,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       },
       {
         type: "h2",
-        text: "Para el paciente",
+        text: "Para la persona",
       },
       {
         type: "p",
@@ -1277,7 +1277,7 @@ export const BLOG_POSTS2: BlogPost[] = [
           "Investigación: Campo activo con nuevas publicaciones mensuales.",
         ],
       },
-      { type: "h2", text: "Consideraciones importantes para pacientes" },
+      { type: "h2", text: "Consideraciones importantes para personas" },
       {
         type: "p",
         text: "Antes de considerar tratamiento con exosomas, es crucial entender que no todos los preparados son iguales. La calidad del producto, origen celular y método de producción determinan resultados y seguridad.",

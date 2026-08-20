@@ -56,7 +56,8 @@ export default function PoliticaDePrivacidadPage() {
           >
             {LEGAL_CONTACT_EMAIL}
           </a>{" "}
-          — {PHONE_DISPLAY}.
+          — {PHONE_DISPLAY}. Por ese mismo canal puedes solicitar nuestros datos
+          de identificación tributaria.
         </p>
       </LegalSection>
 

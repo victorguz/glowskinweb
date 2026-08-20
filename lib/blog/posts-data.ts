@@ -73,7 +73,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: 'En Glow Skin Barranquilla vemos daily pacientes que llegan frustradas después de probar infinidad de productos "iluminadores" que solo enmascaran problemas subyacentes. La piel opaca, con sensación de tirantez o excesivamente brillante suele ser el resultado de una barrera cutánea comprometida por el sobretratamiento o el uso inadecuado de activos fuertes.',
+        text: 'En Glow Skin Barranquilla vemos daily personas que llegan frustradas después de probar infinidad de productos "iluminadores" que solo enmascaran problemas subyacentes. La piel opaca, con sensación de tirantez o excesivamente brillante suele ser el resultado de una barrera cutánea comprometida por el sobretratamiento o el uso inadecuado de activos fuertes.',
       },
       { type: "h2", text: "La ciencia detrás del glow verdadero" },
       {
@@ -269,7 +269,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "Parqueo y acceso" },
       {
         type: "p",
-        text: "Contamos con opciones de parqueo seguras y convenientes para nuestros pacientes:",
+        text: "Contamos con opciones de parqueo seguras y convenientes para las personas que atendemos:",
       },
       {
         type: "list",
@@ -333,7 +333,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "Consejos prácticos para tu visita" },
       {
         type: "p",
-        text: "Recomendaciones basadas en la experiencia de nuestras pacientes:",
+        text: "Recomendaciones basadas en la experiencia de las personas que atendemos:",
       },
       {
         type: "list",
@@ -414,22 +414,22 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Muchos lugares en el norte de Barranquilla aplican el mismo protocolo a todas las pacientes. Esto es un error grave. Una piel con acné activa necesita un enfoque completamente diferente a una piel con poros dilatados o sensibilidad.",
+        text: "Muchos lugares en el norte de Barranquilla aplican el mismo protocolo a todas las personas. Esto es un error grave. Una piel con acné activa necesita un enfoque completamente diferente a una piel con poros dilatados o sensibilidad.",
       },
       {
         type: "p",
-        text: "En Glow Skin diseñamos cada limpieza facial según las necesidades específicas: algunas pacientes necesitan extracción, otras solo hidratación profunda, y algunas requieren tratamiento antiinflamatorio previo.",
+        text: "En Glow Skin diseñamos cada limpieza facial según las necesidades específicas: algunas personas necesitan extracción, otras solo hidratación profunda, y algunas requieren tratamiento antiinflamatorio previo.",
       },
       { type: "h2", text: "Estándares de seguridad e higiene indispensables" },
       { type: "h3", text: "Material estéril y desechable" },
       {
         type: "p",
-        text: "Este es un diferenciador crucial en el norte de Barranquilla. Cada paciente debe recibir material completamente estéril y desechable. Esto incluye:",
+        text: "Este es un diferenciador crucial en el norte de Barranquilla. Cada persona debe recibir material completamente estéril y desechable. Esto incluye:",
       },
       {
         type: "list",
         items: [
-          "Guantes nuevos para cada paciente",
+          "Guantes nuevos para cada persona",
           "Agujas y extractores estériles de un solo uso",
           "Toallas y paños desechables o debidamente esterilizados",
           "Productos aplicados con espátulas limpias o dosificadores sin contacto directo",
@@ -438,7 +438,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h3", text: "Ambiente clínico y protocolos de limpieza" },
       {
         type: "p",
-        text: "La sala de tratamiento debe mantener estándares clínicos de limpieza. En nuestra sede en Carrera 50, seguimos protocolos hospitalarios de desinfección entre cada paciente.",
+        text: "La sala de tratamiento debe mantener estándares clínicos de limpieza. En nuestra sede en Carrera 50, seguimos protocolos hospitalarios de desinfección entre cada persona atendida.",
       },
       {
         type: "h2",
@@ -516,7 +516,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "h2",
-        text: "Frecuencia recomendada para pacientes del norte de Barranquilla",
+        text: "Frecuencia recomendada para personas del norte de Barranquilla",
       },
       {
         type: "p",
@@ -546,7 +546,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Personalización 100% vs. protocolos genéricos",
           "Seguridad y esterilización hospitalaria",
           "Seguimiento post-tratamiento incluido",
-          "Educación continua para el paciente",
+          "Educación continua para la persona",
           "Tecnología avanzada de diagnóstico",
         ],
       },

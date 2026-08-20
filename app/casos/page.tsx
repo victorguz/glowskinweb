@@ -160,7 +160,7 @@ export default function CasosPage() {
             </h1>
             <div className="w-24 h-px bg-[#d4b499] mt-8 mb-12"></div>
             <p className="text-lg md:text-xl font-medium text-[#7d5a44] max-w-2xl leading-relaxed tracking-wide italic">
-              Resultados reales que transforman la vida de nuestras pacientes
+              Resultados reales que transforman la vida de las personas que atendemos
               desde la primera sesión.
             </p>
           </div>

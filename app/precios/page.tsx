@@ -33,7 +33,7 @@ function PreciosBestSellersNav() {
           Los más solicitados
         </h2>
         <p className="text-xs font-black text-[#d4b499] uppercase tracking-[0.3em] italic max-w-xl mx-auto">
-          Los protocolos favoritos de nuestras pacientes
+          Los protocolos favoritos de las personas que atendemos
         </p>
         <div className="w-20 h-px bg-[#d4b499] mx-auto mt-8"></div>
       </div>

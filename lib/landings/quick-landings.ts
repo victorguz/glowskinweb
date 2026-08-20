@@ -74,7 +74,7 @@ export const quickLandings = {
         src: landingAsset(
           "antiox-peel-pro/reacciones-reales-pacientes/antiox-peel-pro-reaccion-paciente-1.jpg",
         ),
-        alt: "Paciente durante Antiox Peel Pro en Glow Skin",
+        alt: "Persona durante Antiox Peel Pro en Glow Skin",
         label: "Después",
       },
     ],

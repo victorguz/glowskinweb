@@ -31,8 +31,15 @@ export const HOURS_LINES = ["8:00 AM — 6:00 PM", "Lunes a Sábados"] as const;
 export const LEGAL_BUSINESS_NAME = "Glow Skin by Sofía Nieto Aesthetics";
 
 /**
- * NIT o documento del responsable. Déjalo vacío si aún no se va a publicar:
- * las páginas legales omiten la línea automáticamente cuando está vacío.
+ * NIT del responsable.
+ *
+ * Vacío por decisión de negocio: no se publica y se entrega a solicitud por
+ * correo. Cuando está vacío, las páginas legales muestran en su lugar la vía
+ * para solicitarlo; si se llena, se renderiza el número directamente.
+ *
+ * NOTA: el art. 50(a) de la Ley 1480 de 2011 exige a los proveedores que
+ * venden por medios electrónicos informar el NIT de forma accesible. Ver la
+ * conversación con Victor (ago/2026) antes de cambiar este criterio.
  */
 export const LEGAL_TAX_ID = "";
 
