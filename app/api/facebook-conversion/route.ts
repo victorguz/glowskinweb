@@ -122,6 +122,29 @@ function resolvePreferredClientIp(
   return undefined;
 }
 
+/**
+ * Guarda de idempotencia por `event_id`.
+ *
+ * Medimos que Meta estaba recibiendo dos eventos de servidor por cada envío
+ * del formulario, mientras el navegador enviaba uno solo. Esto evita que una
+ * reentrega de la misma petición (reintento del host, doble invocación del
+ * handler) llegue dos veces a Meta. Es un mapa en memoria: cubre el caso
+ * habitual —la reentrega cae en la misma instancia a los pocos ms— pero no
+ * sustituye la verificación en el Administrador de eventos.
+ */
+const RECENT_EVENT_TTL_MS = 10 * 60 * 1000;
+const recentEventIds = new Map<string, number>();
+
+function alreadySent(eventId: string): boolean {
+  const now = Date.now();
+  for (const [id, at] of recentEventIds) {
+    if (now - at > RECENT_EVENT_TTL_MS) recentEventIds.delete(id);
+  }
+  if (recentEventIds.has(eventId)) return true;
+  recentEventIds.set(eventId, now);
+  return false;
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Skip Facebook events if TYPE is localhost
@@ -134,28 +157,32 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Usar NEXT_PUBLIC_ prefixed variables (disponibles en cliente y servidor en Amplify)
     const pixelId =
       process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID ||
       process.env.FACEBOOK_PIXEL_ID;
+
+    // El token se lee primero SIN el prefijo NEXT_PUBLIC_. Ese prefijo hace que
+    // Next inserte el valor en el bundle del navegador en cuanto algún
+    // componente de cliente lo referencie, y este token tiene permisos de
+    // ads_management: no debe poder llegar al cliente por accidente.
     const accessToken =
-      process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN ||
-      process.env.FACEBOOK_PIXEL_TOKEN;
+      process.env.FACEBOOK_PIXEL_TOKEN ||
+      process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN;
+
+    if (
+      !process.env.FACEBOOK_PIXEL_TOKEN &&
+      process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN
+    ) {
+      console.warn(
+        "[Facebook CAPI] El token está definido como NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN. " +
+          "Renombrarlo a FACEBOOK_PIXEL_TOKEN en las variables de Amplify.",
+      );
+    }
 
     if (!pixelId || !accessToken) {
-      console.error("[Facebook CAPI] Missing credentials", {
+      console.error("[Facebook CAPI] Faltan credenciales", {
         hasPixelId: !!pixelId,
         hasToken: !!accessToken,
-        pixelIdSource: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
-          ? "NEXT_PUBLIC"
-          : process.env.FACEBOOK_PIXEL_ID
-            ? "STANDARD"
-            : "NONE",
-        tokenSource: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_TOKEN
-          ? "NEXT_PUBLIC"
-          : process.env.FACEBOOK_PIXEL_TOKEN
-            ? "STANDARD"
-            : "NONE",
       });
       return NextResponse.json(
         {
@@ -168,6 +195,14 @@ export async function POST(request: NextRequest) {
     }
 
     const body: ConversionAPIRequest = await request.json();
+
+    if (body.eventId && alreadySent(body.eventId)) {
+      console.warn("[Facebook CAPI] Evento duplicado descartado:", {
+        eventName: body.eventName,
+        eventId: body.eventId,
+      });
+      return NextResponse.json({ success: true, deduplicated: true });
+    }
 
     if (!body.userData) {
       (body as { userData: ConversionAPIRequest["userData"] }).userData = {};
@@ -248,7 +283,10 @@ export async function POST(request: NextRequest) {
     };
 
     // Enviar a la API de Conversiones de Facebook
-    const apiUrl = `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${accessToken}`;
+    // Estaba fijo en v18.0 (septiembre de 2023). Configurable por variable de
+    // entorno para poder revertir sin desplegar si Meta cambia algo.
+    const graphVersion = process.env.FACEBOOK_GRAPH_API_VERSION || "v25.0";
+    const apiUrl = `https://graph.facebook.com/${graphVersion}/${pixelId}/events?access_token=${accessToken}`;
 
     const response = await fetch(apiUrl, {
       method: "POST",

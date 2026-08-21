@@ -5,6 +5,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -20,7 +21,8 @@ import {
 import { PHONE_WA_DIGITS } from "@/app/components/site-config";
 import {
   buildWaMeUrl,
-  fbqTrack,
+  fbqTrackDeduped,
+  newEventId,
   readFbCookies,
   sendCapiEvent,
   sendFormsLead,
@@ -100,19 +102,14 @@ function validateLeadFields({
 }
 
 /**
- * Envía el evento a Meta CAPI y el registro al formulario de Leads.
- * Es "fire and forget": nunca debe bloquear ni impedir la redirección a
- * WhatsApp, que es la acción principal que el usuario espera al enviar.
+ * Envía el evento Lead a la API de Conversiones de Meta.
+ *
+ * El registro en Vyva Forms NO sale por aquí: ese se dispara antes de abrir
+ * WhatsApp porque es el dato del negocio y no puede quedar sujeto a que la
+ * pestaña siga viva. Este envío sí puede terminar en segundo plano.
  */
-function sendLeadSignals({
-  capiPayload,
-  formsData,
-}: {
-  capiPayload: Record<string, unknown>;
-  formsData: Record<string, unknown>;
-}): void {
-  void sendCapiEvent(capiPayload).catch(() => false);
-  void sendFormsLead(formsData).catch(() => false);
+function sendLeadCapi(payload: Record<string, unknown>): void {
+  void sendCapiEvent(payload).catch(() => false);
 }
 
 function FieldErrorHint({ message }: { message: string | null }) {
@@ -282,6 +279,21 @@ function BookingLeadOverlay({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Se resuelve al abrir el modal para que, al enviar, ya esté disponible sin
+  // await: así los envíos a Meta y a Vyva se encolan antes de abrir WhatsApp.
+  const externalIdRef = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    let alive = true;
+    void getOrCreateExternalId()
+      .then((id) => {
+        if (alive) externalIdRef.current = id;
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   const phoneDigits = cel.replace(/\D/g, "");
   const canSubmit =
     nombre.trim().length >= 2 &&
@@ -308,7 +320,7 @@ function BookingLeadOverlay({
     };
 
     const { firstName, lastName } = splitFullName(nombre.trim());
-    const eventId = crypto.randomUUID();
+    const eventId = newEventId();
     const { fbp, fbc } = readFbCookies();
     const waText = buildBookingWhatsappText(whatsappContext, {
       nombre: nombre.trim(),
@@ -319,59 +331,61 @@ function BookingLeadOverlay({
 
     setError(null);
     setBusy(true);
+
+    // 1. Evento del navegador, con el mismo eventID que viajará a CAPI.
+    //    Sin él Meta cuenta la conversión dos veces.
     try {
-      fbqTrack("track", "Lead", {
-        content_name: "Reserva Glow Skin",
-        content_category: "booking",
-      });
+      fbqTrackDeduped(
+        "Lead",
+        {
+          content_name: "Reserva Glow Skin",
+          content_category: "booking",
+        },
+        eventId,
+      );
     } catch {
       /* noop */
     }
 
-    // WhatsApp se abre de inmediato: es la acción que el usuario espera y no
-    // debe depender de que el tracking o el guardado del lead tengan éxito.
+    // 2. Los dos envíos que no se pueden perder salen ANTES de abrir WhatsApp
+    //    y con keepalive: el registro en Vyva Forms y el evento a Meta. Ambos
+    //    se encolan de forma síncrona, sin esperar nada.
+    void sendFormsLead(data);
+    sendLeadCapi({
+      eventName: "Lead",
+      eventTime: Math.floor(Date.now() / 1000),
+      eventId,
+      eventSourceUrl:
+        typeof window !== "undefined" ? window.location.href : "",
+      actionSource: "website",
+      userData: {
+        email: email.trim(),
+        phone: cel.trim(),
+        firstName,
+        lastName,
+        externalId: externalIdRef.current,
+        client_user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+        fbp,
+        fbc,
+      },
+      customData: {
+        content_name: "Reserva",
+        content_category: "booking",
+        page_type: pathname,
+      },
+    });
+
+    // 3. WhatsApp se abre de forma síncrona, dentro del gesto del usuario: si
+    //    ocurriera después de un await, el navegador lo bloquearía como popup.
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setBusy(false);
     onClose();
 
-    void (async () => {
-      const externalId = await getOrCreateExternalId();
-      sendLeadSignals({
-        capiPayload: {
-          eventName: "Lead",
-          eventTime: Math.floor(Date.now() / 1000),
-          eventId,
-          eventSourceUrl:
-            typeof window !== "undefined" ? window.location.href : "",
-          actionSource: "website",
-          userData: {
-            email: email.trim(),
-            phone: cel.trim(),
-            firstName,
-            lastName,
-            externalId,
-            client_user_agent:
-              typeof navigator !== "undefined"
-                ? navigator.userAgent
-                : undefined,
-            fbp,
-            fbc,
-          },
-          customData: {
-            content_name: "Reserva",
-            content_category: "booking",
-            page_type: pathname,
-          },
-        },
-        formsData: data,
-      });
-
-      try {
-        await setIdentity({ email: email.trim(), phone: cel.trim() });
-      } catch {
-        /* noop */
-      }
-    })();
+    // 4. Recordar la identidad es una mejora, no un requisito: va al final.
+    void setIdentity({ email: email.trim(), phone: cel.trim() }).catch(
+      () => undefined,
+    );
   }
 
   return (
@@ -489,6 +503,21 @@ function ContactLeadOverlay({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Se resuelve al abrir el modal para que, al enviar, ya esté disponible sin
+  // await: así los envíos a Meta y a Vyva se encolan antes de abrir WhatsApp.
+  const externalIdRef = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    let alive = true;
+    void getOrCreateExternalId()
+      .then((id) => {
+        if (alive) externalIdRef.current = id;
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   const phoneDigits = cel.replace(/\D/g, "");
   const canSubmit =
     nombre.trim().length >= 2 &&
@@ -515,65 +544,67 @@ function ContactLeadOverlay({
     };
 
     const { firstName, lastName } = splitFullName(nombre.trim());
-    const eventId = crypto.randomUUID();
+    const eventId = newEventId();
     const { fbp, fbc } = readFbCookies();
     const waUrl = buildWaMeUrl(PHONE_WA_DIGITS, buildContactWaMessage(data));
 
     setError(null);
     setBusy(true);
+
+    // 1. Evento del navegador, con el mismo eventID que viajará a CAPI.
+    //    Sin él Meta cuenta la conversión dos veces.
     try {
-      fbqTrack("track", "Lead", {
-        content_name: "Contacto Glow Skin",
-        content_category: "contact",
-      });
+      fbqTrackDeduped(
+        "Lead",
+        {
+          content_name: "Contacto Glow Skin",
+          content_category: "contact",
+        },
+        eventId,
+      );
     } catch {
       /* noop */
     }
 
-    // WhatsApp se abre de inmediato: es la acción que el usuario espera y no
-    // debe depender de que el tracking o el guardado del lead tengan éxito.
+    // 2. Los dos envíos que no se pueden perder salen ANTES de abrir WhatsApp
+    //    y con keepalive: el registro en Vyva Forms y el evento a Meta. Ambos
+    //    se encolan de forma síncrona, sin esperar nada.
+    void sendFormsLead(data);
+    sendLeadCapi({
+      eventName: "Lead",
+      eventTime: Math.floor(Date.now() / 1000),
+      eventId,
+      eventSourceUrl:
+        typeof window !== "undefined" ? window.location.href : "",
+      actionSource: "website",
+      userData: {
+        email: email.trim(),
+        phone: cel.trim(),
+        firstName,
+        lastName,
+        externalId: externalIdRef.current,
+        client_user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+        fbp,
+        fbc,
+      },
+      customData: {
+        content_name: "Contacto",
+        content_category: "contact",
+        page_type: pathname,
+      },
+    });
+
+    // 3. WhatsApp se abre de forma síncrona, dentro del gesto del usuario: si
+    //    ocurriera después de un await, el navegador lo bloquearía como popup.
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setBusy(false);
     onClose();
 
-    void (async () => {
-      const externalId = await getOrCreateExternalId();
-      sendLeadSignals({
-        capiPayload: {
-          eventName: "Lead",
-          eventTime: Math.floor(Date.now() / 1000),
-          eventId,
-          eventSourceUrl:
-            typeof window !== "undefined" ? window.location.href : "",
-          actionSource: "website",
-          userData: {
-            email: email.trim(),
-            phone: cel.trim(),
-            firstName,
-            lastName,
-            externalId,
-            client_user_agent:
-              typeof navigator !== "undefined"
-                ? navigator.userAgent
-                : undefined,
-            fbp,
-            fbc,
-          },
-          customData: {
-            content_name: "Contacto",
-            content_category: "contact",
-            page_type: pathname,
-          },
-        },
-        formsData: data,
-      });
-
-      try {
-        await setIdentity({ email: email.trim(), phone: cel.trim() });
-      } catch {
-        /* noop */
-      }
-    })();
+    // 4. Recordar la identidad es una mejora, no un requisito: va al final.
+    void setIdentity({ email: email.trim(), phone: cel.trim() }).catch(
+      () => undefined,
+    );
   }
 
   return (

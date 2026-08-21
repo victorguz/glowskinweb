@@ -3,6 +3,12 @@
 import { useLeadForms } from "@/app/components/marketing/LeadFormsProvider";
 import { PHONE_WA_DIGITS } from "@/app/components/site-config";
 import { getWhatsappMessage } from "@/app/components/marketing/whatsapp-messages";
+import {
+  fbqTrackDeduped,
+  newEventId,
+  readFbCookies,
+  sendCapiEvent,
+} from "@/app/components/marketing/tracking";
 
 type BookingCtaButtonsProps = {
   className?: string;
@@ -52,6 +58,37 @@ export function BookingCtaButtons({
   const handleWhatsappClick = () => {
     const msg = `${getWhatsappMessage(whatsappContext).trim()}\n\nMi nombre es _____`;
     const url = buildWaMeUrl(PHONE_WA_DIGITS, msg);
+
+    // Este botón salta directo a WhatsApp sin pasar por el formulario, así que
+    // hasta ahora no dejaba ningún rastro: era una conversión invisible.
+    const eventId = newEventId();
+    const customData = {
+      content_name: "WhatsApp directo",
+      content_category: "whatsapp",
+      page_type: whatsappContext ?? "general",
+    };
+    try {
+      fbqTrackDeduped("Contact", customData, eventId);
+    } catch {
+      /* noop */
+    }
+    const { fbp, fbc } = readFbCookies();
+    void sendCapiEvent({
+      eventName: "Contact",
+      eventTime: Math.floor(Date.now() / 1000),
+      eventId,
+      eventSourceUrl:
+        typeof window !== "undefined" ? window.location.href : "",
+      actionSource: "website",
+      userData: {
+        client_user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+        fbp,
+        fbc,
+      },
+      customData,
+    });
+
     window.open(url, "_blank", "noopener,noreferrer");
   };
 

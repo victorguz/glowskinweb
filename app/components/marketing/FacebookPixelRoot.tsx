@@ -3,32 +3,79 @@
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { fbqTrack, getClientIp, getIdentityUserData, readFbCookies, sendCapiEvent } from './tracking';
+import {
+  describePath,
+  fbqTrackDeduped,
+  getClientIp,
+  getIdentityUserData,
+  newEventId,
+  readFbCookies,
+  sendCapiEvent,
+} from './tracking';
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
-async function sendPageViewCapi() {
+type SharedUserData = Record<string, unknown>;
+
+/** Datos de emparejamiento comunes a todos los eventos de esta visita. */
+async function resolveUserData(): Promise<SharedUserData> {
   const { fbp, fbc } = readFbCookies();
   const [clientIp, identity] = await Promise.all([
     getClientIp(),
     getIdentityUserData(),
   ]);
-  return sendCapiEvent({
-    eventName: 'PageView',
-    eventTime: Math.floor(Date.now() / 1000),
-    eventId: `pv_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`,
-    eventSourceUrl: typeof window !== 'undefined' ? window.location.href : '',
-    actionSource: 'website',
-    userData: {
-      client_user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : undefined,
-      client_ip_address: clientIp,
-      externalId: identity.externalId,
-      email: identity.email,
-      phone: identity.phone,
-      fbp,
-      fbc,
-    },
-  });
+  return {
+    client_user_agent:
+      typeof navigator !== 'undefined' ? navigator.userAgent : undefined,
+    client_ip_address: clientIp,
+    externalId: identity.externalId,
+    email: identity.email,
+    phone: identity.phone,
+    fbp,
+    fbc,
+  };
+}
+
+/**
+ * Emite PageView y ViewContent de la ruta actual.
+ *
+ * Cada evento sale por duplicado a propósito —navegador y API de Conversiones—
+ * pero compartiendo `eventId`, que es lo que permite a Meta reconocer que son
+ * el mismo hecho y contarlo una sola vez.
+ *
+ * ViewContent estaba escrito en el proyecto pero nunca llegó a dispararse: el
+ * componente que lo emitía no estaba montado en el layout.
+ */
+async function trackRoute(pathname: string) {
+  const meta = describePath(pathname);
+  const eventSourceUrl =
+    typeof window !== 'undefined' ? window.location.href : '';
+  const eventTime = Math.floor(Date.now() / 1000);
+  const userData = await resolveUserData();
+
+  const send = (eventName: string, customData: Record<string, unknown>) => {
+    const eventId = newEventId();
+    fbqTrackDeduped(eventName, customData, eventId);
+    return sendCapiEvent({
+      eventName,
+      eventTime,
+      eventId,
+      eventSourceUrl,
+      actionSource: 'website',
+      userData,
+      customData,
+    });
+  };
+
+  await Promise.all([
+    send('PageView', { page_type: meta.pageType }),
+    send('ViewContent', {
+      content_name: meta.contentName,
+      content_category: meta.contentCategory,
+      page_type: meta.pageType,
+      currency: 'COP',
+    }),
+  ]);
 }
 
 export function FacebookPixelRoot() {
@@ -39,8 +86,7 @@ export function FacebookPixelRoot() {
     if (!PIXEL_ID) return;
 
     const run = () => {
-      fbqTrack('track', 'PageView');
-      void sendPageViewCapi();
+      void trackRoute(pathname || '/');
     };
 
     if (typeof window !== 'undefined' && window.fbq) {
