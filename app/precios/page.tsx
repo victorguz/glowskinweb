@@ -159,7 +159,10 @@ function PreciosCategorySection({
                   />
                 </div>
               </div>
-              <div className={openDetails[detailsKey] ? "block" : "hidden"}>
+              <div
+                id={detailsKey}
+                className={openDetails[detailsKey] ? "block" : "hidden"}
+              >
                 <div className="mt-6 w-full flex justify-center">
                   <div className="w-full max-w-4xl">
                     <ProcedureDetailsCard
@@ -191,10 +194,21 @@ export default function PreciosPage() {
   );
 
   const toggleDetails = (key: string) => {
-    setOpenDetails((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+    setOpenDetails((prev) => {
+      const willOpen = !prev[key];
+      if (willOpen) {
+        // El panel aparece debajo del fold en móvil: sin este scroll, el tap
+        // no produce ningún cambio visible y Clarity lo registra como dead click.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            document
+              .getElementById(key)
+              ?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          });
+        });
+      }
+      return { ...prev, [key]: willOpen };
+    });
   };
 
   return (

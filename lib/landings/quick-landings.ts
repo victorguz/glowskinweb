@@ -11,7 +11,6 @@ export type LandingImage = {
 
 export type QuickLandingConfig = {
   whatsappContext: string;
-  badge: string;
   titleLine: string;
   titleAccent: string;
   body: string;
@@ -30,7 +29,6 @@ export type QuickLandingConfig = {
 export const quickLandings = {
   "limpieza-facial": {
     whatsappContext: "limpieza-facial",
-    badge: "Glow real",
     titleLine: "¿Extrañas ese glow",
     titleAccent: "en tu rostro?",
     body: "Si tu rostro luce opaco, pesado o sin vida, quizá no necesitas más maquillaje ni filtros encima. Una limpieza facial profesional retira lo que opaca tu piel y devuelve frescura visible desde la primera sesión — más ligera, más limpia y mucho más viva.",
@@ -60,7 +58,6 @@ export const quickLandings = {
   },
   "antiox-peel-pro": {
     whatsappContext: "antiox-peel-pro",
-    badge: "Reacción real",
     titleLine: "¿Tu piel está",
     titleAccent: "sin vida?",
     body: "Esa sorpresa frente al espejo no es casualidad: Antiox Peel Pro deja la piel tan luminosa que el cambio se nota al instante — más uniforme, más fresca y con un glow que muchas sienten apenas termina la sesión. La mejor prueba es una reacción auténtica, no una promesa vacía.",
@@ -92,7 +89,6 @@ export const quickLandings = {
   },
   "anti-acne": {
     whatsappContext: "anti-acne",
-    badge: "Caso Valentina",
     titleLine: "¿Te cansaste de",
     titleAccent: "esconder el acné?",
     body: "El caso de Valentina impacta porque muestra lo que ocurre cuando la piel deja de improvisar y sigue un plan anti-acné real: valoración, constancia y protocolo pensado para su rostro. No es suerte — es una ruta clara que devuelve calma, menos inflamación y un cambio que se ve.",
@@ -126,7 +122,6 @@ export const quickLandings = {
   },
   microneedling: {
     whatsappContext: "microneedling",
-    badge: "3 meses después",
     titleLine: "¿Sigues viviendo con",
     titleAccent: "marcas y cicatrices?",
     body: "Las marcas no tienen que definir tu rostro para siempre. Con microneedling y un plan serio en Glow Skin, la textura puede volverse más uniforme y limpia — no es magia: es constancia, técnica y el estímulo correcto mes a mes hasta que el cambio sorprende.",
@@ -160,7 +155,6 @@ export const quickLandings = {
   },
   "porcelanizacion-facial": {
     whatsappContext: "porcelanizacion-facial",
-    badge: "Glow elegante",
     titleLine: "Imagina tu piel",
     titleAccent: "con más luz",
     body: "Hoy tu rostro puede verse apagado o irregular; después, más pulido, fresco y radiante sin perder naturalidad. La porcelanización facial en Glow Skin unifica, ilumina y eleva la apariencia de tu piel desde la primera sesión — el tipo de glow que se nota incluso sin filtro.",

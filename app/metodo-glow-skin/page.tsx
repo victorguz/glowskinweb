@@ -76,7 +76,6 @@ export default function GlowSkinMethodVSL() {
         className={`fixed top-0 w-full z-50 transition-all duration-500 px-6 ${isScrolled ? "bg-white/95 py-4 shadow-sm" : "bg-transparent py-8"}`}
       >
         <div className="flex justify-center items-center gap-4 max-w-md mx-auto">
-          <img src={IMGS.logo} className="h-8" alt="Glow Skin" loading="lazy" />
           <a
             href="#protocolos"
             className="bg-[#4a3221] text-[#f7f0eb] px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg hover:bg-[#5c3a21] transition-colors"
@@ -87,11 +86,11 @@ export default function GlowSkinMethodVSL() {
       </nav>
 
       {/* SECTION 1: HERO / PAIN */}
-      <section className="pt-40 pb-20 px-6">
+      <section className="pt-32 pb-12 px-6">
         <div className="flex flex-col items-center max-w-md mx-auto text-center animate-reveal">
-          <h1 className="text-6xl font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221]">
+          <h1 className="text-5xl sm:text-6xl font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221]">
             ¿Te cansaste
-            <span className="block font-script text-7xl text-[#d4b499] -mt-1 lowercase italic">
+            <span className="block font-script text-6xl sm:text-7xl text-[#d4b499] -mt-1 lowercase italic">
               de luchar
             </span>
             con el acné?
@@ -107,19 +106,31 @@ export default function GlowSkinMethodVSL() {
 
           <div className="inline-flex items-center gap-2 bg-[#d4b499]/20 border border-[#d4b499]/40 rounded-full px-5 py-2 mb-8">
             <Sparkles size={12} className="text-[#d4b499]" />
-            <span className="text-[9px] font-black uppercase tracking-[0.25em] text-[#7d5a44]">
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#7d5a44]">
               Conoce el método Glow Skin
             </span>
           </div>
+
+          <button
+            onClick={() =>
+              document
+                .getElementById("resultados")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.3em] text-[#a5846e] mb-4"
+          >
+            Ver resultados reales
+            <ChevronDown size={12} />
+          </button>
 
           <VslVideoPlayer
             videoUrl={HERO_VSL.videoUrl}
             title={HERO_VSL.title}
             posterUrl={IMGS.heroMethod}
-            className="mb-12 px-2"
+            className="mb-8 px-2"
           />
 
-          <div className="w-full space-y-3 mb-12 text-left">
+          <div className="w-full space-y-3 mb-8 text-left">
             {[
               '"Probé mil productos y nada funcionó de verdad"',
               '"Me canso de tapar el acné con maquillaje cada día"',
@@ -130,14 +141,14 @@ export default function GlowSkinMethodVSL() {
                 key={i}
                 className="flex items-center gap-3 bg-white/70 border border-[#d4b499]/20 rounded-2xl px-5 py-4"
               >
-                <AlertCircle size={14} className="text-[#c17f5a] shrink-0" />
+                <AlertCircle size={14} className="text-[#d4b499] shrink-0" />
                 <p className="text-sm text-[#7d5a44] italic">{pain}</p>
               </div>
             ))}
           </div>
 
           <BookingCtaButtons
-            className="mb-10 flex w-full flex-col gap-3"
+            className="mb-8 flex w-full flex-col gap-3"
             reserveHereClassName="w-full bg-[#4a3221] text-[#f7f0eb] py-6 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-xl active:scale-95 transition-all text-center"
             reserveWhatsappClassName="w-full border border-[#4a3221]/20 bg-white text-[#4a3221] py-6 rounded-full font-black text-xs uppercase tracking-[0.35em] shadow-lg transition-all text-center"
             whatsappContext="metodo-glow-skin"
@@ -160,7 +171,7 @@ export default function GlowSkinMethodVSL() {
       </section>
 
       {/* SECTION 2: CASO VALENTINA */}
-      <section className="py-24 bg-white px-6">
+      <section id="resultados" className="py-24 bg-white px-6">
         <div className="max-w-md mx-auto">
           <div className="text-center mb-12">
             <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#d4b499] mb-3">

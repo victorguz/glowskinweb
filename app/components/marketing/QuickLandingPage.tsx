@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
-import { SITE_LOGO_URL } from "@/app/components/site-config";
 import type { QuickLandingConfig } from "@/lib/landings/quick-landings";
 
 type QuickLandingPageProps = {
@@ -14,23 +12,9 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
   return (
     <div className="min-h-screen bg-[#f7f0eb] font-sans text-[#4a3221] overflow-x-hidden selection:bg-[#d4b499] selection:text-white leading-relaxed">
       {/* Sección 1: hero aspiracional */}
-      <section className="pt-16 pb-20 px-6">
+      <section className="pt-8 pb-20 px-6">
         <div className="flex flex-col items-center max-w-md mx-auto text-center animate-reveal">
-          <img
-            src={SITE_LOGO_URL}
-            className="h-8 mb-10 opacity-90"
-            alt="Glow Skin"
-            loading="eager"
-          />
-
-          <div className="inline-flex items-center gap-2 bg-[#d4b499]/20 border border-[#d4b499]/40 rounded-full px-5 py-2 mb-8">
-            <Sparkles size={12} className="text-[#d4b499]" />
-            <span className="text-[9px] font-black uppercase tracking-[0.25em] text-[#7d5a44]">
-              {config.badge}
-            </span>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221]">
+          <h1 className="w-full min-w-0 text-5xl sm:text-6xl font-serif leading-[0.88] mb-6 tracking-tighter text-[#4a3221] break-words">
             {config.titleLine}
             <span className="block font-script text-6xl sm:text-7xl text-[#d4b499] -mt-1 lowercase italic">
               {config.titleAccent}
@@ -92,7 +76,7 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#d4b499] mb-4">
             {config.ctaEyebrow}
           </p>
-          <h2 className="text-5xl sm:text-6xl font-serif mb-6 uppercase tracking-tighter leading-[0.85] text-[#4a3221]">
+          <h2 className="w-full min-w-0 text-5xl sm:text-6xl font-serif mb-6 uppercase tracking-tighter leading-[0.85] text-[#4a3221] break-words">
             {config.ctaTitleLine}
             {config.ctaTitleAccent ? (
               <>
