@@ -52,6 +52,20 @@ const ASSETS = {
       img: `${BASE_IMG_URL}/methods/home-metodo-anti-manchas-antes-despues.jpg`,
       slug: "tratamiento-despigmentante",
     },
+    {
+      title: "Limpieza Anti-Acné Seborreguladora",
+      tag: "Intensive",
+      desc: "Protocolo especializado para acné comedogénico activo y alta producción de grasa. Resultados progresivos desde la primera sesión.",
+      img: `${BASE_IMG_URL}/hero/2-glow-skin-hero-tratamiento-facial.webp`,
+      slug: "limpieza-seborreguladora",
+    },
+    {
+      title: "Limpieza Facial HydraGlow",
+      tag: "Signature+",
+      desc: "Tecnología Hydrafacial combinada con principios activos personalizados. Glow inmediato, hidratación en capas y piel renovada.",
+      img: `${BASE_IMG_URL}/hero/3-glow-skin-hero-servicios-esteticos.webp`,
+      slug: "hydraglow",
+    },
   ],
 };
 
@@ -130,7 +144,7 @@ export default function HomePageClient() {
             <div className="w-20 h-px bg-[#d4b499] mx-auto mt-10" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {ASSETS.methods.map((t, idx) => (
               <div
                 key={idx}

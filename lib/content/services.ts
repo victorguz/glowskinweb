@@ -660,16 +660,49 @@ export const SERVICES_DATA = {
             },
             funnelHook: {
               eyebrow: "Nuestra limpieza más completa",
-              title: "¿Tu rostro luce opaco, pesado o sin vida?",
-              body: "Muchas veces no necesitas más maquillaje ni filtros encima. Necesitas una limpieza facial profesional que retire acumulación, mejore la superficie y le devuelva a tu piel una presencia mucho más linda.",
+              title: "¿Tu hidratante de siempre ya no alcanza?",
+              body: "Cuando la piel deja de absorber bien, ni la crema más cara rinde: se siente reseca a medio día, el maquillaje se agrieta en los mismos puntos y el brillo natural nunca llega a verse. Eso no se arregla con más producto — se arregla renovando la superficie primero.",
               painPoints: [
-                "Piel que se ve apagada sin importar cuánto la cuides",
-                "Hidratación que dura poco porque la piel no absorbe bien",
+                "Cremas que se sienten geniales al aplicarlas pero no duran ni medio día",
+                "Maquillaje que se ve reseco o parchado a las pocas horas",
+                "Piel que se ve apagada sin importar cuánto la cuides en casa",
                 "Ese aspecto de rostro cansado que los productos no resuelven",
-                "Querer ese glow natural que brilla sin esfuerzo",
               ],
               solution:
-                "HydraGlow combina limpieza profunda, exfoliación e hidratación en capas para que tu piel absorba, respire y brille desde adentro.",
+                "HydraGlow combina limpieza profunda, exfoliación e hidratación en capas para que tu piel absorba, respire y brille desde adentro — no por encima.",
+            },
+            problemSection: {
+              title: "¿Por qué la hidratación no penetra?",
+              subtitle:
+                "Sin una superficie limpia y renovada, hasta el mejor producto se queda en la superficie.",
+              causes: [
+                {
+                  title: "Acumulación en la superficie",
+                  description:
+                    "Células muertas y residuos forman una barrera que impide que los activos penetren.",
+                },
+                {
+                  title: "Deshidratación real",
+                  description:
+                    "Falta de agua en la piel (no solo de grasa), que ningún hidratante superficial resuelve solo.",
+                },
+                {
+                  title: "Poros congestionados",
+                  description:
+                    "Impurezas acumuladas que opacan el tono y bloquean la absorción de activos.",
+                },
+                {
+                  title: "Renovación celular lenta",
+                  description:
+                    "Sin exfoliación adecuada, la piel tarda más en mostrarse fresca y luminosa.",
+                },
+              ],
+              approach: [
+                { icon: "water", title: "Limpieza en Vórtice" },
+                { icon: "refresh", title: "Exfoliación Suave" },
+                { icon: "flask", title: "Infusión de Activos" },
+                { icon: "sparkles", title: "Hidratación en Capas" },
+              ],
             },
             benefits: {
               title: "¿Por qué elegir HydraGlow?",
@@ -742,6 +775,56 @@ export const SERVICES_DATA = {
                 "Protección solar premium",
               ],
             },
+            expectations: {
+              title: "El Antes y Después de una Sesión",
+              subtitle:
+                "El cambio con HydraGlow se nota el mismo día — y se sostiene con sesiones regulares.",
+              timeline: [
+                {
+                  phase: "Durante la sesión",
+                  icon: "sparkles",
+                  description:
+                    "Sensación inmediata de piel limpia, fresca y sin la pesadez habitual.",
+                },
+                {
+                  phase: "Primeras 24 horas",
+                  icon: "trending-down",
+                  description:
+                    "Glow visible y una hidratación que por fin se siente absorbida, no solo aplicada.",
+                },
+                {
+                  phase: "Sesiones regulares (cada 30-45 días)",
+                  icon: "star",
+                  description:
+                    "Piel más uniforme, con menos días de opacidad entre sesión y sesión.",
+                },
+              ],
+            },
+            socialProof: {
+              eyebrow: "Resultados reales",
+              title: "Lo que una sesión de HydraGlow deja ver",
+              body: "No es solo la sensación del momento — es la diferencia que se nota al día siguiente.",
+              items: [
+                {
+                  name: "Hidratación que sí se nota",
+                  result: "Piel que absorbe, no que repele",
+                  detail:
+                    "La diferencia de aplicar un sérum sobre piel recién renovada versus piel con acumulación: por fin penetra donde debe.",
+                },
+                {
+                  name: "Glow del mismo día",
+                  result: "Sin esperar una semana para ver cambio",
+                  detail:
+                    "El resultado no es una promesa a futuro — se ve saliendo de la sesión.",
+                },
+                {
+                  name: "Rutina que rinde más",
+                  result: "Tus propios productos funcionan mejor después",
+                  detail:
+                    "Con la piel renovada, lo que ya usas en casa deja de quedarse en la superficie y empieza a rendir de verdad.",
+                },
+              ],
+            },
             faq: [
               {
                 question: "¿Qué hace diferente a HydraGlow de otras limpiezas?",
@@ -765,11 +848,11 @@ export const SERVICES_DATA = {
               },
             ],
             cta: {
-              title: "Experimenta la diferencia HydraGlow",
+              title: "Deja de aplicar hidratante sobre piel que no lo absorbe",
               subtitle:
-                "Una sola sesión puede hacer que tu rostro recupere luz, se sienta mucho más ligero y proyecte una imagen mucho más fresca. ¿Le das esa oportunidad a tu piel?",
+                "Si sientes que ya probaste todo tipo de cremas y sueros sin resultado, el problema puede no ser el producto — puede ser la superficie. HydraGlow renueva esa base primero.",
               highlight:
-                "Glow inmediato · Hidratación profunda · Piel renovada desde la primera sesión",
+                "Glow inmediato · Hidratación que se absorbe de verdad · Resultado desde la primera sesión",
             },
           },
         },
@@ -1024,6 +1107,168 @@ export const SERVICES_DATA = {
               "3 Sesiones de Peeling Químico o Micropunciones: Selección basada en diagnóstico profesional, utilizando activos despigmentantes de alta pureza",
               "Frecuencia: 1 sesión cada 15 días para resultados progresivos y seguros",
             ],
+          },
+          page: {
+            hero: {
+              title: "Tratamiento",
+              titleHighlight: "Despigmentante",
+              subtitle:
+                "Renovación celular controlada con ácidos de última generación para atenuar manchas, melasma e hiperpigmentación post-inflamatoria — y unificar el tono de tu piel.",
+              primaryColor: "yellow",
+              gradientFrom: "from-yellow-50",
+              gradientTo: "to-amber-100",
+            },
+            funnelHook: {
+              eyebrow: "Para quien ya se cansó de esconder las manchas",
+              title: "¿Las manchas siguen ahí sin importar cuánto las cubras?",
+              body: "El melasma y la hiperpigmentación post-inflamatoria no se resuelven con más maquillaje ni cremas genéricas. Requieren fotoprotección estricta, activos que inhiben la producción de melanina de forma controlada y una renovación celular medida — un plan, no un intento más.",
+              painPoints: [
+                "Manchas que el maquillaje apenas logra disimular",
+                "Cremas despigmentantes genéricas que nunca muestran un cambio real",
+                "Manchas que reaparecen después del sol o de un brote de acné",
+                "No saber si tu piel tolera los ácidos que necesita",
+              ],
+              solution:
+                "Nuestro protocolo ajusta el ritmo de ácidos según tu fototipo, historia solar y sensibilidad — para aclarar las manchas sin arriesgar tu piel.",
+            },
+            problemSection: {
+              title: "¿Qué hace que las manchas no se vayan?",
+              subtitle:
+                "El melasma y la hiperpigmentación post-inflamatoria requieren un enfoque por capas, no un solo producto.",
+              causes: [
+                {
+                  title: "Exposición solar acumulada",
+                  description:
+                    "Reactiva la producción de melanina en las zonas ya sensibilizadas, incluso con protector solar irregular.",
+                },
+                {
+                  title: "Hiperpigmentación post-inflamatoria",
+                  description:
+                    "Manchas que quedan después de un brote de acné o una irritación, aun cuando la piel ya sanó.",
+                },
+                {
+                  title: "Melasma",
+                  description:
+                    "Manchas hormonales o por exposición solar que requieren activos específicos y constancia.",
+                },
+                {
+                  title: "Renovación celular lenta",
+                  description:
+                    "Sin el estímulo correcto, la piel tarda en eliminar el exceso de pigmento acumulado.",
+                },
+              ],
+              approach: [
+                { icon: "sunny", title: "Fotoprotección Estricta" },
+                { icon: "flask", title: "Activos Despigmentantes" },
+                { icon: "refresh", title: "Renovación Celular" },
+                { icon: "shield-checkmark", title: "Plan Personalizado" },
+              ],
+            },
+            process: {
+              title: "Protocolo Despigmentante",
+              subtitle:
+                "Cada piel tolera un ritmo distinto de ácidos — el plan se ajusta a tu fototipo, historia solar y sensibilidad.",
+              duration: "60-90",
+              durationUnit: "minutos aproximadamente",
+              steps: [
+                {
+                  number: 1,
+                  title: "Diagnóstico y Fototipo",
+                  description:
+                    "Evaluamos tu tipo de mancha (melasma, HPI), fototipo e historia solar para definir el ritmo seguro de ácidos.",
+                },
+                {
+                  number: 2,
+                  title: "Peeling Químico o Micropunciones",
+                  description:
+                    "Aplicamos el activo despigmentante seleccionado según tu diagnóstico, con la concentración adecuada para tu piel.",
+                },
+                {
+                  number: 3,
+                  title: "Calma y Protección",
+                  description:
+                    "Sellamos con activos calmantes y protección solar para minimizar la sensibilidad post-sesión.",
+                },
+                {
+                  number: 4,
+                  title: "Seguimiento entre Sesiones",
+                  description:
+                    "Ajustamos el protocolo cada 15 días según cómo vaya respondiendo tu piel.",
+                },
+              ],
+              includes: [
+                "Diagnóstico de fototipo e historia solar",
+                "3 sesiones de peeling químico o micropunciones",
+                "Activos despigmentantes de alta pureza",
+                "Protección solar y recomendaciones post-sesión",
+              ],
+            },
+            expectations: {
+              title: "Resultados Progresivos y Seguros",
+              subtitle:
+                "El aclarado de manchas es gradual por diseño — así se protege tu piel.",
+              timeline: [
+                {
+                  phase: "Sesión 1",
+                  icon: "sparkles",
+                  description:
+                    "Piel preparada y renovación celular activada. Aún no se espera aclarado visible — es la fase de preparación.",
+                },
+                {
+                  phase: "Sesión 2",
+                  icon: "trending-down",
+                  description:
+                    "Comienza a notarse una atenuación gradual del tono en las manchas más superficiales.",
+                },
+                {
+                  phase: "Sesión 3",
+                  icon: "star",
+                  description:
+                    "Tono más uniforme y manchas visiblemente más claras, según tu tipo de pigmentación.",
+                },
+                {
+                  phase: "Mantenimiento",
+                  icon: "shield-checkmark",
+                  description:
+                    "Fotoprotección diaria constante para sostener el resultado y prevenir que las manchas reaparezcan.",
+                },
+              ],
+            },
+            faq: [
+              {
+                question: "¿Cuántas sesiones necesito para ver resultados?",
+                answer:
+                  "El protocolo son 3 sesiones cada 15 días. Los primeros cambios se notan desde la sesión 2; el resultado más uniforme se consolida al terminar las 3.",
+              },
+              {
+                question: "¿Es doloroso el peeling despigmentante?",
+                answer:
+                  "Puedes sentir un ligero ardor o cosquilleo durante la aplicación, pero es bien tolerado y se calma rápido con los activos post-sesión.",
+              },
+              {
+                question: "¿Sirve para melasma o solo para manchas de acné?",
+                answer:
+                  "Ambos. Ajustamos el activo y su concentración según si tu mancha es melasma, hiperpigmentación post-inflamatoria u otro tipo, evaluado en tu diagnóstico inicial.",
+              },
+              {
+                question:
+                  "¿Qué pasa si no uso protector solar entre sesiones?",
+                answer:
+                  "La fotoprotección estricta es indispensable — sin ella, la exposición solar puede reactivar la producción de melanina y revertir el avance logrado.",
+              },
+              {
+                question: "¿Puedo hacerme este tratamiento con piel sensible?",
+                answer:
+                  "Sí. El ritmo y la concentración de ácidos se ajustan según tu fototipo y sensibilidad, evaluados antes de empezar.",
+              },
+            ],
+            cta: {
+              title: "Tus manchas pueden aclararse. El plan empieza hoy.",
+              subtitle:
+                "No sigas cubriendo con maquillaje lo que un protocolo bien pensado puede empezar a resolver. Con fotoprotección estricta y el ritmo de ácidos correcto para tu piel, un tono más uniforme es posible.",
+              promise:
+                "Resultados progresivos y seguros · Plan ajustado a tu fototipo",
+            },
           },
         },
         {

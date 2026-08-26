@@ -7,6 +7,7 @@ const config = quickLandings["porcelanizacion-facial"];
 export const metadata: Metadata = {
   title: config.metadata.title,
   description: config.metadata.description,
+  robots: { index: false, follow: true },
 };
 
 export default function PorcelanizacionFacialLandingPage() {

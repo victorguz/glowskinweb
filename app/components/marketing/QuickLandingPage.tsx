@@ -1,12 +1,61 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Plus, Minus } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import type { QuickLandingConfig } from "@/lib/landings/quick-landings";
 
 type QuickLandingPageProps = {
   config: QuickLandingConfig;
 };
+
+function QuickLandingFaq({ faq }: { faq: NonNullable<QuickLandingConfig["faq"]> }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <section className="py-20 px-6 bg-[#f7f0eb]">
+      <div className="max-w-md mx-auto">
+        <p className="text-center text-[9px] font-black uppercase tracking-[0.3em] text-[#d4b499] mb-8">
+          Preguntas frecuentes
+        </p>
+        <div className="space-y-3">
+          {faq.map((item, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={item.question}
+                className="rounded-2xl border border-[#d4b499]/25 bg-white overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                >
+                  <span className="text-sm font-bold text-[#4a3221]">
+                    {item.question}
+                  </span>
+                  {isOpen ? (
+                    <Minus size={16} className="shrink-0 text-[#d4b499]" />
+                  ) : (
+                    <Plus size={16} className="shrink-0 text-[#d4b499]" />
+                  )}
+                </button>
+                {isOpen ? (
+                  <p className="px-5 pb-4 text-sm leading-relaxed text-[#7d5a44]">
+                    {item.answer}
+                  </p>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function QuickLandingPage({ config }: QuickLandingPageProps) {
   return (
@@ -70,6 +119,10 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
         </div>
       </section>
 
+      {config.faq && config.faq.length > 0 ? (
+        <QuickLandingFaq faq={config.faq} />
+      ) : null}
+
       <section className="py-24 px-6 bg-white">
         <div className="flex flex-col items-center max-w-sm mx-auto text-center">
           <div className="w-16 h-px bg-[#d4b499] mb-8" />
@@ -103,6 +156,15 @@ export function QuickLandingPage({ config }: QuickLandingPageProps) {
 
           <p className="text-[9px] text-[#a5846e] uppercase tracking-widest">
             {config.ctaFootnote}
+          </p>
+
+          <p className="mt-8 text-center text-sm">
+            <Link
+              href="/precios"
+              className="border-b border-[#d4b499] font-semibold uppercase tracking-widest text-[#7d5a44] hover:text-[#4a3221]"
+            >
+              Ver lista de precios
+            </Link>
           </p>
         </div>
       </section>

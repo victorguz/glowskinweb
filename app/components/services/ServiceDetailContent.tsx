@@ -9,6 +9,7 @@ import {
   getServiceProcessImage,
 } from "@/lib/content/service-media";
 import { ServiceFaqAccordion, type FaqItem } from "./ServiceFaqAccordion";
+import { ScrollToAnchorLink } from "./ScrollToAnchorLink";
 import { ServiceIcon } from "./service-icons";
 
 function detailLabel(key: string): string {
@@ -931,8 +932,16 @@ function renderSection(
   pair: CategoryServicePair,
   processImg: string,
 ): ReactNode {
-  if (!isRecord(value)) return null;
   const service = pair.service;
+
+  // "faq" es el único section-key cuyo valor es un array, no un record —
+  // se resuelve antes del guard genérico para que no quede muerto.
+  if (key === "faq") {
+    if (!Array.isArray(value)) return null;
+    return <ServiceFaqAccordion key={key} items={value as FaqItem[]} />;
+  }
+
+  if (!isRecord(value)) return null;
 
   switch (key) {
     case "funnelHook":
@@ -968,9 +977,6 @@ function renderSection(
           processImg={processImg}
         />
       );
-    case "faq":
-      if (!Array.isArray(value)) return null;
-      return <ServiceFaqAccordion key={key} items={value as FaqItem[]} />;
     case "cta":
       return <CtaSection key={key} data={value} serviceName={service.name} />;
     default:
@@ -1026,12 +1032,12 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
               reserveHereClassName="rounded-full bg-[#4a3221] px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#f7f0eb] shadow-xl transition-all hover:bg-[#d4b499]"
               reserveWhatsappClassName="rounded-full border border-[#4a3221]/20 bg-white px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#4a3221] shadow-lg transition-all hover:bg-[#f7f0eb]"
             />
-            <a
-              href="#detalles"
+            <ScrollToAnchorLink
+              targetId="detalles"
               className="rounded-full border border-[#4a3221]/20 px-12 py-5 text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:bg-white"
             >
               Ver detalles
-            </a>
+            </ScrollToAnchorLink>
           </div>
         </div>
       </section>

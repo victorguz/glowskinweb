@@ -17,11 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog',
     '/otra',
     '/metodo-glow-skin',
-    '/limpieza-facial',
-    '/anti-acne',
-    '/antiox-peel-pro',
     '/microneedling',
-    '/porcelanizacion-facial',
   ];
 
   const legalPaths = [

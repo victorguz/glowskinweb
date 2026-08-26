@@ -17,6 +17,8 @@ import {
   Sun,
   Smile,
   CheckCircle,
+  Plus,
+  Minus,
 } from "lucide-react";
 import { BookingCtaButtons } from "@/app/components/marketing/BookingCtaButtons";
 import { SITE_LOGO_URL } from "../components/site-config";
@@ -51,6 +53,34 @@ const IMGS = {
   gallery2: `${CDN}/images/gallery/glow-skin-gallery-antes-despues-2.webp`,
 };
 
+const FAQ_ITEMS = [
+  {
+    question: "¿A partir de qué edad puedo hacerme este tratamiento?",
+    answer:
+      "El tratamiento es seguro a partir de los 12-13 años. Para menores, recomendamos una consulta previa para evaluar el tipo de piel y severidad del acné.",
+  },
+  {
+    question: "¿Puedo usar maquillaje después del tratamiento?",
+    answer:
+      "Recomendamos esperar 6-8 horas antes de aplicar maquillaje. Usa solo productos no comedogénicos y libres de aceite.",
+  },
+  {
+    question: "¿Cuánto tiempo tardaré en ver resultados?",
+    answer:
+      "Los primeros cambios se notan después de 2-3 sesiones. Para resultados significativos, se requieren entre 6-8 sesiones, dependiendo de la severidad del acné.",
+  },
+  {
+    question: "¿El tratamiento es doloroso?",
+    answer:
+      "La extracción de comedones puede causar molestias leves. La alta frecuencia produce una sensación de hormigueo suave. El tratamiento es generalmente bien tolerado.",
+  },
+  {
+    question: "¿Puedo combinar este tratamiento con medicamentos para el acné?",
+    answer:
+      "Sí, pero es importante informarnos sobre cualquier medicamento tópico u oral que estés usando. Algunos requieren ajustes en el protocolo de tratamiento.",
+  },
+];
+
 const HERO_VSL = {
   videoUrl: "https://www.youtube.com/shorts/-RD-tayxRbM",
   title: "Método Glow Skin",
@@ -62,6 +92,7 @@ const HERO_VSL = {
 
 export default function GlowSkinMethodVSL() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -699,14 +730,55 @@ export default function GlowSkinMethodVSL() {
             </div>
           </div>
 
-          {/* <p className="mt-12 text-center text-sm opacity-80">
+          <p className="mt-12 text-center text-sm opacity-80">
             <Link
               href="/precios"
               className="border-b border-[#d4b499]/50 font-semibold uppercase tracking-widest text-[#d4b499] hover:text-white"
             >
               Ver lista de precios
             </Link>
-          </p> */}
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 8.5: FAQ */}
+      <section className="py-20 px-6 bg-[#f7f0eb]">
+        <div className="max-w-md mx-auto">
+          <p className="text-center text-[9px] font-black uppercase tracking-[0.3em] text-[#d4b499] mb-8">
+            Preguntas frecuentes
+          </p>
+          <div className="space-y-3">
+            {FAQ_ITEMS.map((item, index) => {
+              const isOpen = faqOpen === index;
+              return (
+                <div
+                  key={item.question}
+                  className="rounded-2xl border border-[#d4b499]/25 bg-white overflow-hidden"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setFaqOpen(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                  >
+                    <span className="text-sm font-bold text-[#4a3221]">
+                      {item.question}
+                    </span>
+                    {isOpen ? (
+                      <Minus size={16} className="shrink-0 text-[#d4b499]" />
+                    ) : (
+                      <Plus size={16} className="shrink-0 text-[#d4b499]" />
+                    )}
+                  </button>
+                  {isOpen ? (
+                    <p className="px-5 pb-4 text-sm leading-relaxed text-[#7d5a44]">
+                      {item.answer}
+                    </p>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

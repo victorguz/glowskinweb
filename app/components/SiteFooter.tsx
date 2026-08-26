@@ -4,6 +4,7 @@ import landingPages from "@/app/landing-pages.config";
 import { usePathname } from "next/navigation";
 import { MapPin, Clock } from "lucide-react";
 import Image from "next/image";
+import { getServiceHref } from "@/lib/routing/service-routes";
 import {
   SITE_FOOTER_LOGO_URL,
   INSTAGRAM_URL,
@@ -91,22 +92,28 @@ export function SiteFooter() {
           </p>
           <div className="flex flex-col gap-4 text-sm font-medium text-[#7d5a44]">
             <Link
-              href="/#servicios"
+              href={getServiceHref("limpieza-facial")}
               className="hover:text-[#5c3a21] transition-colors"
             >
-              Limpieza Profunda
+              Limpieza Facial
             </Link>
             <Link
-              href="/#servicios"
+              href={getServiceHref("limpieza-facial-anti-acne")}
               className="hover:text-[#5c3a21] transition-colors"
             >
               Control Acné
             </Link>
             <Link
-              href="/#servicios"
+              href={getServiceHref("limpieza-seborreguladora")}
               className="hover:text-[#5c3a21] transition-colors"
             >
-              Peeling Químico
+              Seborreguladora
+            </Link>
+            <Link
+              href={getServiceHref("hydraglow")}
+              className="hover:text-[#5c3a21] transition-colors"
+            >
+              HydraGlow
             </Link>
           </div>
         </div>
