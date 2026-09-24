@@ -31,7 +31,7 @@ function formsBaseUrl(): string {
   return (
     process.env.NEXT_FORMS_API_BASE ||
     process.env.NEXT_PUBLIC_FORMS_API_BASE ||
-    "https://x7u36u3ex2.execute-api.us-east-1.amazonaws.com/prd/api/forms"
+    "https://kpdlrafaa7.execute-api.us-east-1.amazonaws.com/api/forms"
   ).replace(/\/$/, "");
 }
 
