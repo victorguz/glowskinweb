@@ -56,7 +56,39 @@ export function readFbCookies(): { fbp?: string; fbc?: string } {
     );
     return m?.[1] ? decodeURIComponent(m[1]) : undefined;
   };
-  return { fbp: get('_fbp'), fbc: get('_fbc') };
+  return { fbp: get('_fbp'), fbc: resolveFbc(get('_fbc')) };
+}
+
+/**
+ * El píxel escribe `_fbc` de forma asíncrona, así que en la primera carga de un
+ * clic de anuncio la cookie aún no existe cuando salen PageView/ViewContent.
+ * Si la URL trae `fbclid`, se construye el fbc con el formato de Meta
+ * (fb.1.<ms>.<fbclid>) y se guarda en la cookie, igual que hace el píxel.
+ */
+function resolveFbc(cookieFbc?: string): string | undefined {
+  const cookie = freshFbc(cookieFbc);
+  if (typeof window === 'undefined') return cookie;
+  const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+  if (!fbclid || cookie?.endsWith(`.${fbclid}`)) return cookie;
+  const fbc = `fb.1.${Date.now()}.${fbclid}`;
+  try {
+    document.cookie = `_fbc=${encodeURIComponent(fbc)}; max-age=${90 * 24 * 60 * 60}; path=/; SameSite=Lax`;
+  } catch {
+    /* noop */
+  }
+  return fbc;
+}
+
+/** Meta descarta un fbc cuyo fbclid se generó hace más de 90 días (fb.1.<ms>.<fbclid>). */
+const FBC_MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
+
+export function freshFbc(fbc?: string): string | undefined {
+  if (!fbc) return undefined;
+  const created = Number(fbc.split('.')[2]);
+  if (!Number.isFinite(created) || Date.now() - created > FBC_MAX_AGE_MS) {
+    return undefined;
+  }
+  return fbc;
 }
 
 export function fbqTrack(...args: unknown[]) {

@@ -262,7 +262,13 @@ export async function POST(request: NextRequest) {
     if (body.userData.fbp) {
       userData.fbp = body.userData.fbp;
     }
-    if (body.userData.fbc) {
+    // Meta rechaza un fbclid de más de 90 días (fb.1.<ms>.<fbclid>): mejor omitirlo.
+    const fbcCreated = Number(body.userData.fbc?.split(".")[2]);
+    if (
+      body.userData.fbc &&
+      Number.isFinite(fbcCreated) &&
+      Date.now() - fbcCreated <= 90 * 24 * 60 * 60 * 1000
+    ) {
       userData.fbc = body.userData.fbc;
     }
 
