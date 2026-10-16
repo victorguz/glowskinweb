@@ -1,6 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
+import { PHONE_TEL } from '@/app/components/site-config';
 import { ServiceDetailContent } from '@/app/components/services/ServiceDetailContent';
+import { getEnrichedPricingForService } from '@/lib/content/pricing-enriched';
+import {
+  compactPrice,
+  getServiceFaqItems,
+  getServiceSeo,
+  parsePriceToNumber,
+} from '@/lib/content/service-seo';
+import { getServiceHeroImage } from '@/lib/content/service-media';
 import { getAllServiceSlugs, getServiceBySlug } from '@/lib/content/service-utils';
 import { getServiceHref, isServicePathOverride } from '@/lib/routing/service-routes';
 import { getSiteUrl, LOCAL_SEO, SITE_NAME } from '@/lib/seo/site';
@@ -9,8 +18,19 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+type ServicePair = NonNullable<ReturnType<typeof getServiceBySlug>>;
+
 export function generateStaticParams() {
   return getAllServiceSlugs().map((slug) => ({ slug }));
+}
+
+/** Descripción base del servicio + precio publicado, para quien busca "cuánto cuesta". */
+function buildDescription(pair: ServicePair, slug: string): string {
+  const seo = getServiceSeo(slug, pair.service.name);
+  const price = getEnrichedPricingForService(pair.service.name);
+  return price
+    ? `${seo.description} Precio: ${compactPrice(price.price)}.`
+    : seo.description;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -20,10 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Servicio | Glow Skin' };
   }
   const { service, categoryTitle } = pair;
+  const seo = getServiceSeo(slug, service.name);
   const url = `${getSiteUrl()}${getServiceHref(slug)}`;
-  const description = `${service.description} — ${SITE_NAME}, ${LOCAL_SEO.city} (${LOCAL_SEO.addressStreet}).`;
+  const description = buildDescription(pair, slug);
   return {
-    title: service.name,
+    title: { absolute: seo.title },
     description,
     keywords: [
       service.name,
@@ -34,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ],
     alternates: { canonical: url },
     openGraph: {
-      title: `${service.name} | ${SITE_NAME}`,
+      title: seo.title,
       description,
       url,
       locale: 'es_CO',
@@ -42,16 +63,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function buildServiceJsonLd(pair: NonNullable<ReturnType<typeof getServiceBySlug>>, slug: string) {
-  const { service } = pair;
+function buildServiceJsonLd(pair: ServicePair, slug: string) {
+  const { service, categoryTitle } = pair;
   const siteUrl = getSiteUrl();
   const url = `${siteUrl}${getServiceHref(slug)}`;
-  return {
+  const seo = getServiceSeo(slug, service.name);
+  const price = getEnrichedPricingForService(service.name);
+  const priceNumber = price ? parsePriceToNumber(price.price) : null;
+
+  const serviceLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.name,
-    description: service.description,
+    serviceType: categoryTitle,
+    description: buildDescription(pair, slug),
     url,
+    image: getServiceHeroImage(service.id),
     areaServed: {
       '@type': 'City',
       name: LOCAL_SEO.city,
@@ -61,6 +88,7 @@ function buildServiceJsonLd(pair: NonNullable<ReturnType<typeof getServiceBySlug
       '@id': `${siteUrl}/#local`,
       name: SITE_NAME,
       url: siteUrl,
+      telephone: PHONE_TEL,
       address: {
         '@type': 'PostalAddress',
         streetAddress: LOCAL_SEO.addressStreet,
@@ -70,7 +98,43 @@ function buildServiceJsonLd(pair: NonNullable<ReturnType<typeof getServiceBySlug
         addressCountry: LOCAL_SEO.countryCode,
       },
     },
+    ...(priceNumber
+      ? {
+          offers: {
+            '@type': 'Offer',
+            price: String(priceNumber),
+            priceCurrency: 'COP',
+            availability: 'https://schema.org/InStock',
+            url,
+          },
+        }
+      : {}),
   };
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Servicios', item: `${siteUrl}/servicios` },
+      { '@type': 'ListItem', position: 3, name: seo.title.split(' | ')[0], item: url },
+    ],
+  };
+
+  const faqItems = getServiceFaqItems(service);
+  const faqLd = faqItems.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null;
+
+  return [serviceLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])];
 }
 
 export default async function ServiceBySlugPage({ params }: Props) {
@@ -85,10 +149,13 @@ export default async function ServiceBySlugPage({ params }: Props) {
   const jsonLd = buildServiceJsonLd(pair, slug);
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd.map((data, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+      ))}
       <ServiceDetailContent pair={pair} />
     </>
   );

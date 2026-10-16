@@ -116,7 +116,7 @@ export const BLOG_POSTS2: BlogPost[] = [
         items: [
           "Glow Skin se dedica a lo facial. No hacemos masajes ni depilación ni nada corporal; lo decidimos así.",
           "Quien te atiende conoce el acné desde adentro: yo lo viví. Taparme el espejo con una toalla antes de entrar al baño fue parte de mi historia.",
-          "La piel no queda hinchada ni enrojecida y se puede salir el mismo día, siguiendo las recomendaciones de cuidado de después de cada tratamiento.",
+          "Se puede salir el mismo día, siguiendo las recomendaciones de cuidado de después: por ejemplo, nada de maquillaje durante las primeras 24 horas.",
           "Estamos en la Carrera 50 # 74-120, en Alto Prado, Barranquilla.",
         ],
       },
@@ -216,7 +216,7 @@ export const BLOG_POSTS2: BlogPost[] = [
           "Evita el sol directo durante 24 horas y usa protector solar.",
           "Mantén la piel hidratada.",
           "Evita productos con alcohol o ácidos fuertes durante 48 horas.",
-          "Espera al menos 4 a 6 horas antes de maquillarte.",
+          "No te maquilles durante las primeras 24 horas.",
         ],
       },
       {
@@ -245,7 +245,7 @@ export const BLOG_POSTS2: BlogPost[] = [
           },
           {
             q: "¿Puedo maquillarme después de la limpieza facial?",
-            a: "Recomendamos esperar al menos 4 a 6 horas antes de aplicar maquillaje.",
+            a: "Recomendamos no maquillarte durante las primeras 24 horas.",
           },
           {
             q: "¿Duele?",
@@ -294,7 +294,7 @@ export const BLOG_POSTS2: BlogPost[] = [
           "Sol: evita la exposición directa durante 24 horas y usa protector solar.",
           "Hidratación: mantén la piel hidratada con productos simples.",
           "Alcohol y ácidos fuertes: evítalos durante 48 horas.",
-          "Maquillaje: espera al menos 4 a 6 horas, y si te maquillas, que sea ligero.",
+          "Maquillaje: nada de maquillaje durante las primeras 24 horas.",
         ],
       },
       { type: "h2", text: "El enrojecimiento: cuándo es normal" },
@@ -346,7 +346,7 @@ export const BLOG_POSTS2: BlogPost[] = [
           },
           {
             q: "¿Cuándo puedo maquillarme?",
-            a: "Después de una limpieza facial, al menos 4 a 6 horas. Si te hiciste otro tratamiento, el tiempo puede ser mayor.",
+            a: "Después de una limpieza facial, nada de maquillaje durante las primeras 24 horas. Si te hiciste otro tratamiento, el tiempo puede ser distinto: pregúntalo en tu sesión.",
           },
           {
             q: "¿Puedo usar mi protector solar de siempre?",

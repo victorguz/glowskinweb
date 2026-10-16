@@ -8,9 +8,17 @@ import {
   getServiceHeroImage,
   getServiceProcessImage,
 } from "@/lib/content/service-media";
+import { getServiceFaqItems } from "@/lib/content/service-seo";
 import { ServiceFaqAccordion, type FaqItem } from "./ServiceFaqAccordion";
 import { ScrollToAnchorLink } from "./ScrollToAnchorLink";
 import { ServiceIcon } from "./service-icons";
+import {
+  CityLine,
+  RelatedServices,
+  ServiceBreadcrumbs,
+  ServiceLocalTrust,
+  ServicePriceCard,
+} from "./ServiceSeoBlocks";
 
 function detailLabel(key: string): string {
   const m: Record<string, string> = {
@@ -133,17 +141,21 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
           <div className="absolute inset-0 bg-gradient-to-b from-[#f7f0eb] via-[#f7f0eb]/90 to-[#f7f0eb]" />
         </div>
         <div className="relative z-10 container mx-auto px-6">
+          <ServiceBreadcrumbs serviceName={service.name} />
           <p className="mb-4 text-[10px] font-black uppercase tracking-[0.4em] text-[#d4b499]">
             {categoryTitle}
           </p>
           <h1 className="mb-6 font-serif text-5xl leading-none tracking-tight text-[#4a3221] md:text-7xl">
             {service.name}
+            <CityLine />
           </h1>
           <p className="mx-auto max-w-2xl text-lg font-medium italic leading-relaxed text-[#7d5a44]">
             {service.description}
           </p>
         </div>
       </section>
+
+      <ServicePriceCard serviceName={service.name} />
 
       <ServiceEditorialSection pair={pair} />
 
@@ -184,6 +196,15 @@ function SimpleServiceFallback({ pair }: { pair: CategoryServicePair }) {
           </p>
         </div>
       </section>
+
+      {getServiceFaqItems(service).length > 0 ? (
+        <ServiceFaqAccordion
+          items={getServiceFaqItems(service) as FaqItem[]}
+        />
+      ) : null}
+
+      <ServiceLocalTrust />
+      <RelatedServices current={pair} />
     </div>
   );
 }
@@ -1009,6 +1030,7 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
           <div className="absolute inset-0 bg-gradient-to-b from-[#f7f0eb] via-[#f7f0eb]/95 to-[#f7f0eb]" />
         </div>
         <div className="relative z-10 container mx-auto px-6">
+          <ServiceBreadcrumbs serviceName={service.name} />
           <p className="mb-6 text-[10px] font-black uppercase tracking-[0.4em] text-[#d4b499]">
             {categoryTitle}
           </p>
@@ -1018,6 +1040,7 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
             <span className="font-script -mt-2 block text-4xl lowercase text-[#d4b499] md:-mt-8 md:text-9xl">
               {hero.titleHighlight}
             </span>
+            <CityLine />
           </h1>
           <div className="mx-auto mt-8 mb-12 h-px w-24 bg-[#d4b499]" />
           {hero.subtitle ? (
@@ -1042,6 +1065,8 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
         </div>
       </section>
 
+      <ServicePriceCard serviceName={service.name} />
+
       <ServiceEditorialSection pair={pair} />
 
       {!sectionKeys.includes("process") ? (
@@ -1051,6 +1076,9 @@ export function ServiceDetailContent({ pair }: { pair: CategoryServicePair }) {
       {sectionKeys.map((key) =>
         renderSection(key, page[key], pair, processImg),
       )}
+
+      <ServiceLocalTrust />
+      <RelatedServices current={pair} />
 
       <style>{`
         /* Google Fonts import eliminado para optimización. Usa next/font en layout.tsx */

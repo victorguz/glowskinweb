@@ -144,3 +144,16 @@ export const SERVICES_PRICING_ENRICHED: EnrichedPricingCategory[] = SERVICES_PRI
   }),
 );
 
+/** Precio (y detalle) de la lista de precios que corresponde a un servicio de `SERVICES_DATA`. */
+export function getEnrichedPricingForService(
+  serviceName: string,
+): EnrichedPricingItem | undefined {
+  for (const cat of SERVICES_PRICING_ENRICHED) {
+    for (const item of cat.items) {
+      const target = PRICING_NAME_TO_SERVICE_NAME[item.name] ?? item.name;
+      if (target === serviceName) return item;
+    }
+  }
+  return undefined;
+}
+

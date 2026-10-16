@@ -49,7 +49,7 @@ export const quickLandings = {
       {
         question: "¿Puedo usar maquillaje después de la limpieza facial?",
         answer:
-          "Recomendamos esperar al menos 4-6 horas antes de aplicar maquillaje para permitir que la piel absorba completamente los productos aplicados.",
+          "Recomendamos no maquillarte durante las primeras 24 horas.",
       },
       {
         question: "¿Qué cuidados debo tener después del tratamiento?",
