@@ -6,6 +6,121 @@ const IMG = IMAGES_CDN;
 
 export const BLOG_POSTS2: BlogPost[] = [
   {
+    slug: "como-elegir-donde-hacerte-una-limpieza-facial-en-barranquilla",
+    title: "Cómo elegir dónde hacerte una limpieza facial en Barranquilla",
+    deck: "Diez cosas que yo miraría antes de acostarme en una camilla.",
+    description:
+      "Qué preguntar y qué mirar antes de reservar una limpieza facial en Barranquilla: valoración previa, asepsia, explicación paso a paso y señales de alerta.",
+    keywords: [
+      "limpieza facial Barranquilla",
+      "dónde hacerme una limpieza facial",
+      "cómo elegir un centro de estética facial",
+      "limpieza facial Alto Prado",
+      "Glow Skin",
+    ],
+    datePublished: "2026-10-16",
+    category: "Consejos",
+    readTimeLabel: "5 min",
+    image: `${IMG}/blog/blog-que-hacer-despues-limpieza-facial.jpeg`,
+    blocks: [
+      {
+        type: "lead",
+        text: "Yo iba a hacerme mis limpiezas y salía peor de como entraba. Por eso hoy, cuando alguien me pregunta dónde hacerse una limpieza facial, no le doy un nombre: le doy una lista de cosas que mirar. Esta es esa lista.",
+      },
+      {
+        type: "p",
+        text: "Todo empieza por una limpieza facial, pero por una bien hecha. Y una bien hecha empieza antes de que te toquen la cara.",
+      },
+      {
+        type: "p",
+        text: "Una aclaración antes de seguir: esta guía la escribimos en Glow Skin, así que tómala con ese filtro. Por eso al final te dejo las mismas preguntas para que nos las hagas a nosotras antes de reservar. Si te sirven para elegir otro sitio, igual cumplieron.",
+      },
+      { type: "h2", text: "1. Que te hagan una valoración antes de tocarte" },
+      {
+        type: "p",
+        text: "Si llegas y a los dos minutos ya tienes la crema en la cara, desconfía. Antes de empezar deberían mirarte la piel, preguntarte qué te ha pasado con otras limpiezas, si estás usando ácidos o tratamientos, y qué quieres lograr.",
+      },
+      { type: "h2", text: "2. Que te expliquen qué te van a hacer, paso a paso" },
+      {
+        type: "p",
+        text: "Una limpieza no debería ser un misterio. Quien te atiende puede ir diciendo qué hace y para qué. Si no te explican, no estás eligiendo: estás aceptando.",
+      },
+      { type: "h2", text: "3. Que te hablen del dolor sin esconderlo" },
+      {
+        type: "p",
+        text: "Una extracción manual puede incomodar. Lo importante es que te lo digan de antemano y que alguien te pregunte durante la sesión cómo vas. Si nadie te pregunta si te duele, esa es la señal.",
+      },
+      { type: "h2", text: "4. Que el lugar se dedique a lo facial" },
+      {
+        type: "p",
+        text: "Un sitio que hace de todo no es peor por eso, pero uno especializado en rostro suele tener más práctica en lo que vas a pedir. Pregunta cuántas limpiezas faciales hacen a la semana y qué otros servicios ofrecen.",
+      },
+      { type: "h2", text: "5. Que la asepsia se vea" },
+      {
+        type: "p",
+        text: "Puedes comprobarla con los ojos: cabina limpia, guantes nuevos que se abren delante de ti, material que no sale de un cajón con polvo. Pregunta cómo esterilizan o si usan material desechable. Quien lo hace bien responde sin molestarse.",
+      },
+      { type: "h2", text: "6. Que te digan quién te va a atender" },
+      {
+        type: "p",
+        text: "Pregunta el nombre y la formación de la persona. Ten presente que una cosmetóloga o una cosmiatra no es una dermatóloga: si lo tuyo parece médico (acné muy inflamado, lunares que cambian, heridas que no cierran), lo correcto es consultar con un dermatólogo, y que el centro te lo diga a ti sin que lo preguntes.",
+      },
+      { type: "h2", text: "7. Que no te prometan resultados ni plazos mágicos" },
+      {
+        type: "p",
+        text: "«Adiós al acné en una sesión» no existe. Desconfía de las promesas cerradas. La piel tiene su ritmo, y un sitio serio te habla de lo que se puede esperar sin prometer lo que no controla.",
+      },
+      { type: "h2", text: "8. Que te digan qué hacer después" },
+      {
+        type: "p",
+        text: "Qué puedes y qué no puedes hacer las siguientes horas: maquillaje, sol, productos. Que te lo digan antes de salir, no cuando ya escribiste preguntando.",
+      },
+      { type: "h2", text: "9. Que el precio esté claro y sin presión" },
+      {
+        type: "p",
+        text: "Pregunta cuánto cuesta y qué incluye. Si te apuran con «solo por hoy» o «quedan pocos cupos» sin una razón verdadera, respira y reserva otro día. Una decisión sobre tu cara no tiene que tomarse con prisa.",
+      },
+      { type: "h2", text: "10. Que las reseñas sean reales, y las malas también" },
+      {
+        type: "p",
+        text: "Lee las reseñas de Google, y sobre todo las que no son de cinco estrellas: ahí se ve cómo responde el sitio cuando algo no sale bien. Fíjate si las pacientes mencionan cosas concretas (que les explicaron, que les preguntaron, que no quedaron rojas) o solo frases genéricas.",
+      },
+      {
+        type: "h2",
+        text: "Las mismas preguntas, para hacérnoslas a nosotras",
+      },
+      {
+        type: "p",
+        text: "Antes de reservar con nosotras, o con quien sea, escribe por WhatsApp y pregunta:",
+      },
+      {
+        type: "list",
+        items: [
+          "¿Hacen una valoración antes de empezar?",
+          "¿Quién me va a atender y qué formación tiene?",
+          "¿Qué me van a hacer, paso a paso, y cuánto puede molestar?",
+          "¿Cómo manejan la asepsia y el material?",
+          "¿Qué cuidados tengo que seguir después?",
+          "¿Cuánto cuesta y qué incluye?",
+        ],
+      },
+      { type: "h2", text: "Qué te puedo decir de Glow Skin, sin adornos" },
+      {
+        type: "list",
+        items: [
+          "Glow Skin se dedica a lo facial. No hacemos masajes ni depilación ni nada corporal; lo decidimos así.",
+          "Quien te atiende conoce el acné desde adentro: yo lo viví. Taparme el espejo con una toalla antes de entrar al baño fue parte de mi historia.",
+          "La piel no queda hinchada ni enrojecida y se puede salir el mismo día, siguiendo las recomendaciones de cuidado de después de cada tratamiento.",
+          "Estamos en la Carrera 50 # 74-120, en Alto Prado, Barranquilla.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Si después de leer esto quieres que miremos tu piel, escríbeme VALORACIÓN por WhatsApp y empecemos a tratarla hoy mismo.",
+      },
+    ],
+  },
+  {
     slug: "mejor-limpieza-facial-alto-prado",
     title: "La mejor limpieza facial en Alto Prado",
     deck: "Faciales de mantenimiento cerca de Alto Prado, Barranquilla.",
