@@ -14,9 +14,9 @@ export type ServiceEditorialBlock = {
 };
 
 const BLOG_FACIAL_HREF = "/blog/limpieza-facial-profunda";
-const BLOG_FACIAL_TITLE = "El impacto de un facial profesional";
+const BLOG_FACIAL_TITLE = "Limpieza facial profunda en Barranquilla: qué incluye";
 const BLOG_FACIAL_EXCERPT =
-  "Cómo una higiene facial profunda puede marcar el inicio de una transformación en textura del cutis y autoestima, con protocolo y diagnóstico personalizado.";
+  "Pasos de una sesión, duración, cuidados de después y cada cuánto repetirla, explicado sin tecnicismos.";
 
 function facialArticle(): NonNullable<ServiceEditorialBlock["relatedArticle"]> {
   return {

@@ -77,6 +77,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Una sola versión del sitio para buscadores: www → dominio sin www.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.glowskinbq.com" }],
+        destination: "https://glowskinbq.com/:path*",
+        permanent: true,
+      },
       ...getBlogLegacyRedirectsForConfig(),
       {
         source: "/sitemap.rss",

@@ -50,14 +50,6 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
     posts: getAllPosts().filter((post) => post.category === "Glow Skin"),
     count: 0,
   },
-  {
-    name: "Lifestyle",
-    slug: "lifestyle",
-    description:
-      "Tendencias, análisis de celebridades y factores que influyen en la piel",
-    posts: getAllPosts().filter((post) => post.category === "Lifestyle"),
-    count: 0,
-  },
 ];
 
 // Update count for each category

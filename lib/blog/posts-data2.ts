@@ -22,6 +22,12 @@ export const BLOG_POSTS2: BlogPost[] = [
     category: "Consejos",
     readTimeLabel: "5 min",
     image: `${IMG}/blog/blog-que-hacer-despues-limpieza-facial.jpeg`,
+    ctaContext: "limpieza-facial",
+    related: [
+      "limpieza-facial-profunda",
+      "que-hacer-despues-de-una-limpieza-facial",
+      "limpieza-facial-en-casa-por-que-evitarla",
+    ],
     blocks: [
       {
         type: "lead",
@@ -43,7 +49,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       { type: "h2", text: "2. Que te expliquen qué te van a hacer, paso a paso" },
       {
         type: "p",
-        text: "Una limpieza no debería ser un misterio. Quien te atiende puede ir diciendo qué hace y para qué. Si no te explican, no estás eligiendo: estás aceptando.",
+        text: "Una limpieza no debería ser un misterio. Quien te atiende puede ir diciendo qué hace y para qué. Si no te explican, no estás eligiendo: estás aceptando. Si quieres ver cómo es una sesión por dentro, está en [qué incluye una limpieza facial profunda](/blog/limpieza-facial-profunda).",
       },
       { type: "h2", text: "3. Que te hablen del dolor sin esconderlo" },
       {
@@ -73,7 +79,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       { type: "h2", text: "8. Que te digan qué hacer después" },
       {
         type: "p",
-        text: "Qué puedes y qué no puedes hacer las siguientes horas: maquillaje, sol, productos. Que te lo digan antes de salir, no cuando ya escribiste preguntando.",
+        text: "Qué puedes y qué no puedes hacer las siguientes horas: maquillaje, sol, productos. Que te lo digan antes de salir, no cuando ya escribiste preguntando. Aquí tienes la nuestra: [qué hacer después de una limpieza facial](/blog/que-hacer-despues-de-una-limpieza-facial).",
       },
       { type: "h2", text: "9. Que el precio esté claro y sin presión" },
       {
@@ -116,1529 +122,646 @@ export const BLOG_POSTS2: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Si después de leer esto quieres que miremos tu piel, escríbeme VALORACIÓN por WhatsApp y empecemos a tratarla hoy mismo.",
+        text: "Si después de leer esto quieres que miremos tu piel, escríbeme VALORACIÓN por WhatsApp y empecemos a tratarla hoy mismo. Puedes ver cómo es el servicio en la [página de limpieza facial](/servicios/limpieza-facial).",
       },
     ],
   },
   {
-    slug: "mejor-limpieza-facial-alto-prado",
-    title: "La mejor limpieza facial en Alto Prado",
-    deck: "Faciales de mantenimiento cerca de Alto Prado, Barranquilla.",
+    slug: "limpieza-facial-profunda",
+    title: "Limpieza facial profunda en Barranquilla: qué incluye",
+    deck: "Pasos, duración, cuidados y cada cuánto repetirla.",
     description:
-      "Limpieza facial para residentes y trabajadores de Alto Prado: qué esperar, frecuencia y por qué elegir Glow Skin en Barranquilla.",
+      "Qué incluye una limpieza facial profunda en Barranquilla: pasos, duración, cuidados de después y cada cuánto hacerla, explicado sin tecnicismos.",
     keywords: [
-      "limpieza facial Alto Prado",
-      "facial Barranquilla",
+      "limpieza facial profunda Barranquilla",
+      "qué incluye una limpieza facial",
+      "cada cuánto hacerse una limpieza facial",
+      "extracción de comedones",
       "Glow Skin",
     ],
-    datePublished: "2024-04-06",
-    category: "Tratamientos",
-    readTimeLabel: "5 min",
-    image: `${IMG}/blog/blog-mejor-limpieza-facial-alto-prado.png`,
-    blocks: [
-      {
-        type: "lead",
-        text: "Alto Prado concentra ritmo laboral y social; la piel suele acumular estrés oxidativo y residuos de protector solar mal reaplicado.",
-      },
-      {
-        type: "p",
-        text: "Un facial de mantenimiento cercano te ayuda a sostener poros limpios y tono homogéneo entre tratamientos más intensivos. Glow Skin queda en Carrera 50 # 74-120, con acceso práctico desde la zona.",
-      },
-      { type: "h2", text: "Objetivos frecuentes" },
-      {
-        type: "list",
-        items: [
-          "Refinar textura antes de eventos.",
-          "Complementar tratamiento de acné con extracciones supervisadas.",
-          "Recuperar luminosidad tras viajes o sol.",
-        ],
-      },
-      {
-        type: "p",
-        text: "Reserva por WhatsApp y comenta si necesitas horario extendido; adaptamos cuando la agenda lo permite.",
-      },
-      { type: "h2", text: "Por qué Alto Prado necesita faciales específicos" },
-      {
-        type: "p",
-        text: "Alto Prado es el corazón financiero y corporativo de Barranquilla. Las oficinas con aire acondicionado intensivo, el estrés por presentaciones importantes y las largas jornadas frente a pantallas crean condiciones únicas para tu piel. La combinación de ambiente seco artificial y la humedad exterior de Barranquilla genera deshidratación y sobreproducción de sebo.",
-      },
-      {
-        type: "p",
-        text: "Además, el ritmo de vida en Alto Prado significa que a menudo descuidamos los horarios de reaplicación de protector solar durante los almuerzos o reuniones fuera de la oficina. Esto se traduce en daño acumulado que necesita atención profesional regular.",
-      },
-      {
-        type: "h2",
-        text: "Nuestro protocolo adaptado para profesionales de Alto Prado",
-      },
-      {
-        type: "list",
-        items: [
-          "Evaluación express de 10 minutos para ajustar a tu horario.",
-          "Limpieza profunda con extracción selectiva cuando necesaria.",
-          "Mascarillas hidratantes o reguladoras según tu tipo de piel.",
-          "Aplicación de protector solar no comedogénico al finalizar.",
-          "Consejos prácticos para mantener resultados entre sesiones.",
-        ],
-      },
-      { type: "h2", text: "Horarios convenientes para tu agenda" },
-      {
-        type: "p",
-        text: "Entendemos que en Alto Prado el tiempo es valioso. Por eso ofrecemos horarios extendidos hasta las 7 PM y opciones de almuerzo de 45 minutos. Nuestra ubicación en Carrera 50 # 74-120 está a solo 5-10 minutos en taxi desde la mayoría de oficinas del sector.",
-      },
-      {
-        type: "p",
-        text: "Puedes venir con maquillaje ligero de oficina; lo retiramos como parte del tratamiento. Si tienes reunión importante después, ajustamos la intensidad del procedimiento para evitar enrojecimiento prolongado.",
-      },
-      { type: "h2", text: "Resultados que notarás inmediatamente" },
-      {
-        type: "list",
-        items: [
-          "Piel más luminosa y uniforme al salir de la consulta.",
-          "Poros visiblemente más limpios y refinados.",
-          "Mejor absorción de productos en los días siguientes.",
-          "Sensación de ligereza y confort inmediato.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "Los profesionales de Alto Prado necesitan tratamientos eficientes que respeten su tiempo pero entreguen resultados visibles. Ese es nuestro enfoque en Glow Skin.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "que-es-el-dermapen",
-    title: "Qué es el Dermapen",
-    deck: "Microneedling médico-estético explicado sin humo.",
-    description:
-      "Qué es el Dermapen (microneedling), para qué sirve, qué sensaciones tiene y cómo se integra en protocolos de rejuvenecimiento en Barranquilla.",
-    keywords: [
-      "Dermapen",
-      "microneedling Barranquilla",
-      "colágeno",
-      "Glow Skin",
-    ],
-    datePublished: "2024-04-05",
-    category: "Ciencia",
-    readTimeLabel: "7 min",
-    image: `${IMG}/blog/blog-que-es-el-dermapen.jpg`,
-    blocks: [
-      {
-        type: "lead",
-        text: "El Dermapen es un dispositivo de micropunción controlada que estimula la respuesta natural de reparación de la piel.",
-      },
-      {
-        type: "p",
-        text: "A diferencia de rodillos caseros de agujas, las plumas electrónicas permiten ajustar profundidad y velocidad con más uniformidad en manos expertas. Eso importa para resultados y para seguridad.",
-      },
-      { type: "h2", text: "Indicaciones habituales" },
-      {
-        type: "list",
-        items: [
-          "Cicatrices de acné leves a moderadas (según valoración).",
-          "Líneas finas y pérdida de firmeza leve.",
-          "Textura irregular o marcas superficiales.",
-        ],
-      },
-      {
-        type: "p",
-        text: "No es un tratamiento “de paso”: puede haber enrojecimiento y descamación unos días. La exposición solar debe controlarse; en Barranquilla la foto protección es obligatoria tras el procedimiento.",
-      },
-      {
-        type: "quote",
-        text: "La aguja no sustituye el diagnóstico: primero estabilizamos brotes activos cuando hace falta.",
-        attribution: "Equipo Glow Skin",
-      },
-      { type: "h2", text: "El procedimiento" },
-      {
-        type: "p",
-        text: "Antes del tratamiento, aplicamos anestésico tópico para mayor comodidad. La sesión dura 30-45 minutos dependiendo del área. La sensación es similar a vibración con leve pinchazo, controlable en todo momento.",
-      },
-      { type: "h2", text: "Post-tratamiento" },
-      {
-        type: "list",
-        items: [
-          "Enrojecimiento durante 24-72 horas (normal y esperado).",
-          "Evitar sol directo y usar protector solar mineral.",
-          "Productos suaves durante 5-7 días.",
-          "Resultados progresivos: mejora visible en 2-4 semanas.",
-        ],
-      },
-      { type: "h2", text: "Frecuencia recomendada" },
-      {
-        type: "p",
-        text: "Para resultados óptimos, recomendamos series de 3-6 sesiones espaciadas 2-4 semanas, según objetivo. Mantenimiento cada 6-12 meses para sostener los beneficios.",
-      },
-      { type: "h2", text: "Dermapen vs. otros tratamientos en Barranquilla" },
-      {
-        type: "p",
-        text: "En el clima de Barranquilla, el Dermapen ofrece ventajas únicas comparado con peelings químicos intensivos que pueden ser muy agresivos para pieles expuestas constantemente al sol y humedad. Mientras los peelings químicos profundos requieren recuperación prolongada y evitación total del sol, el microneedling permite retorno más rápido a actividades con protección solar adecuada.",
-      },
-      {
-        type: "list",
-        items: [
-          "Dermapen: Control preciso de profundidad, ideal para clima tropical.",
-          "Peelings químicos: Más riesgos en pieles fotoenvejecidas por sol caribeño.",
-          "Láser fraccionado: Mayor tiempo de recuperación, más costoso.",
-          "Radiofrecuencia: Mejor para flacidez que para textura superficial.",
-        ],
-      },
-      { type: "h2", text: "¿Para quién es ideal el Dermapen en Glow Skin?" },
-      {
-        type: "p",
-        text: "Evaluamos cuidadosamente si eres candidata ideal. Consideramos tu fototipo, historial de exposición solar en Barranquilla, y objetivos específicos. No realizamos microneedling en pieles con brotes activos de acné, herpes reciente o tratamientos con retinoides fuertes sin descanso previo.",
-      },
-      {
-        type: "list",
-        items: [
-          "Cicatrices de acné antiguas, sin inflamación activa.",
-          "Líneas finas alrededor de los ojos.",
-          "Piel con pérdida de firmeza leve a moderada.",
-          "Textura irregular por daño solar acumulado.",
-          "Poros dilatados sin obstrucción activa.",
-        ],
-      },
-      { type: "h2", text: "El protocolo Glow Skin para Dermapen" },
-      {
-        type: "p",
-        text: "Nuestro protocolo incluye preparación domiciliar 7 días antes, procedimiento en cabina con anestesia tópica, y seguimiento post-tratamiento. Usamos agujas estériles de un solo uso y ajustamos profundidad según zona facial: más superficial en contorno de ojos, más profunda en mejillas si las cicatrices lo permiten.",
-      },
-      {
-        type: "p",
-        text: "Después del procedimiento, aplicamos suero calmante con factores de crecimiento y protector solar mineral. Te explicamos detalladamente los cuidados para los próximos 5-7 días, cruciales para resultados óptimos en el clima de Barranquilla.",
-      },
-      {
-        type: "quote",
-        text: "El Dermapen no es magia instantánea: es una inversión en colágeno nuevo que se construye con paciencia y constancia.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "limpieza-facial-en-casa-por-que-evitarla",
-    title: "Cómo se hace una limpieza facial en casa (y por qué no deberías)",
-    deck: "Exprimir, vapor y bicarbonato: riesgos que vemos en consulta.",
-    description:
-      "Por qué no imitar una limpieza facial profesional en casa: riesgo de infección, manchas y cicatrices. Qué sí puedes hacer entre citas en Barranquilla.",
-    keywords: [
-      "limpieza facial en casa",
-      "extracción casera",
-      "acné Barranquilla",
-    ],
-    datePublished: "2024-04-04",
-    category: "Consejos",
+    datePublished: "2026-04-10",
+    dateModified: "2026-10-16",
+    category: "Skin Care",
     readTimeLabel: "6 min",
-    image: `${IMG}/blog/blog-limpieza-facial-en-casa.png`,
+    image: `${IMG}/gallery/glow-skin-gallery-limpieza-facial-1.webp`,
+    ctaContext: "limpieza-facial",
+    related: [
+      "como-elegir-donde-hacerte-una-limpieza-facial-en-barranquilla",
+      "que-hacer-despues-de-una-limpieza-facial",
+      "limpieza-facial-en-casa-por-que-evitarla",
+    ],
     blocks: [
       {
         type: "lead",
-        text: "En internet abundan tutoriales de “limpieza extrema”. En clínica, muchas consultas empiezan después de una mala noche con espejo y alfiler.",
+        text: "Una limpieza facial profunda no es un facial de relajación con crema y música. Es un procedimiento con pasos, con tiempos y con una persona que decide qué se toca y qué no. Aquí te cuento qué incluye y qué deberías esperar.",
       },
       {
         type: "p",
-        text: "Una limpieza facial profesional combina desincrustación, criterio para extraer solo lo que está maduro, esterilidad y productos con pH y concentración adecuados. En casa casi nunca se reproduce ese entorno.",
+        text: "Todo empieza por una limpieza facial, pero la palabra «profunda» suele prometer más de lo que explica. Por eso te lo detallo paso a paso, tal como lo hacemos en Glow Skin, en la Carrera 50 # 74-120.",
       },
-      { type: "h2", text: "Riesgos reales" },
+      { type: "h2", text: "Qué es y qué no es" },
       {
-        type: "list",
-        items: [
-          "Hiperpigmentación postinflamatoria (especialmente en pieles morenas).",
-          "Infección o quistes por manipular profundamente.",
-          "Barrera alterada por exfoliación agresiva repetida.",
-        ],
-      },
-      {
-        type: "h2",
-        text: "Qué sí hacer entre citas",
+        type: "p",
+        text: "Es una higiene profesional de la piel: retirar el exceso de sebo, el maquillaje y la suciedad que se acumulan en los poros, y extraer comedones cuando la piel está lista. No es un tratamiento médico ni cura el acné; ayuda a que la piel esté más despejada y a que el resto de tus cuidados funcione mejor.",
       },
       {
         type: "p",
-        text: "Limpia suave, hidrata según indicación y usa fotoprotección. Si te tentó un video viral, mejor agenda en Glow Skin: extraemos con método y te enseñamos qué evitar hasta la próxima sesión.",
+        text: "Tampoco es «limpiar más fuerte». Una limpieza bien hecha cuida la barrera de la piel; la que irrita deja la cara roja y, muchas veces, peor que como llegó.",
       },
-      { type: "h2", text: "Los peligros reales que vemos en consulta" },
+      { type: "h2", text: "Qué incluye una sesión, paso a paso" },
       {
         type: "p",
-        text: "En Glow Skin Barranquilla recibimos semanalmente personas con complicaciones por intentos de limpieza facial en casa. Los casos más comunes incluyen infecciones por usar herramientas no esterilizadas, hiperpigmentación severa por manipular lesiones inflamadas, y cicatrices permanentes por extracciones incorrectas.",
+        text: "Una sesión dura entre 60 y 90 minutos aproximadamente. En Glow Skin sigue cuatro pasos:",
       },
       {
         type: "list",
         items: [
-          "Infecciones estafilocócicas y fúngicas por extractores caseros.",
-          "Hiperpigmentación postinflamatoria que dura meses o años.",
-          "Cicatrices atróficas e hipertróficas por extracciones forzadas.",
-          "Dermatitis de contacto por ingredientes irritantes caseros.",
-          "Propagación de acné por romper lesiones bajo la piel.",
+          "Diagnóstico inicial: miramos tu tipo de piel y lo que necesita para ajustar la sesión.",
+          "Limpieza profunda: usamos vapor ozono y espátula ultrasónica para purificar la piel.",
+          "Extracción profesional: manos expertas retiran lo que sobra, cuidando tu comodidad y el equilibrio de tu rostro.",
+          "Alta frecuencia y nutrición: oxigenamos con alta frecuencia y sellamos con activos nutritivos.",
         ],
       },
-      { type: "h2", text: "Por qué los videos de redes son engañosos" },
       {
         type: "p",
-        text: "Los tutoriales virales muestran resultados inmediatos y perfectos, pero omiten crucialmente la preparación profesional, la esterilización hospitalaria, y el conocimiento de anatomía cutánea. Lo que ves en 30 segundos de video es el resultado de años de experiencia clínica, no algo que puedas replicar sin riesgos.",
+        text: "Además de esos pasos, la sesión incluye una mascarilla personalizada, protección solar y recomendaciones para después.",
+      },
+      { type: "h2", text: "La extracción: dónde se nota la diferencia" },
+      {
+        type: "p",
+        text: "Sacar un punto negro es fácil. Hacerlo sin maltratar la piel no. Una extracción bien hecha toca solo lo que está listo para salir, no insiste donde no corresponde y te avisa si algo te va a molestar. Si nadie te pregunta cómo vas durante la sesión, es mala señal; lo hablamos en la guía para [elegir dónde hacerte una limpieza facial en Barranquilla](/blog/como-elegir-donde-hacerte-una-limpieza-facial-en-barranquilla).",
       },
       {
         type: "p",
-        text: "Además, muchos influencers usan iluminación profesional, filtros y edición para mostrar resultados espectaculares. En la realidad, la piel necesita tiempo para sanar y los procedimientos incorrectos pueden causar daño permanente.",
+        text: "Puede haber molestia leve al extraer. Lo que no debería haber es un dolor que te haga apretar la camilla.",
       },
-      { type: "h2", text: "Alternativas seguras entre citas profesionales" },
+      { type: "h2", text: "Cada cuánto hacerla" },
       {
         type: "p",
-        text: "Entre tus limpiezas profesionales en Glow Skin, sí hay cosas seguras que puedes hacer en casa. El secreto está en la constancia con productos adecuados y la paciencia para no intervenir agresivamente.",
-      },
-      {
-        type: "list",
-        items: [
-          "Doble limpieza nocturna con productos suaves.",
-          "Exfoliación enzimática suave 1-2 veces por semana.",
-          "Mascarillas hidratantes sin ingredientes agresivos.",
-          "Masajes faciales suaves para drenaje linfático.",
-          "Protección solar rigurosa todos los días.",
-        ],
-      },
-      { type: "h2", text: "Señales de alerta: cuándo venir urgentemente" },
-      {
-        type: "p",
-        text: "Si has intentado limpiezas caseras y observas estos síntomas, agenda una consulta urgente en Glow Skin. Cuanto antes tratemos la complicación, mejores serán los resultados.",
-      },
-      {
-        type: "list",
-        items: [
-          "Enrojecimiento que no mejora en 48 horas.",
-          "Dolor intenso o sensibilidad extrema.",
-          "Secreción de pus o mal olor.",
-          "Manchas oscuras que aparecen después de manipular.",
-          "Aumento repentino de lesiones de acné.",
-        ],
+        text: "Como mantenimiento general, una limpieza cada 30 a 45 días. Si tu piel tiene acné, la frecuencia puede acortarse hasta cada 21 días. Es un criterio que se ajusta en la valoración, no una regla fija.",
       },
       {
         type: "quote",
-        text: "La paciencia es tu mejor aliada en cuidado facial. Mejor esperar una semana por una cita profesional que arriesgar meses de recuperación por un error casero.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+        text: "Resultados reales se construyen con técnica, paciencia y un plan que respeta el ciclo de la piel.",
+      },
+      { type: "h2", text: "Cómo queda la piel después" },
+      {
+        type: "p",
+        text: "Es normal un leve enrojecimiento que se va en unas 2 a 4 horas. Muchas pacientes notan la piel más luminosa y despejada desde la primera sesión. Eso no significa que el resultado sea definitivo: la piel se renueva sola y los poros vuelven a llenarse con el tiempo, por eso la constancia importa.",
+      },
+      { type: "h2", text: "Qué hacer después de la sesión" },
+      {
+        type: "list",
+        items: [
+          "Evita el sol directo durante 24 horas y usa protector solar.",
+          "Mantén la piel hidratada.",
+          "Evita productos con alcohol o ácidos fuertes durante 48 horas.",
+          "Espera al menos 4 a 6 horas antes de maquillarte.",
+        ],
+      },
+      {
+        type: "p",
+        text: "La versión completa está en [qué hacer después de una limpieza facial](/blog/que-hacer-despues-de-una-limpieza-facial).",
+      },
+      { type: "h2", text: "Cuándo la limpieza no es lo primero" },
+      {
+        type: "p",
+        text: "Si tienes brotes inflamados y dolorosos, heridas que no cierran o lunares que cambian, lo primero es una valoración y, si parece médico, un dermatólogo. Una limpieza profunda complementa ese diagnóstico, no lo reemplaza. Si tu acné es leve o moderado, hay una [limpieza anti-acné](/servicios/limpieza-facial-anti-acne) que adapta el procedimiento a tu caso.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "¿Cuánto dura una limpieza facial profunda?",
+            a: "Entre 60 y 90 minutos aproximadamente, según tu piel.",
+          },
+          {
+            q: "¿Cada cuánto debo hacerme una limpieza facial?",
+            a: "Para mantenimiento general, cada 30 a 45 días. Para pieles con acné, la frecuencia puede ser cada 21 días.",
+          },
+          {
+            q: "¿Es normal que mi piel se vea roja después?",
+            a: "Sí, un ligero enrojecimiento que desaparece en 2 a 4 horas es normal después de una limpieza.",
+          },
+          {
+            q: "¿Puedo maquillarme después de la limpieza facial?",
+            a: "Recomendamos esperar al menos 4 a 6 horas antes de aplicar maquillaje.",
+          },
+          {
+            q: "¿Duele?",
+            a: "La extracción puede causar molestias leves y suele ser bien tolerada. Si algo te incomoda, avísalo durante la sesión.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Si quieres que miremos tu piel y te digamos qué tipo de limpieza te corresponde, escríbeme VALORACIÓN por WhatsApp y empecemos hoy mismo. Puedes ver todo lo que incluye en la [página del servicio](/servicios/limpieza-facial).",
       },
     ],
   },
   {
     slug: "que-hacer-despues-de-una-limpieza-facial",
-    title: "Qué hacer después de una limpieza facial",
-    deck: "48 horas clave para resultados duraderos.",
+    title: "Qué hacer después de una limpieza facial: sol, maquillaje y cuidados",
+    deck: "Lo que sí y lo que no durante las primeras horas.",
     description:
-      "Cuidados post limpieza facial: sol, maquillaje, sudor y productos a evitar. Guía Glow Skin para quienes viven en Barranquilla.",
-    keywords: ["después de limpieza facial", "cuidados piel", "Barranquilla"],
+      "Qué hacer y qué evitar después de una limpieza facial en Barranquilla: sol, maquillaje, productos y cuándo consultar si algo no se ve bien.",
+    keywords: [
+      "qué hacer después de una limpieza facial",
+      "cuidados después de limpieza facial",
+      "maquillaje después de limpieza facial",
+      "limpieza facial Barranquilla",
+    ],
     datePublished: "2024-04-03",
+    dateModified: "2026-10-16",
     category: "Consejos",
     readTimeLabel: "5 min",
     image: `${IMG}/blog/blog-que-hacer-despues-limpieza-facial.jpeg`,
+    ctaContext: "limpieza-facial",
+    related: [
+      "limpieza-facial-profunda",
+      "limpieza-facial-en-casa-por-que-evitarla",
+      "como-elegir-donde-hacerte-una-limpieza-facial-en-barranquilla",
+    ],
     blocks: [
       {
         type: "lead",
-        text: "Tras un facial, la piel es más permeable: lo que pongas (o el sol que reciba) marca la diferencia.",
+        text: "Después de una limpieza facial la piel queda más sensible y más receptiva: lo que le pongas, y el sol que reciba en las primeras horas, pesan más que en un día normal.",
       },
+      { type: "h2", text: "Lo básico, en las primeras horas" },
       {
         type: "list",
         items: [
-          "Primeras 24–48 h: evita sauna, ejercicio extremo y sol directo prolongado.",
-          "No introduzcas retinol/ácidos fuertes si no fueron indicados.",
-          "Prefiere sombrero o sombra en Barranquilla; el UV es alto todo el año.",
-          "Hidrata con fórmulas simples si tu piel está sensible.",
+          "Sol: evita la exposición directa durante 24 horas y usa protector solar.",
+          "Hidratación: mantén la piel hidratada con productos simples.",
+          "Alcohol y ácidos fuertes: evítalos durante 48 horas.",
+          "Maquillaje: espera al menos 4 a 6 horas, y si te maquillas, que sea ligero.",
         ],
       },
+      { type: "h2", text: "El enrojecimiento: cuándo es normal" },
       {
         type: "p",
-        text: "Si hubo extracción, puede haber leve enrojecimiento local: es esperable. Ante dolor intenso, pus o fiebre, busca valoración médica.",
+        text: "Un leve enrojecimiento que se va en unas 2 a 4 horas es normal después de una limpieza. Si hubo extracción, puede quedar algún punto más rojo donde se trabajó; lo esperable es que mejore a lo largo del día.",
       },
-      {
-        type: "h2",
-        text: "Cuidados específicos para el clima de Barranquilla",
-      },
+      { type: "h2", text: "Barranquilla: calor, sudor y sol" },
       {
         type: "p",
-        text: "El clima tropical de Barranquilla presenta desafíos únicos después de una limpieza facial. La humedad alta puede aumentar la sensación de calor y sudoración, mientras el sol intenso puede causar hipersensibilidad. Adaptamos los cuidados post-tratamiento específicamente para estas condiciones.",
+        text: "Aquí el sol es fuerte buena parte del año y el sudor es constante. Después de la sesión conviene salir lo justo en las horas de más sol, usar sombrero o buscar sombra, y secar el sudor con un paño limpio, sin frotar. Si tienes planes de playa o piscina, pregunta cuántos días esperar según el tratamiento que te hicieron.",
       },
+      { type: "h2", text: "Qué productos pausar" },
+      {
+        type: "p",
+        text: "Retinol, ácidos exfoliantes y vitamina C concentrada pueden irritar una piel recién tratada. Si usas alguno, pregunta cuándo retomarlo; no lo decidas por tu cuenta. Evita también los tónicos con alcohol y las esponjas o exfoliantes abrasivos.",
+      },
+      { type: "h2", text: "Y no te toques" },
+      {
+        type: "p",
+        text: "No te revientes ni te toques lo que haya quedado. Si una zona se ve más roja de lo que esperabas, déjala tranquila y vigílala.",
+      },
+      { type: "h2", text: "Otros tratamientos tienen otros cuidados" },
+      {
+        type: "p",
+        text: "Estas pautas son para una limpieza facial. Después de un peeling seborregulador conviene evitar el sol directo durante 48 horas, y después de microneedling, evitar sol, maquillaje y productos activos durante las primeras 24 a 48 horas, con protector solar SPF 50+ a diario. Pregunta siempre por las indicaciones de tu sesión.",
+      },
+      { type: "h2", text: "Cuándo escribirnos" },
       {
         type: "list",
         items: [
-          "Evita actividades al aire libre entre 10 AM y 4 PM.",
-          "Usa sombrero de ala ancha si necesitas salir.",
-          "Mantente en ambientes con aire acondicionado cuando sea posible.",
-          "Evita playas y piscinas durante 48 horas.",
-          "Seca el sudor suavemente con paño limpio, sin frotar.",
-        ],
-      },
-      { type: "h2", text: "Guía de productos permitidos y prohibidos" },
-      {
-        type: "p",
-        text: "Los primeros 3 días son cruciales. Usar productos incorrectos puede irritar la piel recién tratada o causar manchas. En Glow Skin te proporcionamos una guía detallada según el tipo de limpieza que recibiste.",
-      },
-      {
-        type: "list",
-        items: [
-          "PERMITIDOS: Limpiadores suaves sin sulfatos, agua termal, sueros calmantes.",
-          "PROHIBIDOS: Retinoides, ácidos exfoliantes, vitamina C concentrada.",
-          "EVITAR: Maquillaje pesado, esponjas abrasivas, tónicos con alcohol.",
-          "RECOMENDADO: Protector solar mineral con zinc oxide 20% o más.",
-        ],
-      },
-      { type: "h2", text: "Qué esperar día por día" },
-      {
-        type: "p",
-        text: "La recuperación después de una limpieza profesional sigue un patrón predecible. Conocer qué esperar cada día te ayuda a identificar si algo va mal y cuándo contactarnos.",
-      },
-      {
-        type: "list",
-        items: [
-          "Día 1: Piel sensible, posible enrojecimiento leve. Hidratación mínima.",
-          "Día 2: Mejora significativa, aún sensible. Iniciar rutina suave.",
-          "Día 3: Casi normal, evitar maquillaje si es posible.",
-          "Día 4-5: Piel renovada, lista para rutina completa gradual.",
-          "Día 7: Totalmente recuperada, resultados visibles.",
-        ],
-      },
-      {
-        type: "h2",
-        text: "Señales de alerta que requieren contacto inmediato",
-      },
-      {
-        type: "p",
-        text: "Aunque las complicaciones son raras, es importante reconocer cuándo necesitas atención adicional. En Glow Skin estamos disponibles para consultas post-tratamiento sin costo adicional.",
-      },
-      {
-        type: "list",
-        items: [
-          "Enrojecimiento que empeora después de 24 horas.",
-          "Hinchazón significativa o dolor punzante.",
+          "Enrojecimiento que empeora pasadas las primeras horas.",
+          "Dolor punzante o hinchazón importante.",
+          "Pus, secreción o mal olor en la zona tratada.",
           "Fiebre o malestar general.",
-          "Pústulas o secreción en zonas tratadas.",
-          "Manchas oscuras que aparecen súbitamente.",
+          "Manchas oscuras que aparecen de repente.",
         ],
       },
       {
-        type: "quote",
-        text: "Los cuidados post-limpieza no son opcional: son el 50% del éxito del tratamiento. Tu piel agradece la paciencia.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+        type: "p",
+        text: "Si te pasa algo de esto, escríbenos de inmediato por WhatsApp. Si hay fiebre o un dolor fuerte, busca atención médica.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "¿Cuánto dura el enrojecimiento después de una limpieza facial?",
+            a: "Un ligero enrojecimiento suele desaparecer en 2 a 4 horas. Si dura más o empeora, escríbenos.",
+          },
+          {
+            q: "¿Cuándo puedo maquillarme?",
+            a: "Después de una limpieza facial, al menos 4 a 6 horas. Si te hiciste otro tratamiento, el tiempo puede ser mayor.",
+          },
+          {
+            q: "¿Puedo usar mi protector solar de siempre?",
+            a: "Sí, siempre que lo conozcas y no te irrite. En las primeras horas elige fórmulas suaves y evita las que te hayan dado problemas antes.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Si quieres saber qué incluye la sesión antes de reservarla, está en [limpieza facial profunda en Barranquilla: qué incluye](/blog/limpieza-facial-profunda). Y cuando quieras que miremos tu piel, escríbeme VALORACIÓN por WhatsApp.",
       },
     ],
   },
   {
-    slug: "resenas-pacientes-google-maps",
-    title: "Reseñas de las personas que atendemos",
-    deck: "Experiencias compartidas en Google Maps (resumen honesto).",
+    slug: "limpieza-facial-en-casa-por-que-evitarla",
+    title: "Limpieza facial en casa: por qué no conviene y qué sí hacer",
+    deck: "Lo que se ve en un video de treinta segundos no incluye lo que viene después.",
     description:
-      "Resumen de opiniones públicas de Glow Skin en Google Maps: profesionalismo, resultados de limpieza facial y acompañamiento. Barranquilla.",
+      "Por qué no conviene imitar una limpieza facial profesional en casa: riesgos reales y qué sí puedes hacer entre sesiones en Barranquilla.",
     keywords: [
-      "Glow Skin opiniones",
-      "reseñas Google Maps",
-      "limpieza facial Barranquilla",
+      "limpieza facial en casa",
+      "extracción casera de puntos negros",
+      "qué hacer entre limpiezas faciales",
+      "acné Barranquilla",
     ],
-    datePublished: "2024-04-02",
-    category: "Glow Skin",
+    datePublished: "2024-04-04",
+    dateModified: "2026-10-16",
+    category: "Consejos",
     readTimeLabel: "5 min",
-    image: `${IMG}/gallery/glow-skin-gallery-cuidado-facial.webp`,
+    image: `${IMG}/blog/blog-limpieza-facial-en-casa.png`,
+    ctaContext: "limpieza-facial",
+    related: [
+      "que-hacer-despues-de-una-limpieza-facial",
+      "limpieza-facial-profunda",
+      "como-curarse-del-acne-guia",
+    ],
     blocks: [
       {
         type: "lead",
-        text: "Las reseñas públicas ayudan a quienes eligen su primer facial. A continuación, temas que aparecen con frecuencia en comentarios de Google Maps sobre Glow Skin y Sofía Nieto (redacción propia, sin citar texto literal protegido).",
+        text: "En internet abundan los tutoriales de «limpieza extrema». Muchas consultas empiezan después de una mala noche con un espejo y un alfiler.",
       },
       {
         type: "p",
-        text: "Las personas suelen destacar la explicación paso a paso durante la limpieza, la sensación de piel más liviana tras la primera sesión y la confianza en un ambiente ordenado. También se menciona educación sobre rutina en casa.",
+        text: "Todo empieza por una limpieza facial, y también por no hacértela como en el video. Una limpieza profesional combina preparación de la piel, criterio para extraer solo lo que está listo, material limpio y productos adecuados. En casa casi nunca se reproduce ese entorno.",
       },
-      { type: "h2", text: "Temas recurrentes" },
+      { type: "h2", text: "Riesgos reales" },
       {
         type: "list",
         items: [
-          "Resultados visibles en luminosidad y textura tras limpiezas profundas.",
-          "Trato cercano y profesional.",
-          "Recomendación a familiares o amistades tras paquetes de varias sesiones.",
+          "Manchas oscuras después de la inflamación (hiperpigmentación postinflamatoria), sobre todo en pieles morenas.",
+          "Infección o quistes por manipular lesiones profundas.",
+          "Barrera de la piel alterada por exfoliar de forma agresiva y repetida.",
+          "Marcas y cicatrices por extracciones forzadas.",
+          "Más brotes, porque al romper una lesión bajo la piel se puede extender la inflamación.",
         ],
       },
+      { type: "h2", text: "Por qué los videos engañan" },
       {
         type: "p",
-        text: "Te invitamos a leer las opiniones directamente en el perfil de Google del negocio y a formar tu propia impresión. Cada piel responde de forma distinta; la valoración presencial sigue siendo el estándar.",
+        text: "Un tutorial muestra el resultado inmediato y deja fuera lo que no luce: la preparación, el material, la experiencia de quien extrae y lo que pasa los días siguientes. Además, la iluminación y la edición hacen que todo se vea más limpio de lo que la piel realmente queda.",
       },
-      {
-        type: "h2",
-        text: "Lo que más destacan las personas que atendemos de Barranquilla",
-      },
-      {
-        type: "p",
-        text: "Analizando las reseñas de Google Maps de los últimos 12 meses, identificamos patrones consistentes que reflejan nuestra filosofía de trabajo. Las personas del norte de Barranquilla, Alto Prado y zonas cercanas valoran especialmente aspectos que marcan la diferencia en su experiencia.",
-      },
+      { type: "h2", text: "Qué sí puedes hacer entre sesiones" },
       {
         type: "list",
         items: [
-          "Explicación detallada durante cada paso del procedimiento.",
-          "Sensación de piel más liviana y luminosa inmediata.",
-          "Confianza transmitida por ambiente clínico ordenado.",
-          "Resultados visibles desde la primera sesión.",
-          "Educación sobre cuidados específicos para clima tropical.",
+          "Limpia tu piel suavemente dos veces al día.",
+          "Usa protector solar todos los días.",
+          "Hidrata con productos adecuados para tu tipo de piel.",
+          "Cambia las fundas de la almohada con regularidad.",
         ],
       },
-      { type: "h2", text: "Historias transformadoras: casos reales" },
-      {
-        type: "p",
-        text: "Entre nuestras reseñas más significativas están personas que llegaron con problemas crónicos y encontraron soluciones sostenibles. Desde profesionales del norte con estrés laboral hasta estudiantes con acné persistente, cada historia refleja un enfoque personalizado.",
-      },
+      { type: "h2", text: "Qué conviene evitar" },
       {
         type: "list",
         items: [
-          "Profesionales de Alto Prado recuperando luminosidad sin tiempo social de recuperación.",
-          "Personas con acné hormonal logrando control estable.",
-          "Pieles sensibles encontrando protocolos no agresivos.",
-          "Personas mayores de 40 años mejorando textura y tono.",
-          "Personas que probaron múltiples clínicas antes de encontrar resultados.",
+          "Tocar o exprimir granos.",
+          "Usar productos con alcohol.",
+          "Limpiar de más: sobre-limpiar la piel la irrita.",
+          "Usar maquillaje comedogénico.",
         ],
       },
-      { type: "h2", text: "Por qué las reseñas auténticas importan" },
+      { type: "h2", text: "Señales para consultar" },
       {
         type: "p",
-        text: "En el mundo de la estética, es fácil encontrar resultados editados y promesas exageradas. Las reseñas de Google Maps ofrecen algo diferente: experiencias no filtradas de personas reales que han pasado por nuestras instalaciones en Carrera 50 # 74-120.",
-      },
-      {
-        type: "p",
-        text: "Valoramos cada opinión, incluso las constructivas, porque nos ayudan a mejorar continuamente. Cada reseña es una oportunidad para aprender y ajustar nuestros protocolos según las necesidades específicas de las personas de Barranquilla.",
-      },
-      { type: "h2", text: "El proceso de dejar una reseña" },
-      {
-        type: "p",
-        text: "Muchas personas nos preguntan cómo compartir su experiencia. El proceso es simple: buscan 'Glow Skin' en Google Maps, hacen clic en 'Escribir una reseña' y comparten su historia honesta. No incentivamos reseñas pagadas ni falsas; creemos en la autenticidad.",
-      },
-      {
-        type: "p",
-        text: "Si has tenido una experiencia positiva en Glow Skin, tu reseña puede ayudar a otras personas de Barranquilla a tomar decisiones informadas sobre su cuidado facial. Tu experiencia puede ser la guía que alguien necesita.",
+        text: "Si ya lo intentaste en casa y ves enrojecimiento que no mejora, dolor intenso, pus o mal olor, manchas oscuras nuevas o un aumento repentino de lesiones, no esperes: escríbenos o consulta con un dermatólogo. Mientras antes se atienda, menos riesgo de que quede marca.",
       },
       {
         type: "quote",
-        text: "Las reseñas son el reflejo más honesto de nuestro trabajo. Cada comentario nos recuerda por qué hacemos lo que hacemos: transformar vidas a través de piel sana.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+        text: "La paciencia es tu mejor aliada en el cuidado facial. Mejor esperar una semana por una cita profesional que arriesgar meses de recuperación por un error casero.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "¿Puedo usar un extractor casero?",
+            a: "No lo recomendamos. Sin técnica ni material esterilizado es fácil lesionar la piel o dejar marcas.",
+          },
+          {
+            q: "¿Qué hago si ya me reventé un grano?",
+            a: "No insistas. Lava la zona con agua y un limpiador suave, no apliques alcohol y no lo toques más. Si hay inflamación fuerte o dolor, pide una valoración.",
+          },
+          {
+            q: "¿Cada cuánto conviene hacerme una limpieza profesional?",
+            a: "Para mantenimiento general, cada 30 a 45 días; para pieles con acné, puede ser cada 21 días. Lo ajustamos en la valoración.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Si quieres saber cómo es una limpieza profesional por dentro, está en [qué incluye una limpieza facial profunda](/blog/limpieza-facial-profunda). Y si quieres que miremos tu piel, escríbeme VALORACIÓN por WhatsApp.",
+      },
+    ],
+  },
+  {
+    slug: "que-es-el-dermapen",
+    title: "Qué es el Dermapen (microneedling): para qué sirve y cómo es la sesión",
+    deck: "Micropunciones controladas, explicadas sin tecnicismos.",
+    description:
+      "Qué es el Dermapen o microneedling, para qué se usa, cómo es la sesión en Glow Skin y qué cuidados seguir después. Barranquilla.",
+    keywords: [
+      "Dermapen",
+      "microneedling Barranquilla",
+      "microneedling cicatrices de acné",
+      "colágeno",
+      "Glow Skin",
+    ],
+    datePublished: "2024-04-05",
+    dateModified: "2026-10-16",
+    category: "Ciencia",
+    readTimeLabel: "6 min",
+    image: `${IMG}/blog/blog-que-es-el-dermapen.jpg`,
+    ctaContext: "microneedling",
+    related: [
+      "que-son-los-exosomas",
+      "que-es-el-pdrn-y-para-que-se-usa",
+      "como-curarse-del-acne-guia",
+    ],
+    blocks: [
+      {
+        type: "lead",
+        text: "El Dermapen es un dispositivo de micropunción controlada: una pluma con agujas muy finas que hace pequeñas lesiones para que la piel active su propio proceso de reparación.",
+      },
+      {
+        type: "p",
+        text: "«Dermapen» es el nombre comercial más conocido de estas plumas electrónicas; el procedimiento se llama microneedling. A diferencia de un rodillo casero, la pluma permite ajustar la profundidad y la velocidad, y eso importa tanto para el resultado como para la seguridad. En Glow Skin ofrecemos microneedling como parte de varios tratamientos.",
+      },
+      { type: "h2", text: "Para qué se usa" },
+      {
+        type: "list",
+        items: [
+          "Cicatrices de acné, según valoración.",
+          "Textura irregular o marcas superficiales.",
+          "Líneas finas y pérdida de firmeza leve.",
+          "Estimular la producción de colágeno y elastina.",
+        ],
+      },
+      {
+        type: "quote",
+        text: "La aguja no sustituye el diagnóstico: primero se mira la piel y se estabilizan los brotes activos cuando hace falta.",
+      },
+      { type: "h2", text: "Cómo es la sesión" },
+      {
+        type: "p",
+        text: "Se empieza con una consulta para ver si tu piel está en buen momento. Antes del procedimiento se aplica crema anestésica para minimizar la incomodidad, y la mayoría de las personas describe una sensación de presión leve y tolerable.",
+      },
+      { type: "h2", text: "Cuántas sesiones y cuándo se nota" },
+      {
+        type: "p",
+        text: "Para cicatrices y textura, el plan que publicamos son 3 sesiones separadas por 4 a 6 semanas; en la consulta inicial se define el tuyo. La piel comienza a mejorar desde las 2 semanas posteriores a la sesión, y los cambios más significativos se aprecian a partir del segundo mes, cuando el colágeno nuevo ya está activo. Es un proceso gradual: no es un resultado de un día para otro.",
+      },
+      { type: "h2", text: "Cuidados después" },
+      {
+        type: "list",
+        items: [
+          "Las primeras 24 a 48 horas evita el sol, el maquillaje y los productos activos.",
+          "Usa solo los productos que te recomienden.",
+          "Aplica protector solar SPF 50+ todos los días mientras dure el tratamiento.",
+          "Puede haber enrojecimiento los primeros días; si empeora o aparece dolor, escríbenos.",
+        ],
+      },
+      { type: "h2", text: "Microneedling con exosomas o con PDRN" },
+      {
+        type: "p",
+        text: "El microneedling también sirve como vía para aplicar otros activos. En Glow Skin se combina con [exosomas y terapia de luz LED](/servicios/microneedling-exosomas) o con [PDRN](/servicios/protocolo-pdrn). Si dudas entre los dos, lee [PDRN o exosomas: en qué se diferencian](/blog/pdrn-o-exosomas-cual-elegir).",
+      },
+      { type: "h2", text: "Cuándo no es el momento" },
+      {
+        type: "p",
+        text: "No todas las pieles están listas en cualquier momento. Con brotes activos, ciertos tratamientos recientes o una piel muy irritada, lo habitual es esperar o preparar la piel antes. Eso se decide en la valoración, por eso conviene no saltársela.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "¿Duele el microneedling?",
+            a: "Se aplica crema anestésica antes del procedimiento. La mayoría de las personas describe una sensación de presión leve y tolerable.",
+          },
+          {
+            q: "¿Cuántas sesiones necesito?",
+            a: "Para cicatrices y textura, el plan habitual son 3 sesiones separadas por 4 a 6 semanas. En la consulta inicial se define el tuyo.",
+          },
+          {
+            q: "¿Cuándo veré resultados?",
+            a: "La piel comienza a mejorar desde las 2 semanas posteriores y los cambios más significativos se aprecian a partir del segundo mes.",
+          },
+          {
+            q: "¿Qué cuidados debo tener después?",
+            a: "Las primeras 24 a 48 horas evita sol, maquillaje y productos activos, y usa protector solar SPF 50+ a diario.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Si quieres saber si tu piel está lista para microneedling, escríbeme VALORACIÓN por WhatsApp y lo vemos juntas.",
       },
     ],
   },
   {
     slug: "piel-grasa-acido-seborregulador",
-    title: "¿Sientes la piel muy grasosa?",
-    deck: "El ácido seborregulador como aliado en protocolos guiados.",
+    title: "Piel grasa en Barranquilla: por qué pasa y qué sí ayuda",
+    deck: "Menos grasa no es mejor piel: es una piel en equilibrio.",
     description:
-      "Piel grasa en clima cálido: cómo puede ayudar un enfoque con ácido seborregulador dentro de un plan profesional en Glow Skin, Barranquilla.",
+      "Por qué la piel se pone grasa en Barranquilla, qué la empeora, qué ayuda en casa y cómo es el peeling seborregulador en cabina en Glow Skin.",
     keywords: [
-      "piel grasa",
-      "ácido seborregulador",
-      "tratamiento facial Barranquilla",
+      "piel grasa Barranquilla",
+      "peeling seborregulador",
+      "cómo controlar la piel grasa",
+      "poros dilatados",
+      "Glow Skin",
     ],
     datePublished: "2024-04-01",
+    dateModified: "2026-10-16",
     category: "Tratamientos",
-    readTimeLabel: "6 min",
+    readTimeLabel: "5 min",
     image: `${IMG}/blog/blog-piel-grasa.png`,
+    ctaContext: "limpieza-anti-acne-seborreguladora",
+    related: [
+      "como-curarse-del-acne-guia",
+      "limpieza-facial-profunda",
+      "piel-opaca-sin-vida",
+    ],
     blocks: [
       {
         type: "lead",
-        text: "La grasa en exceso no es “falta de limpieza”: a menudo es genética, hormonal o barrera compensando agresiones.",
+        text: "La grasa en exceso no es «falta de limpieza»: a menudo es genética, hormonal o una barrera que compensa agresiones.",
       },
+      { type: "h2", text: "Por qué la piel produce tanta grasa" },
       {
         type: "p",
-        text: "Los activos seborreguladores, usados en la concentración y pH adecuados, ayudan a normalizar el sebo y a evitar la obstrucción del poro. No son un producto único para todas: el timing respecto a otros ácidos o retinoides importa.",
+        text: "El sebo lo producen las glándulas sebáceas y responde a señales del cuerpo. Se asocian al exceso las hormonas, la genética, el estrés y el clima: en Barranquilla el calor y la humedad no ayudan. El sebo no es un enemigo, protege la piel; el problema es cuando sobra y tapa los poros.",
       },
-      { type: "h2", text: "En cabina" },
-      {
-        type: "p",
-        text: "Podemos integrar este enfoque en limpiezas o peelings suaves progresivos, según tolerancia. En Barranquilla, el sudor y el SPF graso mal elegido también empeoran la sensación de brillo; revisamos tu rutina completa.",
-      },
-      { type: "h2", text: "Qué esperar del tratamiento" },
+      { type: "h2", text: "Lo que suele empeorarla" },
       {
         type: "list",
         items: [
-          "Sesiones de 45-60 minutos según protocolo.",
-          "Leve enrojecimiento temporal que mejora en horas.",
-          "Sensación de piel más equilibrada desde la primera semana.",
-          "Resultados visibles en textura y control de brillo en 4-6 semanas.",
+          "Limpiar de más: sobre-limpiar irrita la piel y puede aumentar la grasa que ella misma produce para compensar.",
+          "Productos con alcohol.",
+          "Un protector solar o una crema demasiado pesados para tu piel.",
+          "Tocar o exprimir los granos.",
         ],
       },
-      { type: "h2", text: "Cuidados en casa" },
+      { type: "h2", text: "Qué ayuda en casa" },
       {
-        type: "p",
-        text: "El tratamiento profesional es solo una parte. En casa mantenemos los resultados con rutina adaptada al clima de Barranquilla: limpiadores suaves sin sulfatos, hidratación ligera con ácido hialurónico y protector solar oil-free no comedogénico.",
+        type: "list",
+        items: [
+          "Limpieza suave dos veces al día.",
+          "Hidratación ligera: una piel grasa también se deshidrata.",
+          "Protector solar diario, de textura ligera y no comedogénico.",
+          "Introducir activos para el exceso de sebo de a uno y con calma; si usas varios a la vez, la irritación llega rápido.",
+        ],
       },
       {
         type: "quote",
         text: "La piel grasa necesita equilibrio, no eliminación total de grasa. Una barrera sana produce menos sebo compensatorio.",
-        attribution: "Sofía Nieto - Glow Skin",
       },
-      { type: "h2", text: "La ciencia detrás del exceso de sebo" },
+      { type: "h2", text: "En cabina: peeling seborregulador" },
       {
         type: "p",
-        text: "El sebo es producido por las glándulas sebáceas en respuesta a señales hormonales, principalmente andrógenos. En Barranquilla, el calor y humedad pueden estimular adicionalmente esta producción. El ácido seborregulador actúa normalizando la actividad de estas glándulas sin eliminar completamente el sebo, que es protector.",
+        text: "Para pieles con mucha grasa y comedones persistentes, en Glow Skin hacemos una [limpieza con peeling seborregulador](/servicios/limpieza-seborreguladora). El peeling seborregulador es un peeling químico pensado para regular la producción de sebo. La sesión sigue cinco pasos:",
       },
       {
         type: "list",
         items: [
-          "Hormonas: Andrógenos aumentan la producción sebácea.",
-          "Genética: Predisposición familiar a piel grasa.",
-          "Estrés: Cortisol estimula glándulas sebáceas.",
-          "Clima: Calor y humedad de Barranquilla intensifican producción.",
-          "Dieta: Alimentos con alto índice glucémico pueden empeorar.",
+          "Evaluación del grado de acné y de la producción de grasa.",
+          "Preparación de la piel con una limpieza profunda para piel grasa.",
+          "Peeling seborregulador.",
+          "Extracción cuidadosa de comedones.",
+          "Activos calmantes y reguladores al final.",
         ],
       },
-      { type: "h2", text: "Tipos de ácidos seborreguladores que usamos" },
+      { type: "h2", text: "Qué esperar" },
       {
         type: "p",
-        text: "No todos los ácidos son iguales. En Glow Skin seleccionamos activos según tu tipo de piel y sensibilidad. Cada ácido tiene mecanismos diferentes y requiere concentraciones específicas para ser efectivo sin irritar.",
+        text: "Durante la aplicación puedes sentir un ligero hormigueo que se tolera bien y desaparece rápido. Los primeros cambios se notan desde la primera sesión; para acné comedogénico, el protocolo recomendado es de 6 a 8 sesiones. No es una promesa de resultados idénticos para todas las pieles: cada piel responde distinto, y eso se ajusta con el seguimiento.",
       },
       {
-        type: "list",
+        type: "faq",
         items: [
-          "Ácido azelaico: Antibacteriano y antiinflamatorio, ideal para acné.",
-          "Ácido salicílico: penetra poros para desobstruir.",
-          "Ácido mandélico: Más suave, adecuado para pieles sensibles.",
-          "Ácido glicólico: Exfoliante, usado en concentraciones bajas.",
-          "Niacinamida: Regula sebo y mejora barrera cutánea.",
+          {
+            q: "¿Duele el peeling seborregulador?",
+            a: "Puedes sentir un ligero hormigueo durante la aplicación, pero se tolera bien y desaparece rápido.",
+          },
+          {
+            q: "¿Cuántas sesiones necesito?",
+            a: "Los primeros cambios se notan desde la primera sesión. Para acné comedogénico, recomendamos de 6 a 8 sesiones.",
+          },
+          {
+            q: "¿Cuándo puedo maquillarme y salir al sol?",
+            a: "Después del peeling, espera 24 horas para maquillarte, usa solo productos no comedogénicos y evita el sol directo durante 48 horas.",
+          },
         ],
       },
       {
-        type: "h2",
-        text: "Protocolo integrado para piel grasa en clima tropical",
-      },
-      {
         type: "p",
-        text: "El éxito en el tratamiento de piel grasa en Barranquilla requiere un enfoque multifactorial. No basta con aplicar ácidos; necesitamos considerar la exposición solar, la hidratación necesaria y la protección adecuada para evitar rebote.",
-      },
-      {
-        type: "list",
-        items: [
-          "Limpieza doble nocturna con pH balanceado.",
-          "Tratamiento con ácido seborregulador 2-3 veces por semana.",
-          "Hidratación ligera no comedogénica diaria.",
-          "Protector solar oil-free con SPF 50+.",
-          "Mascarillas reguladoras semanales en cabina.",
-        ],
-      },
-      { type: "h2", text: "Resultados esperados y timeline" },
-      {
-        type: "p",
-        text: "La regulación del sebo es un proceso gradual. En las primeras 2-3 semanas notarás reducción del brillo excesivo. Entre 4-6 semanas, los poros aparecen más refinados y las brotaciones disminuyen. Los resultados óptimos se consolidan en 3 meses de tratamiento consistente.",
-      },
-      {
-        type: "p",
-        text: "Es importante mantener expectativas realistas: no eliminaremos completamente la producción de sebo, sino la normalizaremos a niveles que mantengan tu piel equilibrada y saludable sin el brillo excesivo que te incomoda.",
-      },
-      {
-        type: "quote",
-        text: "El tratamiento de piel grasa es maratón, no sprint. La consistencia con productos adecuados supera cualquier tratamiento intensivo aislado.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+        text: "Si tu piel es muy grasa y quieres saber por dónde empezar, escríbeme VALORACIÓN por WhatsApp. Para la parte de brotes, mira también [¿el acné se cura?](/blog/como-curarse-del-acne-guia).",
       },
     ],
   },
   {
     slug: "piel-opaca-sin-vida",
-    title: "¿Piel opaca y sin vida?",
-    deck: "Causas comunes y tratamientos que devuelven luminosidad.",
+    title: "Piel opaca en Barranquilla: por qué pasa y qué hacer",
+    deck: "La opacidad casi nunca tiene una sola causa.",
     description:
-      "Piel opaca: acumulación de células muertas, foto daño y deshidratación. Opciones en Glow Skin Barranquilla para recuperar brillo con criterio.",
-    keywords: ["piel opaca", "luminosidad facial", "peeling Barranquilla"],
+      "Por qué la piel se ve opaca y sin vida en Barranquilla, qué ayuda en casa y qué tratamientos en cabina pueden devolverle luminosidad con criterio.",
+    keywords: [
+      "piel opaca Barranquilla",
+      "cómo recuperar la luminosidad de la piel",
+      "piel sin brillo",
+      "peeling antioxidante",
+      "Glow Skin",
+    ],
     datePublished: "2024-03-30",
+    dateModified: "2026-10-16",
     category: "Skin Care",
     readTimeLabel: "5 min",
     image: `${IMG}/methods/2-metodo-anti-manchas.jpg`,
+    ctaContext: "antiox-peel-pro",
+    related: [
+      "el-verdadero-glow",
+      "envejecimiento-prematuro-como-prevenirlo",
+      "limpieza-facial-profunda",
+    ],
     blocks: [
       {
         type: "lead",
-        text: "La opacidad casi nunca tiene una sola causa: suele ser mezcla de foto envejecimiento, poca renovación superficial y falta de agua en la capa córnea.",
+        text: "La opacidad casi nunca tiene una sola causa: suele ser mezcla de daño solar, poca renovación de la superficie y falta de agua en la piel.",
       },
+      { type: "h2", text: "Por qué se apaga la piel en Barranquilla" },
       {
         type: "list",
         items: [
-          "Exfoliación química suave o peelings progresivos en consulta.",
-          "Antioxidantes tópicos según tolerancia.",
-          "Limpieza profunda periódica para liberar el reflejo de la luz.",
+          "Sol intenso casi todo el año y sin descanso estacional.",
+          "Aire acondicionado prolongado, en la oficina y en la casa.",
+          "Deshidratación «silenciosa»: la piel se ve opaca aunque no la sientas seca.",
+          "Células muertas que se acumulan y apagan el reflejo de la luz.",
+          "Productos o exfoliaciones agresivas que dañan la barrera de la piel.",
         ],
       },
       {
         type: "p",
-        text: "Si vives en zona norte o Alto Prado y trabajas muchas horas con aire acondicionado, la deshidratación 'silenciosa' es frecuente. Ajustamos el plan para que no solo brilles un día, sino que sostengas el cambio.",
+        text: "Si trabajas muchas horas con aire acondicionado, es probable que la deshidratación pese más de lo que crees.",
       },
-      { type: "h2", text: "Causas específicas del clima caribeño" },
+      { type: "h2", text: "Qué ayuda en casa" },
+      {
+        type: "list",
+        items: [
+          "Protector solar todos los días: sin eso, cualquier tratamiento pierde efecto.",
+          "Hidratación constante, con productos que tu piel tolere.",
+          "Antioxidantes por la mañana, si tu piel los tolera.",
+          "No exfoliar de más: más exfoliante no es más luz, es más irritación.",
+        ],
+      },
+      { type: "h2", text: "En cabina: de lo más suave a lo más avanzado" },
       {
         type: "p",
-        text: "Barranquilla presenta condiciones únicas que contribuyen a la opacidad cutánea. La combinación de sol intenso todo el año, humedad alta y aire acondicionado constante crea un desafío particular que requiere tratamientos adaptados a esta realidad tropical.",
+        text: "Se empieza por lo suave y se avanza según cómo responda tu piel. Entre las opciones que ofrecemos en Glow Skin:",
       },
       {
         type: "list",
         items: [
-          "Exposición solar UV constante sin descanso estacional.",
-          "Aire acondicionado prolongado en oficinas y hogares.",
-          "Humedad alta que dificulta la evaporación del sudor.",
-          "Contaminación urbana en zonas comerciales del norte.",
-          "Cambios bruscos de temperatura exterior-interior.",
+          "[Limpieza facial profunda](/servicios/limpieza-facial), para retirar la acumulación y liberar la piel.",
+          "[HydraGlow](/servicios/hydraglow), una limpieza con tecnología Hydrafacial que combina limpieza, exfoliación e hidratación.",
+          "[Antiox Peel Pro](/servicios/antiox-peel-pro), un peeling antioxidante que se recomienda cada 4 a 6 semanas.",
+          "[Porcelanización facial](/servicios/porcelanizacion-facial), con activos tensores y unificadores y una mascarilla que sella el resultado.",
         ],
       },
-      { type: "h2", text: "Tratamientos profesionales para luminosidad" },
+      { type: "h2", text: "Qué esperar" },
       {
         type: "p",
-        text: "En Glow Skin ofrecemos un enfoque escalonado para recuperar el brillo natural. Comenzamos con lo más suave y avanzamos según tolerancia y resultados. Cada tratamiento se personaliza según tu fototipo y sensibilidad específica.",
-      },
-      {
-        type: "list",
-        items: [
-          "Peelings suaves con ácido glicólico 20-30%.",
-          "Mascarillas iluminadoras con vitamina C y niacinamida.",
-          "Limpiezas profundas con extracción de comedones.",
-          "Terapia LED para estimular producción de colágeno.",
-          "Microdermoabrasión para renovación superficial.",
-        ],
-      },
-      { type: "h2", text: "El protocolo Glow Skin para piel opaca" },
-      {
-        type: "p",
-        text: "Nuestro método combina tratamiento en cabina con rutina domiciliaria sostenible. La clave es la constancia y la protección solar rigurosa, especialmente en el clima de Barranquilla donde el daño solar es acumulativo diario.",
-      },
-      {
-        type: "list",
-        items: [
-          "Evaluación inicial con lámpara de Wood para daño subclínico.",
-          "Serie de 4-6 peelings progresivos espaciados 2 semanas.",
-          "Rutina domiciliaria con antioxidantes matutinos.",
-          "Protector solar con SPF 50+ reaplicado cada 3 horas.",
-          "Hidratación intensa nocturna con ácido hialurónico.",
-        ],
-      },
-      { type: "h2", text: "Resultados: qué esperar y cuándo" },
-      {
-        type: "p",
-        text: "La recuperación de luminosidad es gradual pero visible. Después del primer tratamiento notarás piel más suave y luminosa. Con cada sesión, la mejora en textura y tono se acumula. Los resultados óptimos se ven después de completar la serie de tratamientos recomendada.",
-      },
-      {
-        type: "p",
-        text: "El mantenimiento es clave: una sesión cada 6-8 semanas ayuda a sostener los resultados y prevenir la acumulación de daño solar que inevitablemente ocurre en nuestra ciudad.",
+        text: "Muchas pacientes notan la piel más luminosa desde la primera sesión. No es un resultado para siempre: la piel se sigue renovando y el sol sigue ahí, por eso la protección solar y la constancia sostienen el cambio más que cualquier sesión aislada.",
       },
       {
         type: "quote",
-        text: "La piel opaca no es falta de cuidado, es una respuesta al ambiente. Con el tratamiento adecuado, tu piel puede recuperar su brillo natural sin comprometer su salud.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "envejecimiento-prematuro-como-prevenirlo",
-    title: "Qué es el envejecimiento prematuro y cómo prevenirlo",
-    deck: "Sol, tabaco y estrés: cómo frenar el foto envejecimiento.",
-    description:
-      "Envejecimiento prematuro de la piel: causas, señales y prevención con fotoprotección y tratamientos en Barranquilla — Glow Skin.",
-    keywords: [
-      "envejecimiento prematuro",
-      "fotoenvejecimiento",
-      "Barranquilla",
-    ],
-    datePublished: "2024-03-28",
-    category: "Ciencia",
-    readTimeLabel: "7 min",
-    image: `${IMG}/blog/blog-envejecimiento-prematuro.jpg`,
-    blocks: [
-      {
-        type: "lead",
-        text: "El envejecimiento prematuro es el desgaste visible (arrugas finas, manchas, flacidez leve) que aparece antes de lo esperado para tu edad biológica, muy a menudo impulsado por UV.",
+        text: "La piel opaca no es falta de cuidado, es una respuesta al ambiente. Con el plan adecuado, tu piel puede recuperar su luz sin comprometer su salud.",
       },
       {
-        type: "h2",
-        text: "Pilares de prevención",
-      },
-      {
-        type: "list",
+        type: "faq",
         items: [
-          "Fotoprotección diaria reaplicada si expones al sol.",
-          "Evitar tabaco y exceso de alcohol.",
-          "Sueño y manejo del estrés (el cortisol marca la piel).",
-          "Tratamientos que estimulen colágeno de forma progresiva, no agresiva.",
+          {
+            q: "¿Cada cuánto puedo hacerme Antiox Peel Pro?",
+            a: "Recomendamos cada 4 a 6 semanas para permitir la renovación celular y que los beneficios se acumulen.",
+          },
+          {
+            q: "¿Qué cuidados tengo que seguir después del peeling?",
+            a: "Evita el sol directo durante 48 horas, usa protector solar a diario y sigue las indicaciones de productos que te den.",
+          },
+          {
+            q: "¿Puedo hacerme estos tratamientos con piel sensible?",
+            a: "En general sí, adaptando concentraciones y productos. Es importante que nos cuentes tu sensibilidad desde la consulta.",
+          },
         ],
       },
       {
         type: "p",
-        text: "En la costa caribe el índice UV es implacable: la prevención no es opcional. En Glow Skin combinamos hábitos con protocolos según tu fototipo y objetivos.",
-      },
-      { type: "h2", text: "El impacto específico del sol caribeño" },
-      {
-        type: "p",
-        text: "Barranquilla tiene índices UV extremos durante todo el año. A diferencia de ciudades con estaciones, aquí no hay 'descanso' solar. Esta exposición constante acelera el fotoenvejecimiento de manera particularmente agresiva en nuestra piel.",
-      },
-      {
-        type: "list",
-        items: [
-          "UV intenso 365 días al año sin variación estacional.",
-          "Reflexión UV en arena y agua que duplica exposición.",
-          "Humedad alta que intensifica daño photoquímico.",
-          "Altas temperaturas que generan estrés oxidativo.",
-          "Contaminación urbana que potencia daño solar.",
-        ],
-      },
-      { type: "h2", text: "Protocolo de protección solar tropical" },
-      {
-        type: "p",
-        text: "En Glow Skin desarrollamos un protocolo específico para residentes de Barranquilla. No se trata solo de aplicar protector solar, sino de crear un sistema completo de defensa contra el daño ambiental constante.",
-      },
-      {
-        type: "list",
-        items: [
-          "SPF 50+ broad spectrum reaplicado cada 2 horas.",
-          "Protección física: sombreros, gorras, lentes UV.",
-          "Evitar sol peak 10 AM-4 PM cuando sea posible.",
-          "Ropa con protección UPF para actividades al aire libre.",
-          "Antioxidantes orales y tópicos como defensa adicional.",
-        ],
-      },
-      { type: "h2", text: "Tratamientos preventivos en cabina" },
-      {
-        type: "p",
-        text: "Más allá de la protección, ofrecemos tratamientos activos que reparan daño acumulado y estimulan colágeno para prevenir futuro envejecimiento. Estos son especialmente importantes para quienes han vivido años en Barranquilla sin protección adecuada.",
-      },
-      {
-        type: "list",
-        items: [
-          "Peelings químicos suaves trimestrales para renovar.",
-          "Terapias LED para estimular producción de colágeno.",
-          "Mascarillas antioxidantes intensivas mensuales.",
-          "Microdermoabrasión para eliminar daño superficial.",
-          "Sueros con vitamina C, ácido ferúlico y factores de crecimiento.",
-        ],
-      },
-      { type: "h2", text: "Hábitos de vida que marcan la diferencia" },
-      {
-        type: "p",
-        text: "La prevención del envejecimiento prematuro va más allá del cuidado facial. En Glow Skin evaluamos tu estilo de vida completo para identificar factores aceleradores que puedes modificar.",
-      },
-      {
-        type: "list",
-        items: [
-          "Sueño reparador: 7-8 horas quality sleep.",
-          "Manejo del estrés: cortisol acelera envejecimiento.",
-          "Nutrición antienvejecimiento: antioxidantes, colágeno.",
-          "Ejercicio moderado: mejora circulación cutánea.",
-          "Evitar tabaco: principal acelerador externo de envejecimiento.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "En Barranquilla no envejecemos por los años, envejecemos por el sol acumulado. La prevención inteligente es nuestro mejor tratamiento anti-edad.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "como-curarse-del-acne-guia",
-    title: "Cómo curarse del acné",
-    deck: "Expectativas realistas: control, no magia de una sesión.",
-    description:
-      "Guía sobre el manejo del acné: higiene, tratamiento profesional y paciencia. Enfoque desde cosmiatría en Barranquilla — Glow Skin.",
-    keywords: ["curar acné", "tratamiento acné Barranquilla", "Glow Skin"],
-    datePublished: "2024-03-26",
-    category: "Tratamientos",
-    readTimeLabel: "8 min",
-    image: `${IMG}/blog/blog-como-curarse-del-acne.png`,
-    blocks: [
-      {
-        type: "lead",
-        text: "El acné es enfermedad inflamatoria multifactorial. “Curarse” suele significar alcanzar un control estable con brotes mínimos, no una piel perfecta en una semana.",
-      },
-      {
-        type: "p",
-        text: "Según grado, puede hacer falta enfoque dermatológico con medicación; la cosmiatría complementa con limpiezas, peelings y cuidado de marcas cuando el cuadro lo permite.",
-      },
-      { type: "h2", text: "Qué suele funcionar" },
-      {
-        type: "list",
-        items: [
-          "Constancia más que productos milagro.",
-          "Evitar manipular lesiones.",
-          "Ajustar rutina a tipo de piel y clima.",
-          "Seguimiento profesional cada varias semanas al inicio.",
-        ],
-      },
-      { type: "h2", text: "El acné en el clima tropical de Barranquilla" },
-      {
-        type: "p",
-        text: "El acné en Barranquilla tiene características particulares. El calor y humedad constantes pueden empeorar la inflamación y aumentar la producción de sebo. Además, el sudor frecuente puede obstruir poros y facilitar crecimiento bacteriano.",
-      },
-      {
-        type: "list",
-        items: [
-          "Humedad alta que aumenta producción sebácea.",
-          "Sudor constante que obstruye poros.",
-          "Sol intenso que empeora inflamación y marcas.",
-          "Contaminación urbana que irrita piel sensible.",
-          "Estrés por vida urbana que dispara brotes.",
-        ],
-      },
-      { type: "h2", text: "Nuestro enfoque escalonado para el acné" },
-      {
-        type: "p",
-        text: "En Glow Skin no tratamos todos los casos de acné igual. Evaluamos gravedad, tipo de lesiones, y factores desencadenantes. Nuestro protocolo progresa desde lo más suave hasta tratamientos más intensivos según necesidad y tolerancia.",
-      },
-      {
-        type: "list",
-        items: [
-          "Fase 1: Estabilización y limpieza profunda.",
-          "Fase 2: Introducción gradual de activos terapéuticos.",
-          "Fase 3: Tratamientos específicos para cicatrices y marcas.",
-          "Fase 4: Mantenimiento y prevención de recaídas.",
-        ],
-      },
-      { type: "h2", text: "Tratamientos profesionales que ofrecemos" },
-      {
-        type: "p",
-        text: "Combinamos limpiezas profesionales con peelings químicos y tecnología avanzada. Cada tratamiento se personaliza según tu tipo de acné y sensibilidad, considerando siempre el clima de Barranquilla.",
-      },
-      {
-        type: "list",
-        items: [
-          "Limpiezas profundas con extracción aséptica selectiva.",
-          "Peelings suaves con ácido salicílico y mandélico.",
-          "Terapia LED azul para reducir bacteria P. acnes.",
-          "Mascarillas calmantes y antiinflamatorias.",
-          "Microdermoabrasión para textura y marcas superficiales.",
-        ],
-      },
-      { type: "h2", text: "Rutina domiciliaria efectiva para clima tropical" },
-      {
-        type: "p",
-        text: "El éxito del tratamiento depende 50% de lo que hacemos en cabina y 50% de tu constancia en casa. Adaptamos las rutinas para que funcionen en las condiciones específicas de Barranquilla.",
-      },
-      {
-        type: "list",
-        items: [
-          "Limpieza doble nocturna con activos suaves.",
-          "Tratamiento localizado con ácido salicílico 2%.",
-          "Hidratación oil-free no comedogénica.",
-          "Protector solar oil-free con SPF 50+.",
-          "Mascarillas de arcilla semanales para controlar brillo.",
-        ],
-      },
-      { type: "h2", text: "Cuándo esperar resultados reales" },
-      {
-        type: "p",
-        text: "El acné no desaparece en una semana. Establecemos expectativas realistas: mejora progresiva en 4-6 semanas, control significativo en 3 meses, y mantenimiento a largo plazo. La paciencia es tu mejor aliada.",
-      },
-      {
-        type: "quote",
-        text: "El acné responde a consistencia, no a intensidad. Mejor tratar suave y constante que agresivo e intermitente.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "metodo-glow-skin-tratamiento-acne",
-    title: "El método Glow Skin para tratar el acné",
-    deck: "Progresión segura de limpieza, ácidos y calma cutánea.",
-    description:
-      "Cómo estructuramos el tratamiento del acné en Glow Skin: fases, educación y objetivos por tipo de lesión. Barranquilla.",
-    keywords: ["método acné Glow Skin", "limpieza facial acné", "Barranquilla"],
-    datePublished: "2024-03-24",
-    category: "Tratamientos",
-    readTimeLabel: "7 min",
-    image: `${IMG}/blog/blog-metodo-glow-skin-acne.png`,
-    blocks: [
-      {
-        type: "lead",
-        text: "No usamos un solo protocolo cerrado: partimos de historia clínica breve, tipo de acné y sensibilidad actual.",
-      },
-      {
-        type: "p",
-        text: "Las fases pueden incluir limpieza profunda con extracción cuando está indicada, introducción de peelings suaves, y en casa activos que toleres. Aumentamos intensidad solo si la barrera acompaña.",
-      },
-      {
-        type: "quote",
-        text: "El acné castiga la constancia: premiamos la paciencia con ajustes finos en cada visita.",
-        attribution: "Glow Skin",
-      },
-      { type: "h2", text: "Fase 1: Evaluación y estabilización" },
-      {
-        type: "p",
-        text: "La primera consulta es crucial. Realizamos historia clínica completa, evaluamos tipo de acné (inflamatorio, comedónico, mixto), y revisamos factores desencadenantes específicos de la persona. No comenzamos tratamientos agresivos sin estabilizar primero.",
-      },
-      {
-        type: "list",
-        items: [
-          "Historia clínica detallada de 20-30 minutos.",
-          "Evaluación con lámpara de Wood para lesiones subclínicas.",
-          "Análisis de rutina actual y factores ambientales.",
-          "Fotografías baseline para seguimiento objetivo.",
-          "Plan inicial de 4 semanas de estabilización.",
-        ],
-      },
-      { type: "h2", text: "Fase 2: Introducción progresiva de activos" },
-      {
-        type: "p",
-        text: "Una vez estabilizada la barrera cutánea, introducimos activos terapéuticos gradualmente. Cada 2 semanas evaluamos tolerancia antes de aumentar concentración o frecuencia. Este enfoque minimiza irritación y maximiza resultados.",
-      },
-      {
-        type: "list",
-        items: [
-          "Semana 1-2: Limpieza profunda con extracción selectiva.",
-          "Semana 3-4: Introducción ácido salicílico 0.5%.",
-          "Semana 5-6: Adición niacinamida y zinc.",
-          "Semana 7-8: Peelings suaves si piel tolera.",
-          "Semana 9-12: Protocolo completo con seguimiento semanal.",
-        ],
-      },
-      { type: "h2", text: "Fase 3: Tratamiento intensivo y mantenimiento" },
-      {
-        type: "p",
-        text: "Con piel tolerante, implementamos protocolo completo que combina limpiezas semanales con peelings quincenales y rutina domiciliaria optimizada. Esta fase dura 3-6 meses según gravedad inicial.",
-      },
-      {
-        type: "list",
-        items: [
-          "Limpiezas profundas semanales con extracción.",
-          "Peelings químicos quincenales progresivos.",
-          "Terapia LED azul para control bacteriano.",
-          "Mascarillas terapéuticas personalizadas.",
-          "Ajuste mensual de rutina domiciliaria.",
-        ],
-      },
-      { type: "h2", text: "Fase 4: Prevención de recaídas" },
-      {
-        type: "p",
-        text: "El control del acné no termina cuando desaparecen las lesiones activas. Implementamos protocolo de mantenimiento preventivo para evitar recaídas, especialmente importante en el clima de Barranquilla.",
-      },
-      {
-        type: "list",
-        items: [
-          "Limpiezas de mantenimiento cada 3-4 semanas.",
-          "Peelings mensuales suaves.",
-          "Seguimiento bimensual con ajustes de rutina.",
-          "Educación continua sobre factores desencadenantes.",
-          "Protocolo de acción rápida ante brotes incipientes.",
-        ],
-      },
-      { type: "h2", text: "Resultados esperados por tipo de acné" },
-      {
-        type: "p",
-        text: "Cada tipo de acné responde diferente. Establecemos expectativas realistas basadas en nuestra experiencia con personas de Barranquilla y considerando factores ambientales específicos.",
-      },
-      {
-        type: "list",
-        items: [
-          "Acné comedónico: Mejora en 6-8 semanas con peelings.",
-          "Acné inflamatorio leve: Control en 8-12 semanas.",
-          "Acné moderado: Control significativo en 3-4 meses.",
-          "Acné severo: Enfoque combinado con dermatología.",
-          "Acné hormonal: Manejo multidisciplinario necesario.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "Nuestro método no es una fórmula mágica, es un sistema inteligente que adapta tratamiento a tu piel específica y tus circunstancias de vida.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "pdrn-o-exosomas-cual-elegir",
-    title: "¿PDRN o exosomas?",
-    deck: "Dos vías de bioestimulación; la elección es médico-estética.",
-    description:
-      "PDRN vs exosomas: diferencias generales, indicaciones y por qué la decisión depende de valoración profesional en Barranquilla.",
-    keywords: ["PDRN", "exosomas", "bioestimulación", "Barranquilla"],
-    datePublished: "2024-03-22",
-    category: "Ciencia",
-    readTimeLabel: "7 min",
-    image: `${IMG}/blog/blog-pdrn-o-exosomas.png`,
-    blocks: [
-      {
-        type: "lead",
-        text: "Ambos nombres suelen aparecer en regeneración tisular, pero no son intercambiables ni “mejor” en abstracto: depende de objetivo, evidencia del producto concreto y normativa local.",
-      },
-      {
-        type: "h2",
-        text: "Ideas clave",
-      },
-      {
-        type: "list",
-        items: [
-          "PDRN (polidesoxirribonucleótido) se asocia históricamente a reparación y mejora de calidad de piel en distintos protocolos.",
-          "Los exosomas en estética son un campo en evolución: calidad y origen del preparado marcan el resultado.",
-        ],
-      },
-      {
-        type: "p",
-        text: "En consulta te explicamos opciones alineadas con tu caso y con lo que hoy usamos en Glow Skin con trazabilidad.",
-      },
-      { type: "h2", text: "¿Qué es exactamente el PDRN?" },
-      {
-        type: "p",
-        text: "El PDRN (Polidesoxirribonucleótido) es un compuesto obtenido de ADN de salmón desmineralizado y purificado. Actúa como bioestimulador que promueve la reparación tisular mediante la activación de fibroblastos y la síntesis de colágeno y elastina.",
-      },
-      {
-        type: "list",
-        items: [
-          "Origen: ADN de salmón de grado farmacéutico.",
-          "Mecanismo: Estimula fibroblastos y producción de colágeno.",
-          "Aplicaciones: Reparación, anti-edad, recuperación post-tratamiento.",
-          "Seguridad: Amplio historial de uso en medicina regenerativa.",
-          "Regulación: Aprobado en varios países para uso estético.",
-        ],
-      },
-      { type: "h2", text: "¿Qué son los exosomas en estética?" },
-      {
-        type: "p",
-        text: "Los exosomas son vesículas extracelulares nanométricas liberadas por células madre o células cultivadas en condiciones específicas. Contienen factores de crecimiento, ARN mensajero y proteínas que modulan la comunicación celular y promueven la regeneración.",
-      },
-      {
-        type: "list",
-        items: [
-          "Origen: Células madre mesenquimales o cultivos celulares.",
-          "Mecanismo: Comunicación intercelular y modulación inmune.",
-          "Aplicaciones: Regeneración avanzada, rejuvenecimiento.",
-          "Investigación: Campo en rápida evolución científica.",
-          "Regulación: Marco legal variable por país.",
-        ],
-      },
-      { type: "h2", text: "Diferencias clave para la persona" },
-      {
-        type: "p",
-        text: "Aunque ambos promueven regeneración, tienen perfiles diferentes. En Glow Skin evaluamos cuál se alinea mejor con tus objetivos, tolerancia y consideraciones específicas del clima tropical.",
-      },
-      {
-        type: "list",
-        items: [
-          "PDRN: Más estable, mayor evidencia histórica, costos moderados.",
-          "Exosomas: Tecnología más nueva, potencial mayor, costos superiores.",
-          "PDRN: Ideal para reparación y textura general.",
-          "Exosomas: Potencial para rejuvenecimiento avanzado.",
-        ],
-      },
-      { type: "h2", text: "Protocolos en Glow Skin Barranquilla" },
-      {
-        type: "p",
-        text: "Implementamos ambos enfoques según indicación específica. Consideramos factores como edad, tipo de piel, objetivos y exposición solar crónica de Barranquilla para personalizar el tratamiento.",
-      },
-      {
-        type: "list",
-        items: [
-          "PDRN: Series de 4-6 sesiones quincenales para reparación.",
-          "Exosomas: Protocolos intensivos 3-4 sesiones mensuales.",
-          "Combinación: PDRN para mantenimiento, exosomas para casos específicos.",
-          "Preparación: Evaluación previa y prueba de tolerancia.",
-          "Post-tratamiento: Protección solar e hidratación intensiva.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "La elección entre PDRN y exosomas no es sobre cuál es 'mejor', sino cuál es el adecuado para tu piel específica y tus objetivos en este momento.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "que-es-pdrn-por-que-lo-prefieren-los-famosos",
-    title: "Qué es el PDRN y por qué los famosos lo prefieren",
-    deck: "Realidad detrás del trend de “piel de filter” en redes.",
-    description:
-      "PDRN en estética: qué es, para qué se usa y por qué es popular entre figuras públicas. Contexto educativo — Glow Skin Barranquilla.",
-    keywords: ["PDRN", "tratamiento facial famosos", "rejuvenecimiento"],
-    datePublished: "2024-03-20",
-    category: "Lifestyle",
-    readTimeLabel: "6 min",
-    image: `${IMG}/blog/blog-que-es-pdrn.png`,
-    blocks: [
-      {
-        type: "lead",
-        text: "El PDRN es un compuesto biofísico que se ha promovido por efectos de mejora de hidratación, elasticidad y “calidad de piel” en series de tratamientos.",
-      },
-      {
-        type: "p",
-        text: "Las figuras públicas buscan resultados con poco tiempo social de recuperación; los protocolos con PDRN a menudo encajan en esa agenda cuando están indicados. Eso no elimina la necesidad de valoración ni de expectativas realistas.",
-      },
-      {
-        type: "p",
-        text: "Este artículo es divulgativo. No afirmamos que ninguna celebridad específica haya usado un producto concreto en Glow Skin.",
-      },
-      { type: "h2", text: "El fenómeno de las 'pieles de filter'" },
-      {
-        type: "p",
-        text: "En redes sociales vemos pieles perfectas que parecen digitales. Esto ha creado una demanda de tratamientos que prometan resultados 'de filter' en vida real. El PDRN se ha posicionado como uno de los activos más mencionados en este contexto.",
-      },
-      {
-        type: "list",
-        items: [
-          "Expectativas creadas por imágenes editadas y filtradas.",
-          "Deseo de resultados rápidos con mínima recuperación.",
-          "Búsqueda de 'secretos' de celebridades y figuras públicas.",
-          "Influencers promocionando tratamientos sin contexto médico.",
-          "Mercado de tratamientos 'express' para agendas ocupadas.",
-        ],
-      },
-      { type: "h2", text: "Realidad vs. expectativas en PDRN" },
-      {
-        type: "p",
-        text: "El PDRN es efectivo, pero no es magia. Los resultados que vemos en redes a menudo combinan tratamiento profesional, edición fotográfica, iluminación profesional y maquillaje. En Glow Skin explicamos la realidad del tratamiento.",
-      },
-      {
-        type: "list",
-        items: [
-          "PDRN real: Mejora gradual en 4-6 semanas de tratamiento.",
-          "Redes sociales: Resultados instantáneos y perfectos.",
-          "PDRN real: Requiere series de sesiones y constancia.",
-          "Redes sociales: 'Un tratamiento' cambia todo radicalmente.",
-          "PDRN real: Mejora natural, no aspecto artificial.",
-        ],
-      },
-      { type: "h2", text: "Por qué figuras públicas eligen PDRN" },
-      {
-        type: "p",
-        text: "Las figuras públicas valoran el PDRN por características específicas que se alinean con sus necesidades: tiempo social de recuperación mínimo, resultados naturales que no lucen 'tratados', y compatibilidad con agendas ocupadas.",
-      },
-      {
-        type: "list",
-        items: [
-          "Recuperación rápida: Vuelven a actividades en 24-48 horas.",
-          "Resultados naturales: No lucen 'operados' o artificiales.",
-          "Versatilidad: Funciona para diferentes tipos de piel.",
-          "Seguridad: Amplio historial de uso con buenos perfiles.",
-          "Mantenimiento: Sesiones espaciadas permiten flexibilidad.",
-        ],
-      },
-      { type: "h2", text: "El protocolo real en Glow Skin Barranquilla" },
-      {
-        type: "p",
-        text: "Implementamos PDRN con protocolos médicos-estéticos serios. Evaluamos si eres candidata, explicamos resultados realistas, y combinamos el tratamiento con protección solar adecuada especialmente importante en nuestro clima.",
-      },
-      {
-        type: "list",
-        items: [
-          "Evaluación médica previa para determinar indicación.",
-          "Series de 4-6 sesiones quincenales para resultados óptimos.",
-          "Combinación con otros tratamientos según objetivos.",
-          "Protocolo post-tratamiento específico para clima tropical.",
-          "Seguimiento y ajustes según respuesta individual.",
-        ],
-      },
-      { type: "h2", text: "Qué esperar realmente del tratamiento" },
-      {
-        type: "p",
-        text: "Establecemos expectativas basadas en evidencia y experiencia. El PDRN mejora calidad de piel, hidratación y textura, pero no cambia tu estructura facial ni elimina todas las imperfecciones. Es una herramienta de mejora, no de transformación total.",
-      },
-      {
-        type: "quote",
-        text: "El PDRN es una excelente herramienta de rejuvenecimiento, pero no reemplaza buenos hábitos, protección solar y expectativas realistas.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "que-son-los-exosomas",
-    title: "Qué son los exosomas",
-    deck: "Vesículas, señal celular y estética regenerativa.",
-    description:
-      "Definición sencilla de exosomas, su papel en comunicación celular y cómo se discuten en tratamientos faciales avanzados.",
-    keywords: ["exosomas", "regeneración celular", "estética Barranquilla"],
-    datePublished: "2024-03-18",
-    category: "Ciencia",
-    readTimeLabel: "7 min",
-    image: `${IMG}/methods/1-metodo-regenerativo.webp`,
-    blocks: [
-      {
-        type: "lead",
-        text: "Los exosomas son vesículas nanométricas liberadas por células que transportan proteínas, lípidos y ARN; median comunicación entre células.",
-      },
-      {
-        type: "p",
-        text: "En medicina y estética se investiga su papel en procesos de reparación. En clínica, lo importante es la fuente, la estandarización del producto y el marco legal del país.",
-      },
-      {
-        type: "h2",
-        text: "Para la persona",
-      },
-      {
-        type: "p",
-        text: "Pregunta siempre por evidencia del preparado, número de sesiones esperado y cuidados posteriores. Evita promesas absolutas.",
-      },
-      { type: "h2", text: "La ciencia detrás de los exosomas" },
-      {
-        type: "p",
-        text: "Los exosomas son vesículas de 30-150 nanómetros que las células liberan naturalmente como parte de la comunicación intercelular. Contienen una carga molecular específica: proteínas, lípidos, ARN mensajero y microARN que pueden 'reprogramar' células receptoras.",
-      },
-      {
-        type: "list",
-        items: [
-          "Tamaño: 30-150 nm, visibles solo con microscopio electrónico.",
-          "Composición: Proteínas, lípidos, ARNm, microARN.",
-          "Función natural: Comunicación y coordinación celular.",
-          "Origen terapéutico: Células madre o cultivos celulares específicos.",
-          "Mecanismo: Transferencia de información molecular.",
-        ],
-      },
-      { type: "h2", text: "Aplicaciones en medicina regenerativa" },
-      {
-        type: "p",
-        text: "En medicina, los exosomas se investigan para reparación de tejidos, modulación inflamatoria y regeneración. En estética facial, se exploran por su potencial para estimular colágeno, mejorar elasticidad y acelerar recuperación post-tratamiento.",
-      },
-      {
-        type: "list",
-        items: [
-          "Medicina: Reparación de heridas, regeneración de tejidos.",
-          "Cardiología: Recuperación post-infarto.",
-          "Neurología: Reparación neural y neuroprotección.",
-          "Estética: Rejuvenecimiento y calidad de piel.",
-          "Investigación: Más de 200 ensayos clínicos en curso.",
-        ],
-      },
-      { type: "h2", text: "Exosomas en estética facial: evidencia actual" },
-      {
-        type: "p",
-        text: "La evidencia científica para exosomas en estética facial está emergiendo. Estudios preliminares muestran mejoras en hidratación, elasticidad y reducción de arrugas finas, pero necesitamos más investigación a largo plazo.",
-      },
-      {
-        type: "list",
-        items: [
-          "Estudios piloto: Mejoras significativas en calidad de piel.",
-          "Seguridad: Perfil favorable con efectos adversos mínimos.",
-          "Duración: Resultados variables según preparado y protocolo.",
-          "Comparación: Potencial superior a factores de crecimiento aislados.",
-          "Investigación: Campo activo con nuevas publicaciones mensuales.",
-        ],
-      },
-      { type: "h2", text: "Consideraciones importantes para personas" },
-      {
-        type: "p",
-        text: "Antes de considerar tratamiento con exosomas, es crucial entender que no todos los preparados son iguales. La calidad del producto, origen celular y método de producción determinan resultados y seguridad.",
-      },
-      {
-        type: "list",
-        items: [
-          "Calidad del preparado: Estandarización y pureza variables.",
-          "Origen celular: Células madre humanas vs. otras fuentes.",
-          "Regulación: Marco legal diferente por país.",
-          "Costo: Generalmente superior a otros bioestimuladores.",
-          "Expectativas: Resultados graduales, no transformación instantánea.",
-        ],
-      },
-      { type: "h2", text: "Protocolo Glow Skin para exosomas" },
-      {
-        type: "p",
-        text: "En Glow Skin implementamos exosomas solo con preparados de calidad verificada, protocolos basados en evidencia, y seguimiento riguroso. Consideramos especialmente el clima de Barranquilla para optimizar resultados.",
-      },
-      {
-        type: "list",
-        items: [
-          "Evaluación previa para determinar indicación adecuada.",
-          "Protocolo de 3-4 sesiones espaciadas 3-4 semanas.",
-          "Combinación con tratamientos complementarios según caso.",
-          "Protección solar intensiva post-tratamiento.",
-          "Seguimiento a 1, 3 y 6 meses para evaluar durabilidad.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "Los exosomas representan el futuro de la medicina regenerativa, pero debemos aplicarlos con rigor científico y expectativas realistas.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "por-que-daddy-yankee-se-ve-joven",
-    title: "¿Por qué Daddy Yankee se ve tan joven?",
-    deck: "Genética, estilo de vida y posibles tratamientos (especulación responsable).",
-    description:
-      "Análisis divulgativo sobre factores que influyen en un aspecto juvenil: sin afirmar tratamientos concretos de terceros. Glow Skin Barranquilla.",
-    keywords: ["rejuvenecimiento", "cuidado facial", "celebridades"],
-    datePublished: "2024-03-15",
-    category: "Lifestyle",
-    readTimeLabel: "5 min",
-    image: `${IMG}/blog/blog-daddy-yankee-joven.png`,
-    blocks: [
-      {
-        type: "p",
-        text: "Los artistas combinan genética, disciplina con sueño y ejercicio, fotoprotección, posible asesoría nutricional y, en algunos casos, procedimientos estéticos no quirúrgicos. No conocemos el historial médico de ninguna celebridad.",
-      },
-      {
-        type: "p",
-        text: "Lo replicable para el público general es el bloque de hábitos: protección solar constante, no fumar, hidratación razonable y seguimiento profesional cuando quieras mejorar foto envejecimiento.",
-      },
-      { type: "h2", text: "Factores genéticos y étnicos" },
-      {
-        type: "p",
-        text: "La genética juega un papel fundamental en el envejecimiento. Algunas personas tienen predisposición a envejecer más lentamente debido a factores hereditarios como producción de colágeno, elasticidad de la piel y capacidad de reparación celular.",
-      },
-      {
-        type: "list",
-        items: [
-          "Herencia familiar de envejecimiento tardío.",
-          "Tipo de piel y tono que protege naturalmente del sol.",
-          "Capacidad genética de producción de colágeno.",
-          "Metabolismo eficiente que reduce daño oxidativo.",
-          "Sistema inmunológico robusto que repara daño celular.",
-        ],
-      },
-      { type: "h2", text: "Estilo de vida y disciplina" },
-      {
-        type: "p",
-        text: "Las figuras públicas exitosas suelen mantener rutinas disciplinadas que incluyen ejercicio regular, manejo del estrés, y descanso adecuado. Estos hábitos tienen impacto directo en la apariencia y salud de la piel.",
-      },
-      {
-        type: "list",
-        items: [
-          "Ejercicio regular que mejora circulación y oxigenación.",
-          "Sueño reparador de 7-9 horas quality sleep.",
-          "Manejo del estrés mediante meditación o técnicas específicas.",
-          "Nutrición optimizada con antioxidantes y nutrientes.",
-          "Hidratación adecuada y limitación de alcohol.",
-        ],
-      },
-      { type: "h2", text: "Cuidado profesional y acceso a recursos" },
-      {
-        type: "p",
-        text: "El acceso a cuidado profesional de alta calidad marca diferencia. Dermatólogos, nutricionistas, y especialistas en estética pueden crear protocolos personalizados que previenen y tratan el envejecimiento de manera proactiva.",
-      },
-      {
-        type: "list",
-        items: [
-          "Seguimiento dermatológico regular y preventivo.",
-          "Tratamientos estéticos de mantenimiento periódico.",
-          "Asesoría nutricional personalizada.",
-          "Protocolos de recuperación post-actividad intensa.",
-          "Acceso a tecnología y tratamientos avanzados.",
-        ],
-      },
-      { type: "h2", text: "Factores ambientales y geográficos" },
-      {
-        type: "p",
-        text: "El ambiente donde vivimos y trabajamos afecta nuestro envejecimiento. Algunas personas tienen la ventaja de vivir en climas menos agresivos para la piel o tienen acceso a ambientes controlados que protegen del daño ambiental.",
-      },
-      {
-        type: "list",
-        items: [
-          "Vivir en climas con menor intensidad UV.",
-          "Ambientes controlados con aire filtrado.",
-          "Acceso a espacios verdes y baja contaminación.",
-          "Posibilidad de evitar exposición solar extrema.",
-          "Calidad del aire y agua que beneficia la piel.",
-        ],
-      },
-      { type: "h2", text: "Lo que sí podemos replicar" },
-      {
-        type: "p",
-        text: "Aunque no podemos cambiar nuestra genética, sí podemos adoptar hábitos que marcan diferencia significativa en envejecimiento. En Glow Skin ayudamos a crear protocolos personalizados basados en principios científicos probados.",
-      },
-      {
-        type: "list",
-        items: [
-          "Protección solar rigurosa y constante.",
-          "Rutina de cuidado facial adaptada a tipo de piel.",
-          "Ejercicio regular y manejo del estrés.",
-          "Nutrición rica en antioxidantes y colágeno.",
-          "Seguimiento profesional preventivo y no reactivo.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "El envejecimiento saludable no es genética o esfuerzo, es la combinación inteligente de ambos factores.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
-      },
-    ],
-  },
-  {
-    slug: "secreto-kardashians-piel-porcelana",
-    title: "El secreto de las Kardashians para lucir una piel de porcelana",
-    deck: "Filtros, maquillaje y tratamientos: qué hay de cierto.",
-    description:
-      "Sobre la “piel de porcelana” en redes: expectativas, tratamientos profesionales y rutina. Artículo divulgativo — Glow Skin.",
-    keywords: ["piel porcelana", "tratamientos faciales", "luminosidad"],
-    datePublished: "2024-03-12",
-    category: "Lifestyle",
-    readTimeLabel: "6 min",
-    image: `${IMG}/blog/blog-secreto-kardashians.png`,
-    blocks: [
-      {
-        type: "lead",
-        text: "Muchas imágenes de “piel perfecta” combinan iluminación, edición y maquillaje. Los tratamientos en clínica mejoran textura y tono, pero no clonan un filtro.",
-      },
-      {
-        type: "list",
-        items: [
-          "Peelings químicos progresivos.",
-          "Microneedling o bioestimulación según caso.",
-          "Limpiezas profundas periódicas.",
-          "Fotoprotección estricta.",
-        ],
-      },
-      {
-        type: "p",
-        text: "No tenemos relación comercial ni información privada sobre familias mencionadas en medios; usamos el tema solo como ancla cultural para hablar de expectativas sanas.",
-      },
-      { type: "h2", text: "La realidad detrás de la 'piel de porcelana'" },
-      {
-        type: "p",
-        text: "La 'piel de porcelana' que vemos en redes es el resultado de múltiples factores: iluminación profesional, edición avanzada, maquillaje de alta calidad y, sí, tratamientos profesionales. Pero no es una piel real en condiciones cotidianas.",
-      },
-      {
-        type: "list",
-        items: [
-          "Iluminación de estudio que suaviza imperfecciones.",
-          "Edición profesional que elimina poros y texturas.",
-          "Maquillaje HD que crea efecto de piel perfecta.",
-          "Tratamientos profesionales de mantenimiento regular.",
-          "Genética favorable y estilo de vida disciplinado.",
-        ],
-      },
-      { type: "h2", text: "Tratamientos que realmente mejoran la piel" },
-      {
-        type: "p",
-        text: "En Glow Skin ofrecemos tratamientos que mejoran significativamente la calidad de piel, pero con expectativas realistas. No eliminamos completamente poros ni imperfecciones, pero sí optimizamos textura, tono y luminosidad.",
-      },
-      {
-        type: "list",
-        items: [
-          "Peelings químicos progresivos para renovar superficie.",
-          "Microneedling para estimular colágeno y elastina.",
-          "Limpiezas profundas para mantener poros limpios.",
-          "Bioestimulación con PDRN o exosomas según caso.",
-          "Terapias LED para mejorar luminosidad y tono.",
-        ],
-      },
-      { type: "h2", text: "El rol de la tecnología y edición" },
-      {
-        type: "p",
-        text: "Es importante entender que mucho de lo que vemos en redes es tecnología aplicada. Cámaras de alta definición, iluminación específica y software de edición crean una versión idealizada que no corresponde a la realidad.",
-      },
-      {
-        type: "list",
-        items: [
-          "Cámaras 4K/8K que suavizan automáticamente la piel.",
-          "Filtros digitales que eliminan poros y texturas.",
-          "Iluminación ring light que crea efecto de piel luminosa.",
-          "Software de retoque que ajusta tono y simetría.",
-          "Maquillaje diseñado específicamente para cámaras HD.",
-        ],
-      },
-      { type: "h2", text: "Qué podemos lograr en realidad" },
-      {
-        type: "p",
-        text: "Con tratamiento profesional y constancia, podemos lograr una piel saludable, luminosa y con textura mejorada. No será 'de porcelana' digital, pero sí una piel real que se ve y se siente excelente.",
-      },
-      {
-        type: "list",
-        items: [
-          "Textura suave y uniforme.",
-          "Tono equilibrado y luminoso.",
-          "Poros visiblemente más refinados.",
-          "Hidratación óptima y salud cutánea.",
-          "Aspecto descansado y saludable.",
-        ],
-      },
-      { type: "h2", text: "El enfoque Glow Skin para piel saludable" },
-      {
-        type: "p",
-        text: "Nos enfocamos en piel saludable y realista, no en alcanzar estándares digitales. Creamos protocolos personalizados que consideran tu tipo de piel, estilo de vida y las condiciones específicas de Barranquilla.",
-      },
-      {
-        type: "list",
-        items: [
-          "Evaluación realista de tu punto de partida y objetivos.",
-          "Protocolos graduales que respetan tu piel.",
-          "Educación sobre cuidado diario y protección solar.",
-          "Resultados naturales que no lucen 'tratados'.",
-          "Mantenimiento a largo plazo para sostener beneficios.",
-        ],
-      },
-      {
-        type: "quote",
-        text: "La piel perfecta no existe, pero la piel saludable y radiante sí es achievable con el tratamiento adecuado y constancia.",
-        attribution: "Sofía Nieto - Glow Skin Barranquilla",
+        text: "Si quieres saber cuál opción tiene sentido para tu piel, escríbeme VALORACIÓN por WhatsApp. Y si te interesa entender qué es un glow de verdad, lee [El verdadero glow](/blog/el-verdadero-glow).",
       },
     ],
   },

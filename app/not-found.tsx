@@ -1,7 +1,10 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 import { permanentRedirect, redirect } from "next/navigation";
-import { resolveBlogLegacySlug } from "@/lib/blog/blog-legacy-redirects";
+import {
+  blogLegacyDestination,
+  resolveBlogLegacySlug,
+} from "@/lib/blog/blog-legacy-redirects";
 import { resolveSimilarRoute } from "@/lib/routing/resolve-similar-route";
 
 function isSeoOrFeedPath(pathname: string): boolean {
@@ -53,7 +56,7 @@ export default async function NotFound() {
     const slug = pathname.slice("/blog/".length).replace(/\/$/, "");
     const legacyTarget = resolveBlogLegacySlug(slug);
     if (legacyTarget) {
-      permanentRedirect(`/blog/${legacyTarget}`);
+      permanentRedirect(blogLegacyDestination(legacyTarget));
     }
     return <BlogNotFound />;
   }

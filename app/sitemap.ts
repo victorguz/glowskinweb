@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (idx >= 0) {
       entries[idx] = {
         ...entries[idx],
-        lastModified: new Date(`${post.datePublished}T12:00:00`),
+        lastModified: new Date(`${post.dateModified ?? post.datePublished}T12:00:00`),
       };
     }
   }
