@@ -101,7 +101,7 @@ export const BLOG_POSTS3: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Si quieres saber qué tendría sentido para tu piel hoy, escríbeme VALORACIÓN por WhatsApp. Y si lo que más te preocupa es la falta de luz en la piel, lee [piel opaca en Barranquilla](/blog/piel-opaca-sin-vida).",
+        text: "Si quieres saber qué tendría sentido para tu piel hoy, escríbeme VALORACIÓN por WhatsApp. Y si lo que más te preocupa es la falta de luz en la piel, lee [piel opaca en Barranquilla](/blog/piel-opaca-sin-vida). Para ver las opciones con precios y sesiones, mira [rejuvenecimiento facial en Barranquilla](/rejuvenecimiento-facial).",
       },
     ],
   },
@@ -367,7 +367,7 @@ export const BLOG_POSTS3: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Si quieres saber cuál tendría sentido para ti, escríbeme VALORACIÓN por WhatsApp. Antes, puedes leer [qué es el PDRN y para qué se usa](/blog/que-es-el-pdrn-y-para-que-se-usa).",
+        text: "Si quieres saber cuál tendría sentido para ti, escríbeme VALORACIÓN por WhatsApp. Antes, puedes leer [qué es el PDRN y para qué se usa](/blog/que-es-el-pdrn-y-para-que-se-usa). Y para ver todas las opciones con precios, mira [rejuvenecimiento facial en Barranquilla](/rejuvenecimiento-facial).",
       },
     ],
   },

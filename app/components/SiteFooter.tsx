@@ -121,6 +121,12 @@ export function SiteFooter() {
             >
               Peeling facial
             </Link>
+            <Link
+              href="/rejuvenecimiento-facial"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
+              Rejuvenecimiento facial
+            </Link>
           </div>
         </div>
         <div>

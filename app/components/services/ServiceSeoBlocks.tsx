@@ -16,13 +16,31 @@ const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
   "Glow Skin Carrera 50 # 74-120 Barranquilla",
 )}`;
 
-/** Servicios que se agrupan en la página /peeling-facial. */
-const PEELING_SERVICE_IDS = new Set([
-  "limpieza-seborreguladora",
-  "tratamiento-despigmentante",
-  "antiox-peel-pro",
-  "hydraglow-antiox-peel",
-]);
+/** Páginas de grupo y los servicios que reúnen (un servicio puede estar en varias). */
+const SERVICE_HUBS: { href: string; label: string; ids: Set<string> }[] = [
+  {
+    href: "/peeling-facial",
+    label: "Ver todos los peelings que hacemos",
+    ids: new Set([
+      "limpieza-seborreguladora",
+      "tratamiento-despigmentante",
+      "antiox-peel-pro",
+      "hydraglow-antiox-peel",
+    ]),
+  },
+  {
+    href: "/rejuvenecimiento-facial",
+    label: "Ver las opciones de rejuvenecimiento facial",
+    ids: new Set([
+      "microneedling-exosomas",
+      "microneedling-exosomas-3-sesiones",
+      "protocolo-pdrn",
+      "protocolo-pdrn-3-sesiones",
+      "antiox-peel-pro",
+      "tratamiento-regenerative-plus",
+    ]),
+  },
+];
 
 /** Migas de pan visibles (el JSON-LD equivalente va en la página). */
 export function ServiceBreadcrumbs({ serviceName }: { serviceName: string }) {
@@ -243,17 +261,17 @@ export function RelatedServices({ current }: { current: CategoryServicePair }) {
           );
         })}
       </ul>
-      {PEELING_SERVICE_IDS.has(current.service.id) ? (
-        <p className="mt-10 text-center text-sm">
+      {SERVICE_HUBS.filter((h) => h.ids.has(current.service.id)).map((h) => (
+        <p key={h.href} className="mt-8 text-center text-sm first:mt-10">
           <Link
-            href="/peeling-facial"
+            href={h.href}
             className="inline-flex items-center gap-2 border-b border-[#d4b499]/50 font-semibold text-[#4a3221] transition-colors hover:text-[#a5846e]"
           >
-            Ver todos los peelings que hacemos
+            {h.label}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </p>
-      ) : null}
+      ))}
     </section>
   );
 }
