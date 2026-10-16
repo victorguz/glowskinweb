@@ -761,7 +761,7 @@ export const BLOG_POSTS2: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Si quieres saber cuál opción tiene sentido para tu piel, escríbeme VALORACIÓN por WhatsApp. Y si te interesa entender qué es un glow de verdad, lee [El verdadero glow](/blog/el-verdadero-glow).",
+        text: "Si quieres saber cuál opción tiene sentido para tu piel, escríbeme VALORACIÓN por WhatsApp. Y si te interesa entender qué es un glow de verdad, lee [El verdadero glow](/blog/el-verdadero-glow). Para ver todos los peelings que hacemos, con precios y cuidados, mira [peeling facial en Barranquilla](/peeling-facial).",
       },
     ],
   },

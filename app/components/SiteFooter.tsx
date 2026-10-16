@@ -115,6 +115,12 @@ export function SiteFooter() {
             >
               HydraGlow
             </Link>
+            <Link
+              href="/peeling-facial"
+              className="hover:text-[#5c3a21] transition-colors"
+            >
+              Peeling facial
+            </Link>
           </div>
         </div>
         <div>

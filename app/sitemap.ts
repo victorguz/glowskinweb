@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/nosotros',
     '/precios',
+    '/peeling-facial',
     '/casos',
     '/servicios',
     '/blog',

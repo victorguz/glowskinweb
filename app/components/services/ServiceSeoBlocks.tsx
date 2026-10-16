@@ -16,6 +16,14 @@ const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
   "Glow Skin Carrera 50 # 74-120 Barranquilla",
 )}`;
 
+/** Servicios que se agrupan en la página /peeling-facial. */
+const PEELING_SERVICE_IDS = new Set([
+  "limpieza-seborreguladora",
+  "tratamiento-despigmentante",
+  "antiox-peel-pro",
+  "hydraglow-antiox-peel",
+]);
+
 /** Migas de pan visibles (el JSON-LD equivalente va en la página). */
 export function ServiceBreadcrumbs({ serviceName }: { serviceName: string }) {
   return (
@@ -235,6 +243,17 @@ export function RelatedServices({ current }: { current: CategoryServicePair }) {
           );
         })}
       </ul>
+      {PEELING_SERVICE_IDS.has(current.service.id) ? (
+        <p className="mt-10 text-center text-sm">
+          <Link
+            href="/peeling-facial"
+            className="inline-flex items-center gap-2 border-b border-[#d4b499]/50 font-semibold text-[#4a3221] transition-colors hover:text-[#a5846e]"
+          >
+            Ver todos los peelings que hacemos
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </p>
+      ) : null}
     </section>
   );
 }
